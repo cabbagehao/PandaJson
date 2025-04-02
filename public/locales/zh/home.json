@@ -1,0 +1,49 @@
+{
+  "title": "专业JSON数据处理工具集",
+  "description": "免费高效的JSON数据处理平台，支持JSON格式化、JSON校验、JSON转换、JSON对比、JSON树状编辑和JSON Schema验证，满足开发者和数据分析师的各种JSON处理需求",
+  "subDescription": "我们的工具支持处理各种复杂JSON数据结构，帮助您高效调试API数据、验证前后端数据交互、转换数据格式，是Web开发、数据分析和API调试的得力助手",
+  "features": {
+    "formatter": {
+      "name": "JSON 格式化",
+      "description": "格式化混乱的JSON数据，美化JSON结构，使其更易于阅读和调试，支持自定义缩进和样式设置"
+    },
+    "validator": {
+      "name": "JSON 校验",
+      "description": "严格验证JSON数据语法正确性，检测格式错误，确保符合JSON标准规范"
+    },
+    "converter": {
+      "name": "JSON 转换",
+      "description": "强大的JSON数据格式转换工具，支持JSON与CSV、XML、YAML等多种格式互转，提高数据交互效率"
+    },
+    "diff": {
+      "name": "JSON 对比",
+      "description": "智能比较两段JSON数据的差异，精确标识JSON文件中新增、删除或修改的部分，适用于API响应对比"
+    },
+    "treeEditor": {
+      "name": "JSON 树编辑器",
+      "description": "直观的JSON树状结构可视化工具，轻松编辑复杂JSON数据，支持JSON文本与树状视图实时同步切换"
+    },
+    "schemaValidator": {
+      "name": "JSON Schema 验证",
+      "description": "专业的JSON Schema验证工具，基于JSON Schema标准验证JSON数据结构，支持复杂验证规则和详细错误提示"
+    }
+  },
+  "useNow": "立即使用",
+  "whyChooseUs": {
+    "title": "为什么选择我们的JSON工具？",
+    "reasons": {
+      "comprehensive": {
+        "title": "全面的JSON功能",
+        "description": "涵盖JSON处理的各个方面，从基础格式化到高级Schema验证"
+      },
+      "free": {
+        "title": "完全免费在线使用",
+        "description": "所有工具均可免费使用，无需下载安装任何软件"
+      },
+      "secure": {
+        "title": "注重数据安全",
+        "description": "所有数据处理均在浏览器本地进行，不会上传至服务器"
+      }
+    }
+  }
+} 

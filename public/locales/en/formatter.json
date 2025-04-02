@@ -1,0 +1,45 @@
+{
+  "title": "JSON Formatter Tool | Beautify JSON Data Online",
+  "description": "Professional online JSON formatting tool that can convert messy JSON data into a formatted, indented standard form, improving JSON readability. Supports custom indentation size, brace style, and line width limits, helping developers debug and check JSON data.",
+  "formattingOptions": "Formatting Options",
+  "indentSize": {
+    "label": "Indent Size",
+    "options": {
+      "2": "2 spaces",
+      "4": "4 spaces",
+      "8": "8 spaces"
+    }
+  },
+  "braceStyle": {
+    "label": "Brace Style",
+    "options": {
+      "collapse": "Collapse",
+      "expand": "Expand",
+      "preserveInline": "Preserve Inline"
+    }
+  },
+  "lineWrap": {
+    "label": "Line Width Limit",
+    "options": {
+      "0": "No limit",
+      "80": "80 characters",
+      "100": "100 characters",
+      "120": "120 characters"
+    }
+  },
+  "input": {
+    "label": "Input JSON",
+    "placeholder": "Paste JSON data to be formatted here"
+  },
+  "output": {
+    "label": "Formatting Result"
+  },
+  "errorMessages": {
+    "parseError": "JSON parsing error: {{message}}",
+    "unknownError": "Unknown error occurred while parsing JSON"
+  },
+  "alerts": {
+    "copied": "Copied to clipboard",
+    "copyFailed": "Copy failed"
+  }
+} 

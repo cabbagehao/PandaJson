@@ -12,29 +12,17 @@
 
 # testing
 /coverage
-/.nyc_output
-/cypress/screenshots
-/cypress/videos
 
 # next.js
 /.next/
 /out/
-.next-*
 
 # production
 /build
-/dist
 
 # misc
 .DS_Store
 *.pem
-Thumbs.db
-.idea/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
 
 # debug
 npm-debug.log*
@@ -43,9 +31,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env
-.env.*
-!.env.example
+.env*
 
 # vercel
 .vercel
@@ -53,27 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# i18n cache
-/.i18n-cache/
-
-# local files
-*.local
-.eslintcache
-.stylelintcache
-
-# PWA
-**/public/sw.js
-**/public/workbox-*.js
-**/public/worker-*.js
-**/public/fallback-*.js
-**/public/precache.*.*.js.map
-**/public/sw.js.map
-**/public/workbox-*.js.map
-
-# Storybook
-/storybook-static
-
-# macOS
-.AppleDouble
-.LSOverride

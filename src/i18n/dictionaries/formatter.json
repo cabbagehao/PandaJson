@@ -1,0 +1,40 @@
+{
+  "zh": {
+    "title": "JSON 格式化工具",
+    "description": "将JSON数据格式化成易读的形式，支持自定义缩进、风格和行宽",
+    "keywords": "JSON格式化,JSON美化,JSON压缩,JSON验证,在线JSON工具",
+    "options": "格式化选项",
+    "indentSize": "缩进大小",
+    "braceStyle": "括号样式",
+    "sameLine": "同行",
+    "newLine": "新行",
+    "lineWidth": "行宽限制",
+    "input": "输入JSON",
+    "output": "输出结果",
+    "inputPlaceholder": "请在此粘贴需要格式化的JSON数据...",
+    "format": "格式化",
+    "copy": "复制",
+    "download": "下载",
+    "clear": "清空",
+    "error": "无效的JSON数据，请检查语法"
+  },
+  "en": {
+    "title": "JSON Formatter",
+    "description": "Format JSON data into readable form, supports custom indentation, style and line width",
+    "keywords": "JSON formatter,JSON beautifier,JSON minifier,JSON validator,online JSON tools",
+    "options": "Formatting Options",
+    "indentSize": "Indent Size",
+    "braceStyle": "Brace Style",
+    "sameLine": "Same Line",
+    "newLine": "New Line",
+    "lineWidth": "Line Width",
+    "input": "Input JSON",
+    "output": "Output Result",
+    "inputPlaceholder": "Paste your JSON data here to format...",
+    "format": "Format",
+    "copy": "Copy",
+    "download": "Download",
+    "clear": "Clear",
+    "error": "Invalid JSON data, please check syntax"
+  }
+} 

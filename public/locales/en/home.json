@@ -1,0 +1,49 @@
+{
+  "title": "Professional JSON Data Processing Tools",
+  "description": "Free and efficient JSON data processing platform supporting JSON formatting, validation, conversion, comparison, tree editing and Schema validation, meeting various JSON processing needs of developers and data analysts",
+  "subDescription": "Our tools support processing various complex JSON data structures, helping you efficiently debug API data, validate front-end and back-end data interactions, and convert data formats, making it an excellent assistant for Web development, data analysis, and API debugging",
+  "features": {
+    "formatter": {
+      "name": "JSON Formatter",
+      "description": "Format messy JSON data, beautify JSON structure, make it easier to read and debug, support custom indentation and style settings"
+    },
+    "validator": {
+      "name": "JSON Validator",
+      "description": "Strictly validate JSON data syntax correctness, detect format errors, ensure compliance with JSON standard specifications"
+    },
+    "converter": {
+      "name": "JSON Converter",
+      "description": "Powerful JSON data format conversion tool, supporting conversion between JSON and CSV, XML, YAML and other formats, improving data interaction efficiency"
+    },
+    "diff": {
+      "name": "JSON Diff",
+      "description": "Intelligently compare differences between two JSON data, precisely identify additions, deletions or modifications in JSON files, suitable for API response comparison"
+    },
+    "treeEditor": {
+      "name": "JSON Tree Editor",
+      "description": "Intuitive JSON tree structure visualization tool, easily edit complex JSON data, support real-time synchronization between JSON text and tree view"
+    },
+    "schemaValidator": {
+      "name": "JSON Schema Validator",
+      "description": "Professional JSON Schema validation tool, validating JSON data structure based on JSON Schema standard, supporting complex validation rules and detailed error prompts"
+    }
+  },
+  "useNow": "Use Now",
+  "whyChooseUs": {
+    "title": "Why Choose Our JSON Tools?",
+    "reasons": {
+      "comprehensive": {
+        "title": "Comprehensive JSON Features",
+        "description": "Covering all aspects of JSON processing, from basic formatting to advanced Schema validation"
+      },
+      "free": {
+        "title": "Completely Free Online Use",
+        "description": "All tools are free to use, no need to download or install any software"
+      },
+      "secure": {
+        "title": "Focus on Data Security",
+        "description": "All data processing is done locally in the browser, will not be uploaded to the server"
+      }
+    }
+  }
+} 

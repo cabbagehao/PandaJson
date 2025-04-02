@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "formatter": "JSON Formatter",
+    "validator": "JSON Validator",
+    "converter": "JSON Converter",
+    "diff": "JSON Diff Tool",
+    "treeEditor": "JSON Tree Editor",
+    "schemaValidator": "JSON Schema Validator"
+  },
+  "language": {
+    "zh": "中文",
+    "en": "English"
+  },
+  "buttons": {
+    "copy": "Copy",
+    "download": "Download",
+    "clear": "Clear",
+    "format": "Format JSON"
+  },
+  "siteTitle": "JSON Online Tools",
+  "seo": {
+    "description": "Professional free JSON tool suite providing JSON formatting, compression, validation, conversion, difference comparison, tree editor and Schema validation. The best online tool for processing JSON data, supporting various JSON operations.",
+    "keywords": "JSON tools,JSON formatter,JSON validator,JSON converter,JSON diff,JSON editor,JSON Schema,JSON minify,JSON beautify,JSON parser,JSON online tools"
+  },
+  "usageGuide": {
+    "title": "Usage Guide",
+    "step1": "Paste the JSON data to be processed into the input box",
+    "step2": "Adjust options as needed (if any)",
+    "step3": "After processing, you can copy or download the results"
+  }
+} 
