@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiCode, FiCheck, FiRepeat, FiGitPullRequest, FiEdit, FiFileText } from "react-icons/fi";
+import { FiCode, FiCheck, FiRepeat, FiGitPullRequest, FiEdit, FiFileText, FiMinimize2 } from "react-icons/fi";
 import { Locale, defaultLocale } from "../../i18n";
 
 // 导入JSON字典
@@ -10,58 +10,67 @@ import enDict from "../../i18n/dictionaries/en.json";
 const dictionaries = {
   'zh': zhDict,
   'en': enDict
-};
+} as const;
+
+type Dictionary = typeof zhDict | typeof enDict;
 
 export default function Home({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
-  const locale = (lang as string || defaultLocale) as Locale;
-  const dictionary = dictionaries[locale] || dictionaries[defaultLocale];
+  // 确保locale只能是'zh'或'en'，因为目前只有这两种字典
+  const locale = (lang === 'zh' || lang === 'en' ? lang : defaultLocale) as 'zh' | 'en';
+  const dictionary = dictionaries[locale];
   const { home } = dictionary;
 
+  // 确保home.features存在
+  if (!home || !home.features) {
+    console.error('Dictionary or features not loaded correctly:', { locale, dictionary });
+    return <div>Loading...</div>;
+  }
+  
   const features = [
     {
-      name: home.features.formatter.name,
+      name: home.features.formatter.title,
       description: home.features.formatter.description,
       icon: FiCode,
       href: "/formatter",
       color: "bg-blue-500",
     },
     {
-      name: home.features.validator.name,
+      name: home.features.validator.title,
       description: home.features.validator.description,
       icon: FiCheck,
       href: "/validator",
       color: "bg-yellow-500",
     },
     {
-      name: home.features.converter.name,
+      name: home.features.converter.title,
       description: home.features.converter.description,
       icon: FiRepeat,
       href: "/converter",
       color: "bg-purple-500",
     },
     {
-      name: home.features.diff.name,
+      name: home.features.diff.title,
       description: home.features.diff.description,
       icon: FiGitPullRequest,
       href: "/diff",
       color: "bg-red-500",
     },
     {
-      name: home.features.treeEditor.name,
-      description: home.features.treeEditor.description,
-      icon: FiEdit,
-      href: "/tree-editor",
+      name: home.features.minifier.title,
+      description: home.features.minifier.description,
+      icon: FiMinimize2,
+      href: "/minifier",
       color: "bg-green-500",
     },
     {
-      name: home.features.schemaValidator.name,
-      description: home.features.schemaValidator.description,
-      icon: FiFileText,
-      href: "/schema-validator",
+      name: home.features.tree.title,
+      description: home.features.tree.description,
+      icon: FiEdit,
+      href: "/tree-editor",
       color: "bg-indigo-500",
     },
   ];
@@ -74,9 +83,6 @@ export default function Home({
         </h1>
         <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           {home.description}
-        </p>
-        <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
-          {home.subDescription}
         </p>
       </div>
 
