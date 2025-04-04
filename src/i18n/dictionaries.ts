@@ -2,13 +2,13 @@ import { Locale } from '@/i18n';
 
 // 简体中文字典
 const zh = {
-  siteTitle: 'JSON在线工具集',
+  siteTitle: '熊猫Json',
   seo: {
-    description: '专业免费的JSON工具集合，提供JSON格式化、压缩、校验、转换、差异对比、树形编辑器和Schema验证。',
-    keywords: 'JSON工具,JSON格式化,JSON校验,JSON转换,JSON对比,JSON编辑器,JSON Schema,JSON压缩,JSON美化,JSON解析,JSON在线工具'
+    description: '专业免费的熊猫Json工具集合，提供JSON格式化、压缩、校验、转换、差异对比、树形编辑器和Schema验证。',
+    keywords: '熊猫Json,JSON格式化,JSON校验,JSON转换,JSON对比,JSON编辑器,JSON Schema,JSON压缩,JSON美化,JSON解析,JSON在线工具'
   },
   home: {
-    title: 'JSON格式化工具集',
+    title: '熊猫Json格式化工具集',
     description: '一站式JSON数据处理工具，帮助开发者更高效地处理JSON数据',
     features: {
       formatter: '格式化工具',
@@ -33,10 +33,10 @@ const zh = {
   },
   nav: {
     home: '首页',
-    formatter: 'JSON格式化工具',
-    validator: 'JSON校验工具',
-    converter: 'JSON转换工具',
-    diff: 'JSON对比工具',
+    formatter: 'JSON格式化',
+    validator: 'JSON校验',
+    converter: 'JSON转换',
+    diff: 'JSON对比',
     treeEditor: 'JSON树形编辑器',
     schemaValidator: 'JSON Schema验证'
   },
@@ -73,13 +73,13 @@ const zh = {
 
 // 英文字典
 const en = {
-  siteTitle: 'JSON Online Tools',
+  siteTitle: 'PandaJson',
   seo: {
-    description: 'Professional free JSON tools collection, providing JSON formatting, compression, validation, conversion, diff comparison, tree editor and Schema validation.',
-    keywords: 'JSON tools,JSON formatter,JSON validator,JSON converter,JSON diff,JSON editor,JSON Schema,JSON minifier,JSON beautifier,JSON parser,JSON online tools'
+    description: 'Professional free PandaJson tools collection, providing JSON formatting, compression, validation, conversion, diff comparison, tree editor and Schema validation.',
+    keywords: 'PandaJson,JSON formatter,JSON validator,JSON converter,JSON diff,JSON editor,JSON Schema,JSON minifier,JSON beautifier,JSON parser,JSON online tools'
   },
   home: {
-    title: 'JSON Formatting Toolkit',
+    title: 'PandaJson Formatting Toolkit',
     description: 'One-stop JSON data processing tools to help developers handle JSON data more efficiently',
     features: {
       formatter: 'Formatter',
@@ -150,7 +150,12 @@ const dictionaries = {
 export type Dictionary = typeof zh;
 
 export const getDictionary = async (locale: Locale) => {
-  return dictionaries[locale] || dictionaries.zh;
+  // 当请求的语言不存在时，如果是中文以外的语言，返回英文字典，否则返回中文字典
+  if (locale === 'zh') return dictionaries.zh;
+  if (locale === 'en') return dictionaries.en;
+  
+  // 对于其他语言，默认返回英文字典
+  return dictionaries.en;
 };
 
 export const getSupportedLocales = (): Locale[] => {

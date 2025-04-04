@@ -2,194 +2,195 @@
 
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
-import ToolLayout from '../../components/ToolLayout';
+import { FiDownload, FiCopy, FiRefreshCw } from 'react-icons/fi';
+import * as yaml from 'js-yaml';
+import { xml2json, json2xml } from 'xml-js';
+import Papa from 'papaparse';
 import JsonEditor from '../../components/JsonEditor';
+import ToolLayout from '../../components/ToolLayout';
 import { Locale, defaultLocale } from '@/i18n';
-import { FiRefreshCw, FiCopy, FiDownload } from 'react-icons/fi';
+
+type ConversionType = 'json-to-yaml' | 'json-to-xml' | 'json-to-csv' | 'yaml-to-json' | 'xml-to-json' | 'csv-to-json';
 
 // 翻译文本
-const translations = {
+const translations: Record<string, any> = {
   zh: {
     title: 'JSON 转换工具',
-    description: '在JSON、XML、YAML等格式之间进行转换',
-    keywords: 'JSON转换,JSON到XML,JSON到YAML,XML到JSON,YAML到JSON',
-    input: '输入JSON',
-    output: '转换结果',
-    convertToXml: '转换为XML',
-    convertToYaml: '转换为YAML',
-    convertToCsv: '转换为CSV',
+    description: '将 JSON 数据转换为其他格式（YAML、XML、CSV），或将其他格式转换为 JSON。',
+    keywords: 'JSON转换,JSON到XML,JSON到YAML,XML到JSON,YAML到JSON,CSV到JSON,JSON到CSV',
+    options: '转换选项',
+    conversionType: '转换类型',
+    jsonToOthers: 'JSON 转换为',
+    othersToJson: '转换为 JSON',
+    jsonToYaml: 'JSON 到 YAML',
+    jsonToXml: 'JSON 到 XML',
+    jsonToCsv: 'JSON 到 CSV',
+    yamlToJson: 'YAML 到 JSON',
+    xmlToJson: 'XML 到 JSON',
+    csvToJson: 'CSV 到 JSON',
+    convert: '开始转换',
+    jsonInput: 'JSON 输入',
+    yamlInput: 'YAML 输入',
+    xmlInput: 'XML 输入',
+    csvInput: 'CSV 输入',
+    yamlOutput: 'YAML 输出',
+    xmlOutput: 'XML 输出',
+    csvOutput: 'CSV 输出',
+    jsonOutput: 'JSON 输出',
+    placeholderJson: '在此粘贴 JSON 数据',
+    placeholderYaml: '在此粘贴 YAML 数据',
+    placeholderXml: '在此粘贴 XML 数据',
+    placeholderCsv: '在此粘贴 CSV 数据',
+    error: '转换错误: ',
+    unknown: '转换过程中发生未知错误',
     copy: '复制',
     download: '下载',
     clear: '清除',
-    placeholder: '在此粘贴需要转换的JSON数据...',
-    error: '无效的JSON数据，请检查语法',
     copied: '已复制到剪贴板',
     copyFailed: '复制失败',
-    formatType: '格式类型',
-    convert: '转换'
+    csvArrayError: 'JSON 必须是对象数组才能转换为 CSV',
   },
   en: {
     title: 'JSON Converter',
-    description: 'Convert between JSON, XML, YAML and other formats',
-    keywords: 'JSON converter,JSON to XML,JSON to YAML,XML to JSON,YAML to JSON',
-    input: 'Input JSON',
-    output: 'Conversion Result',
-    convertToXml: 'Convert to XML',
-    convertToYaml: 'Convert to YAML',
-    convertToCsv: 'Convert to CSV',
+    description: 'Convert JSON data to other formats (YAML, XML, CSV), or convert other formats to JSON.',
+    keywords: 'JSON converter,JSON to XML,JSON to YAML,XML to JSON,YAML to JSON,CSV to JSON,JSON to CSV',
+    options: 'Conversion Options',
+    conversionType: 'Conversion Type',
+    jsonToOthers: 'JSON to',
+    othersToJson: 'To JSON',
+    jsonToYaml: 'JSON to YAML',
+    jsonToXml: 'JSON to XML',
+    jsonToCsv: 'JSON to CSV',
+    yamlToJson: 'YAML to JSON',
+    xmlToJson: 'XML to JSON',
+    csvToJson: 'CSV to JSON',
+    convert: 'Convert',
+    jsonInput: 'JSON Input',
+    yamlInput: 'YAML Input',
+    xmlInput: 'XML Input',
+    csvInput: 'CSV Input',
+    yamlOutput: 'YAML Output',
+    xmlOutput: 'XML Output',
+    csvOutput: 'CSV Output',
+    jsonOutput: 'JSON Output',
+    placeholderJson: 'Paste JSON data here',
+    placeholderYaml: 'Paste YAML data here',
+    placeholderXml: 'Paste XML data here',
+    placeholderCsv: 'Paste CSV data here',
+    error: 'Conversion error: ',
+    unknown: 'Unknown error during conversion',
     copy: 'Copy',
     download: 'Download',
     clear: 'Clear',
-    placeholder: 'Paste your JSON data here to convert...',
-    error: 'Invalid JSON data, please check syntax',
     copied: 'Copied to clipboard',
     copyFailed: 'Copy failed',
-    formatType: 'Format Type',
-    convert: 'Convert'
+    csvArrayError: 'JSON must be an array of objects to convert to CSV',
   }
 };
-
-// 简单的JSON到XML转换函数
-function jsonToXml(obj: any, indent = ''): string {
-  let xml = '';
-  for (const prop in obj) {
-    if (obj[prop] === null || obj[prop] === undefined) {
-      xml += `${indent}<${prop}/>\n`;
-    } else if (typeof obj[prop] === 'object') {
-      if (Array.isArray(obj[prop])) {
-        // 处理数组
-        for (const item of obj[prop]) {
-          if (typeof item === 'object') {
-            xml += `${indent}<${prop}>\n${jsonToXml(item, indent + '  ')}${indent}</${prop}>\n`;
-          } else {
-            xml += `${indent}<${prop}>${item}</${prop}>\n`;
-          }
-        }
-      } else {
-        // 处理对象
-        xml += `${indent}<${prop}>\n${jsonToXml(obj[prop], indent + '  ')}${indent}</${prop}>\n`;
-      }
-    } else {
-      xml += `${indent}<${prop}>${obj[prop]}</${prop}>\n`;
-    }
-  }
-  return xml;
-}
-
-// 简单的JSON到YAML转换函数
-function jsonToYaml(obj: any, indent = 0): string {
-  let yaml = '';
-  const spaces = ' '.repeat(indent);
-  
-  for (const key in obj) {
-    if (obj[key] === null || obj[key] === undefined) {
-      yaml += `${spaces}${key}: null\n`;
-    } else if (typeof obj[key] === 'object') {
-      if (Array.isArray(obj[key])) {
-        // 处理数组
-        yaml += `${spaces}${key}:\n`;
-        for (const item of obj[key]) {
-          if (typeof item === 'object') {
-            yaml += `${spaces}- \n${jsonToYaml(item, indent + 2).split('\n').map(line => `${spaces}  ${line}`).join('\n')}\n`;
-          } else {
-            yaml += `${spaces}- ${item}\n`;
-          }
-        }
-      } else {
-        // 处理对象
-        yaml += `${spaces}${key}:\n${jsonToYaml(obj[key], indent + 2)}`;
-      }
-    } else {
-      if (typeof obj[key] === 'string' && (obj[key].includes('\n') || obj[key].includes(':'))) {
-        yaml += `${spaces}${key}: |\n${obj[key].split('\n').map(line => `${spaces}  ${line}`).join('\n')}\n`;
-      } else {
-        yaml += `${spaces}${key}: ${obj[key]}\n`;
-      }
-    }
-  }
-  return yaml;
-}
-
-// 简单的JSON到CSV转换函数（只处理简单的数组对象）
-function jsonToCsv(obj: any): string {
-  if (!Array.isArray(obj)) {
-    // 如果不是数组，尝试将单个对象转换为数组
-    obj = [obj];
-  }
-  
-  if (obj.length === 0) return '';
-  
-  // 提取标题
-  const headers = Object.keys(obj[0]);
-  let csv = headers.join(',') + '\n';
-  
-  // 处理每行数据
-  for (const row of obj) {
-    const values = headers.map(header => {
-      const value = row[header];
-      if (value === null || value === undefined) return '';
-      if (typeof value === 'object') return JSON.stringify(value);
-      // 处理包含逗号的字符串
-      if (typeof value === 'string' && value.includes(',')) {
-        return `"${value.replace(/"/g, '""')}"`;
-      }
-      return value;
-    });
-    csv += values.join(',') + '\n';
-  }
-  
-  return csv;
-}
-
-type ConversionType = 'xml' | 'yaml' | 'csv';
 
 export default function JsonConverter() {
   const params = useParams();
   const locale = (params?.lang as Locale) || defaultLocale;
-  const t = translations[locale] || translations.zh;
-  
+  const t = translations[locale as 'zh' | 'en'] || translations.zh;
+
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const [conversionType, setConversionType] = useState<ConversionType>('xml');
-  
-  const convertJson = () => {
+  const [conversionType, setConversionType] = useState<ConversionType>('json-to-yaml');
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  // 转换处理函数
+  const handleConvert = () => {
     setError(null);
-    
-    if (!input.trim()) {
-      setOutput('');
-      return;
-    }
-    
+    setOutput('');
+    setIsProcessing(true);
+
     try {
-      const parsedJson = JSON.parse(input);
-      
       let result = '';
+
       switch (conversionType) {
-        case 'xml':
-          result = '<?xml version="1.0" encoding="UTF-8"?>\n<root>\n' + 
-                  jsonToXml(parsedJson, '  ') + 
-                  '</root>';
+        case 'json-to-yaml':
+          result = convertJsonToYaml(input);
           break;
-        case 'yaml':
-          result = jsonToYaml(parsedJson);
+        case 'json-to-xml':
+          result = convertJsonToXml(input);
           break;
-        case 'csv':
-          result = jsonToCsv(parsedJson);
+        case 'json-to-csv':
+          result = convertJsonToCsv(input);
           break;
+        case 'yaml-to-json':
+          result = convertYamlToJson(input);
+          break;
+        case 'xml-to-json':
+          result = convertXmlToJson(input);
+          break;
+        case 'csv-to-json':
+          result = convertCsvToJson(input);
+          break;
+        default:
+          throw new Error('不支持的转换类型');
       }
-      
+
       setOutput(result);
     } catch (err) {
       if (err instanceof Error) {
-        setError(`${t.error}: ${err.message}`);
+        setError(`${t.error}${err.message}`);
       } else {
-        setError(t.error);
+        setError(t.unknown);
       }
-      setOutput('');
+    } finally {
+      setIsProcessing(false);
     }
   };
-  
+
+  // JSON -> YAML 转换
+  const convertJsonToYaml = (jsonStr: string): string => {
+    const parsed = JSON.parse(jsonStr);
+    return yaml.dump(parsed, { indent: 2 });
+  };
+
+  // JSON -> XML 转换
+  const convertJsonToXml = (jsonStr: string): string => {
+    const parsed = JSON.parse(jsonStr);
+    return json2xml(JSON.stringify(parsed), { compact: true, spaces: 2 });
+  };
+
+  // JSON -> CSV 转换
+  const convertJsonToCsv = (jsonStr: string): string => {
+    const parsed = JSON.parse(jsonStr);
+    
+    // 检查是否为数组
+    if (!Array.isArray(parsed)) {
+      throw new Error(t.csvArrayError);
+    }
+
+    // 检查数组是否为空
+    if (parsed.length === 0) {
+      return '';
+    }
+
+    return Papa.unparse(parsed);
+  };
+
+  // YAML -> JSON 转换
+  const convertYamlToJson = (yamlStr: string): string => {
+    const parsed = yaml.load(yamlStr);
+    return JSON.stringify(parsed, null, 2);
+  };
+
+  // XML -> JSON 转换
+  const convertXmlToJson = (xmlStr: string): string => {
+    const options = { compact: true, spaces: 2 };
+    const result = xml2json(xmlStr, options);
+    return result;
+  };
+
+  // CSV -> JSON 转换
+  const convertCsvToJson = (csvStr: string): string => {
+    const result = Papa.parse(csvStr, { header: true });
+    return JSON.stringify(result.data, null, 2);
+  };
+
   const copyOutput = async () => {
     if (output) {
       try {
@@ -200,45 +201,103 @@ export default function JsonConverter() {
       }
     }
   };
-  
+
   const downloadOutput = () => {
     if (!output) return;
-    
-    let fileName = 'converted';
+
+    let fileExtension = 'txt';
     let mimeType = 'text/plain';
-    
+
+    // 根据转换类型设置下载文件的扩展名和MIME类型
     switch (conversionType) {
-      case 'xml':
-        fileName += '.xml';
-        mimeType = 'application/xml';
-        break;
-      case 'yaml':
-        fileName += '.yaml';
+      case 'json-to-yaml':
+        fileExtension = 'yaml';
         mimeType = 'application/yaml';
         break;
-      case 'csv':
-        fileName += '.csv';
+      case 'json-to-xml':
+        fileExtension = 'xml';
+        mimeType = 'application/xml';
+        break;
+      case 'json-to-csv':
+        fileExtension = 'csv';
         mimeType = 'text/csv';
         break;
+      case 'yaml-to-json':
+      case 'xml-to-json':
+      case 'csv-to-json':
+        fileExtension = 'json';
+        mimeType = 'application/json';
+        break;
     }
-    
+
     const blob = new Blob([output], { type: mimeType });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = fileName;
+    a.download = `converted.${fileExtension}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
-  
+
   const clearAll = () => {
     setInput('');
     setOutput('');
     setError(null);
   };
-  
+
+  const getInputPlaceholder = () => {
+    switch (conversionType) {
+      case 'json-to-yaml':
+      case 'json-to-xml':
+      case 'json-to-csv':
+        return t.placeholderJson;
+      case 'yaml-to-json':
+        return t.placeholderYaml;
+      case 'xml-to-json':
+        return t.placeholderXml;
+      case 'csv-to-json':
+        return t.placeholderCsv;
+      default:
+        return '';
+    }
+  };
+
+  const getInputLabel = () => {
+    switch (conversionType) {
+      case 'json-to-yaml':
+      case 'json-to-xml':
+      case 'json-to-csv':
+        return t.jsonInput;
+      case 'yaml-to-json':
+        return t.yamlInput;
+      case 'xml-to-json':
+        return t.xmlInput;
+      case 'csv-to-json':
+        return t.csvInput;
+      default:
+        return '';
+    }
+  };
+
+  const getOutputLabel = () => {
+    switch (conversionType) {
+      case 'json-to-yaml':
+        return t.yamlOutput;
+      case 'json-to-xml':
+        return t.xmlOutput;
+      case 'json-to-csv':
+        return t.csvOutput;
+      case 'yaml-to-json':
+      case 'xml-to-json':
+      case 'csv-to-json':
+        return t.jsonOutput;
+      default:
+        return '';
+    }
+  };
+
   return (
     <ToolLayout
       title={t.title}
@@ -246,34 +305,42 @@ export default function JsonConverter() {
       keywords={t.keywords}
     >
       <div className="space-y-6">
-        {/* 工具配置 */}
+        {/* 转换选项 */}
         <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
-          <div className="flex flex-wrap gap-4 items-center">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">{t.options}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div>
               <label htmlFor="conversion-type" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                {t.formatType}
+                {t.conversionType}
               </label>
               <select
                 id="conversion-type"
-                className="block rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-white sm:text-sm"
+                className="block w-full rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-white sm:text-sm"
                 value={conversionType}
                 onChange={(e) => setConversionType(e.target.value as ConversionType)}
               >
-                <option value="xml">XML</option>
-                <option value="yaml">YAML</option>
-                <option value="csv">CSV</option>
+                <optgroup label={t.jsonToOthers}>
+                  <option value="json-to-yaml">{t.jsonToYaml}</option>
+                  <option value="json-to-xml">{t.jsonToXml}</option>
+                  <option value="json-to-csv">{t.jsonToCsv}</option>
+                </optgroup>
+                <optgroup label={t.othersToJson}>
+                  <option value="yaml-to-json">{t.yamlToJson}</option>
+                  <option value="xml-to-json">{t.xmlToJson}</option>
+                  <option value="csv-to-json">{t.csvToJson}</option>
+                </optgroup>
               </select>
             </div>
-            
-            <div className="flex-grow"></div>
-            
-            <button
-              type="button"
-              onClick={convertJson}
-              className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              {t.convert}
-            </button>
+            <div className="flex items-end">
+              <button
+                type="button"
+                onClick={handleConvert}
+                disabled={isProcessing}
+                className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full h-10 disabled:opacity-50"
+              >
+                {t.convert}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -283,8 +350,8 @@ export default function JsonConverter() {
             <JsonEditor
               value={input}
               onChange={setInput}
-              label={t.input}
-              placeholder={t.placeholder}
+              label={getInputLabel()}
+              placeholder={getInputPlaceholder()}
               error={error || undefined}
             />
           </div>
@@ -292,7 +359,7 @@ export default function JsonConverter() {
           <div>
             <div className="mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-center">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-0">
-                {t.output}
+                {getOutputLabel()}
               </label>
               <div className="flex space-x-2">
                 <button 
@@ -320,11 +387,11 @@ export default function JsonConverter() {
                 </button>
               </div>
             </div>
-            <div className="border rounded-md bg-white dark:bg-gray-800 p-4 h-[400px] overflow-auto">
-              <pre className="text-sm text-gray-800 dark:text-gray-200 whitespace-pre-wrap break-words font-mono">
-                {output}
-              </pre>
-            </div>
+            <JsonEditor
+              value={output}
+              onChange={setOutput}
+              readOnly={true}
+            />
           </div>
         </div>
       </div>

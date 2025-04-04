@@ -11,11 +11,11 @@ import { Locale, defaultLocale } from '@/i18n';
 type BraceStyle = 'collapse' | 'expand' | 'end-expand' | 'none' | 'preserve-inline';
 
 // 翻译文本
-const translations = {
+const translations: Record<string, any> = {
   zh: {
-    title: 'JSON 格式化工具',
-    description: '将JSON数据格式化成易读的形式，支持自定义缩进、风格和行宽',
-    keywords: 'JSON格式化,JSON美化,JSON压缩,JSON验证,在线JSON工具',
+    title: 'JSON 格式化工具 | 在线美化JSON数据',
+    description: '专业的在线JSON格式化工具，可以将混乱的JSON数据转换为格式化、缩进规范的形式，提高JSON可读性。支持自定义缩进大小、大括号风格和行宽限制，帮助开发者调试和检查JSON数据。',
+    keywords: 'JSON格式化,JSON美化,JSON在线格式化,JSON格式工具,JSON编辑器,JSON缩进,JSON格式化工具,格式化JSON,美化JSON,JSON排版工具,JSON pretty print',
     options: '格式化选项',
     indentSize: '缩进大小',
     spaces2: '2个空格',
@@ -43,9 +43,9 @@ const translations = {
     copyFailed: '复制失败'
   },
   en: {
-    title: 'JSON Formatter',
-    description: 'Format JSON data into readable form, supports custom indentation, style and line width',
-    keywords: 'JSON formatter,JSON beautifier,JSON minifier,JSON validator,online JSON tools',
+    title: 'JSON Formatter | Online JSON Beautifier',
+    description: 'Professional online JSON formatting tool that converts messy JSON data into formatted, properly indented form, improving JSON readability. Supports custom indentation size, brace style and line width limit, helping developers debug and inspect JSON data.',
+    keywords: 'JSON formatter,JSON beautifier,JSON online formatter,JSON formatting tool,JSON editor,JSON indentation,JSON formatting tool,format JSON,beautify JSON,JSON layout tool,JSON pretty print',
     options: 'Formatting Options',
     indentSize: 'Indent Size',
     spaces2: '2 spaces',
@@ -57,13 +57,13 @@ const translations = {
     preserveInline: 'Preserve Inline',
     lineWidth: 'Line Width',
     noLimit: 'No Limit',
-    chars80: '80 chars',
-    chars100: '100 chars',
-    chars120: '120 chars',
+    chars80: '80 characters',
+    chars100: '100 characters',
+    chars120: '120 characters',
     format: 'Format JSON',
     input: 'Input JSON',
-    output: 'Output Result',
-    placeholder: 'Paste your JSON data here to format...',
+    output: 'Formatting Result',
+    placeholder: 'Paste your JSON data here to format',
     copy: 'Copy',
     download: 'Download',
     clear: 'Clear',
@@ -77,7 +77,7 @@ const translations = {
 export default function JsonFormatter() {
   const params = useParams();
   const locale = (params?.lang as Locale) || defaultLocale;
-  const t = translations[locale] || translations.zh;
+  const t = translations[locale as 'zh' | 'en'] || translations.zh;
 
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');

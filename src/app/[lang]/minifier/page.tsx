@@ -8,95 +8,81 @@ import JsonEditor from '../../components/JsonEditor';
 import { Locale, defaultLocale } from '@/i18n';
 
 // 翻译文本
-const translations = {
+const translations: Record<string, any> = {
   zh: {
     title: 'JSON 压缩工具',
-    description: '压缩JSON数据以减小文件大小，移除空格和换行符',
+    description: '压缩JSON数据，去除空格和换行符，减小文件大小，适合传输和存储。',
     keywords: 'JSON压缩,JSON最小化,JSON体积优化,JSON去空格,JSON压缩器',
-    input: '输入JSON',
+    input: '输入 JSON',
     output: '压缩结果',
-    placeholder: '在此粘贴需要压缩的JSON数据...',
-    minify: '压缩',
+    placeholder: '在此粘贴需要压缩的JSON数据',
+    minify: '压缩 JSON',
     copy: '复制',
     download: '下载',
-    clear: '清除',
+    clear: '清除全部',
     error: '无效的JSON数据，请检查语法',
     copied: '已复制到剪贴板',
     copyFailed: '复制失败',
-    stats: '统计信息',
+    compressionResult: '压缩结果',
     originalSize: '原始大小',
-    minifiedSize: '压缩后大小',
-    savings: '节省',
-    bytes: '字节',
-    characters: '字符'
+    compressedSize: '压缩后大小',
+    compressionRatio: '压缩率'
   },
   en: {
     title: 'JSON Minifier',
-    description: 'Minify JSON data to reduce file size by removing whitespace and line breaks',
+    description: 'Compress JSON data by removing whitespace and line breaks, reducing file size for transmission and storage.',
     keywords: 'JSON minifier,JSON minification,JSON size optimization,JSON whitespace removal,JSON compressor',
     input: 'Input JSON',
     output: 'Minified Result',
-    placeholder: 'Paste your JSON data here to minify...',
-    minify: 'Minify',
+    placeholder: 'Paste your JSON data here to minify',
+    minify: 'Minify JSON',
     copy: 'Copy',
     download: 'Download',
-    clear: 'Clear',
+    clear: 'Clear All',
     error: 'Invalid JSON data, please check syntax',
     copied: 'Copied to clipboard',
     copyFailed: 'Copy failed',
-    stats: 'Statistics',
+    compressionResult: 'Compression Result',
     originalSize: 'Original Size',
-    minifiedSize: 'Minified Size',
-    savings: 'Savings',
-    bytes: 'bytes',
-    characters: 'characters'
+    compressedSize: 'Compressed Size',
+    compressionRatio: 'Compression Ratio'
   }
 };
 
 export default function JsonMinifier() {
   const params = useParams();
   const locale = (params?.lang as Locale) || defaultLocale;
-  const t = translations[locale] || translations.zh;
+  const t = translations[locale as 'zh' | 'en'] || translations.zh;
   
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const [stats, setStats] = useState<{
+  const [compressionResults, setCompressionResults] = useState<{
     originalSize: number;
-    minifiedSize: number;
-    savings: number;
-    savingsPercent: number;
+    compressedSize: number;
+    compressionRatio: number;
   } | null>(null);
 
   const minifyJson = () => {
     setError(null);
-    setOutput('');
-    setStats(null);
-    
-    if (!input.trim()) {
-      return;
-    }
     
     try {
-      // 解析JSON以验证格式
+      // 首先检查输入是否为有效JSON
       const parsedJson = JSON.parse(input);
       
-      // 使用JSON.stringify压缩JSON（移除所有空格）
-      const minified = JSON.stringify(parsedJson);
+      // 使用JSON.stringify压缩（不包含空格）
+      const minifiedJson = JSON.stringify(parsedJson);
       
-      setOutput(minified);
+      // 计算压缩比
+      const originalSize = new Blob([input]).size;
+      const compressedSize = new Blob([minifiedJson]).size;
+      const compressionRatio = ((originalSize - compressedSize) / originalSize) * 100;
       
-      // 计算压缩统计信息
-      const originalSize = input.length;
-      const minifiedSize = minified.length;
-      const savings = originalSize - minifiedSize;
-      const savingsPercent = originalSize > 0 ? Math.round((savings / originalSize) * 100) : 0;
-      
-      setStats({
+      setOutput(minifiedJson);
+      setCompressionResults({
         originalSize,
-        minifiedSize,
-        savings,
-        savingsPercent
+        compressedSize,
+        compressionRatio
       });
     } catch (err) {
       if (err instanceof Error) {
@@ -104,6 +90,8 @@ export default function JsonMinifier() {
       } else {
         setError(t.error);
       }
+      setOutput('');
+      setCompressionResults(null);
     }
   };
 
@@ -124,7 +112,7 @@ export default function JsonMinifier() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'minified.json';
+      a.download = 'minified-json.json';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -136,7 +124,17 @@ export default function JsonMinifier() {
     setInput('');
     setOutput('');
     setError(null);
-    setStats(null);
+    setCompressionResults(null);
+  };
+
+  const formatSize = (bytes: number) => {
+    if (bytes < 1024) {
+      return `${bytes} B`;
+    } else if (bytes < 1024 * 1024) {
+      return `${(bytes / 1024).toFixed(2)} KB`;
+    } else {
+      return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+    }
   };
 
   return (
@@ -146,23 +144,65 @@ export default function JsonMinifier() {
       keywords={t.keywords}
     >
       <div className="space-y-6">
-        {/* 工具配置 */}
-        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md flex justify-end space-x-2">
+        {/* 工具操作 */}
+        <div className="flex justify-between items-center">
           <button
             type="button"
             onClick={minifyJson}
-            className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
           >
             {t.minify}
           </button>
+          
           <button 
             onClick={clearAll}
-            className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            <FiRefreshCw className="mr-1" />
+            <FiRefreshCw className="mr-1.5 h-4 w-4" />
             {t.clear}
           </button>
         </div>
+
+        {/* 压缩结果统计信息 */}
+        {compressionResults && (
+          <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-md p-4">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h3 className="text-sm font-medium text-blue-800 dark:text-blue-300">{t.compressionResult}</h3>
+                  <div className="mt-1 text-sm text-blue-700 dark:text-blue-200">
+                    <p>{t.originalSize}: {formatSize(compressionResults.originalSize)}</p>
+                    <p>{t.compressedSize}: {formatSize(compressionResults.compressedSize)}</p>
+                    <p>{t.compressionRatio}: {compressionResults.compressionRatio.toFixed(2)}%</p>
+                  </div>
+                </div>
+                <div className="mt-4 sm:mt-0 flex space-x-2">
+                  <button 
+                    onClick={copyOutput}
+                    disabled={!output}
+                    className="inline-flex items-center px-2.5 py-1.5 border border-blue-300 dark:border-blue-700 shadow-sm text-xs font-medium rounded text-blue-700 dark:text-blue-300 bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                  >
+                    <FiCopy className="mr-1" />
+                    {t.copy}
+                  </button>
+                  <button 
+                    onClick={downloadOutput}
+                    disabled={!output}
+                    className="inline-flex items-center px-2.5 py-1.5 border border-blue-300 dark:border-blue-700 shadow-sm text-xs font-medium rounded text-blue-700 dark:text-blue-300 bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                  >
+                    <FiDownload className="mr-1" />
+                    {t.download}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* 输入/输出区域 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -177,63 +217,12 @@ export default function JsonMinifier() {
           </div>
           
           <div>
-            <div className="mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-center">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-0">
-                {t.output}
-              </label>
-              <div className="flex space-x-2">
-                <button 
-                  onClick={copyOutput}
-                  disabled={!output}
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
-                >
-                  <FiCopy className="mr-1" />
-                  {t.copy}
-                </button>
-                <button 
-                  onClick={downloadOutput}
-                  disabled={!output}
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
-                >
-                  <FiDownload className="mr-1" />
-                  {t.download}
-                </button>
-              </div>
-            </div>
-            <div className="border rounded-md bg-white dark:bg-gray-800 p-4 h-[300px] overflow-auto">
-              <pre className="text-sm text-gray-800 dark:text-gray-200 whitespace-pre-wrap break-words font-mono">
-                {output}
-              </pre>
-            </div>
-            
-            {/* 压缩统计信息 */}
-            {stats && (
-              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-md">
-                <h4 className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-2">
-                  {t.stats}
-                </h4>
-                <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div>
-                    <div className="text-gray-600 dark:text-gray-400">{t.originalSize}</div>
-                    <div className="font-medium text-gray-900 dark:text-white">
-                      {stats.originalSize.toLocaleString()} {t.characters}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-gray-600 dark:text-gray-400">{t.minifiedSize}</div>
-                    <div className="font-medium text-gray-900 dark:text-white">
-                      {stats.minifiedSize.toLocaleString()} {t.characters}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-gray-600 dark:text-gray-400">{t.savings}</div>
-                    <div className="font-medium text-green-600 dark:text-green-400">
-                      {stats.savings.toLocaleString()} {t.characters} ({stats.savingsPercent}%)
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+            <JsonEditor
+              value={output}
+              onChange={setOutput}
+              label={t.output}
+              readOnly={true}
+            />
           </div>
         </div>
       </div>

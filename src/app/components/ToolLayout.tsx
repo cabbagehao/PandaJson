@@ -59,7 +59,7 @@ export default function ToolLayout({
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="mb-6 sm:mb-8">
+      <div>
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">{title}</h1>
         <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300">{description}</p>
         {keywords && (

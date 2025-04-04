@@ -2,188 +2,130 @@
 
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
-import ToolLayout from '../../components/ToolLayout';
-import JsonEditor from '../../components/JsonEditor';
-import { Locale, defaultLocale } from '@/i18n';
 import { FiRefreshCw } from 'react-icons/fi';
+import JsonEditor from '../../components/JsonEditor';
+import JsonDiffViewer from '../../components/JsonDiffViewer';
+import ToolLayout from '../../components/ToolLayout';
+import { Locale, defaultLocale } from '@/i18n';
 
 // 翻译文本
-const translations = {
+const translations: Record<string, any> = {
   zh: {
     title: 'JSON 对比工具',
-    description: '比较两个JSON数据之间的差异',
+    description: '比较两个 JSON 对象的差异，直观展示新增、删除和修改的内容。',
     keywords: 'JSON对比,JSON比较,JSON差异,JSON比对,JSON比较器',
-    leftInput: '第一个JSON',
-    rightInput: '第二个JSON',
+    leftInput: '第一个 JSON',
+    rightInput: '第二个 JSON',
     result: '比较结果',
-    placeholderLeft: '在此粘贴第一个JSON数据...',
-    placeholderRight: '在此粘贴第二个JSON数据...',
+    placeholderLeft: '在此粘贴第一个 JSON 数据',
+    placeholderRight: '在此粘贴第二个 JSON 数据',
     compare: '比较',
     clear: '清除',
-    error: '无效的JSON数据，请检查语法',
-    identical: '两个JSON数据完全相同',
-    different: '两个JSON数据有差异',
-    addedIn2: '第二个JSON中添加的内容',
-    removedFrom1: '第一个JSON中移除的内容',
-    modified: '被修改的内容',
-    from: '从',
-    to: '到',
-    added: '已添加',
-    removed: '已删除',
-    changed: '已修改'
+    loadExample: '加载示例',
+    processing: '处理中...',
+    error: '比较错误: ',
+    unknown: '比较过程中发生未知错误',
+    diffGuide: '差异对比说明',
+    addedContent: '新增内容',
+    removedContent: '删除内容',
+    modifiedContent: '修改内容'
   },
   en: {
-    title: 'JSON Diff',
-    description: 'Compare differences between two JSON datasets',
+    title: 'JSON Diff Tool',
+    description: 'Compare two JSON objects and visualize additions, deletions and modifications.',
     keywords: 'JSON diff,JSON compare,JSON difference,JSON comparison,JSON comparator',
     leftInput: 'First JSON',
     rightInput: 'Second JSON',
     result: 'Comparison Result',
-    placeholderLeft: 'Paste your first JSON data here...',
-    placeholderRight: 'Paste your second JSON data here...',
+    placeholderLeft: 'Paste your first JSON data here',
+    placeholderRight: 'Paste your second JSON data here',
     compare: 'Compare',
     clear: 'Clear',
-    error: 'Invalid JSON data, please check syntax',
-    identical: 'The two JSON datasets are identical',
-    different: 'The two JSON datasets have differences',
-    addedIn2: 'Added in second JSON',
-    removedFrom1: 'Removed from first JSON',
-    modified: 'Modified content',
-    from: 'from',
-    to: 'to',
-    added: 'Added',
-    removed: 'Removed',
-    changed: 'Changed'
+    loadExample: 'Load Example',
+    processing: 'Processing...',
+    error: 'Comparison error: ',
+    unknown: 'Unknown error during comparison',
+    diffGuide: 'Diff Guide',
+    addedContent: 'Added Content',
+    removedContent: 'Removed Content',
+    modifiedContent: 'Modified Content'
   }
 };
-
-// 简单的深度比较函数
-function deepCompare(obj1: any, obj2: any, path = ''): any[] {
-  const differences: any[] = [];
-  
-  // 检查obj1中存在但obj2中不存在的键
-  for (const key in obj1) {
-    const currentPath = path ? `${path}.${key}` : key;
-    
-    if (!(key in obj2)) {
-      differences.push({
-        type: 'removed',
-        path: currentPath,
-        value: obj1[key]
-      });
-      continue;
-    }
-    
-    // 比较值
-    if (typeof obj1[key] !== typeof obj2[key]) {
-      differences.push({
-        type: 'changed',
-        path: currentPath,
-        oldValue: obj1[key],
-        newValue: obj2[key]
-      });
-      continue;
-    }
-    
-    // 如果是对象，递归比较
-    if (typeof obj1[key] === 'object' && obj1[key] !== null && obj2[key] !== null) {
-      // 检查数组和对象
-      if (Array.isArray(obj1[key]) !== Array.isArray(obj2[key])) {
-        differences.push({
-          type: 'changed',
-          path: currentPath,
-          oldValue: obj1[key],
-          newValue: obj2[key]
-        });
-      } else {
-        // 递归比较子对象或数组
-        const childDiffs = deepCompare(obj1[key], obj2[key], currentPath);
-        differences.push(...childDiffs);
-      }
-    } 
-    // 比较基本类型值
-    else if (obj1[key] !== obj2[key]) {
-      differences.push({
-        type: 'changed',
-        path: currentPath,
-        oldValue: obj1[key],
-        newValue: obj2[key]
-      });
-    }
-  }
-  
-  // 检查obj2中存在但obj1中不存在的键
-  for (const key in obj2) {
-    const currentPath = path ? `${path}.${key}` : key;
-    
-    if (!(key in obj1)) {
-      differences.push({
-        type: 'added',
-        path: currentPath,
-        value: obj2[key]
-      });
-    }
-  }
-  
-  return differences;
-}
 
 export default function JsonDiff() {
   const params = useParams();
   const locale = (params?.lang as Locale) || defaultLocale;
-  const t = translations[locale] || translations.zh;
-  
-  const [leftInput, setLeftInput] = useState('');
-  const [rightInput, setRightInput] = useState('');
-  const [differences, setDifferences] = useState<any[]>([]);
-  const [errorLeft, setErrorLeft] = useState<string | null>(null);
-  const [errorRight, setErrorRight] = useState<string | null>(null);
-  const [compared, setCompared] = useState(false);
-  
-  const compareJson = () => {
-    setErrorLeft(null);
-    setErrorRight(null);
-    setDifferences([]);
-    setCompared(false);
-    
-    if (!leftInput.trim() || !rightInput.trim()) {
-      return;
-    }
-    
+  const t = translations[locale as 'zh' | 'en'] || translations.zh;
+
+  const [json1, setJson1] = useState('');
+  const [json2, setJson2] = useState('');
+  const [showDiff, setShowDiff] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const handleCompare = () => {
+    setError(null);
+    setIsProcessing(true);
+
     try {
-      const leftObj = JSON.parse(leftInput);
-      try {
-        const rightObj = JSON.parse(rightInput);
-        
-        // 比较两个对象
-        const diffs = deepCompare(leftObj, rightObj);
-        setDifferences(diffs);
-        setCompared(true);
-      } catch (err) {
-        if (err instanceof Error) {
-          setErrorRight(`${t.error}: ${err.message}`);
-        } else {
-          setErrorRight(t.error);
-        }
-      }
+      // 验证JSON格式
+      JSON.parse(json1);
+      JSON.parse(json2);
+      
+      // 显示差异视图
+      setShowDiff(true);
     } catch (err) {
       if (err instanceof Error) {
-        setErrorLeft(`${t.error}: ${err.message}`);
+        setError(`${t.error}${err.message}`);
       } else {
-        setErrorLeft(t.error);
+        setError(t.unknown);
       }
+      setShowDiff(false);
+    } finally {
+      setIsProcessing(false);
     }
   };
-  
+
   const clearAll = () => {
-    setLeftInput('');
-    setRightInput('');
-    setDifferences([]);
-    setErrorLeft(null);
-    setErrorRight(null);
-    setCompared(false);
+    setJson1('');
+    setJson2('');
+    setShowDiff(false);
+    setError(null);
   };
-  
+
+  // 加载示例JSON
+  const loadExample = () => {
+    setJson1(JSON.stringify({
+      "name": "Product",
+      "version": "1.0.0",
+      "description": "Sample product",
+      "price": 19.99,
+      "categories": ["electronics", "gadgets"],
+      "features": {
+        "color": "black",
+        "weight": "300g",
+        "dimensions": "10x5x2 cm"
+      },
+      "inStock": true
+    }, null, 2));
+    
+    setJson2(JSON.stringify({
+      "name": "Product",
+      "version": "1.1.0",
+      "description": "Improved sample product",
+      "price": 24.99,
+      "categories": ["electronics", "gadgets", "new"],
+      "features": {
+        "color": "white",
+        "weight": "250g",
+        "dimensions": "10x5x2 cm",
+        "waterproof": true
+      },
+      "inStock": true,
+      "releaseDate": "2023-12-01"
+    }, null, 2));
+  };
+
   return (
     <ToolLayout
       title={t.title}
@@ -191,143 +133,94 @@ export default function JsonDiff() {
       keywords={t.keywords}
     >
       <div className="space-y-6">
-        {/* 按钮区域 */}
-        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md flex justify-end space-x-2">
-          <button
-            type="button"
-            onClick={compareJson}
-            className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          >
-            {t.compare}
-          </button>
-          <button 
-            onClick={clearAll}
-            className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          >
-            <FiRefreshCw className="mr-1" />
-            {t.clear}
-          </button>
+        {/* 工具栏 */}
+        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
+          <div className="flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={handleCompare}
+              disabled={isProcessing || !json1.trim() || !json2.trim()}
+              className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
+            >
+              {isProcessing ? t.processing : t.compare}
+            </button>
+            
+            <button
+              type="button"
+              onClick={clearAll}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              <FiRefreshCw className="mr-2" />
+              {t.clear}
+            </button>
+            
+            <button
+              type="button"
+              onClick={loadExample}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              {t.loadExample}
+            </button>
+          </div>
         </div>
 
-        {/* 输入区域 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div>
-            <JsonEditor
-              value={leftInput}
-              onChange={setLeftInput}
-              label={t.leftInput}
-              placeholder={t.placeholderLeft}
-              error={errorLeft || undefined}
-            />
-          </div>
-          
-          <div>
-            <JsonEditor
-              value={rightInput}
-              onChange={setRightInput}
-              label={t.rightInput}
-              placeholder={t.placeholderRight}
-              error={errorRight || undefined}
-            />
-          </div>
-        </div>
-        
-        {/* 结果区域 */}
-        {compared && (
-          <div className="mt-6">
-            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
-              {t.result}
-            </h3>
-            
-            {differences.length === 0 ? (
-              <div className="bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-400 p-4 rounded-md">
-                {t.identical}
-              </div>
-            ) : (
-              <div>
-                <div className="bg-yellow-50 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-400 p-4 rounded-md mb-4">
-                  {t.different} ({differences.length} {differences.length === 1 ? 'change' : 'changes'})
-                </div>
-                
-                <div className="border rounded-md overflow-hidden">
-                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-800">
-                      <tr>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          Type
-                        </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          Path
-                        </th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          Value
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
-                      {differences.map((diff, index) => (
-                        <tr key={index}>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <span 
-                              className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                                diff.type === 'added' ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400' :
-                                diff.type === 'removed' ? 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400' :
-                                'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400'
-                              }`}
-                            >
-                              {diff.type === 'added' ? t.added : 
-                               diff.type === 'removed' ? t.removed : 
-                               t.changed}
-                            </span>
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300 font-mono">
-                            {diff.path}
-                          </td>
-                          <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
-                            {diff.type === 'added' && (
-                              <div className="bg-green-50 dark:bg-green-900/10 p-2 rounded">
-                                <pre className="whitespace-pre-wrap break-words text-xs font-mono">
-                                  {JSON.stringify(diff.value, null, 2)}
-                                </pre>
-                              </div>
-                            )}
-                            {diff.type === 'removed' && (
-                              <div className="bg-red-50 dark:bg-red-900/10 p-2 rounded">
-                                <pre className="whitespace-pre-wrap break-words text-xs font-mono">
-                                  {JSON.stringify(diff.value, null, 2)}
-                                </pre>
-                              </div>
-                            )}
-                            {diff.type === 'changed' && (
-                              <div>
-                                <div className="bg-red-50 dark:bg-red-900/10 p-2 rounded mb-2">
-                                  <div className="text-xs text-red-700 dark:text-red-400 font-semibold mb-1">
-                                    {t.from}:
-                                  </div>
-                                  <pre className="whitespace-pre-wrap break-words text-xs font-mono">
-                                    {JSON.stringify(diff.oldValue, null, 2)}
-                                  </pre>
-                                </div>
-                                <div className="bg-green-50 dark:bg-green-900/10 p-2 rounded">
-                                  <div className="text-xs text-green-700 dark:text-green-400 font-semibold mb-1">
-                                    {t.to}:
-                                  </div>
-                                  <pre className="whitespace-pre-wrap break-words text-xs font-mono">
-                                    {JSON.stringify(diff.newValue, null, 2)}
-                                  </pre>
-                                </div>
-                              </div>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
+        {/* 错误提示 */}
+        {error && (
+          <div className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-md">
+            <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
           </div>
         )}
+
+        {/* 差异查看器 */}
+        {showDiff ? (
+          <JsonDiffViewer
+            leftValue={json1}
+            rightValue={json2}
+            onLeftChange={setJson1}
+            onRightChange={setJson2}
+            height="500px"
+          />
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div>
+              <JsonEditor
+                value={json1}
+                onChange={setJson1}
+                label={t.leftInput}
+                placeholder={t.placeholderLeft}
+                error={error || undefined}
+              />
+            </div>
+            
+            <div>
+              <JsonEditor
+                value={json2}
+                onChange={setJson2}
+                label={t.rightInput}
+                placeholder={t.placeholderRight}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* 说明信息 */}
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-md">
+          <h3 className="text-lg font-medium text-blue-800 dark:text-blue-200 mb-2">{t.diffGuide}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-green-200 dark:bg-green-800 mr-2"></div>
+              <span className="text-blue-700 dark:text-blue-300">{t.addedContent}</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-red-200 dark:bg-red-800 mr-2"></div>
+              <span className="text-blue-700 dark:text-blue-300">{t.removedContent}</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-yellow-200 dark:bg-yellow-800 mr-2"></div>
+              <span className="text-blue-700 dark:text-blue-300">{t.modifiedContent}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </ToolLayout>
   );

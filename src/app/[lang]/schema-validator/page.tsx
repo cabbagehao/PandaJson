@@ -2,379 +2,178 @@
 
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
-import { FiCopy, FiDownload, FiRefreshCw } from 'react-icons/fi';
+import { FiRefreshCw } from 'react-icons/fi';
+import Ajv from 'ajv';
+import addFormats from 'ajv-formats';
 import ToolLayout from '../../components/ToolLayout';
 import JsonEditor from '../../components/JsonEditor';
 import { Locale, defaultLocale } from '@/i18n';
 
-// 翻译文本
-const translations = {
-  zh: {
-    title: 'JSON Schema 验证工具',
-    description: '使用JSON Schema验证JSON数据的结构和格式',
-    keywords: 'JSON Schema,JSON验证,Schema验证,JSON结构验证,JSON格式验证',
-    jsonInput: 'JSON 数据',
-    schemaInput: 'JSON Schema',
-    result: '验证结果',
-    placeholderJson: '在此粘贴需要验证的JSON数据...',
-    placeholderSchema: '在此粘贴JSON Schema...',
-    validate: '验证',
-    copy: '复制',
-    download: '下载',
-    clear: '清除',
-    errorJson: '无效的JSON数据，请检查语法',
-    errorSchema: '无效的JSON Schema，请检查语法',
-    valid: '验证通过',
-    invalid: '验证失败',
-    validMessage: '恭喜! 您的JSON数据符合Schema的要求',
-    errorCount: '错误数量',
-    warningCount: '警告数量',
-    errorDetails: '错误详情',
-    warningDetails: '警告详情',
-    path: '路径',
-    message: '消息',
-    noErrors: '没有错误',
-    noWarnings: '没有警告',
-    copied: '已复制到剪贴板',
-    copyFailed: '复制失败',
-    sampleSchema: '示例Schema',
-    loadSample: '加载示例'
-  },
-  en: {
-    title: 'JSON Schema Validator',
-    description: 'Validate JSON data structure and format using JSON Schema',
-    keywords: 'JSON Schema,JSON validation,Schema validation,JSON structure validation,JSON format validation',
-    jsonInput: 'JSON Data',
-    schemaInput: 'JSON Schema',
-    result: 'Validation Result',
-    placeholderJson: 'Paste your JSON data here to validate...',
-    placeholderSchema: 'Paste your JSON Schema here...',
-    validate: 'Validate',
-    copy: 'Copy',
-    download: 'Download',
-    clear: 'Clear',
-    errorJson: 'Invalid JSON data, please check syntax',
-    errorSchema: 'Invalid JSON Schema, please check syntax',
-    valid: 'Valid',
-    invalid: 'Invalid',
-    validMessage: 'Congratulations! Your JSON data conforms to the Schema',
-    errorCount: 'Error Count',
-    warningCount: 'Warning Count',
-    errorDetails: 'Error Details',
-    warningDetails: 'Warning Details',
-    path: 'Path',
-    message: 'Message',
-    noErrors: 'No errors',
-    noWarnings: 'No warnings',
-    copied: 'Copied to clipboard',
-    copyFailed: 'Copy failed',
-    sampleSchema: 'Sample Schema',
-    loadSample: 'Load Sample'
-  }
-};
-
-// 示例Schema
-const sampleSchema = {
-  type: 'object',
-  required: ['name', 'age', 'email'],
-  properties: {
-    name: {
-      type: 'string',
-      minLength: 2,
-      maxLength: 50
-    },
-    age: {
-      type: 'integer',
-      minimum: 0,
-      maximum: 120
-    },
-    email: {
-      type: 'string',
-      format: 'email'
-    },
-    address: {
-      type: 'object',
-      properties: {
-        street: { type: 'string' },
-        city: { type: 'string' },
-        zipCode: { type: 'string', pattern: '^[0-9]{5}(?:-[0-9]{4})?$' }
-      },
-      required: ['street', 'city']
-    },
-    phoneNumbers: {
-      type: 'array',
-      items: {
-        type: 'string',
-        pattern: '^[0-9]{10}$'
-      },
-      minItems: 1
-    }
-  }
-};
-
-// 示例JSON数据
-const sampleJson = {
-  name: 'John Doe',
-  age: 30,
-  email: 'john.doe@example.com',
-  address: {
-    street: '123 Main St',
-    city: 'Anytown'
-  },
-  phoneNumbers: ['1234567890']
-};
-
-// 简单的验证错误接口
+// 验证错误接口
 interface ValidationError {
   path: string;
   message: string;
 }
 
-export default function JsonSchemaValidator() {
+// 翻译文本
+const translations: Record<string, any> = {
+  zh: {
+    title: 'JSON Schema 验证工具',
+    description: '基于 JSON Schema 验证 JSON 数据，支持丰富的验证规则和详细的错误提示。',
+    keywords: 'JSON Schema,JSON验证,Schema验证,JSON结构验证,JSON格式验证',
+    jsonInput: 'JSON 数据',
+    schemaInput: 'JSON Schema',
+    options: '验证选项',
+    validate: '验证',
+    validating: '验证中...',
+    clear: '清除',
+    loadExample: '加载示例',
+    placeholderJson: '在此输入或粘贴要验证的 JSON 数据',
+    placeholderSchema: '在此输入或粘贴 JSON Schema',
+    result: '验证结果',
+    valid: '通过',
+    invalid: '不通过',
+    errorDetails: '错误详情',
+    guideTitle: 'JSON Schema 使用指南',
+    guideDescription: 'JSON Schema 是一种用于描述和验证 JSON 数据结构的标准。以下是一些常用的验证规则：',
+    basicTypesTitle: '基本类型验证',
+    commonRulesTitle: '常用验证规则'
+  },
+  en: {
+    title: 'JSON Schema Validator',
+    description: 'Validate JSON data using JSON Schema, supporting rich validation rules and detailed error messages.',
+    keywords: 'JSON Schema,JSON validation,Schema validation,JSON structure validation,JSON format validation',
+    jsonInput: 'JSON Data',
+    schemaInput: 'JSON Schema',
+    options: 'Validation Options',
+    validate: 'Validate',
+    validating: 'Validating...',
+    clear: 'Clear',
+    loadExample: 'Load Example',
+    placeholderJson: 'Enter or paste JSON data to validate',
+    placeholderSchema: 'Enter or paste JSON Schema',
+    result: 'Validation Result',
+    valid: 'Valid',
+    invalid: 'Invalid',
+    errorDetails: 'Error Details',
+    guideTitle: 'JSON Schema Guide',
+    guideDescription: 'JSON Schema is a standard for describing and validating JSON data structures. Here are some common validation rules:',
+    basicTypesTitle: 'Basic Type Validation',
+    commonRulesTitle: 'Common Validation Rules'
+  }
+};
+
+export default function SchemaValidator() {
   const params = useParams();
   const locale = (params?.lang as Locale) || defaultLocale;
-  const t = translations[locale] || translations.zh;
-  
-  const [jsonInput, setJsonInput] = useState('');
-  const [schemaInput, setSchemaInput] = useState('');
-  const [jsonError, setJsonError] = useState<string | null>(null);
-  const [schemaError, setSchemaError] = useState<string | null>(null);
+  const t = translations[locale as 'zh' | 'en'] || translations.zh;
+
+  const [jsonData, setJsonData] = useState('');
+  const [jsonSchema, setJsonSchema] = useState('');
   const [validationResult, setValidationResult] = useState<{
     valid: boolean;
     errors: ValidationError[];
-    warnings: ValidationError[];
   } | null>(null);
-  
-  // 加载示例
-  const loadSample = () => {
-    setJsonInput(JSON.stringify(sampleJson, null, 2));
-    setSchemaInput(JSON.stringify(sampleSchema, null, 2));
-    setJsonError(null);
-    setSchemaError(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const validateSchema = () => {
+    setIsProcessing(true);
     setValidationResult(null);
-  };
-  
-  // 验证JSON数据
-  const validateJson = () => {
-    setJsonError(null);
-    setSchemaError(null);
-    setValidationResult(null);
-    
-    if (!jsonInput.trim() || !schemaInput.trim()) {
-      return;
-    }
-    
+
     try {
-      const json = JSON.parse(jsonInput);
+      // 解析JSON和Schema
+      const dataObj = JSON.parse(jsonData);
+      const schemaObj = JSON.parse(jsonSchema);
+
+      // 创建验证器实例
+      const ajv = new Ajv({ allErrors: true });
+      addFormats(ajv);
+
+      // 编译Schema
+      const validate = ajv.compile(schemaObj);
       
-      try {
-        const schema = JSON.parse(schemaInput);
-        
-        // 模拟验证过程，实际项目中应使用ajv等验证库
-        const errors: ValidationError[] = [];
-        const warnings: ValidationError[] = [];
-        
-        // 简单的验证逻辑
-        validateObject(json, schema, '', errors, warnings);
+      // 执行验证
+      const valid = validate(dataObj);
+      
+      // 处理验证结果
+      if (!valid) {
+        const errors = (validate.errors || []).map(err => ({
+          path: err.instancePath || '根元素',
+          message: err.message || '未知错误'
+        }));
         
         setValidationResult({
-          valid: errors.length === 0,
-          errors,
-          warnings
+          valid: false,
+          errors
         });
-      } catch (err) {
-        if (err instanceof Error) {
-          setSchemaError(`${t.errorSchema}: ${err.message}`);
-        } else {
-          setSchemaError(t.errorSchema);
-        }
+      } else {
+        setValidationResult({
+          valid: true,
+          errors: []
+        });
       }
     } catch (err) {
+      let message = '处理过程中发生错误';
       if (err instanceof Error) {
-        setJsonError(`${t.errorJson}: ${err.message}`);
-      } else {
-        setJsonError(t.errorJson);
+        message = err.message;
       }
-    }
-  };
-  
-  // 简单的验证函数
-  const validateObject = (
-    obj: any, 
-    schema: any, 
-    path: string, 
-    errors: ValidationError[], 
-    warnings: ValidationError[]
-  ) => {
-    // 检查类型
-    if (schema.type && typeof obj !== schema.type && 
-        !(schema.type === 'integer' && Number.isInteger(obj))) {
-      errors.push({
-        path: path || 'root',
-        message: `Expected type "${schema.type}" but got "${typeof obj}"`
+      
+      setValidationResult({
+        valid: false,
+        errors: [{ path: '', message }]
       });
-      return;
-    }
-    
-    if (schema.type === 'object' && obj && typeof obj === 'object') {
-      // 检查必填属性
-      if (schema.required && Array.isArray(schema.required)) {
-        for (const prop of schema.required) {
-          if (!(prop in obj)) {
-            errors.push({
-              path: path ? `${path}.${prop}` : prop,
-              message: `Required property "${prop}" is missing`
-            });
-          }
-        }
-      }
-      
-      // 递归验证属性
-      if (schema.properties) {
-        for (const [key, propSchema] of Object.entries(schema.properties)) {
-          if (key in obj) {
-            validateObject(
-              obj[key], 
-              propSchema, 
-              path ? `${path}.${key}` : key, 
-              errors, 
-              warnings
-            );
-          }
-        }
-      }
-    } 
-    else if (schema.type === 'array' && Array.isArray(obj)) {
-      // 验证数组长度
-      if (schema.minItems !== undefined && obj.length < schema.minItems) {
-        errors.push({
-          path: path || 'root',
-          message: `Array must have at least ${schema.minItems} items, but has ${obj.length}`
-        });
-      }
-      
-      if (schema.maxItems !== undefined && obj.length > schema.maxItems) {
-        errors.push({
-          path: path || 'root',
-          message: `Array must have at most ${schema.maxItems} items, but has ${obj.length}`
-        });
-      }
-      
-      // 验证数组项
-      if (schema.items) {
-        for (let i = 0; i < obj.length; i++) {
-          validateObject(
-            obj[i], 
-            schema.items, 
-            path ? `${path}[${i}]` : `[${i}]`, 
-            errors, 
-            warnings
-          );
-        }
-      }
-    }
-    else if (schema.type === 'string' && typeof obj === 'string') {
-      // 验证字符串长度
-      if (schema.minLength !== undefined && obj.length < schema.minLength) {
-        errors.push({
-          path: path || 'root',
-          message: `String must be at least ${schema.minLength} characters long, but is ${obj.length}`
-        });
-      }
-      
-      if (schema.maxLength !== undefined && obj.length > schema.maxLength) {
-        errors.push({
-          path: path || 'root',
-          message: `String must be at most ${schema.maxLength} characters long, but is ${obj.length}`
-        });
-      }
-      
-      // 验证格式
-      if (schema.format === 'email' && !validateEmail(obj)) {
-        errors.push({
-          path: path || 'root',
-          message: `String must be a valid email address`
-        });
-      }
-      
-      // 验证正则表达式
-      if (schema.pattern) {
-        const regex = new RegExp(schema.pattern);
-        if (!regex.test(obj)) {
-          errors.push({
-            path: path || 'root',
-            message: `String does not match pattern: ${schema.pattern}`
-          });
-        }
-      }
-    }
-    else if ((schema.type === 'number' || schema.type === 'integer') && typeof obj === 'number') {
-      // 验证数字范围
-      if (schema.minimum !== undefined && obj < schema.minimum) {
-        errors.push({
-          path: path || 'root',
-          message: `Number must be greater than or equal to ${schema.minimum}, but is ${obj}`
-        });
-      }
-      
-      if (schema.maximum !== undefined && obj > schema.maximum) {
-        errors.push({
-          path: path || 'root',
-          message: `Number must be less than or equal to ${schema.maximum}, but is ${obj}`
-        });
-      }
-      
-      // 验证整数
-      if (schema.type === 'integer' && !Number.isInteger(obj)) {
-        errors.push({
-          path: path || 'root',
-          message: `Number must be an integer, but is ${obj}`
-        });
-      }
+    } finally {
+      setIsProcessing(false);
     }
   };
-  
-  // 简单的邮箱验证
-  const validateEmail = (email: string): boolean => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
-  
-  const copyResult = async () => {
-    if (validationResult) {
-      try {
-        await navigator.clipboard.writeText(
-          JSON.stringify(validationResult, null, 2)
-        );
-        alert(t.copied);
-      } catch (err) {
-        alert(t.copyFailed);
-      }
-    }
-  };
-  
-  const downloadResult = () => {
-    if (validationResult) {
-      const blob = new Blob([JSON.stringify(validationResult, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'validation-result.json';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-  };
-  
+
   const clearAll = () => {
-    setJsonInput('');
-    setSchemaInput('');
-    setJsonError(null);
-    setSchemaError(null);
+    setJsonData('');
+    setJsonSchema('');
     setValidationResult(null);
   };
-  
+
+  // 示例JSON数据和Schema
+  const loadExample = () => {
+    const exampleData = JSON.stringify({
+      "id": 1,
+      "name": "张三",
+      "email": "zhangsan@example.com",
+      "age": 28,
+      "address": {
+        "city": "北京",
+        "zipCode": "100000"
+      },
+      "tags": ["开发", "设计"]
+    }, null, 2);
+    
+    const exampleSchema = JSON.stringify({
+      "type": "object",
+      "required": ["id", "name", "email"],
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string", "minLength": 2 },
+        "email": { "type": "string", "format": "email" },
+        "age": { "type": "integer", "minimum": 18, "maximum": 100 },
+        "address": {
+          "type": "object",
+          "properties": {
+            "city": { "type": "string" },
+            "zipCode": { "type": "string", "pattern": "^\\d{6}$" }
+          },
+          "required": ["city"]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }, null, 2);
+    
+    setJsonData(exampleData);
+    setJsonSchema(exampleSchema);
+  };
+
   return (
     <ToolLayout
       title={t.title}
@@ -382,178 +181,127 @@ export default function JsonSchemaValidator() {
       keywords={t.keywords}
     >
       <div className="space-y-6">
-        {/* 工具配置 */}
-        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md flex justify-between flex-wrap gap-4">
-          <div>
-            <button
-              onClick={loadSample}
-              className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              {t.loadSample}
-            </button>
-          </div>
-          
-          <div className="flex space-x-2">
+        {/* 操作按钮 */}
+        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">{t.options}</h3>
+          <div className="flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={validateJson}
-              className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              onClick={validateSchema}
+              disabled={isProcessing || !jsonData.trim() || !jsonSchema.trim()}
+              className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
             >
-              {t.validate}
+              {isProcessing ? t.validating : t.validate}
             </button>
-            <button 
+            
+            <button
+              type="button"
               onClick={clearAll}
-              className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              <FiRefreshCw className="mr-1" />
+              <FiRefreshCw className="mr-2" />
               {t.clear}
+            </button>
+            
+            <button
+              type="button"
+              onClick={loadExample}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              {t.loadExample}
             </button>
           </div>
         </div>
 
-        {/* 输入区域 */}
+        {/* JSON和Schema编辑器 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
             <JsonEditor
-              value={jsonInput}
-              onChange={setJsonInput}
+              value={jsonData}
+              onChange={setJsonData}
               label={t.jsonInput}
               placeholder={t.placeholderJson}
-              error={jsonError || undefined}
             />
           </div>
           
           <div>
             <JsonEditor
-              value={schemaInput}
-              onChange={setSchemaInput}
+              value={jsonSchema}
+              onChange={setJsonSchema}
               label={t.schemaInput}
               placeholder={t.placeholderSchema}
-              error={schemaError || undefined}
             />
           </div>
         </div>
-        
+
         {/* 验证结果 */}
         {validationResult && (
-          <div className="mt-6">
-            <div className="mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-center">
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2 sm:mb-0">
-                {t.result}
-              </h3>
-              <div className="flex space-x-2">
-                <button 
-                  onClick={copyResult}
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                  <FiCopy className="mr-1" />
-                  {t.copy}
-                </button>
-                <button 
-                  onClick={downloadResult}
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                  <FiDownload className="mr-1" />
-                  {t.download}
-                </button>
-              </div>
-            </div>
+          <div className={`p-4 rounded-md ${
+            validationResult.valid 
+              ? 'bg-green-50 dark:bg-green-900/30' 
+              : 'bg-red-50 dark:bg-red-900/30'
+          }`}>
+            <h3 className={`text-lg font-medium mb-3 ${
+              validationResult.valid 
+                ? 'text-green-800 dark:text-green-200' 
+                : 'text-red-800 dark:text-red-200'
+            }`}>
+              {t.result}: {validationResult.valid ? t.valid : t.invalid}
+            </h3>
             
-            {validationResult.valid ? (
-              <div className="bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-400 p-4 rounded-md">
-                <div className="flex items-center">
-                  <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-medium">{t.valid}: </span>
-                  <span className="ml-1">{t.validMessage}</span>
-                </div>
+            {!validationResult.valid && validationResult.errors.length > 0 && (
+              <div className="space-y-2">
+                <h4 className="text-sm font-medium text-red-700 dark:text-red-300">{t.errorDetails}:</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  {validationResult.errors.map((error, index) => (
+                    <li key={index} className="text-sm text-red-700 dark:text-red-300">
+                      <span className="font-medium">{error.path}</span>: {error.message}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ) : (
-              <div>
-                <div className="bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-400 p-4 rounded-md mb-4">
-                  <div className="flex items-center">
-                    <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                    </svg>
-                    <span className="font-medium">{t.invalid}: </span>
-                    <span className="ml-1">{t.errorCount}: {validationResult.errors.length}, {t.warningCount}: {validationResult.warnings.length}</span>
-                  </div>
-                </div>
-                
-                {/* 错误详情 */}
-                {validationResult.errors.length > 0 && (
-                  <div className="mb-4">
-                    <h4 className="text-md font-medium text-gray-900 dark:text-white mb-2">
-                      {t.errorDetails}
-                    </h4>
-                    <div className="border rounded-md overflow-hidden">
-                      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead className="bg-gray-50 dark:bg-gray-800">
-                          <tr>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                              {t.path}
-                            </th>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                              {t.message}
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
-                          {validationResult.errors.map((error, index) => (
-                            <tr key={index}>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900 dark:text-gray-300">
-                                {error.path}
-                              </td>
-                              <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
-                                {error.message}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                )}
-                
-                {/* 警告详情 */}
-                {validationResult.warnings.length > 0 && (
-                  <div>
-                    <h4 className="text-md font-medium text-gray-900 dark:text-white mb-2">
-                      {t.warningDetails}
-                    </h4>
-                    <div className="border rounded-md overflow-hidden">
-                      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead className="bg-gray-50 dark:bg-gray-800">
-                          <tr>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                              {t.path}
-                            </th>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                              {t.message}
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
-                          {validationResult.warnings.map((warning, index) => (
-                            <tr key={index}>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900 dark:text-gray-300">
-                                {warning.path}
-                              </td>
-                              <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
-                                {warning.message}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                )}
-              </div>
+            )}
+            
+            {validationResult.valid && (
+              <p className="text-green-700 dark:text-green-300">
+                JSON 数据符合 Schema 要求，验证通过。
+              </p>
             )}
           </div>
         )}
+
+        {/* Schema指南 */}
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-md">
+          <h3 className="text-lg font-medium text-blue-800 dark:text-blue-200 mb-2">{t.guideTitle}</h3>
+          <p className="text-sm text-blue-700 dark:text-blue-300 mb-3">
+            {t.guideDescription}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">{t.basicTypesTitle}</h4>
+              <ul className="text-xs text-blue-600 dark:text-blue-400 list-disc pl-5 space-y-1">
+                <li><code>"type": "string"</code> - 字符串类型</li>
+                <li><code>"type": "number"</code> - 数字类型</li>
+                <li><code>"type": "integer"</code> - 整数类型</li>
+                <li><code>"type": "boolean"</code> - 布尔类型</li>
+                <li><code>"type": "array"</code> - 数组类型</li>
+                <li><code>"type": "object"</code> - 对象类型</li>
+                <li><code>"type": "null"</code> - null值</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">{t.commonRulesTitle}</h4>
+              <ul className="text-xs text-blue-600 dark:text-blue-400 list-disc pl-5 space-y-1">
+                <li><code>"required": ["field1", "field2"]</code> - 必填字段</li>
+                <li><code>"minLength" / "maxLength"</code> - 字符串长度限制</li>
+                <li><code>"minimum" / "maximum"</code> - 数值范围限制</li>
+                <li><code>"pattern": "^\\d+$"</code> - 正则表达式匹配</li>
+                <li><code>"format": "email"</code> - 特定格式验证</li>
+                <li><code>"enum": ["选项1", "选项2"]</code> - 枚举值验证</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </ToolLayout>
   );

@@ -3,8 +3,8 @@
 import { Fragment, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, Transition } from '@headlessui/react';
-import { FiChevronDown, FiCheck, FiGlobe } from 'react-icons/fi';
+import { Popover, Transition } from '@headlessui/react';
+import { FiGlobe } from 'react-icons/fi';
 import { Locale, locales, languageNames } from '@/i18n';
 
 interface LanguageSwitcherProps {
@@ -54,25 +54,18 @@ export default function LanguageSwitcher({ locale, dictionary }: LanguageSwitche
     return `/${targetLocale}${path.startsWith('/') ? path : `/${path}`}`;
   };
 
-  // 获取当前语言名称
-  const currentLanguageName = languageNames[locale] || dictionary.language[locale] || locale;
-
   // 如果不是客户端渲染，返回占位元素保持布局一致
   if (!mounted) {
     return (
-      <div className="w-[120px] h-8"></div>
+      <div className="w-9 h-9"></div>
     );
   }
 
   return (
-    <Menu as="div" className="relative inline-block text-left z-10">
-      <div>
-        <Menu.Button className="inline-flex w-full justify-center items-center rounded-md bg-white dark:bg-gray-800 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <FiGlobe className="mr-1" aria-hidden="true" />
-          <span className="mx-1">{currentLanguageName}</span>
-          <FiChevronDown className="-mr-1 ml-2 h-4 w-4" aria-hidden="true" />
-        </Menu.Button>
-      </div>
+    <Popover className="relative">
+      <Popover.Button className="flex items-center justify-center w-9 h-9 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <FiGlobe className="w-5 h-5" />
+      </Popover.Button>
 
       <Transition
         as={Fragment}
@@ -83,28 +76,23 @@ export default function LanguageSwitcher({ locale, dictionary }: LanguageSwitche
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100 dark:divide-gray-700 max-h-80 overflow-y-auto">
-          <div className="py-1">
+        <Popover.Panel className="absolute right-0 z-10 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 p-2 min-w-[180px] max-w-[220px]">
+          <div className="grid grid-cols-2 gap-1">
             {locales.map((lang) => (
-              <Menu.Item key={lang}>
-                {({ active }) => (
-                  <Link
-                    href={getLanguageUrl(lang)}
-                    className={`
-                      ${active ? 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100' : 'text-gray-700 dark:text-gray-300'} 
-                      ${locale === lang ? 'font-medium' : 'font-normal'}
-                      flex items-center justify-between px-4 py-2 text-sm
-                    `}
-                  >
-                    <span>{languageNames[lang]}</span>
-                    {locale === lang && <FiCheck className="h-4 w-4" aria-hidden="true" />}
-                  </Link>
-                )}
-              </Menu.Item>
+              <Link
+                key={lang}
+                href={getLanguageUrl(lang)}
+                className={`
+                  flex items-center justify-center px-2 py-1.5 text-sm rounded 
+                  ${locale === lang ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'}
+                `}
+              >
+                {languageNames[lang]}
+              </Link>
             ))}
           </div>
-        </Menu.Items>
+        </Popover.Panel>
       </Transition>
-    </Menu>
+    </Popover>
   );
 } 

@@ -1,10 +1,10 @@
 {
   "nav": {
     "home": "首页",
-    "formatter": "JSON格式化工具",
-    "validator": "JSON校验工具",
-    "converter": "JSON转换工具",
-    "diff": "JSON对比工具",
+    "formatter": "JSON格式化",
+    "validator": "JSON校验",
+    "converter": "JSON转换",
+    "diff": "JSON对比",
     "treeEditor": "JSON树形编辑器",
     "schemaValidator": "JSON Schema验证"
   },
