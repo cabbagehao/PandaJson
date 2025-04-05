@@ -15,7 +15,10 @@ export const common = {
       editor: 'Editor en Línea',
       compare: 'Herramienta de Comparación',
       path: 'Consulta de Ruta',
-      schema: 'Generador de Esquemas'
+      schema: 'Generador de Esquemas',
+      comprehensive: 'Características Completas',
+      free: 'Completamente Gratis',
+      secure: 'Seguro y Confiable'
     },
     featuresDescription: {
       formatter: 'Embellecer y formatear datos JSON para una mejor legibilidad',
@@ -26,6 +29,12 @@ export const common = {
       compare: 'Comparar diferencias entre dos conjuntos de datos JSON',
       path: 'Consultar y extraer datos usando JSONPath',
       schema: 'Generar Esquema JSON a partir de datos JSON'
+    },
+    whyChooseUs: '¿Por qué elegirnos?',
+    descriptions: {
+      comprehensive: 'Proporciona varias herramientas de procesamiento JSON para satisfacer diferentes necesidades de desarrollo',
+      free: 'Todas las herramientas son completamente gratuitas para usar sin ninguna restricción',
+      secure: 'Los datos se procesan en el lado del cliente y no se cargan en el servidor'
     }
   },
   nav: {
@@ -48,7 +57,10 @@ export const common = {
     zh: 'Chino',
     en: 'Inglés',
     es: 'Español',
-    ja: 'Japonés'
+    ja: 'Japonés',
+    'zh-tw': 'Chino Tradicional',
+    ar: 'Árabe',
+    hi: 'Hindi'
   },
   ui: {
     copy: 'Copiar',

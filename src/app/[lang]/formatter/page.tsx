@@ -10,7 +10,7 @@ import { useTranslation } from '@/i18n/hooks';
 type BraceStyle = 'collapse' | 'expand' | 'end-expand' | 'none' | 'preserve-inline';
 
 export default function JsonFormatter() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const formatter = t('formatter');
   const ui = t('common').ui;
 

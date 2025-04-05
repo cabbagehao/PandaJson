@@ -3,26 +3,15 @@ import { FiCode, FiCheck, FiRepeat, FiGitPullRequest, FiEdit, FiFileText, FiMini
 import { Locale, defaultLocale } from "../../i18n";
 import { getServerTranslation } from "@/i18n/server";
 
-// 导入JSON字典
-import zhDict from "../../i18n/dictionaries/zh.json";
-import enDict from "../../i18n/dictionaries/en.json";
-
-// 字典映射
-const dictionaries = {
-  'zh': zhDict,
-  'en': enDict
-} as const;
-
-type Dictionary = typeof zhDict | typeof enDict;
-
 export default async function Home({
-  params: { lang },
+  params,
 }: {
   params: { lang: string };
 }) {
   // 获取当前语言的翻译
-  const resolvedLang = await Promise.resolve(lang);
-  const locale = (resolvedLang || defaultLocale) as Locale;
+  const resolvedParams = await Promise.resolve(params);
+  const lang = resolvedParams.lang || defaultLocale;
+  const locale = (lang as Locale);
   const { t } = getServerTranslation(locale);
   const { common } = t;
   const home = common.home;
@@ -93,7 +82,7 @@ export default async function Home({
         {features.map((feature) => (
           <Link 
             key={feature.name}
-            href={`/${locale === 'zh' ? '' : locale + '/'}${feature.href.replace('/', '')}`}
+            href={`/${locale}${feature.href}`}
             className="flex flex-col p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
           >
             <div className={`${feature.color} w-10 sm:w-12 h-10 sm:h-12 rounded-full flex items-center justify-center text-white mb-3 sm:mb-4`}>
@@ -106,7 +95,7 @@ export default async function Home({
               {feature.description}
             </p>
             <div className="mt-3 sm:mt-4 text-blue-600 dark:text-blue-400 font-medium">
-              立即使用 →
+              {common.ui.usageGuide} →
             </div>
           </Link>
         ))}
@@ -114,20 +103,20 @@ export default async function Home({
       
       <div className="mt-12 sm:mt-16 text-center px-4 sm:px-0">
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
-          为什么选择我们
+          {home.whyChooseUs}
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-base sm:text-lg mb-2">全面的功能</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">提供多种JSON处理工具，满足各种开发需求</p>
+            <h3 className="font-semibold text-base sm:text-lg mb-2">{home.features.comprehensive}</h3>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions.comprehensive}</p>
           </div>
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-base sm:text-lg mb-2">完全免费</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">所有工具完全免费使用，没有任何限制</p>
+            <h3 className="font-semibold text-base sm:text-lg mb-2">{home.features.free}</h3>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions.free}</p>
           </div>
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-base sm:text-lg mb-2">安全可靠</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">数据在客户端处理，不会上传到服务器</p>
+            <h3 className="font-semibold text-base sm:text-lg mb-2">{home.features.secure}</h3>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions.secure}</p>
           </div>
         </div>
       </div>

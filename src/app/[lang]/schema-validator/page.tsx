@@ -13,8 +13,9 @@ const ajv = new Ajv({ allErrors: true });
 addFormats(ajv);
 
 export default function SchemaValidator() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const sv = t('schemaValidator');
+  const ui = t('common').ui;
   
   const [jsonInput, setJsonInput] = useState('');
   const [schemaInput, setSchemaInput] = useState('');

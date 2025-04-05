@@ -15,7 +15,10 @@ export const common = {
       editor: '在线编辑器',
       compare: '比较工具',
       path: '路径查询',
-      schema: '模式生成'
+      schema: '模式生成',
+      comprehensive: '全面的功能',
+      free: '完全免费',
+      secure: '安全可靠'
     },
     featuresDescription: {
       formatter: '美化并格式化JSON数据，提高可读性',
@@ -26,6 +29,12 @@ export const common = {
       compare: '比较两个JSON数据的差异',
       path: '使用JSONPath查询和提取数据',
       schema: '从JSON数据生成JSON Schema'
+    },
+    whyChooseUs: '为什么选择我们',
+    descriptions: {
+      comprehensive: '提供多种JSON处理工具，满足各种开发需求',
+      free: '所有工具完全免费使用，没有任何限制',
+      secure: '数据在客户端处理，不会上传到服务器'
     }
   },
   nav: {
@@ -48,7 +57,10 @@ export const common = {
     zh: '中文',
     en: 'English',
     es: '西班牙语',
-    ja: '日语'
+    ja: '日语',
+    'zh-tw': '繁体中文',
+    ar: '阿拉伯语',
+    hi: '印地语'
   },
   ui: {
     copy: '复制',

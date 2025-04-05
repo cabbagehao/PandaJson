@@ -15,7 +15,10 @@ export const common = {
       editor: 'オンラインエディタ',
       compare: '比較ツール',
       path: 'パスクエリ',
-      schema: 'スキーマジェネレータ'
+      schema: 'スキーマジェネレータ',
+      comprehensive: '包括的な機能',
+      free: '完全無料',
+      secure: '安全で信頼性の高い'
     },
     featuresDescription: {
       formatter: 'JSONデータを美しく整形して可読性を向上',
@@ -26,6 +29,12 @@ export const common = {
       compare: '2つのJSONデータセット間の違いを比較',
       path: 'JSONPathを使用してデータをクエリおよび抽出',
       schema: 'JSONデータからJSONスキーマを生成'
+    },
+    whyChooseUs: '当サービスを選ぶ理由',
+    descriptions: {
+      comprehensive: '様々な開発ニーズを満たすための多様なJSON処理ツールを提供',
+      free: 'すべてのツールは完全に無料で使用でき、制限はありません',
+      secure: 'データはクライアントサイドで処理され、サーバーにアップロードされません'
     }
   },
   nav: {
@@ -48,7 +57,10 @@ export const common = {
     zh: '中国語',
     en: '英語',
     es: 'スペイン語',
-    ja: '日本語'
+    ja: '日本語',
+    'zh-tw': '繁体中国語',
+    ar: 'アラビア語',
+    hi: 'ヒンディー語'
   },
   ui: {
     copy: 'コピー',

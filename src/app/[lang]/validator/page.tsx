@@ -16,7 +16,7 @@ interface ErrorHighlight {
 }
 
 export default function JsonValidator() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const validator = t('validator');
   const ui = t('common').ui;
 

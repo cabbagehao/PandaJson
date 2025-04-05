@@ -7,8 +7,9 @@ import JsonEditor from '../../components/JsonEditor';
 import { useTranslation } from '@/i18n/hooks';
 
 export default function JsonMinifier() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const minifier = t('minifier');
+  const ui = t('common').ui;
   
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');

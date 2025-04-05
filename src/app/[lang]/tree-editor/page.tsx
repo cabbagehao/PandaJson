@@ -11,8 +11,9 @@ import { useTranslation } from '@/i18n/hooks';
 const JsonTree = dynamic(() => import('../../components/JsonTree'), { ssr: false });
 
 export default function TreeEditor() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const treeEditor = t('treeEditor');
+  const ui = t('common').ui;
 
   const [jsonText, setJsonText] = useState('');
   const [jsonData, setJsonData] = useState<any>(null);

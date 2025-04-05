@@ -1,0 +1,20 @@
+export const diff = {
+  title: 'أداة مقارنة JSON',
+  description: 'قارن بين كائنات JSON وتصور الإضافات والحذف والتعديلات.',
+  keywords: 'مقارنة JSON، مقارنة JSON، اختلاف JSON، مقارنة JSON، مقارن JSON',
+  leftInput: 'JSON الأول',
+  rightInput: 'JSON الثاني',
+  result: 'نتيجة المقارنة',
+  placeholderLeft: 'ألصق بيانات JSON الأولى هنا',
+  placeholderRight: 'ألصق بيانات JSON الثانية هنا',
+  compare: 'قارن',
+  clear: 'مسح',
+  loadExample: 'تحميل مثال',
+  processing: 'جاري المعالجة...',
+  error: 'خطأ في المقارنة: ',
+  unknown: 'خطأ غير معروف أثناء المقارنة',
+  diffGuide: 'دليل الاختلافات',
+  addedContent: 'المحتوى المضاف',
+  removedContent: 'المحتوى المحذوف',
+  modifiedContent: 'المحتوى المعدل'
+}; 

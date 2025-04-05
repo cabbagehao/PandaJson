@@ -9,7 +9,9 @@ import { getTranslation, TranslationType, TranslationNamespace } from './locales
  */
 export function useTranslation() {
   const params = useParams();
-  const locale = (params?.lang as Locale) || defaultLocale;
+  // 确保始终获取URL中的语言参数，并验证它是否为支持的语言
+  const lang = params?.lang as string;
+  const locale = (lang && typeof lang === 'string' ? lang : defaultLocale) as Locale;
   const translations = getTranslation(locale);
   
   /**

@@ -8,8 +8,9 @@ import ToolLayout from '../../components/ToolLayout';
 import { useTranslation } from '@/i18n/hooks';
 
 export default function JsonDiff() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const diff = t('diff');
+  const ui = t('common').ui;
 
   const [json1, setJson1] = useState('');
   const [json2, setJson2] = useState('');

@@ -18,7 +18,7 @@ interface ConverterClientProps {
 }
 
 export default function ConverterClient({ params }: ConverterClientProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const converter = t('converter');
   const ui = t('common').ui;
   

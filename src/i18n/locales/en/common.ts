@@ -15,7 +15,10 @@ export const common = {
       editor: 'Online Editor',
       compare: 'Comparison Tool',
       path: 'Path Query',
-      schema: 'Schema Generator'
+      schema: 'Schema Generator',
+      comprehensive: 'Comprehensive Features',
+      free: 'Completely Free',
+      secure: 'Safe and Reliable'
     },
     featuresDescription: {
       formatter: 'Beautify and format JSON data for better readability',
@@ -26,6 +29,12 @@ export const common = {
       compare: 'Compare differences between two JSON datasets',
       path: 'Query and extract data using JSONPath',
       schema: 'Generate JSON Schema from JSON data'
+    },
+    whyChooseUs: 'Why Choose Us',
+    descriptions: {
+      comprehensive: 'Provides various JSON processing tools to meet different development needs',
+      free: 'All tools are completely free to use without any restrictions',
+      secure: 'Data is processed on the client side and not uploaded to the server'
     }
   },
   nav: {
@@ -48,7 +57,10 @@ export const common = {
     zh: 'Chinese',
     en: 'English',
     es: 'Spanish',
-    ja: 'Japanese'
+    ja: 'Japanese',
+    'zh-tw': 'Traditional Chinese',
+    ar: 'Arabic',
+    hi: 'Hindi'
   },
   ui: {
     copy: 'Copy',
