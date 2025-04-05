@@ -1,0 +1,30 @@
+export const formatter = {
+  title: 'JSON formatlash | Onlayn JSON go\'zallashtirish',
+  description: 'Chiziqlar orasidagi bo\'sh joy, qavslar uslubi va qator kengligi kabi sozlanuvchi parametrlar bilan JSON ma\'lumotlarini formatlang va go\'zallashtiring. Sintaksis xatolarini aniqlash va tuzatish uchun aqlli JSON formatlash vositasi.',
+  keywords: 'JSON formatlash,JSON go\'zallashtirish,JSON ko\'rish,JSON formatlash,onlayn JSON formatlash,JSON formatlash,JSON kodni go\'zallashtirish',
+  options: 'Parametrlar',
+  indentSize: 'Bo\'sh joy o\'lchami',
+  braceStyle: 'Qavs uslubi',
+  lineWidth: 'Qator kengligi',
+  format: 'Formatlash',
+  spaces: 'Bo\'sh joylar',
+  tabs: 'Tabulyatsiyalar',
+  sameRow: 'Bir qatorda',
+  newRow: 'Yangi qatorda',
+  auto: 'Avtomatik',
+  input: 'Kirish',
+  output: 'Chiqish',
+  error: 'JSON qayta ishlashda xato: {message}',
+  successMessages: {
+    formatted: 'JSON muvaffaqiyatli formatlandi.',
+    repaired: 'JSON ta\'mirlandi va formatlandi.',
+    identical: 'JSON allaqachon yaxshi formatlangan.'
+  },
+  placeholder: 'Bu yerda formatlash uchun JSON kiriting',
+  loadExample: 'Misol yuklash',
+  repairAndFormat: 'Ta\'mirlash va formatlash',
+  invalidJsonWarning: 'Noto\'g\'ri JSON. Uni tuzatishga harakat qilamiz.',
+  formatProgress: 'Formatlanmoqda...',
+  syntaxError: 'Sintaksis xato',
+  jsonStructure: 'JSON tuzilishi'
+}; 

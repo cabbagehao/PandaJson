@@ -5,6 +5,14 @@ import { ja } from './ja';
 import { zhTw } from './zh-tw';
 import { ar } from './ar';
 import { hi } from './hi';
+import { pt } from './pt';
+import { fr } from './fr';
+import { ru } from './ru';
+import { de } from './de';
+import { vi } from './vi';
+import { sw } from './sw';
+import { mk } from './mk';
+import { uz } from './uz';
 import { Locale } from '../index';
 
 export type TranslationNamespace = keyof typeof zh;
@@ -16,7 +24,15 @@ const translations = {
   ja,
   'zh-tw': zhTw,
   ar,
-  hi
+  hi,
+  pt,
+  fr,
+  ru,
+  de,
+  vi,
+  sw,
+  mk,
+  uz
 };
 
 export type TranslationType = typeof zh;

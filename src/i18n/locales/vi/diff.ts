@@ -1,0 +1,20 @@
+export const diff = {
+  title: 'Công Cụ So Sánh JSON',
+  description: 'So sánh hai đối tượng JSON và trực quan hóa các phần thêm vào, xóa và sửa đổi.',
+  keywords: 'Diff JSON,So sánh JSON,Sự khác biệt JSON,So sánh JSON,Trình so sánh JSON',
+  leftInput: 'JSON Thứ Nhất',
+  rightInput: 'JSON Thứ Hai',
+  result: 'Kết Quả So Sánh',
+  placeholderLeft: 'Dán dữ liệu JSON thứ nhất của bạn tại đây',
+  placeholderRight: 'Dán dữ liệu JSON thứ hai của bạn tại đây',
+  compare: 'So Sánh',
+  clear: 'Xóa',
+  loadExample: 'Tải Ví Dụ',
+  processing: 'Đang Xử Lý...',
+  error: 'Lỗi so sánh: ',
+  unknown: 'Lỗi không xác định khi so sánh',
+  diffGuide: 'Hướng Dẫn So Sánh',
+  addedContent: 'Nội Dung Đã Thêm',
+  removedContent: 'Nội Dung Đã Xóa',
+  modifiedContent: 'Nội Dung Đã Sửa Đổi'
+}; 

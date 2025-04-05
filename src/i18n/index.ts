@@ -2,7 +2,7 @@ import { cache } from 'react'
 import { getTranslation } from './locales'
 
 // 支持的语言
-export const locales = ['zh', 'en', 'es', 'ja', 'zh-tw', 'ar', 'hi'] as const
+export const locales = ['zh', 'en', 'es', 'ja', 'zh-tw', 'ar', 'hi', 'pt', 'fr', 'ru', 'de', 'vi', 'sw', 'mk', 'uz'] as const
 export type Locale = (typeof locales)[number]
 
 // 语言显示名称
@@ -13,7 +13,15 @@ export const languageNames: Record<Locale, string> = {
   ja: '日本語',
   'zh-tw': '繁體中文',
   ar: 'العربية',
-  hi: 'हिन्दी'
+  hi: 'हिन्दी',
+  pt: 'Português',
+  fr: 'Français',
+  ru: 'Русский',
+  de: 'Deutsch',
+  vi: 'Tiếng Việt',
+  sw: 'Kiswahili',
+  mk: 'Македонски',
+  uz: 'O\'zbek'
 }
 
 // 默认语言

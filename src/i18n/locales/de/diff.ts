@@ -1,0 +1,20 @@
+export const diff = {
+  title: 'JSON-Vergleichstool',
+  description: 'Vergleichen Sie zwei JSON-Objekte und visualisieren Sie Hinzufügungen, Löschungen und Änderungen.',
+  keywords: 'JSON-Diff,JSON-Vergleich,JSON-Unterschied,JSON-Vergleichung,JSON-Komparator',
+  leftInput: 'Erstes JSON',
+  rightInput: 'Zweites JSON',
+  result: 'Vergleichsergebnis',
+  placeholderLeft: 'Fügen Sie hier Ihre ersten JSON-Daten ein',
+  placeholderRight: 'Fügen Sie hier Ihre zweiten JSON-Daten ein',
+  compare: 'Vergleichen',
+  clear: 'Löschen',
+  loadExample: 'Beispiel laden',
+  processing: 'Verarbeitung...',
+  error: 'Vergleichsfehler: ',
+  unknown: 'Unbekannter Fehler beim Vergleich',
+  diffGuide: 'Diff-Anleitung',
+  addedContent: 'Hinzugefügter Inhalt',
+  removedContent: 'Entfernter Inhalt',
+  modifiedContent: 'Geänderter Inhalt'
+}; 

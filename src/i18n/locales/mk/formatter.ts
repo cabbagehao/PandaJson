@@ -1,0 +1,30 @@
+export const formatter = {
+  title: 'JSON Форматер | Онлајн JSON Разубавувач',
+  description: 'Форматирај и разубави ги JSON податоците со прилагодливи опции за идентација, стил на загради и ширина на линија. Паметна JSON форматирачка алатка која открива и поправа синтаксички грешки.',
+  keywords: 'JSON форматер,JSON разубавувач,JSON прегледувач,JSON обликувач,онлајн JSON форматер,форматирање на JSON,разубавување на JSON код',
+  options: 'Опции',
+  indentSize: 'Големина на идентација',
+  braceStyle: 'Стил на загради',
+  lineWidth: 'Ширина на линија',
+  format: 'Форматирај',
+  spaces: 'Празни места',
+  tabs: 'Табулатори',
+  sameRow: 'Иста линија',
+  newRow: 'Нова линија',
+  auto: 'Автоматски',
+  input: 'Влез',
+  output: 'Излез',
+  error: 'Грешка во обработката на JSON: {message}',
+  successMessages: {
+    formatted: 'JSON е успешно форматиран.',
+    repaired: 'JSON е поправен и форматиран.',
+    identical: 'JSON е веќе добро форматиран.'
+  },
+  placeholder: 'Внесете JSON за форматирање тука',
+  loadExample: 'Вчитај пример',
+  repairAndFormat: 'Поправи и форматирај',
+  invalidJsonWarning: 'Неважечки JSON. Ќе се обидеме да го поправиме.',
+  formatProgress: 'Форматирање...',
+  syntaxError: 'Синтаксичка грешка',
+  jsonStructure: 'JSON структура'
+}; 
