@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Popover, Transition } from '@headlessui/react';
 import { FiGlobe } from 'react-icons/fi';
-import { Locale, locales, languageNames } from '@/i18n';
+import { Locale, locales, languageNames, defaultLocale } from '@/i18n';
 
 interface LanguageSwitcherProps {
   locale: Locale;
@@ -33,18 +33,8 @@ export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
       }
     }
     
-    // 如果路径现在是 '/'，并且不是首页链接
-    if (path === '/' && locale !== targetLocale) {
-      return `/${targetLocale}`;
-    }
-    
-    // 如果是默认语言(zh)，则不需要加语言前缀
-    if (targetLocale === 'zh') {
-      return path;
-    }
-    
-    // 其他语言需要加上语言前缀
-    return `/${targetLocale}${path.startsWith('/') ? path : `/${path}`}`;
+    // 简化逻辑: 所有语言（包括默认语言）都添加语言前缀，与中间件行为保持一致
+    return `/${targetLocale}${path === '/' ? '' : path}`;
   };
 
   // 如果不是客户端渲染，返回占位元素保持布局一致

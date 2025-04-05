@@ -12,7 +12,7 @@ export const languageNames: Record<Locale, string> = {
 }
 
 // 默认语言
-export const defaultLocale: Locale = 'zh'
+export const defaultLocale: Locale = 'en'
 
 // i18n配置
 export const i18n = {

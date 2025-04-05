@@ -1,8 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 熊猫Json (PandaJson)
 
-## Getting Started
+一站式JSON数据处理工具平台，帮助开发者更高效地处理JSON数据。
 
-First, run the development server:
+## 功能
+
+- **JSON格式化工具**: 美化并格式化JSON数据，提高可读性
+- **JSON校验工具**: 验证JSON的有效性和结构
+- **JSON转换工具**: 在JSON、XML、YAML等格式之间转换
+- **JSON对比工具**: 比较两个JSON数据的差异
+- **JSON树形编辑器**: 在线编辑和处理JSON数据
+- **JSON Schema验证**: 通过Schema验证JSON数据
+
+## 开始使用
+
+首先，运行开发服务器:
 
 ```bash
 npm run dev
@@ -14,11 +25,22 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看结果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 技术栈
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js](https://nextjs.org) - React框架
+- [React](https://reactjs.org) - 用户界面库
+- [Tailwind CSS](https://tailwindcss.com) - 样式库
+- [TypeScript](https://www.typescriptlang.org) - 类型化JavaScript
+
+## 国际化
+
+熊猫Json支持多种语言，目前已实现:
+- 中文
+- 英文
+
+更多语言支持正在开发中。
 
 ## Learn More
 

@@ -23,7 +23,9 @@ export async function generateMetadata({
   params: { lang: string } 
 }): Promise<Metadata> {
   // 获取当前语言的翻译
-  const locale = (params.lang as string || defaultLocale) as Locale;
+  const resolvedParams = await Promise.resolve(params);
+  const lang = resolvedParams.lang || defaultLocale;
+  const locale = (lang as Locale);
   const { t } = getServerTranslation(locale);
   const common = t.common;
 
@@ -49,7 +51,9 @@ export default async function RootLayout({
   params: { lang: string };
 }>) {
   // 获取当前语言的翻译
-  const locale = (params.lang as string || defaultLocale) as Locale;
+  const resolvedParams = await Promise.resolve(params);
+  const lang = resolvedParams.lang || defaultLocale;
+  const locale = (lang as Locale);
   const { t } = getServerTranslation(locale);
   
   return (
@@ -65,7 +69,7 @@ export default async function RootLayout({
           </main>
           <footer className="bg-gray-100 dark:bg-gray-800 py-6">
             <div className="container mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
-              <p>© 2023 JSON工具集. {t.common.footer.copyright}</p>
+              <p>© 2025 {t.common.siteTitle}. {t.common.footer.copyright}</p>
             </div>
           </footer>
         </div>

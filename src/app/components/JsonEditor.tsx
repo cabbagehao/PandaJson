@@ -35,6 +35,9 @@ export default function JsonEditor({ value, onChange, readOnly = false, label, p
           editor.setShowFoldWidgets(true);
           editor.setValue(value || '', -1);
           
+          // 禁用worker以避免404错误
+          editor.session.setUseWorker(false);
+          
           if (!readOnly) {
             editor.on('change', () => {
               onChange && onChange(editor.getValue());

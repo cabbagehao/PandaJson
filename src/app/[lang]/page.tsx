@@ -15,13 +15,14 @@ const dictionaries = {
 
 type Dictionary = typeof zhDict | typeof enDict;
 
-export default function Home({
+export default async function Home({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
   // 获取当前语言的翻译
-  const locale = (lang as string || defaultLocale) as Locale;
+  const resolvedLang = await Promise.resolve(lang);
+  const locale = (resolvedLang || defaultLocale) as Locale;
   const { t } = getServerTranslation(locale);
   const { common } = t;
   const home = common.home;

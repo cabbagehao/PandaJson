@@ -21,7 +21,7 @@ export default function ToolLayout({
 }: ToolLayoutProps) {
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
   const params = useParams();
-  const lang = params.lang as string || 'zh';
+  const lang = (params && 'lang' in params) ? params.lang as string : 'zh';
 
   const copyToClipboard = async (text: string) => {
     try {

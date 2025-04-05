@@ -1,13 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import yaml from 'js-yaml';
+import { FiDownload, FiCopy, FiRefreshCw } from 'react-icons/fi';
+import * as yaml from 'js-yaml';
 import { xml2json, json2xml } from 'xml-js';
-import { Parser } from 'json2csv';
 import Papa from 'papaparse';
-import { FiCopy, FiDownload, FiX } from 'react-icons/fi';
-import { useTranslation } from '@/i18n/client';
-import { Locale } from '@/i18n';
+import { useTranslation } from '@/i18n/hooks';
+import JsonEditor from '@/app/components/JsonEditor';
+import ToolLayout from '@/app/components/ToolLayout';
+
+type ConversionType = 'json-to-yaml' | 'json-to-xml' | 'json-to-csv' | 'yaml-to-json' | 'xml-to-json' | 'csv-to-json';
 
 interface ConverterClientProps {
   params: {
@@ -16,266 +18,313 @@ interface ConverterClientProps {
 }
 
 export default function ConverterClient({ params }: ConverterClientProps) {
-  const { t } = useTranslation(params.lang, 'converter');
-  const [input, setInput] = useState<string>('');
-  const [output, setOutput] = useState<string>('');
+  const { t } = useTranslation();
+  const converter = t('converter');
+  const ui = t('common').ui;
+  
+  const [input, setInput] = useState('');
+  const [output, setOutput] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const [conversionType, setConversionType] = useState<string>('json2yaml');
-  const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const [conversionType, setConversionType] = useState<ConversionType>('json-to-yaml');
+  const [isProcessing, setIsProcessing] = useState(false);
 
+  // 转换处理函数
   const handleConvert = () => {
-    if (!input.trim()) {
-      setError(t('errors.emptyInput'));
-      return;
-    }
-
-    setIsProcessing(true);
     setError(null);
+    setOutput('');
+    setIsProcessing(true);
 
     try {
+      let result = '';
+
       switch (conversionType) {
-        case 'json2yaml':
-          convertJsonToYaml();
+        case 'json-to-yaml':
+          result = convertJsonToYaml(input);
           break;
-        case 'yaml2json':
-          convertYamlToJson();
+        case 'json-to-xml':
+          result = convertJsonToXml(input);
           break;
-        case 'json2xml':
-          convertJsonToXml();
+        case 'json-to-csv':
+          result = convertJsonToCsv(input);
           break;
-        case 'xml2json':
-          convertXmlToJson();
+        case 'yaml-to-json':
+          result = convertYamlToJson(input);
           break;
-        case 'json2csv':
-          convertJsonToCsv();
+        case 'xml-to-json':
+          result = convertXmlToJson(input);
           break;
-        case 'csv2json':
-          convertCsvToJson();
+        case 'csv-to-json':
+          result = convertCsvToJson(input);
           break;
         default:
-          setError(t('errors.unsupportedConversion'));
+          throw new Error(converter.errors.unsupportedConversion);
       }
+
+      setOutput(result);
     } catch (err) {
-      setError(t('errors.conversionFailed') + ': ' + (err as Error).message);
+      if (err instanceof Error) {
+        setError(`${converter.errors.conversionFailed}: ${err.message}`);
+      } else {
+        setError(converter.errors.unknownError);
+      }
     } finally {
       setIsProcessing(false);
     }
   };
 
-  const convertJsonToYaml = () => {
-    try {
-      const jsonObj = JSON.parse(input);
-      const yamlStr = yaml.dump(jsonObj, { indent: 2 });
-      setOutput(yamlStr);
-    } catch (err) {
-      setError(t('errors.invalidJson') + ': ' + (err as Error).message);
-    }
+  // JSON -> YAML 转换
+  const convertJsonToYaml = (jsonStr: string): string => {
+    const parsed = JSON.parse(jsonStr);
+    return yaml.dump(parsed, { indent: 2 });
   };
 
-  const convertYamlToJson = () => {
-    try {
-      const jsonObj = yaml.load(input);
-      const jsonStr = JSON.stringify(jsonObj, null, 2);
-      setOutput(jsonStr);
-    } catch (err) {
-      setError(t('errors.invalidYaml') + ': ' + (err as Error).message);
-    }
+  // JSON -> XML 转换
+  const convertJsonToXml = (jsonStr: string): string => {
+    const parsed = JSON.parse(jsonStr);
+    return json2xml(JSON.stringify(parsed), { compact: true, spaces: 2 });
   };
 
-  const convertJsonToXml = () => {
-    try {
-      const jsonObj = JSON.parse(input);
-      const xmlStr = json2xml(JSON.stringify(jsonObj), { compact: true, spaces: 2 });
-      setOutput(xmlStr);
-    } catch (err) {
-      setError(t('errors.invalidJson') + ': ' + (err as Error).message);
+  // JSON -> CSV 转换
+  const convertJsonToCsv = (jsonStr: string): string => {
+    const parsed = JSON.parse(jsonStr);
+    
+    // 检查是否为数组
+    if (!Array.isArray(parsed)) {
+      throw new Error(converter.errors.jsonNotArray);
     }
+
+    // 检查数组是否为空
+    if (parsed.length === 0) {
+      return '';
+    }
+
+    return Papa.unparse(parsed);
   };
 
-  const convertXmlToJson = () => {
-    try {
-      const jsonStr = xml2json(input, { compact: true, spaces: 2 });
-      const formattedJson = JSON.stringify(JSON.parse(jsonStr), null, 2);
-      setOutput(formattedJson);
-    } catch (err) {
-      setError(t('errors.invalidXml') + ': ' + (err as Error).message);
-    }
+  // YAML -> JSON 转换
+  const convertYamlToJson = (yamlStr: string): string => {
+    const parsed = yaml.load(yamlStr);
+    return JSON.stringify(parsed, null, 2);
   };
 
-  const convertJsonToCsv = () => {
-    try {
-      const jsonObj = JSON.parse(input);
-      
-      if (!Array.isArray(jsonObj)) {
-        setError(t('errors.jsonNotArray'));
-        return;
+  // XML -> JSON 转换
+  const convertXmlToJson = (xmlStr: string): string => {
+    const options = { compact: true, spaces: 2 };
+    const result = xml2json(xmlStr, options);
+    return result;
+  };
+
+  // CSV -> JSON 转换
+  const convertCsvToJson = (csvStr: string): string => {
+    const result = Papa.parse(csvStr, { header: true });
+    return JSON.stringify(result.data, null, 2);
+  };
+
+  const copyOutput = async () => {
+    if (output) {
+      try {
+        await navigator.clipboard.writeText(output);
+        alert(ui.copied);
+      } catch (err) {
+        alert(ui.copyFailed);
       }
-      
-      const parser = new Parser();
-      const csv = parser.parse(jsonObj);
-      setOutput(csv);
-    } catch (err) {
-      setError(t('errors.invalidJson') + ': ' + (err as Error).message);
     }
   };
 
-  const convertCsvToJson = () => {
-    try {
-      const result = Papa.parse(input, { header: true });
-      
-      if (result.errors.length > 0) {
-        setError(t('errors.invalidCsv') + ': ' + result.errors[0].message);
-        return;
-      }
-      
-      const jsonStr = JSON.stringify(result.data, null, 2);
-      setOutput(jsonStr);
-    } catch (err) {
-      setError(t('errors.invalidCsv') + ': ' + (err as Error).message);
+  const downloadOutput = () => {
+    if (!output) return;
+
+    let fileExtension = 'txt';
+    let mimeType = 'text/plain';
+
+    // 根据转换类型设置下载文件的扩展名和MIME类型
+    switch (conversionType) {
+      case 'json-to-yaml':
+        fileExtension = 'yaml';
+        mimeType = 'application/yaml';
+        break;
+      case 'json-to-xml':
+        fileExtension = 'xml';
+        mimeType = 'application/xml';
+        break;
+      case 'json-to-csv':
+        fileExtension = 'csv';
+        mimeType = 'text/csv';
+        break;
+      case 'yaml-to-json':
+      case 'xml-to-json':
+      case 'csv-to-json':
+        fileExtension = 'json';
+        mimeType = 'application/json';
+        break;
     }
-  };
 
-  const handleCopyOutput = () => {
-    navigator.clipboard.writeText(output);
-  };
-
-  const handleDownloadOutput = () => {
-    const blob = new Blob([output], { type: 'text/plain' });
+    const blob = new Blob([output], { type: mimeType });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    
-    let extension = 'txt';
-    
-    switch (conversionType) {
-      case 'json2yaml':
-        extension = 'yaml';
-        break;
-      case 'yaml2json':
-      case 'xml2json':
-      case 'csv2json':
-        extension = 'json';
-        break;
-      case 'json2xml':
-        extension = 'xml';
-        break;
-      case 'json2csv':
-        extension = 'csv';
-        break;
-    }
-    
-    a.download = `converted.${extension}`;
+    a.download = `converted.${fileExtension}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
 
-  const clearInput = () => {
+  const clearAll = () => {
     setInput('');
     setOutput('');
     setError(null);
   };
 
+  const getInputPlaceholder = () => {
+    switch (conversionType) {
+      case 'json-to-yaml':
+      case 'json-to-xml':
+      case 'json-to-csv':
+        return converter.input.jsonPlaceholder;
+      case 'yaml-to-json':
+        return converter.input.yamlPlaceholder;
+      case 'xml-to-json':
+        return converter.input.xmlPlaceholder;
+      case 'csv-to-json':
+        return converter.input.csvPlaceholder;
+      default:
+        return converter.input.defaultPlaceholder;
+    }
+  };
+
+  const getInputLabel = () => {
+    switch (conversionType) {
+      case 'json-to-yaml':
+      case 'json-to-xml':
+      case 'json-to-csv':
+        return converter.input.jsonLabel;
+      case 'yaml-to-json':
+        return converter.input.yamlLabel;
+      case 'xml-to-json':
+        return converter.input.xmlLabel;
+      case 'csv-to-json':
+        return converter.input.csvLabel;
+      default:
+        return converter.input.defaultLabel;
+    }
+  };
+
+  const getOutputLabel = () => {
+    switch (conversionType) {
+      case 'json-to-yaml':
+        return converter.output.yamlLabel;
+      case 'json-to-xml':
+        return converter.output.xmlLabel;
+      case 'json-to-csv':
+        return converter.output.csvLabel;
+      case 'yaml-to-json':
+      case 'xml-to-json':
+      case 'csv-to-json':
+        return converter.output.jsonLabel;
+      default:
+        return converter.output.defaultLabel;
+    }
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-4">{t('title')}</h1>
-      <p className="mb-6 text-muted-foreground">{t('description')}</p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <div className="flex justify-between items-center mb-2">
-            <label htmlFor="input" className="block text-sm font-medium">
-              {t('input.label')}
-            </label>
-            <button
-              onClick={clearInput}
-              disabled={!input}
-              className="flex items-center px-2 py-1 text-sm rounded hover:bg-gray-100 dark:hover:bg-gray-800"
-            >
-              <FiX className="w-4 h-4 mr-1" />
-              {t('actions.clear')}
-            </button>
-          </div>
-          <textarea
-            id="input"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder={t('input.placeholder')}
-            className="w-full h-[400px] p-2 border rounded font-mono resize-none mb-4"
-          />
-        </div>
-        
-        <div>
-          <div className="flex justify-between items-center mb-2">
-            <label htmlFor="output" className="block text-sm font-medium">
-              {t('output.label')}
-            </label>
-            <div className="flex gap-2">
-              <button
-                onClick={handleCopyOutput}
-                disabled={!output}
-                className="flex items-center px-2 py-1 text-sm rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+    <ToolLayout
+      title={converter.title}
+      description={converter.description}
+      keywords={converter.keywords}
+    >
+      <div className="space-y-6">
+        {/* 转换选项 */}
+        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">{converter.options.title}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div>
+              <label htmlFor="conversion-type" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                {converter.options.conversionType}
+              </label>
+              <select
+                id="conversion-type"
+                className="block w-full rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-white sm:text-sm"
+                value={conversionType}
+                onChange={(e) => setConversionType(e.target.value as ConversionType)}
               >
-                <FiCopy className="w-4 h-4 mr-1" />
-                {t('actions.copy')}
-              </button>
+                <optgroup label={converter.options.jsonTo}>
+                  <option value="json-to-yaml">{converter.options.jsonToYaml}</option>
+                  <option value="json-to-xml">{converter.options.jsonToXml}</option>
+                  <option value="json-to-csv">{converter.options.jsonToCsv}</option>
+                </optgroup>
+                <optgroup label={converter.options.toJson}>
+                  <option value="yaml-to-json">{converter.options.yamlToJson}</option>
+                  <option value="xml-to-json">{converter.options.xmlToJson}</option>
+                  <option value="csv-to-json">{converter.options.csvToJson}</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div className="flex items-end sm:col-span-2">
               <button
-                onClick={handleDownloadOutput}
-                disabled={!output}
-                className="flex items-center px-2 py-1 text-sm rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+                type="button"
+                onClick={handleConvert}
+                disabled={isProcessing || !input.trim()}
+                className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
               >
-                <FiDownload className="w-4 h-4 mr-1" />
-                {t('actions.download')}
+                {isProcessing ? converter.actions.processing : converter.actions.convert}
               </button>
             </div>
           </div>
-          <textarea
-            id="output"
-            value={output}
-            readOnly
-            placeholder={t('output.placeholder')}
-            className="w-full h-[400px] p-2 border rounded font-mono resize-none mb-4"
-          />
+        </div>
+
+        {/* 输入/输出区域 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div>
+            <JsonEditor
+              value={input}
+              onChange={setInput}
+              label={getInputLabel()}
+              placeholder={getInputPlaceholder()}
+              error={error || undefined}
+            />
+          </div>
+          
+          <div>
+            <div className="mb-2 flex justify-between items-center">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {getOutputLabel()}
+              </label>
+              <div className="flex space-x-2">
+                <button 
+                  onClick={copyOutput}
+                  disabled={!output}
+                  className="inline-flex items-center px-2.5 py-1.5 border border-gray-300 dark:border-gray-700 shadow-sm text-xs font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                >
+                  <FiCopy className="mr-1" />
+                  {ui.copy}
+                </button>
+                <button 
+                  onClick={downloadOutput}
+                  disabled={!output}
+                  className="inline-flex items-center px-2.5 py-1.5 border border-gray-300 dark:border-gray-700 shadow-sm text-xs font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+                >
+                  <FiDownload className="mr-1" />
+                  {ui.download}
+                </button>
+                <button 
+                  onClick={clearAll}
+                  className="inline-flex items-center px-2.5 py-1.5 border border-gray-300 dark:border-gray-700 shadow-sm text-xs font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  <FiRefreshCw className="mr-1" />
+                  {ui.clear}
+                </button>
+              </div>
+            </div>
+            <JsonEditor
+              value={output}
+              onChange={setOutput}
+              readOnly={true}
+            />
+          </div>
         </div>
       </div>
-      
-      <div className="my-6 flex flex-col sm:flex-row gap-4">
-        <div className="w-full sm:w-1/3">
-          <label htmlFor="conversion-type" className="block text-sm font-medium mb-2">
-            {t('conversionType.label')}
-          </label>
-          <select
-            id="conversion-type"
-            value={conversionType}
-            onChange={(e) => setConversionType(e.target.value)}
-            className="w-full p-2 border rounded"
-          >
-            <option value="json2yaml">{t('conversionType.options.json2yaml')}</option>
-            <option value="yaml2json">{t('conversionType.options.yaml2json')}</option>
-            <option value="json2xml">{t('conversionType.options.json2xml')}</option>
-            <option value="xml2json">{t('conversionType.options.xml2json')}</option>
-            <option value="json2csv">{t('conversionType.options.json2csv')}</option>
-            <option value="csv2json">{t('conversionType.options.csv2json')}</option>
-          </select>
-        </div>
-        
-        <div className="w-full sm:w-2/3 flex items-end">
-          <button
-            onClick={handleConvert}
-            disabled={isProcessing || !input.trim()}
-            className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded disabled:opacity-50"
-          >
-            {isProcessing ? t('actions.processing') : t('actions.convert')}
-          </button>
-        </div>
-      </div>
-      
-      {error && (
-        <div className="mt-4 p-4 bg-red-100 text-red-800 rounded">
-          {error}
-        </div>
-      )}
-    </div>
+    </ToolLayout>
   );
 } 

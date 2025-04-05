@@ -2,25 +2,36 @@ export const converter = {
   title: 'JSON Converter',
   description: 'Convert JSON data to other formats (YAML, XML, CSV), or convert other formats to JSON.',
   keywords: 'JSON converter,JSON to XML,JSON to YAML,XML to JSON,YAML to JSON,CSV to JSON,JSON to CSV',
-  options: 'Conversion Options',
-  conversionType: {
-    label: 'Conversion Type',
-    placeholder: 'Select conversion type',
-    options: {
-      json2yaml: 'JSON to YAML',
-      yaml2json: 'YAML to JSON',
-      json2xml: 'JSON to XML',
-      xml2json: 'XML to JSON',
-      json2csv: 'JSON to CSV',
-      csv2json: 'CSV to JSON'
-    }
+  options: {
+    title: 'Conversion Options',
+    conversionType: 'Conversion Type',
+    jsonTo: 'JSON to',
+    toJson: 'To JSON',
+    jsonToYaml: 'JSON to YAML',
+    jsonToXml: 'JSON to XML',
+    jsonToCsv: 'JSON to CSV',
+    yamlToJson: 'YAML to JSON',
+    xmlToJson: 'XML to JSON',
+    csvToJson: 'CSV to JSON'
   },
   input: {
-    label: 'Input',
-    placeholder: 'Paste data to convert'
+    defaultLabel: 'Input',
+    jsonLabel: 'JSON Input',
+    yamlLabel: 'YAML Input',
+    xmlLabel: 'XML Input',
+    csvLabel: 'CSV Input',
+    defaultPlaceholder: 'Paste data here',
+    jsonPlaceholder: 'Paste JSON data here',
+    yamlPlaceholder: 'Paste YAML data here',
+    xmlPlaceholder: 'Paste XML data here',
+    csvPlaceholder: 'Paste CSV data here'
   },
   output: {
-    label: 'Output',
+    defaultLabel: 'Output',
+    jsonLabel: 'JSON Output',
+    yamlLabel: 'YAML Output',
+    xmlLabel: 'XML Output',
+    csvLabel: 'CSV Output',
     placeholder: 'Conversion result will appear here'
   },
   actions: {
@@ -32,12 +43,17 @@ export const converter = {
   },
   errors: {
     emptyInput: 'Please enter data to convert',
-    conversionFailed: 'Conversion failed',
+    conversionFailed: 'Conversion error',
     unsupportedConversion: 'Unsupported conversion type',
     invalidJson: 'Invalid JSON',
     invalidYaml: 'Invalid YAML',
     invalidXml: 'Invalid XML',
     invalidCsv: 'Invalid CSV',
-    jsonNotArray: 'JSON must be an array of objects to convert to CSV'
+    jsonNotArray: 'JSON must be an array of objects to convert to CSV',
+    unknownError: 'Unknown error occurred during conversion'
+  },
+  alerts: {
+    copySuccess: 'Copied to clipboard',
+    copyFailed: 'Copy failed'
   }
 }; 
