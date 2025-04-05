@@ -2,13 +2,15 @@ import { cache } from 'react'
 import { getDictionary as getDict } from './dictionaries'
 
 // 支持的语言
-export const locales = ['zh', 'en'] as const
+export const locales = ['zh', 'en', 'es', 'ja'] as const
 export type Locale = (typeof locales)[number]
 
 // 语言显示名称
 export const languageNames: Record<Locale, string> = {
   zh: '中文',
-  en: 'English'
+  en: 'English',
+  es: 'Español',
+  ja: '日本語'
 }
 
 // 默认语言

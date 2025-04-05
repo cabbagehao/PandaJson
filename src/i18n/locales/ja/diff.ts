@@ -1,0 +1,20 @@
+export const diff = {
+  title: 'JSON差分ツール',
+  description: '2つのJSONオブジェクトを比較し、追加、削除、変更を視覚化します。',
+  keywords: 'JSON差分,JSON比較,JSON違い,JSON比較ツール,JSONコンパレーター',
+  leftInput: '1つ目のJSON',
+  rightInput: '2つ目のJSON',
+  result: '比較結果',
+  placeholderLeft: '1つ目のJSONデータをここに貼り付けてください',
+  placeholderRight: '2つ目のJSONデータをここに貼り付けてください',
+  compare: '比較',
+  clear: 'クリア',
+  loadExample: '例を読み込む',
+  processing: '処理中...',
+  error: '比較エラー: ',
+  unknown: '比較中に不明なエラーが発生しました',
+  diffGuide: '差分ガイド',
+  addedContent: '追加されたコンテンツ',
+  removedContent: '削除されたコンテンツ',
+  modifiedContent: '変更されたコンテンツ'
+}; 

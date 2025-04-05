@@ -1,12 +1,16 @@
 import { zh } from './zh';
 import { en } from './en';
+import { es } from './es';
+import { ja } from './ja';
 import { Locale } from '../index';
 
 export type TranslationNamespace = keyof typeof zh;
 
 const translations = {
   zh,
-  en
+  en,
+  es,
+  ja
 };
 
 export type TranslationType = typeof zh;

@@ -46,7 +46,9 @@ export const common = {
   },
   language: {
     zh: 'Chinese',
-    en: 'English'
+    en: 'English',
+    es: 'Spanish',
+    ja: 'Japanese'
   },
   ui: {
     copy: 'Copy',
@@ -63,6 +65,10 @@ export const common = {
     expand: 'Expand',
     input: 'Input',
     output: 'Output',
-    result: 'Result'
+    result: 'Result',
+    usageGuide: 'Usage Guide',
+    step1: 'Paste the JSON data to be processed into the input box',
+    step2: 'Adjust options as needed (if any)',
+    step3: 'After processing, you can copy or download the results'
   }
 }; 

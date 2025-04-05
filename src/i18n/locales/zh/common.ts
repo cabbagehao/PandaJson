@@ -46,7 +46,9 @@ export const common = {
   },
   language: {
     zh: '中文',
-    en: 'English'
+    en: 'English',
+    es: '西班牙语',
+    ja: '日语'
   },
   ui: {
     copy: '复制',
@@ -63,6 +65,10 @@ export const common = {
     expand: '展开',
     input: '输入',
     output: '输出',
-    result: '结果'
+    result: '结果',
+    usageGuide: '使用说明',
+    step1: '将需要处理的JSON数据粘贴到输入框中',
+    step2: '根据需要调整选项（如果有）',
+    step3: '处理完成后，可以复制或下载结果'
   }
 }; 
