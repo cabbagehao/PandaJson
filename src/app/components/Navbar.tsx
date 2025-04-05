@@ -29,13 +29,19 @@ export default function Navbar({ locale, translations }: NavbarProps) {
     { name: common.nav.schemaValidator, href: '/schema-validator' },
   ];
   
+  // 修复链接生成逻辑，确保所有链接始终带有语言前缀
+  const getLocalizedHref = (path: string) => {
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return `/${locale}${cleanPath ? `/${cleanPath}` : ''}`;
+  };
+  
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between h-14 sm:h-16">
           <div className="flex items-center">
             <Link 
-              href={`/${locale === 'zh' ? '' : locale}`}
+              href={getLocalizedHref('/')}
               className="flex-shrink-0 flex items-center text-lg sm:text-xl font-bold text-blue-600 dark:text-blue-400"
             >
               {common.siteTitle}
@@ -44,7 +50,7 @@ export default function Navbar({ locale, translations }: NavbarProps) {
               {navItems.map((item) => (
                 <Link
                   key={item.name}
-                  href={`/${locale === 'zh' ? '' : locale + '/'}${item.href.replace('/', '')}`}
+                  href={getLocalizedHref(item.href)}
                   className={`whitespace-nowrap inline-flex items-center px-2 lg:px-3 py-2 border-b-2 text-sm font-medium ${
                     pathname.endsWith(item.href) || (item.href === '/' && pathname === `/${locale}`)
                       ? 'border-blue-500 text-gray-900 dark:text-white'
@@ -107,7 +113,7 @@ export default function Navbar({ locale, translations }: NavbarProps) {
           {navItems.map((item) => (
             <Link
               key={item.name}
-              href={`/${locale === 'zh' ? '' : locale + '/'}${item.href.replace('/', '')}`}
+              href={getLocalizedHref(item.href)}
               className={`block px-4 py-3 text-base font-medium ${
                 pathname.endsWith(item.href) || (item.href === '/' && pathname === `/${locale}`)
                   ? 'bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-500 text-blue-700 dark:text-blue-300'
