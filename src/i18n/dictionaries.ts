@@ -1,4 +1,5 @@
-import { Locale } from '@/i18n';
+import { Locale } from './index';
+import { getTranslation, TranslationType } from './locales';
 
 // 简体中文字典
 const zh = {
@@ -147,17 +148,12 @@ const dictionaries = {
   'en': en
 };
 
-export type Dictionary = typeof zh;
+export type Dictionary = TranslationType;
 
-export const getDictionary = async (locale: Locale) => {
-  // 当请求的语言不存在时，如果是中文以外的语言，返回英文字典，否则返回中文字典
-  if (locale === 'zh') return dictionaries.zh;
-  if (locale === 'en') return dictionaries.en;
-  
-  // 对于其他语言，默认返回英文字典
-  return dictionaries.en;
+export const getDictionary = async (locale: Locale): Promise<Dictionary> => {
+  return getTranslation(locale);
 };
 
 export const getSupportedLocales = (): Locale[] => {
-  return Object.keys(dictionaries) as Locale[];
+  return ['zh', 'en'];
 }; 

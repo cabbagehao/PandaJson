@@ -6,30 +6,27 @@ import { usePathname } from 'next/navigation';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { Locale } from '@/i18n';
 import LanguageSwitcher from './LanguageSwitcher';
+import { TranslationType } from '@/i18n/locales';
 
 interface NavbarProps {
   locale: Locale;
-  dictionary: any;
+  translations: TranslationType;
 }
 
-export default function Navbar({ locale, dictionary }: NavbarProps) {
+export default function Navbar({ locale, translations }: NavbarProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  // 确保dictionary和nav存在
-  if (!dictionary || !dictionary.nav) {
-    console.error('Navigation dictionary is not loaded', dictionary);
-    return null; // 如果字典或导航未加载，不渲染任何内容
-  }
+  const common = translations.common;
   
   const navItems = [
-    { name: dictionary.nav.home, href: '/' },
-    { name: dictionary.nav.formatter, href: '/formatter' },
-    { name: dictionary.nav.validator, href: '/validator' },
-    { name: dictionary.nav.converter, href: '/converter' },
-    { name: dictionary.nav.diff, href: '/diff' },
-    { name: dictionary.nav.treeEditor, href: '/tree-editor' },
-    { name: dictionary.nav.schemaValidator, href: '/schema-validator' },
+    { name: common.nav.home, href: '/' },
+    { name: common.nav.formatter, href: '/formatter' },
+    { name: common.nav.validator, href: '/validator' },
+    { name: common.nav.converter, href: '/converter' },
+    { name: common.nav.diff, href: '/diff' },
+    { name: common.nav.treeEditor, href: '/tree-editor' },
+    { name: common.nav.schemaValidator, href: '/schema-validator' },
   ];
   
   return (
@@ -41,7 +38,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
               href={`/${locale === 'zh' ? '' : locale}`}
               className="flex-shrink-0 flex items-center text-lg sm:text-xl font-bold text-blue-600 dark:text-blue-400"
             >
-              {dictionary.siteTitle || 'JSON工具集'}
+              {common.siteTitle}
             </Link>
             <div className="hidden md:ml-6 md:flex md:space-x-2 lg:space-x-4 overflow-x-auto">
               {navItems.map((item) => (
@@ -62,7 +59,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
           
           <div className="flex items-center">
             <div className="hidden md:block mr-4">
-              <LanguageSwitcher locale={locale} dictionary={dictionary} />
+              <LanguageSwitcher locale={locale} />
             </div>
             
             <div className="md:hidden">
@@ -124,7 +121,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
           
           <div className="mt-4 px-4 py-2 border-t border-gray-200 dark:border-gray-700">
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">切换语言</p>
-            <LanguageSwitcher locale={locale} dictionary={dictionary} />
+            <LanguageSwitcher locale={locale} />
           </div>
         </div>
       </div>

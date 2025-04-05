@@ -1,61 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { useParams } from 'next/navigation';
 import { FiRefreshCw } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
 import JsonDiffViewer from '../../components/JsonDiffViewer';
 import ToolLayout from '../../components/ToolLayout';
-import { Locale, defaultLocale } from '@/i18n';
-
-// 翻译文本
-const translations: Record<string, any> = {
-  zh: {
-    title: 'JSON 对比工具',
-    description: '比较两个 JSON 对象的差异，直观展示新增、删除和修改的内容。',
-    keywords: 'JSON对比,JSON比较,JSON差异,JSON比对,JSON比较器',
-    leftInput: '第一个 JSON',
-    rightInput: '第二个 JSON',
-    result: '比较结果',
-    placeholderLeft: '在此粘贴第一个 JSON 数据',
-    placeholderRight: '在此粘贴第二个 JSON 数据',
-    compare: '比较',
-    clear: '清除',
-    loadExample: '加载示例',
-    processing: '处理中...',
-    error: '比较错误: ',
-    unknown: '比较过程中发生未知错误',
-    diffGuide: '差异对比说明',
-    addedContent: '新增内容',
-    removedContent: '删除内容',
-    modifiedContent: '修改内容'
-  },
-  en: {
-    title: 'JSON Diff Tool',
-    description: 'Compare two JSON objects and visualize additions, deletions and modifications.',
-    keywords: 'JSON diff,JSON compare,JSON difference,JSON comparison,JSON comparator',
-    leftInput: 'First JSON',
-    rightInput: 'Second JSON',
-    result: 'Comparison Result',
-    placeholderLeft: 'Paste your first JSON data here',
-    placeholderRight: 'Paste your second JSON data here',
-    compare: 'Compare',
-    clear: 'Clear',
-    loadExample: 'Load Example',
-    processing: 'Processing...',
-    error: 'Comparison error: ',
-    unknown: 'Unknown error during comparison',
-    diffGuide: 'Diff Guide',
-    addedContent: 'Added Content',
-    removedContent: 'Removed Content',
-    modifiedContent: 'Modified Content'
-  }
-};
+import { useTranslation } from '@/i18n/hooks';
 
 export default function JsonDiff() {
-  const params = useParams();
-  const locale = (params?.lang as Locale) || defaultLocale;
-  const t = translations[locale as 'zh' | 'en'] || translations.zh;
+  const { t } = useTranslation();
+  const diff = t('diff');
 
   const [json1, setJson1] = useState('');
   const [json2, setJson2] = useState('');
@@ -76,9 +30,9 @@ export default function JsonDiff() {
       setShowDiff(true);
     } catch (err) {
       if (err instanceof Error) {
-        setError(`${t.error}${err.message}`);
+        setError(`${diff.error}${err.message}`);
       } else {
-        setError(t.unknown);
+        setError(diff.unknown);
       }
       setShowDiff(false);
     } finally {
@@ -128,9 +82,9 @@ export default function JsonDiff() {
 
   return (
     <ToolLayout
-      title={t.title}
-      description={t.description}
-      keywords={t.keywords}
+      title={diff.title}
+      description={diff.description}
+      keywords={diff.keywords}
     >
       <div className="space-y-6">
         {/* 工具栏 */}
@@ -142,7 +96,7 @@ export default function JsonDiff() {
               disabled={isProcessing || !json1.trim() || !json2.trim()}
               className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
             >
-              {isProcessing ? t.processing : t.compare}
+              {isProcessing ? diff.processing : diff.compare}
             </button>
             
             <button
@@ -151,7 +105,7 @@ export default function JsonDiff() {
               className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               <FiRefreshCw className="mr-2" />
-              {t.clear}
+              {diff.clear}
             </button>
             
             <button
@@ -159,7 +113,7 @@ export default function JsonDiff() {
               onClick={loadExample}
               className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              {t.loadExample}
+              {diff.loadExample}
             </button>
           </div>
         </div>
@@ -186,8 +140,8 @@ export default function JsonDiff() {
               <JsonEditor
                 value={json1}
                 onChange={setJson1}
-                label={t.leftInput}
-                placeholder={t.placeholderLeft}
+                label={diff.leftInput}
+                placeholder={diff.placeholderLeft}
                 error={error || undefined}
               />
             </div>
@@ -196,8 +150,8 @@ export default function JsonDiff() {
               <JsonEditor
                 value={json2}
                 onChange={setJson2}
-                label={t.rightInput}
-                placeholder={t.placeholderRight}
+                label={diff.rightInput}
+                placeholder={diff.placeholderRight}
               />
             </div>
           </div>
@@ -205,19 +159,19 @@ export default function JsonDiff() {
 
         {/* 说明信息 */}
         <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-md">
-          <h3 className="text-lg font-medium text-blue-800 dark:text-blue-200 mb-2">{t.diffGuide}</h3>
+          <h3 className="text-lg font-medium text-blue-800 dark:text-blue-200 mb-2">{diff.diffGuide}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="flex items-center">
               <div className="w-4 h-4 bg-green-200 dark:bg-green-800 mr-2"></div>
-              <span className="text-blue-700 dark:text-blue-300">{t.addedContent}</span>
+              <span className="text-blue-700 dark:text-blue-300">{diff.addedContent}</span>
             </div>
             <div className="flex items-center">
               <div className="w-4 h-4 bg-red-200 dark:bg-red-800 mr-2"></div>
-              <span className="text-blue-700 dark:text-blue-300">{t.removedContent}</span>
+              <span className="text-blue-700 dark:text-blue-300">{diff.removedContent}</span>
             </div>
             <div className="flex items-center">
               <div className="w-4 h-4 bg-yellow-200 dark:bg-yellow-800 mr-2"></div>
-              <span className="text-blue-700 dark:text-blue-300">{t.modifiedContent}</span>
+              <span className="text-blue-700 dark:text-blue-300">{diff.modifiedContent}</span>
             </div>
           </div>
         </div>

@@ -4,95 +4,21 @@ import { useState } from 'react';
 import { FiCheckCircle, FiXCircle, FiInfo, FiRefreshCw } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
 import ToolLayout from '../../components/ToolLayout';
-import { useParams } from 'next/navigation';
-import { Locale, defaultLocale } from '@/i18n';
+import { useTranslation } from '@/i18n/hooks';
 
 interface ErrorHighlight {
   line: number;
   column: number;
   errorText: string;
+  errorChar?: string;
   expectedType: 'missingComma' | 'wrongSeparator' | 'other';
   fixSuggestion?: string;
 }
 
-// 翻译文本
-const translations: Record<string, any> = {
-  zh: {
-    title: 'JSON 校验工具',
-    description: '在线JSON校验工具，检测JSON格式是否有效，并显示详细的错误信息',
-    keywords: 'JSON校验,JSON验证,JSON检查,JSON语法检查,JSON在线验证,JSON错误检测',
-    inputLabel: '输入 JSON',
-    inputPlaceholder: '在此粘贴需要校验的JSON数据',
-    validateBtn: '校验 JSON',
-    clearBtn: '清除',
-    valid: '有效的JSON',
-    invalid: '无效的JSON',
-    error: '错误: ',
-    line: '行',
-    position: '位置',
-    validationResults: '校验结果',
-    emptyInput: '请输入要验证的JSON数据',
-    formatValid: 'JSON 格式有效',
-    structureIssue: '格式有效，但结构存在问题',
-    formatInvalid: '无效的 JSON 格式',
-    unknownError: '未知错误',
-    dataNodes: '解析成功，包含 {count} 个数据节点。',
-    validationTips: 'JSON 验证提示',
-    emptyJsonWarning: '注意: JSON 是空对象或空数组。这是有效的，但可能不是你期望的。',
-    errorPosition: '错误位置: 第 {line} 行，第 {column} 列',
-    possiblyMissing: '可能缺少: {suggestion}',
-    jsonRules: {
-      title: 'JSON 验证提示',
-      quoteKeys: 'JSON 中的键必须使用双引号',
-      quoteStrings: '字符串值必须使用双引号，不能使用单引号',
-      noLeadingZeros: '数字不能有前导零',
-      noTrailingCommas: '不允许尾随逗号',
-      noComments: '不允许注释',
-      booleanCase: '布尔值必须是小写的 true 或 false',
-      nullCase: 'null 值必须是小写的 null'
-    }
-  },
-  en: {
-    title: 'JSON Validator',
-    description: 'Online JSON validator to check if your JSON is valid and display detailed error information',
-    keywords: 'JSON validator,JSON validation,JSON checker,JSON syntax check,online JSON validator,JSON error detection',
-    inputLabel: 'Input JSON',
-    inputPlaceholder: 'Paste your JSON data here to validate',
-    validateBtn: 'Validate JSON',
-    clearBtn: 'Clear',
-    valid: 'Valid JSON',
-    invalid: 'Invalid JSON',
-    error: 'Error: ',
-    line: 'Line',
-    position: 'Position',
-    validationResults: 'Validation Results',
-    emptyInput: 'Please enter JSON data to validate',
-    formatValid: 'JSON format is valid',
-    structureIssue: 'Format is valid, but there are structure issues',
-    formatInvalid: 'Invalid JSON format',
-    unknownError: 'Unknown error',
-    dataNodes: 'Successfully parsed, contains {count} data nodes.',
-    validationTips: 'JSON Validation Tips',
-    emptyJsonWarning: 'Note: JSON is an empty object or array. This is valid, but may not be what you expected.',
-    errorPosition: 'Error at: Line {line}, Column {column}',
-    possiblyMissing: 'Possibly missing: {suggestion}',
-    jsonRules: {
-      title: 'JSON Validation Tips',
-      quoteKeys: 'Keys in JSON must use double quotes',
-      quoteStrings: 'String values must use double quotes, not single quotes',
-      noLeadingZeros: 'Numbers cannot have leading zeros',
-      noTrailingCommas: 'Trailing commas are not allowed',
-      noComments: 'Comments are not allowed',
-      booleanCase: 'Boolean values must be lowercase true or false',
-      nullCase: 'Null values must be lowercase null'
-    }
-  }
-};
-
 export default function JsonValidator() {
-  const params = useParams();
-  const locale = (params?.lang as Locale) || defaultLocale;
-  const t = translations[locale as 'zh' | 'en'] || translations.zh;
+  const { t } = useTranslation();
+  const validator = t('validator');
+  const ui = t('common').ui;
 
   const [input, setInput] = useState('');
   const [validationResults, setValidationResults] = useState<{
@@ -106,7 +32,7 @@ export default function JsonValidator() {
     if (!input.trim()) {
       setValidationResults({
         isValid: false,
-        message: t.emptyInput,
+        message: validator.placeholder,
       });
       return;
     }
@@ -121,13 +47,13 @@ export default function JsonValidator() {
       if (validation.ok) {
         setValidationResults({
           isValid: true,
-          message: t.formatValid,
-          details: t.dataNodes.replace('{count}', countNodes(parsedJson).toString()),
+          message: validator.validJson,
+          details: validator.parseSuccess.replace('{count}', `${countNodes(parsedJson)}`),
         });
       } else {
         setValidationResults({
           isValid: false,
-          message: t.structureIssue,
+          message: validator.invalidJson,
           details: validation.message,
         });
       }
@@ -137,21 +63,21 @@ export default function JsonValidator() {
         const errorInfo = parseJsonError(err, input);
         setValidationResults({
           isValid: false,
-          message: t.formatInvalid,
+          message: validator.jsonSyntaxError,
           details: err.message,
           errorHighlight: errorInfo || undefined
         });
       } else if (err instanceof Error) {
         setValidationResults({
           isValid: false,
-          message: t.invalid,
+          message: validator.invalidJson,
           details: err.message,
         });
       } else {
         setValidationResults({
           isValid: false,
-          message: t.invalid,
-          details: t.unknownError,
+          message: validator.invalidJson,
+          details: validator.unknownError,
         });
       }
     }
@@ -199,198 +125,187 @@ export default function JsonValidator() {
 
   // 分析错误类型并提供修复建议
   const analyzeError = (input: string, line: number, column: number): ErrorHighlight => {
+    // 获取错误行的内容
     const lines = input.split('\n');
-    if (line <= 0 || line > lines.length) {
-      return { line, column, errorText: t.unknownError, expectedType: 'other' };
-    }
+    const errorLine = lines[line - 1] || '';
+    const errorChar = errorLine[column - 1] || '';
+    const prevChar = errorLine[column - 2] || '';
+    const nextChar = errorLine[column] || '';
     
-    const errorLine = lines[line - 1];
-    let errorText = column <= errorLine.length ? errorLine.charAt(column - 1) : '';
-    
-    // 数组项错误的特殊处理
-    // 如果错误出现在数组项的开始花括号处，很可能是前一行缺少逗号
-    if (errorLine.trim().startsWith('{') && column <= 3) {
-      // 检查前一行是否为数组项并且没有以逗号结尾
-      if (line > 1) {
-        const prevLine = lines[line - 2].trim();
-        if (prevLine.endsWith('}') && !prevLine.endsWith('},')) {
-          return {
-            line: line - 1,
-            column: lines[line - 2].length + 1,
-            errorText: prevLine,
-            expectedType: 'missingComma',
-            fixSuggestion: ','
-          };
-        }
-      }
-    }
-    
-    // 检查是否是常见的"Expected ',' or '}' after property value"错误
-    // 这类错误几乎总是前一行结尾缺少逗号
-    if (errorText === '"' || 
-        errorText === "'" || 
-        !errorText.trim()) { // "user" 开头的"u" 
-      
-      const currentLineStart = lines[line - 1].trimStart();
-      
-      // 如果当前行以引号开头，很可能是新的属性键名
-      if ((currentLineStart.startsWith('"') || currentLineStart.startsWith("'")) && line > 1) {
-        const prevLine = lines[line - 2].trim();
-        
-        // 检查前一行是否以值结尾但没有逗号
-        if ((prevLine.endsWith('"') || 
-             prevLine.endsWith("'") || 
-             prevLine.endsWith('}') || 
-             prevLine.endsWith(']') || 
-             /\d+$/.test(prevLine) ||
-             prevLine.endsWith("true") ||
-             prevLine.endsWith("false") ||
-             prevLine.endsWith("null")) && 
-            !prevLine.endsWith(',')) {
-          
-          // 修正到前一行行尾
-          return {
-            line: line - 1,
-            column: lines[line - 2].length + 1,
-            errorText: prevLine,
-            expectedType: 'missingComma',
-            fixSuggestion: ','
-          };
-        }
-      }
-    }
-    
-    // 检查是否在当前行缺少逗号
-    if (errorLine.trim().startsWith('"') && 
-        errorLine.includes(':') &&
-        !errorLine.trim().endsWith(',')) {
-      
-      // 这可能是"port"这一行，需要检查前一行是否缺少逗号
-      if (line > 1) {
-        const prevLine = lines[line - 2].trim();
-        // 如果前一行是键值对但没有逗号结尾
-        if (prevLine.startsWith('"') && 
-            prevLine.includes(':') && 
-            (prevLine.endsWith('"') || 
-             prevLine.endsWith('}') || 
-             prevLine.endsWith(']') || 
-             /\d+$/.test(prevLine)) && 
-            !prevLine.endsWith(',')) {
-          
-          // 错误很可能是前一行缺少逗号
-          return {
-            line: line - 1, // 修正为前一行
-            column: lines[line - 2].length + 1, // 定位到行尾
-            errorText: prevLine,
-            expectedType: 'missingComma',
-            fixSuggestion: ','
-          };
-        }
-      }
-    }
-    
-    // 检查是否缺少逗号（原有逻辑）
-    if (errorLine.trim().endsWith('"') || 
-        errorLine.trim().endsWith('}') || 
-        errorLine.trim().endsWith(']') || 
-        /\d+$/.test(errorLine.trim())) {
-      
-      const nextLine = line < lines.length ? lines[line].trim() : '';
-      if (nextLine.startsWith('"') || nextLine.startsWith('{') || nextLine.startsWith('[')) {
-        return {
-          line,
-          column,
-          errorText: errorLine,
-          expectedType: 'missingComma',
-          fixSuggestion: ','
-        };
-      }
-    }
-    
-    // 检查是否使用了错误的分隔符（如分号代替逗号）
-    if (errorText === ';') {
-      return {
-        line,
-        column,
-        errorText: errorLine,
-        expectedType: 'wrongSeparator',
-        fixSuggestion: ','
-      };
-    }
-    
-    return {
+    // 默认结果
+    const result: ErrorHighlight = {
       line,
       column,
       errorText: errorLine,
+      errorChar,
       expectedType: 'other'
     };
+    
+    // 根据上下文判断可能的错误类型
+    if (errorChar === '') {
+      // 行尾错误，可能是缺少逗号、括号或引号
+      if (prevChar === '"' && !errorLine.trim().endsWith(',')) {
+        result.expectedType = 'missingComma';
+        result.fixSuggestion = ',';
+      }
+      else if (prevChar === '}' || prevChar === ']') {
+        // 对象或数组结束后可能缺少逗号
+        if (!errorLine.trim().endsWith(',') && 
+            line < lines.length && 
+            (lines[line].trim().startsWith('"') || lines[line].trim().startsWith('{'))) {
+          result.expectedType = 'missingComma';
+          result.fixSuggestion = ',';
+        }
+      }
+    }
+    // 常见的错误：使用了单引号而不是双引号
+    else if (errorChar === "'") {
+      result.expectedType = 'wrongSeparator';
+      result.fixSuggestion = '"';
+    }
+    // 属性名后使用了=而不是:
+    else if (errorChar === '=' && prevChar === '"') {
+      result.expectedType = 'wrongSeparator';
+      result.fixSuggestion = ':';
+    }
+    // 缺少逗号
+    else if ((errorChar === '"' || errorChar === '{' || errorChar === '[') &&
+             (prevChar === '}' || prevChar === ']' || prevChar === '"')) {
+      result.expectedType = 'missingComma';
+      result.fixSuggestion = ',';
+    }
+    
+    return result;
   };
 
-  // 计算JSON中的节点数
+  // 统计JSON中的节点数量（用于显示成功信息）
   const countNodes = (obj: any): number => {
-    if (obj === null || typeof obj !== 'object') {
+    if (obj === null || obj === undefined) {
+      return 0;
+    }
+    
+    if (typeof obj !== 'object') {
       return 1;
     }
     
-    let count = 1; // 当前对象算一个节点
+    let count = 1; // 当前对象/数组计为1
     
     if (Array.isArray(obj)) {
-      // 数组: 递归计算每个元素
       obj.forEach(item => {
         count += countNodes(item);
       });
     } else {
-      // 对象: 递归计算每个属性值
-      Object.values(obj).forEach(value => {
-        count += countNodes(value);
+      Object.keys(obj).forEach(key => {
+        count += countNodes(obj[key]);
       });
     }
     
     return count;
   };
 
-  // 额外的结构验证（检查常见问题）
-  const validateStructure = (json: any): { ok: boolean; message?: string } => {
-    // 检查空对象或空数组
-    if (
-      (typeof json === 'object' && Object.keys(json).length === 0 && !Array.isArray(json)) ||
-      (Array.isArray(json) && json.length === 0)
-    ) {
-      return { 
-        ok: true, 
-        message: t.emptyJsonWarning
-      };
+  // 检查JSON结构问题（有效但有问题的JSON）
+  const validateStructure = (data: any): { ok: boolean; message: string } => {
+    // 检查根节点为空
+    if (data === null) {
+      return { ok: true, message: '' }; // null是合法的JSON值
     }
     
-    // 所有验证通过
-    return { ok: true };
+    // 验证对象中的键是否有重复
+    if (typeof data === 'object' && !Array.isArray(data)) {
+      const keySet = new Set();
+      for (const key in data) {
+        if (keySet.has(key)) {
+          return { 
+            ok: false, 
+            message: validator.duplicateKey + `: "${key}"` 
+          };
+        }
+        keySet.add(key);
+        
+        // 递归检查子对象
+        if (typeof data[key] === 'object' && data[key] !== null) {
+          const result = validateStructure(data[key]);
+          if (!result.ok) {
+            return result;
+          }
+        }
+      }
+    }
+    
+    // 递归检查数组中的元素
+    if (Array.isArray(data)) {
+      for (const item of data) {
+        if (typeof item === 'object' && item !== null) {
+          const result = validateStructure(item);
+          if (!result.ok) {
+            return result;
+          }
+        }
+      }
+    }
+    
+    return { ok: true, message: '' };
   };
 
+  // 清除输入和结果
   const clearAll = () => {
     setInput('');
     setValidationResults(null);
   };
 
+  // 显示错误强调建议
+  const renderErrorSuggestion = (highlight: ErrorHighlight) => {
+    switch (highlight.expectedType) {
+      case 'missingComma':
+        return validator.missingComma;
+      case 'wrongSeparator':
+        return highlight.errorChar === "'" 
+          ? validator.expectedToken.replace('{token}', '"') 
+          : validator.expectedToken.replace('{token}', ':');
+      default:
+        return '';
+    }
+  };
+
   return (
     <ToolLayout
-      title={t.title}
-      description={t.description}
-      keywords={t.keywords}
+      title={validator.title}
+      description={validator.description}
+      keywords={validator.keywords}
     >
       <div className="space-y-6">
-        {/* 验证结果区域 */}
+        {/* 工具操作 */}
+        <div className="flex justify-between items-center">
+          <button
+            type="button"
+            onClick={validateJson}
+            className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            {validator.validate}
+          </button>
+          
+          <button 
+            onClick={clearAll}
+            className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            <FiRefreshCw className="mr-1.5 h-4 w-4" />
+            {ui.clear}
+          </button>
+        </div>
+
+        {/* 验证结果 */}
         {validationResults && (
-          <div className={`p-4 rounded-md ${
+          <div className={`rounded-md p-4 ${
             validationResults.isValid 
-              ? 'bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800' 
-              : 'bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800'
+              ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' 
+              : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'
           }`}>
             <div className="flex">
               <div className="flex-shrink-0">
                 {validationResults.isValid ? (
-                  <FiCheckCircle className="h-5 w-5 text-green-400" aria-hidden="true" />
+                  <FiCheckCircle className="h-5 w-5 text-green-400" />
                 ) : (
-                  <FiXCircle className="h-5 w-5 text-red-400" aria-hidden="true" />
+                  <FiXCircle className="h-5 w-5 text-red-400" />
                 )}
               </div>
               <div className="ml-3">
@@ -401,27 +316,51 @@ export default function JsonValidator() {
                 }`}>
                   {validationResults.message}
                 </h3>
+                
                 {validationResults.details && (
-                  <div className={`mt-2 text-sm ${
-                    validationResults.isValid 
-                      ? 'text-green-700 dark:text-green-200' 
-                      : 'text-red-700 dark:text-red-200'
-                  }`}>
+                  <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">
                     <p>{validationResults.details}</p>
                   </div>
                 )}
                 
                 {validationResults.errorHighlight && (
-                  <div className="mt-3">
-                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                      {t.errorPosition.replace('{line}', validationResults.errorHighlight.line.toString())
-                                     .replace('{column}', validationResults.errorHighlight.column.toString())}
-                    </p>
-                    {validationResults.errorHighlight.fixSuggestion && (
-                      <p className="text-sm text-orange-600 dark:text-orange-400 mt-1">
-                        {t.possiblyMissing.replace('{suggestion}', validationResults.errorHighlight.fixSuggestion)}
+                  <div className="mt-3 bg-gray-50 dark:bg-gray-800 p-3 rounded-md border border-gray-200 dark:border-gray-700">
+                    <div className="flex items-center mb-2">
+                      <FiInfo className="text-blue-500 mr-1" />
+                      <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100">{validator.errorDetails}</h4>
+                    </div>
+                    
+                    <div className="space-y-2 text-xs">
+                      <p>
+                        <span className="font-medium text-gray-700 dark:text-gray-300">{validator.position}:</span> 
+                        <span className="ml-1 text-red-600 dark:text-red-400">
+                          {validator.errorAt.replace('{line}', validationResults.errorHighlight.line.toString()).replace('{column}', validationResults.errorHighlight.column.toString())}
+                        </span>
                       </p>
-                    )}
+                      
+                      <div>
+                        <p className="font-medium text-gray-700 dark:text-gray-300 mb-1">{validator.contextLine}:</p>
+                        <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded overflow-x-auto whitespace-pre">
+                          <code>{validationResults.errorHighlight.errorText}</code>
+                          <div className="relative h-0">
+                            <div className="absolute top-0 left-0" style={{ 
+                              marginLeft: `${validationResults.errorHighlight.column - 1}ch`,
+                            }}>
+                              <span className="inline-block w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-red-500 -mt-1"></span>
+                            </div>
+                          </div>
+                        </pre>
+                      </div>
+                      
+                      {renderErrorSuggestion(validationResults.errorHighlight) && (
+                        <p>
+                          <span className="font-medium text-gray-700 dark:text-gray-300">{validator.repairSuggestion}:</span> 
+                          <span className="ml-1 text-green-600 dark:text-green-400">
+                            {renderErrorSuggestion(validationResults.errorHighlight)}
+                          </span>
+                        </p>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
@@ -429,64 +368,14 @@ export default function JsonValidator() {
           </div>
         )}
 
-        {/* 工具操作按钮 */}
-        <div className="flex justify-between items-center">
-            <button
-              type="button"
-              onClick={validateJson}
-            disabled={!input.trim()}
-            className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 disabled:opacity-50"
-            >
-              {t.validateBtn}
-            </button>
-          
-            <button 
-              onClick={clearAll}
-            className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-            <FiRefreshCw className="mr-1.5 h-4 w-4" />
-              {t.clearBtn}
-            </button>
-        </div>
-
-        {/* 输入区域 */}
-          <div>
-            <JsonEditor
-              value={input}
-              onChange={setInput}
-              label={t.inputLabel}
-              placeholder={t.inputPlaceholder}
-            height="500px"
-            error={validationResults?.isValid === false ? validationResults.message : undefined}
-            errorPosition={validationResults?.errorHighlight ? {
-              line: validationResults.errorHighlight.line,
-              column: validationResults.errorHighlight.column,
-              type: validationResults.errorHighlight.expectedType
-            } : undefined}
-            />
-          </div>
-          
-        {/* 验证提示信息 */}
-        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
-          <div className="flex">
-            <div className="flex-shrink-0">
-              <FiInfo className="h-5 w-5 text-gray-400" aria-hidden="true" />
-            </div>
-            <div className="ml-3">
-              <h3 className="text-sm font-medium text-gray-800 dark:text-gray-200">{t.jsonRules.title}</h3>
-              <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>{t.jsonRules.quoteKeys}</li>
-                  <li>{t.jsonRules.quoteStrings}</li>
-                  <li>{t.jsonRules.noLeadingZeros}</li>
-                  <li>{t.jsonRules.noTrailingCommas}</li>
-                  <li>{t.jsonRules.noComments}</li>
-                  <li>{t.jsonRules.booleanCase}</li>
-                  <li>{t.jsonRules.nullCase}</li>
-                </ul>
-                </div>
-            </div>
-          </div>
+        {/* 输入框 */}
+        <div>
+          <JsonEditor
+            value={input}
+            onChange={setInput}
+            label={validator.input}
+            placeholder={validator.placeholder}
+          />
         </div>
       </div>
     </ToolLayout>

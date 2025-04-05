@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FiCode, FiCheck, FiRepeat, FiGitPullRequest, FiEdit, FiFileText, FiMinimize2 } from "react-icons/fi";
 import { Locale, defaultLocale } from "../../i18n";
+import { getServerTranslation } from "@/i18n/server";
 
 // 导入JSON字典
 import zhDict from "../../i18n/dictionaries/zh.json";
@@ -19,56 +20,57 @@ export default function Home({
 }: {
   params: { lang: string };
 }) {
-  // 确保locale只能是'zh'或'en'，因为目前只有这两种字典
-  const locale = (lang === 'zh' || lang === 'en' ? lang : defaultLocale) as 'zh' | 'en';
-  const dictionary = dictionaries[locale];
-  const { home } = dictionary;
+  // 获取当前语言的翻译
+  const locale = (lang as string || defaultLocale) as Locale;
+  const { t } = getServerTranslation(locale);
+  const { common } = t;
+  const home = common.home;
 
   // 确保home.features存在
   if (!home || !home.features) {
-    console.error('Dictionary or features not loaded correctly:', { locale, dictionary });
+    console.error('Dictionary or features not loaded correctly:', { locale, common });
     return <div>Loading...</div>;
   }
   
   const features = [
     {
-      name: home.features.formatter.title,
-      description: home.features.formatter.description,
+      name: home.features.formatter,
+      description: home.featuresDescription.formatter,
       icon: FiCode,
       href: "/formatter",
       color: "bg-blue-500",
     },
     {
-      name: home.features.validator.title,
-      description: home.features.validator.description,
+      name: home.features.validator,
+      description: home.featuresDescription.validator,
       icon: FiCheck,
       href: "/validator",
       color: "bg-yellow-500",
     },
     {
-      name: home.features.converter.title,
-      description: home.features.converter.description,
+      name: home.features.converter,
+      description: home.featuresDescription.converter,
       icon: FiRepeat,
       href: "/converter",
       color: "bg-purple-500",
     },
     {
-      name: home.features.diff.title,
-      description: home.features.diff.description,
+      name: home.features.compare,
+      description: home.featuresDescription.compare,
       icon: FiGitPullRequest,
       href: "/diff",
       color: "bg-red-500",
     },
     {
-      name: home.features.minifier.title,
-      description: home.features.minifier.description,
+      name: home.features.minifier,
+      description: home.featuresDescription.minifier,
       icon: FiMinimize2,
       href: "/minifier",
       color: "bg-green-500",
     },
     {
-      name: home.features.tree.title,
-      description: home.features.tree.description,
+      name: home.features.editor,
+      description: home.featuresDescription.editor,
       icon: FiEdit,
       href: "/tree-editor",
       color: "bg-indigo-500",
@@ -103,7 +105,7 @@ export default function Home({
               {feature.description}
             </p>
             <div className="mt-3 sm:mt-4 text-blue-600 dark:text-blue-400 font-medium">
-              {home.useNow} →
+              立即使用 →
             </div>
           </Link>
         ))}
@@ -111,20 +113,20 @@ export default function Home({
       
       <div className="mt-12 sm:mt-16 text-center px-4 sm:px-0">
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
-          {home.whyChooseUs.title}
+          为什么选择我们
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-base sm:text-lg mb-2">{home.whyChooseUs.reasons.comprehensive.title}</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.whyChooseUs.reasons.comprehensive.description}</p>
+            <h3 className="font-semibold text-base sm:text-lg mb-2">全面的功能</h3>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">提供多种JSON处理工具，满足各种开发需求</p>
           </div>
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-base sm:text-lg mb-2">{home.whyChooseUs.reasons.free.title}</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.whyChooseUs.reasons.free.description}</p>
+            <h3 className="font-semibold text-base sm:text-lg mb-2">完全免费</h3>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">所有工具完全免费使用，没有任何限制</p>
           </div>
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-base sm:text-lg mb-2">{home.whyChooseUs.reasons.secure.title}</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.whyChooseUs.reasons.secure.description}</p>
+            <h3 className="font-semibold text-base sm:text-lg mb-2">安全可靠</h3>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">数据在客户端处理，不会上传到服务器</p>
           </div>
         </div>
       </div>

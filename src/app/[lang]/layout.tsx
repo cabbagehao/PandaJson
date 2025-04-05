@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/app/components/Navbar";
 import { Locale, defaultLocale } from "@/i18n";
-import { getDictionary } from "@/i18n/dictionaries";
+import { getServerTranslation } from "@/i18n/server";
 
 // 导入CSS
 import "../globals.css";
@@ -22,19 +22,20 @@ export async function generateMetadata({
 }: { 
   params: { lang: string } 
 }): Promise<Metadata> {
-  // 获取当前语言的字典
+  // 获取当前语言的翻译
   const locale = (params.lang as string || defaultLocale) as Locale;
-  const dictionary = await getDictionary(locale);
+  const { t } = getServerTranslation(locale);
+  const common = t.common;
 
   return {
-    title: `${dictionary.siteTitle} | ${dictionary.seo.description.split('。')[0]}`,
-    description: dictionary.seo.description,
-    keywords: dictionary.seo.keywords,
-    authors: [{name: dictionary.siteTitle}],
+    title: `${common.siteTitle} | ${common.seo.description.split('。')[0]}`,
+    description: common.seo.description,
+    keywords: common.seo.keywords,
+    authors: [{name: common.siteTitle}],
     robots: "index, follow",
     openGraph: {
-      title: dictionary.siteTitle,
-      description: dictionary.seo.description,
+      title: common.siteTitle,
+      description: common.seo.description,
       type: "website",
     },
   };
@@ -47,15 +48,9 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { lang: string };
 }>) {
-  // 获取当前语言的字典
+  // 获取当前语言的翻译
   const locale = (params.lang as string || defaultLocale) as Locale;
-  const dictionary = await getDictionary(locale);
-
-  // 确保字典已加载
-  if (!dictionary) {
-    console.error('Dictionary not loaded for locale:', locale);
-    return <div>Error loading page content</div>;
-  }
+  const { t } = getServerTranslation(locale);
   
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -64,13 +59,13 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <div className="min-h-screen flex flex-col">
-          <Navbar locale={locale} dictionary={dictionary} />
+          <Navbar locale={locale} translations={t} />
           <main className="flex-grow container mx-auto px-4 py-8">
             {children}
           </main>
           <footer className="bg-gray-100 dark:bg-gray-800 py-6">
             <div className="container mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
-              <p>© 2023 JSON工具集. {dictionary?.footer?.copyright || '版权所有'}</p>
+              <p>© 2023 JSON工具集. {t.common.footer.copyright}</p>
             </div>
           </footer>
         </div>

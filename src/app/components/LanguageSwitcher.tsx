@@ -9,10 +9,9 @@ import { Locale, locales, languageNames } from '@/i18n';
 
 interface LanguageSwitcherProps {
   locale: Locale;
-  dictionary: any;
 }
 
-export default function LanguageSwitcher({ locale, dictionary }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   
@@ -20,12 +19,6 @@ export default function LanguageSwitcher({ locale, dictionary }: LanguageSwitche
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  // 确保dictionary存在
-  if (!dictionary || !dictionary.language) {
-    console.error('Language dictionary is not loaded', dictionary);
-    return null; // 如果字典未加载，不渲染任何内容
-  }
   
   // 生成语言切换链接
   const getLanguageUrl = (targetLocale: Locale) => {

@@ -5,79 +5,14 @@ import jsBeautify from 'js-beautify';
 import { FiCopy, FiDownload, FiRefreshCw } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
 import ToolLayout from '../../components/ToolLayout';
-import { useParams } from 'next/navigation';
-import { Locale, defaultLocale } from '@/i18n';
+import { useTranslation } from '@/i18n/hooks';
 
 type BraceStyle = 'collapse' | 'expand' | 'end-expand' | 'none' | 'preserve-inline';
 
-// 翻译文本
-const translations: Record<string, any> = {
-  zh: {
-    title: 'JSON 格式化工具 | 在线美化JSON数据',
-    description: '专业的在线JSON格式化工具，可以将混乱的JSON数据转换为格式化、缩进规范的形式，提高JSON可读性。支持自定义缩进大小、大括号风格和行宽限制，帮助开发者调试和检查JSON数据。',
-    keywords: 'JSON格式化,JSON美化,JSON在线格式化,JSON格式工具,JSON编辑器,JSON缩进,JSON格式化工具,格式化JSON,美化JSON,JSON排版工具,JSON pretty print',
-    options: '格式化选项',
-    indentSize: '缩进大小',
-    spaces2: '2个空格',
-    spaces4: '4个空格',
-    spaces8: '8个空格',
-    braceStyle: '大括号风格',
-    collapse: '折叠',
-    expand: '展开',
-    preserveInline: '保持原样',
-    lineWidth: '行宽限制',
-    noLimit: '不限制',
-    chars80: '80字符',
-    chars100: '100字符',
-    chars120: '120字符',
-    format: '格式化 JSON',
-    input: '输入 JSON',
-    output: '格式化结果',
-    placeholder: '在此粘贴需要格式化的JSON数据',
-    copy: '复制',
-    download: '下载',
-    clear: '清除',
-    error: 'JSON解析错误: ',
-    unknown: '解析JSON时发生未知错误',
-    copied: '已复制到剪贴板',
-    copyFailed: '复制失败'
-  },
-  en: {
-    title: 'JSON Formatter | Online JSON Beautifier',
-    description: 'Professional online JSON formatting tool that converts messy JSON data into formatted, properly indented form, improving JSON readability. Supports custom indentation size, brace style and line width limit, helping developers debug and inspect JSON data.',
-    keywords: 'JSON formatter,JSON beautifier,JSON online formatter,JSON formatting tool,JSON editor,JSON indentation,JSON formatting tool,format JSON,beautify JSON,JSON layout tool,JSON pretty print',
-    options: 'Formatting Options',
-    indentSize: 'Indent Size',
-    spaces2: '2 spaces',
-    spaces4: '4 spaces',
-    spaces8: '8 spaces',
-    braceStyle: 'Brace Style',
-    collapse: 'Collapse',
-    expand: 'Expand',
-    preserveInline: 'Preserve Inline',
-    lineWidth: 'Line Width',
-    noLimit: 'No Limit',
-    chars80: '80 characters',
-    chars100: '100 characters',
-    chars120: '120 characters',
-    format: 'Format JSON',
-    input: 'Input JSON',
-    output: 'Formatting Result',
-    placeholder: 'Paste your JSON data here to format',
-    copy: 'Copy',
-    download: 'Download',
-    clear: 'Clear',
-    error: 'JSON parsing error: ',
-    unknown: 'Unknown error while parsing JSON',
-    copied: 'Copied to clipboard',
-    copyFailed: 'Copy failed'
-  }
-};
-
 export default function JsonFormatter() {
-  const params = useParams();
-  const locale = (params?.lang as Locale) || defaultLocale;
-  const t = translations[locale as 'zh' | 'en'] || translations.zh;
+  const { t } = useTranslation();
+  const formatter = t('formatter');
+  const ui = t('common').ui;
 
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
@@ -109,9 +44,9 @@ export default function JsonFormatter() {
       setOutput(formattedJson);
     } catch (err) {
       if (err instanceof Error) {
-        setError(`${t.error}${err.message}`);
+        setError(`${formatter.error}${err.message}`);
       } else {
-        setError(t.unknown);
+        setError(formatter.unknown);
       }
       setOutput('');
     }
@@ -121,9 +56,9 @@ export default function JsonFormatter() {
     if (output) {
       try {
         await navigator.clipboard.writeText(output);
-        alert(t.copied);
+        alert(ui.copied);
       } catch (err) {
-        alert(t.copyFailed);
+        alert(ui.copyFailed);
       }
     }
   };
@@ -150,18 +85,18 @@ export default function JsonFormatter() {
 
   return (
     <ToolLayout
-      title={t.title}
-      description={t.description}
-      keywords={t.keywords}
+      title={formatter.title}
+      description={formatter.description}
+      keywords={formatter.keywords}
     >
       <div className="space-y-6">
         {/* 工具配置 */}
         <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">{t.options}</h3>
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">{formatter.options}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
               <label htmlFor="indent-size" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                {t.indentSize}
+                {formatter.indentSize}
               </label>
               <select
                 id="indent-size"
@@ -169,15 +104,15 @@ export default function JsonFormatter() {
                 value={indentSize}
                 onChange={(e) => setIndentSize(Number(e.target.value))}
               >
-                <option value="2">{t.spaces2}</option>
-                <option value="4">{t.spaces4}</option>
-                <option value="8">{t.spaces8}</option>
+                <option value="2">{formatter.spaces2}</option>
+                <option value="4">{formatter.spaces4}</option>
+                <option value="8">{formatter.spaces8}</option>
               </select>
             </div>
 
             <div>
               <label htmlFor="brace-style" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                {t.braceStyle}
+                {formatter.braceStyle}
               </label>
               <select
                 id="brace-style"
@@ -185,15 +120,15 @@ export default function JsonFormatter() {
                 value={formatOptions.braceStyle}
                 onChange={(e) => setFormatOptions({...formatOptions, braceStyle: e.target.value as BraceStyle})}
               >
-                <option value="collapse">{t.collapse}</option>
-                <option value="expand">{t.expand}</option>
-                <option value="preserve-inline">{t.preserveInline}</option>
+                <option value="collapse">{formatter.collapse}</option>
+                <option value="expand">{formatter.expand}</option>
+                <option value="preserve-inline">{formatter.preserveInline}</option>
               </select>
             </div>
 
             <div>
               <label htmlFor="wrap-line" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                {t.lineWidth}
+                {formatter.lineWidth}
               </label>
               <select
                 id="wrap-line"
@@ -201,10 +136,10 @@ export default function JsonFormatter() {
                 value={formatOptions.wrapLineLength}
                 onChange={(e) => setFormatOptions({...formatOptions, wrapLineLength: Number(e.target.value)})}
               >
-                <option value="0">{t.noLimit}</option>
-                <option value="80">{t.chars80}</option>
-                <option value="100">{t.chars100}</option>
-                <option value="120">{t.chars120}</option>
+                <option value="0">{formatter.noLimit}</option>
+                <option value="80">{formatter.chars80}</option>
+                <option value="100">{formatter.chars100}</option>
+                <option value="120">{formatter.chars120}</option>
               </select>
             </div>
 
@@ -214,7 +149,7 @@ export default function JsonFormatter() {
                 onClick={formatJson}
                 className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full h-10"
               >
-                {t.format}
+                {formatter.format}
               </button>
             </div>
           </div>
@@ -226,8 +161,8 @@ export default function JsonFormatter() {
             <JsonEditor
               value={input}
               onChange={setInput}
-              label={t.input}
-              placeholder={t.placeholder}
+              label={formatter.input}
+              placeholder={formatter.placeholder}
               error={error || undefined}
             />
           </div>
@@ -235,7 +170,7 @@ export default function JsonFormatter() {
           <div>
             <div className="mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-center">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-0">
-                {t.output}
+                {formatter.output}
               </label>
               <div className="flex space-x-2">
                 <button 
@@ -244,7 +179,7 @@ export default function JsonFormatter() {
                   className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
                 >
                   <FiCopy className="mr-1" />
-                  {t.copy}
+                  {ui.copy}
                 </button>
                 <button 
                   onClick={downloadOutput}
@@ -252,14 +187,14 @@ export default function JsonFormatter() {
                   className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
                 >
                   <FiDownload className="mr-1" />
-                  {t.download}
+                  {ui.download}
                 </button>
                 <button 
                   onClick={clearAll}
                   className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   <FiRefreshCw className="mr-1" />
-                  {t.clear}
+                  {ui.clear}
                 </button>
               </div>
             </div>
