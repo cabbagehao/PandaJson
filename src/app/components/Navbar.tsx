@@ -29,10 +29,35 @@ export default function Navbar({ locale, translations }: NavbarProps) {
     { name: common.nav.schemaValidator, href: '/schema-validator' },
   ];
   
-  // 修复链接生成逻辑，确保所有链接始终带有语言前缀
+  // 修复链接生成逻辑，检查当前路径是否包含语言前缀
   const getLocalizedHref = (path: string) => {
+    // 检查当前路径是否包含语言前缀
+    const hasLangPrefix = pathname.split('/').filter(Boolean)[0] === locale;
+    
+    // 如果当前路径不包含语言前缀（即在根路径访问时），不添加语言前缀
+    if (!hasLangPrefix) {
+      return path;
+    }
+    
+    // 否则按原来的方式添加语言前缀
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
     return `/${locale}${cleanPath ? `/${cleanPath}` : ''}`;
+  };
+  
+  // 判断给定路径是否为活动路径
+  const isActivePath = (itemHref: string) => {
+    // 如果是首页
+    if (itemHref === '/') {
+      return pathname === '/' || pathname === `/${locale}`;
+    }
+    
+    // 去除前导斜杠
+    const cleanHref = itemHref.startsWith('/') ? itemHref.slice(1) : itemHref;
+    
+    // 检查当前路径是否以该href结尾（考虑带语言前缀和不带语言前缀两种情况）
+    return pathname === itemHref || // 精确匹配
+           pathname.endsWith(`/${cleanHref}`) || // 以工具名结尾
+           pathname === `/${locale}/${cleanHref}`; // 带语言前缀
   };
   
   return (
@@ -52,7 +77,7 @@ export default function Navbar({ locale, translations }: NavbarProps) {
                   key={item.name}
                   href={getLocalizedHref(item.href)}
                   className={`whitespace-nowrap inline-flex items-center px-2 lg:px-3 py-2 border-b-2 text-sm font-medium ${
-                    pathname.endsWith(item.href) || (item.href === '/' && pathname === `/${locale}`)
+                    isActivePath(item.href)
                       ? 'border-blue-500 text-gray-900 dark:text-white'
                       : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-200'
                   }`}
@@ -115,7 +140,7 @@ export default function Navbar({ locale, translations }: NavbarProps) {
               key={item.name}
               href={getLocalizedHref(item.href)}
               className={`block px-4 py-3 text-base font-medium ${
-                pathname.endsWith(item.href) || (item.href === '/' && pathname === `/${locale}`)
+                isActivePath(item.href)
                   ? 'bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-500 text-blue-700 dark:text-blue-300'
                   : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               }`}

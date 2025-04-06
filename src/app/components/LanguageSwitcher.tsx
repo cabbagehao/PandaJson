@@ -48,8 +48,19 @@ export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
       }
     }
     
-    // 简化逻辑: 所有语言（包括默认语言）都添加语言前缀，与中间件行为保持一致
-    return `/${targetLocale}${path === '/' ? '' : path}`;
+    // 检查当前路径是否已经是x-default（不含语言前缀）
+    const isXDefault = !locales.some(loc => 
+      pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`
+    );
+    
+    // 如果目标语言是默认语言并且我们当前在x-default路径，或者从带语言的路径切换到默认语言
+    if (targetLocale === defaultLocale) {
+      // 返回不带语言前缀的路径
+      return path === '/' ? '/' : path;
+    } else {
+      // 对于其他语言，添加语言前缀
+      return `/${targetLocale}${path === '/' ? '' : path}`;
+    }
   };
 
   // 如果不是客户端渲染，返回占位元素保持布局一致
@@ -82,7 +93,7 @@ export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
                 onClick={() => switchLanguage(lang)}
                 className={`
                   flex items-center justify-center px-2 py-1.5 text-sm rounded 
-                  ${locale === lang ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'}
+                  ${(locale === lang || (lang === defaultLocale && !locales.includes(pathname.split('/')[1] as Locale))) ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'}
                 `}
               >
                 {languageNames[lang]}

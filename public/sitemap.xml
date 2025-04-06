@@ -4,7 +4,8 @@
   
   <!-- 首页 -->
   <url>
-    <loc>https://jsonpanda.com/en</loc>
+    <loc>https://jsonpanda.com/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jsonpanda.com/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://jsonpanda.com/zh" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jsonpanda.com/en" />
     <xhtml:link rel="alternate" hreflang="es" href="https://jsonpanda.com/es" />
@@ -26,7 +27,8 @@
 
   <!-- 格式化工具页面 -->
   <url>
-    <loc>https://jsonpanda.com/en/formatter</loc>
+    <loc>https://jsonpanda.com/formatter</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jsonpanda.com/formatter" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://jsonpanda.com/zh/formatter" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jsonpanda.com/en/formatter" />
     <xhtml:link rel="alternate" hreflang="es" href="https://jsonpanda.com/es/formatter" />
@@ -48,7 +50,8 @@
 
   <!-- 验证工具页面 -->
   <url>
-    <loc>https://jsonpanda.com/en/validator</loc>
+    <loc>https://jsonpanda.com/validator</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jsonpanda.com/validator" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://jsonpanda.com/zh/validator" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jsonpanda.com/en/validator" />
     <xhtml:link rel="alternate" hreflang="es" href="https://jsonpanda.com/es/validator" />
@@ -70,7 +73,8 @@
 
   <!-- 转换工具页面 -->
   <url>
-    <loc>https://jsonpanda.com/en/converter</loc>
+    <loc>https://jsonpanda.com/converter</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jsonpanda.com/converter" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://jsonpanda.com/zh/converter" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jsonpanda.com/en/converter" />
     <xhtml:link rel="alternate" hreflang="es" href="https://jsonpanda.com/es/converter" />
@@ -92,7 +96,8 @@
 
   <!-- 比较工具页面 -->
   <url>
-    <loc>https://jsonpanda.com/en/diff</loc>
+    <loc>https://jsonpanda.com/diff</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jsonpanda.com/diff" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://jsonpanda.com/zh/diff" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jsonpanda.com/en/diff" />
     <xhtml:link rel="alternate" hreflang="es" href="https://jsonpanda.com/es/diff" />
@@ -114,7 +119,8 @@
 
   <!-- 树编辑器页面 -->
   <url>
-    <loc>https://jsonpanda.com/en/tree-editor</loc>
+    <loc>https://jsonpanda.com/tree-editor</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jsonpanda.com/tree-editor" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://jsonpanda.com/zh/tree-editor" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jsonpanda.com/en/tree-editor" />
     <xhtml:link rel="alternate" hreflang="es" href="https://jsonpanda.com/es/tree-editor" />
@@ -136,7 +142,8 @@
 
   <!-- Schema验证工具页面 -->
   <url>
-    <loc>https://jsonpanda.com/en/schema-validator</loc>
+    <loc>https://jsonpanda.com/schema-validator</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jsonpanda.com/schema-validator" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://jsonpanda.com/zh/schema-validator" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jsonpanda.com/en/schema-validator" />
     <xhtml:link rel="alternate" hreflang="es" href="https://jsonpanda.com/es/schema-validator" />
@@ -158,7 +165,8 @@
 
   <!-- 压缩工具页面 -->
   <url>
-    <loc>https://jsonpanda.com/en/minifier</loc>
+    <loc>https://jsonpanda.com/minifier</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jsonpanda.com/minifier" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://jsonpanda.com/zh/minifier" />
     <xhtml:link rel="alternate" hreflang="en" href="https://jsonpanda.com/en/minifier" />
     <xhtml:link rel="alternate" hreflang="es" href="https://jsonpanda.com/es/minifier" />

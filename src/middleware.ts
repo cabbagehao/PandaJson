@@ -46,7 +46,7 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
 
-  // 如果URL中已有语言代码，或者是其他不需要重定向的路径，则跳过
+  // 如果URL中已有语言代码，或者是其他不需要处理的路径，则跳过
   if (pathnameHasLocale || 
       pathname.startsWith('/_next') || 
       pathname.startsWith('/api') ||
@@ -55,17 +55,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // 获取用户首选语言
+  // 获取用户首选语言，仅用于设置Cookie，不再进行重定向
   const locale = getLocale(request)
   
-  // 构建重定向URL
-  const newUrl = new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url)
-  
-  // 保留原始的查询参数
-  newUrl.search = request.nextUrl.search
-  
   // 设置语言cookie，有效期30天
-  const response = NextResponse.redirect(newUrl)
+  const response = NextResponse.next()
   response.cookies.set('NEXT_LOCALE', locale, { 
     maxAge: 30 * 24 * 60 * 60,
     path: '/',

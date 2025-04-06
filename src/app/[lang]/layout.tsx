@@ -1,6 +1,5 @@
 import '../globals.css';
 import { Inter } from 'next/font/google';
-import { getDictionary } from '@/i18n';
 import { locales, Locale } from '@/i18n';
 import { Metadata } from 'next';
 import Navbar from '@/app/components/Navbar';
