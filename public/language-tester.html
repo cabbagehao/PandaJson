@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>语言重定向测试工具</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 10px;
+      border: 1px solid #ddd;
+      background: #f8f8f8;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    button:hover {
+      background: #e8e8e8;
+    }
+    .results {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #f9f9f9;
+    }
+    .cookie-test {
+      margin-top: 30px;
+    }
+    .cookie-pair {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .cookie-pair select {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    .cookie-instructions {
+      background: #fff8e1;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      border-left: 4px solid #ffca28;
+    }
+    pre {
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 4px;
+      overflow: auto;
+    }
+    .test-btn {
+      background: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .test-btn:hover {
+      background: #3367d6;
+    }
+  </style>
+</head>
+<body>
+  <h1>语言重定向测试工具</h1>
+  
+  <div class="cookie-instructions">
+    <p><strong>使用说明：</strong></p>
+    <p>1. 这个工具会在新窗口中打开您的网站首页，并添加特定的语言偏好</p>
+    <p>2. 观察URL是否自动重定向到对应的语言版本</p>
+    <p>3. 使用Cookie测试工具可验证Cookie优先级是否正确</p>
+    <p>4. 建议在无痕/隐私模式下使用，以避免现有Cookie干扰测试</p>
+  </div>
+
+  <h2>测试单一语言</h2>
+  <p>点击按钮测试特定语言的重定向:</p>
+  
+  <div class="language-grid" id="language-buttons">
+    <!-- 将由JavaScript填充 -->
+  </div>
+
+  <div class="cookie-test">
+    <h2>测试Cookie优先级</h2>
+    <p>设置Cookie与Accept-Language不同的值，验证Cookie是否具有更高优先级:</p>
+    
+    <div class="cookie-pair">
+      <div>
+        <label for="cookie-locale">Cookie语言:</label>
+        <select id="cookie-locale">
+          <!-- 将由JavaScript填充 -->
+        </select>
+      </div>
+      <div>
+        <label for="accept-language">浏览器语言:</label>
+        <select id="accept-language">
+          <!-- 将由JavaScript填充 -->
+        </select>
+      </div>
+    </div>
+    
+    <button id="test-cookie" class="test-btn">测试Cookie优先级</button>
+  </div>
+
+  <div class="results" id="results">
+    <h3>测试结果</h3>
+    <p>点击按钮开始测试...</p>
+  </div>
+
+  <script>
+    // 支持的语言列表
+    const locales = [
+      { code: 'zh', name: '中文' },
+      { code: 'en', name: 'English' },
+      { code: 'es', name: 'Español' },
+      { code: 'ja', name: '日本語' },
+      { code: 'zh-tw', name: '繁體中文' },
+      { code: 'ar', name: 'العربية' },
+      { code: 'hi', name: 'हिन्दी' },
+      { code: 'pt', name: 'Português' },
+      { code: 'fr', name: 'Français' },
+      { code: 'ru', name: 'Русский' },
+      { code: 'de', name: 'Deutsch' },
+      { code: 'vi', name: 'Tiếng Việt' },
+      { code: 'sw', name: 'Kiswahili' },
+      { code: 'mk', name: 'Македонски' },
+      { code: 'uz', name: 'O\'zbek' }
+    ];
+
+    // 创建语言按钮
+    const languageGrid = document.getElementById('language-buttons');
+    
+    locales.forEach(locale => {
+      const button = document.createElement('button');
+      button.textContent = `${locale.name} (${locale.code})`;
+      button.addEventListener('click', () => testLanguage(locale.code));
+      languageGrid.appendChild(button);
+    });
+
+    // 填充选择框
+    const cookieLocale = document.getElementById('cookie-locale');
+    const acceptLanguage = document.getElementById('accept-language');
+    
+    locales.forEach(locale => {
+      cookieLocale.add(new Option(`${locale.name} (${locale.code})`, locale.code));
+      acceptLanguage.add(new Option(`${locale.name} (${locale.code})`, locale.code));
+    });
+
+    // 设置默认不同的值
+    cookieLocale.value = 'zh';
+    acceptLanguage.value = 'en';
+
+    // 测试特定语言
+    function testLanguage(locale) {
+      updateResults(`正在测试 ${locale} 的重定向...`);
+      
+      // 创建iframe而不是打开新窗口，以便于我们捕获结果
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      
+      // 加载前设置事件监听器
+      iframe.onload = function() {
+        try {
+          const redirectedUrl = iframe.contentWindow.location.href;
+          const isCorrect = redirectedUrl.includes(`/${locale}`);
+          
+          updateResults(`
+            <h4>语言: ${locale}</h4>
+            <p>重定向到: ${redirectedUrl}</p>
+            <p>结果: ${isCorrect ? '✅ 成功' : '❌ 失败'}</p>
+          `);
+          
+          // 移除iframe
+          document.body.removeChild(iframe);
+        } catch (e) {
+          // 跨域错误，可能无法读取iframe内容
+          updateResults(`
+            <h4>无法读取结果 (可能是因为跨域限制)</h4>
+            <p>请检查浏览器地址栏中的URL是否重定向到 /${locale}</p>
+            <p>错误: ${e.message}</p>
+          `);
+          
+          // 移除iframe
+          document.body.removeChild(iframe);
+          
+          // 打开新窗口作为备用方案
+          window.open(`/?accept-language=${locale}`, '_blank');
+        }
+      };
+      
+      // 设置请求头并加载页面
+      document.body.appendChild(iframe);
+      iframe.src = `/`;
+    }
+
+    // 测试Cookie优先级
+    document.getElementById('test-cookie').addEventListener('click', function() {
+      const cookieValue = cookieLocale.value;
+      const langValue = acceptLanguage.value;
+      
+      updateResults(`正在测试Cookie优先级...
+        <p>Cookie: ${cookieValue}</p>
+        <p>Accept-Language: ${langValue}</p>
+      `);
+      
+      // 设置cookie
+      document.cookie = `NEXT_LOCALE=${cookieValue}; path=/`;
+      
+      // 使用新窗口打开，以便用户可以查看结果
+      window.open(`/?accept-language=${langValue}`, '_blank');
+      
+      updateResults(`
+        <h4>Cookie优先级测试</h4>
+        <p>已设置Cookie: NEXT_LOCALE=${cookieValue}</p>
+        <p>请检查新窗口的URL是否重定向到 /${cookieValue}</p>
+        <p>如果是，则证明Cookie优先级高于Accept-Language</p>
+      `);
+    });
+
+    // 更新结果区域
+    function updateResults(html) {
+      document.getElementById('results').innerHTML = `
+        <h3>测试结果</h3>
+        ${html}
+      `;
+    }
+  </script>
+</body>
+</html> 

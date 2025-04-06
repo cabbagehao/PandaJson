@@ -8,17 +8,24 @@ import Papa from 'papaparse';
 import { useTranslation } from '@/i18n/hooks';
 import JsonEditor from '@/app/components/JsonEditor';
 import ToolLayout from '@/app/components/ToolLayout';
+import { Locale } from '@/i18n';
 
 type ConversionType = 'json-to-yaml' | 'json-to-xml' | 'json-to-csv' | 'yaml-to-json' | 'xml-to-json' | 'csv-to-json';
 
 interface ConverterClientProps {
-  params: {
-    lang: string;
-  };
+  pageTitle: string;
+  pageDescription: string;
+  pageKeywords: string;
+  locale: Locale;
 }
 
-export default function ConverterClient({ params }: ConverterClientProps) {
-  const { t, locale } = useTranslation();
+export default function ConverterClient({ 
+  pageTitle,
+  pageDescription,
+  pageKeywords,
+  locale 
+}: ConverterClientProps) {
+  const { t } = useTranslation();
   const converter = t('converter');
   const ui = t('common').ui;
   
@@ -229,9 +236,9 @@ export default function ConverterClient({ params }: ConverterClientProps) {
 
   return (
     <ToolLayout
-      title={converter.title}
-      description={converter.description}
-      keywords={converter.keywords}
+      title={pageTitle}
+      description={pageDescription}
+      keywords={pageKeywords}
     >
       <div className="space-y-6">
         {/* 转换选项 */}

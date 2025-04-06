@@ -2,10 +2,11 @@
 
 import { Fragment, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Popover, Transition } from '@headlessui/react';
 import { FiGlobe } from 'react-icons/fi';
 import { Locale, locales, languageNames, defaultLocale } from '@/i18n';
+import Cookies from 'js-cookie';
 
 interface LanguageSwitcherProps {
   locale: Locale;
@@ -13,12 +14,26 @@ interface LanguageSwitcherProps {
 
 export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   
   // 客户端挂载后再显示，避免服务端渲染不匹配
   useEffect(() => {
     setMounted(true);
   }, []);
+  
+  // 切换语言
+  const switchLanguage = (targetLocale: Locale) => {
+    // 保存语言偏好到cookie，与中间件行为一致
+    Cookies.set('NEXT_LOCALE', targetLocale, { 
+      expires: 30, // 30天
+      path: '/'
+    });
+    
+    // 导航到新语言页面
+    const url = getLanguageUrl(targetLocale);
+    router.push(url);
+  };
   
   // 生成语言切换链接
   const getLanguageUrl = (targetLocale: Locale) => {
@@ -62,16 +77,16 @@ export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
         <Popover.Panel className="absolute right-0 z-10 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 p-2 min-w-[180px] max-w-[220px]">
           <div className="grid grid-cols-2 gap-1">
             {locales.map((lang) => (
-              <Link
+              <button
                 key={lang}
-                href={getLanguageUrl(lang)}
+                onClick={() => switchLanguage(lang)}
                 className={`
                   flex items-center justify-center px-2 py-1.5 text-sm rounded 
                   ${locale === lang ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'}
                 `}
               >
                 {languageNames[lang]}
-              </Link>
+              </button>
             ))}
           </div>
         </Popover.Panel>

@@ -16,14 +16,24 @@ function getLocale(request: NextRequest): Locale {
   let acceptLanguage = headers.get('accept-language') || ''
   
   // 构造Negotiator需要的headers对象
-  let languages = new Negotiator({ 
-    headers: { 'accept-language': acceptLanguage } 
-  }).languages()
+  let languages: string[] = []
+  try {
+    languages = new Negotiator({ 
+      headers: { 'accept-language': acceptLanguage } 
+    }).languages()
+  } catch (e) {
+    console.error('Failed to parse Accept-Language header:', e)
+    // 如果解析失败，返回默认语言
+    return defaultLocale
+  }
 
   // 3. 使用intl-localematcher匹配最佳语言
   try {
-    return match(languages, locales, defaultLocale) as Locale
+    // 首先尝试精确匹配
+    const matchedLocale = match(languages, locales, defaultLocale) as Locale
+    return matchedLocale
   } catch (e) {
+    console.error('Failed to match locale:', e)
     return defaultLocale
   }
 }
@@ -40,7 +50,8 @@ export function middleware(request: NextRequest) {
   if (pathnameHasLocale || 
       pathname.startsWith('/_next') || 
       pathname.startsWith('/api') ||
-      pathname.includes('.')) {
+      pathname.includes('.') ||
+      pathname === '/favicon.ico') {
     return NextResponse.next()
   }
 
@@ -58,6 +69,7 @@ export function middleware(request: NextRequest) {
   response.cookies.set('NEXT_LOCALE', locale, { 
     maxAge: 30 * 24 * 60 * 60,
     path: '/',
+    sameSite: 'lax'
   })
   
   return response

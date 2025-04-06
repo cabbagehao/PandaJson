@@ -1,29 +1,25 @@
-import { Metadata } from 'next';
-import { getDictionary } from '@/i18n/index';
-import { Locale, defaultLocale } from '@/i18n';
+import { getServerTranslation } from '@/i18n/server';
+import { Locale } from '@/i18n';
 import ConverterClient from './ConverterClient';
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: { lang: string } 
-}): Promise<Metadata> {
-  const resolvedParams = await Promise.resolve(params);
-  const lang = (resolvedParams.lang || defaultLocale) as Locale;
-  const { converter } = await getDictionary(lang);
-  
-  return {
-    title: converter.title,
-    description: converter.description,
-    keywords: converter.keywords,
-  };
-}
+// 导出元数据生成函数
+export { generateMetadata } from './metadata';
 
 export default async function ConverterPage({ 
   params 
 }: { 
   params: { lang: string } 
 }) {
-  const resolvedParams = await Promise.resolve(params);
-  return <ConverterClient params={resolvedParams} />;
+  const locale = params.lang as Locale;
+  const { t } = await getServerTranslation(locale);
+  const converter = t.converter;
+
+  return (
+    <ConverterClient 
+      pageTitle={converter.title}
+      pageDescription={converter.description}
+      pageKeywords={converter.keywords}
+      locale={locale}
+    />
+  );
 } 

@@ -1,0 +1,10 @@
+# 允许所有搜索引擎爬取所有内容
+User-agent: *
+Allow: /
+
+# 站点地图路径
+Sitemap: https://jsonpanda.com/sitemap.xml
+
+# 禁止爬取的路径（例如API或管理页面，可按需添加）
+# Disallow: /api/
+# Disallow: /admin/ 
