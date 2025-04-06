@@ -22,5 +22,6 @@ export const schemaValidator = {
   strictMode: 'सख्त मोड',
   strictModeDescription: 'JSON स्कीमा स्पेक में निर्दिष्ट नहीं किए गए अतिरिक्त वैलिडेशन प्रतिबंधों को लागू करें',
   jsonParseError: 'JSON पार्स त्रुटि',
-  schemaParseError: 'स्कीमा पार्स त्रुटि'
+  schemaParseError: 'स्कीमा पार्स त्रुटि',
+  rules: 'सामान्य वैलिडेशन नियम'
 }; 

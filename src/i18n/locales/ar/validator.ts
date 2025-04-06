@@ -29,7 +29,5 @@ export const validator = {
   jsonStructure: 'هيكل JSON',
   jsonSyntaxError: 'خطأ في بناء جملة JSON',
   parseSuccess: 'تم التحليل بنجاح، ويحتوي على {count} عقدة بيانات.',
-  unknownError: 'خطأ غير معروف',
-  clear: 'مسح',
-  validating: 'جاري التحقق...'
+  unknownError: 'خطأ غير معروف'
 }; 

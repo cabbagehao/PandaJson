@@ -60,15 +60,7 @@ export const common = {
     ja: 'Tiếng Nhật',
     'zh-tw': 'Tiếng Trung Phồn Thể',
     ar: 'Tiếng Ả Rập',
-    hi: 'Tiếng Hindi',
-    pt: 'Tiếng Bồ Đào Nha',
-    fr: 'Tiếng Pháp',
-    ru: 'Tiếng Nga',
-    de: 'Tiếng Đức',
-    vi: 'Tiếng Việt',
-    sw: 'Tiếng Swahili',
-    mk: 'Tiếng Macedonia',
-    uz: 'Tiếng Uzbek'
+    hi: 'Tiếng Hindi'
   },
   ui: {
     copy: 'Sao Chép',

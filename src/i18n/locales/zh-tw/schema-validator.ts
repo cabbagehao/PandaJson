@@ -22,5 +22,6 @@ export const schemaValidator = {
   strictMode: '嚴格模式',
   strictModeDescription: '強制執行JSON Schema規範中未指定的額外驗證約束',
   jsonParseError: 'JSON解析錯誤',
-  schemaParseError: 'Schema解析錯誤'
+  schemaParseError: 'Schema解析錯誤',
+  rules: '常見驗證規則'
 }; 

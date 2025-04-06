@@ -29,7 +29,5 @@ export const validator = {
   jsonStructure: 'JSON結構',
   jsonSyntaxError: 'JSON語法錯誤',
   parseSuccess: '解析成功，包含{count}個數據節點。',
-  unknownError: '未知錯誤',
-  clear: '清空',
-  validating: '驗證中...'
+  unknownError: '未知錯誤'
 }; 

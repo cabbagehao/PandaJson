@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'JSONツリーエディタ',
-  description: 'ツリー構造でJSONデータを視覚化して編集し、テキストビューとツリービューの切り替えをサポートします。',
-  keywords: 'JSONエディタ,JSONツリー編集,JSON視覚化,JSONノードエディタ,JSONツリー構造',
+  title: 'JSON差分ツール',
+  description: '2つのJSONオブジェクトを比較し、追加、削除、変更を視覚化します。',
+  keywords: 'JSON差分,JSON比較,JSON違い,JSON比較,JSONコンパレータ',
   textView: 'テキストビュー',
   treeView: 'ツリービュー',
   jsonText: 'JSONテキスト',
@@ -15,5 +15,17 @@ export const treeEditor = {
   parseError: '解析エラー',
   unknownError: '解析中に不明なエラーが発生しました',
   updateError: '更新エラー',
-  emptyInputMessage: '最初にテキストエディタに有効なJSONを入力してください'
+  emptyInputMessage: '最初にテキストエディタに有効なJSONを入力してください',
+  // ツリーエディタ特有の翻訳
+  addItem: '項目を追加',
+  addProperty: 'プロパティを追加',
+  keyName: 'キー名',
+  value: '値',
+  add: '追加',
+  cancel: 'キャンセル',
+  save: '保存',
+  empty: '空',
+  keyNameEmpty: 'キー名を入力してください',
+  addFailed: '追加に失敗しました',
+  invalidValue: '無効な値です'
 }; 

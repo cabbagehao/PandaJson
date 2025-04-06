@@ -22,5 +22,6 @@ export const schemaValidator = {
   strictMode: 'Strikter Modus',
   strictModeDescription: 'Erzwingt zusätzliche Validierungsbeschränkungen, die nicht in der JSON-Schema-Spezifikation angegeben sind',
   jsonParseError: 'JSON-Analysefehler',
-  schemaParseError: 'Schema-Analysefehler'
+  schemaParseError: 'Schema-Analysefehler',
+  rules: 'Häufige Validierungsregeln'
 }; 

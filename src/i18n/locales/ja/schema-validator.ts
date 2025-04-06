@@ -20,7 +20,8 @@ export const schemaValidator = {
   basicTypesTitle: '基本型の検証',
   commonRulesTitle: '一般的な検証ルール',
   strictMode: '厳格モード',
-  strictModeDescription: 'JSONスキーマ仕様に指定されていない追加の検証制約を適用します',
+  strictModeDescription: 'JSON Schemaの仕様に指定されていない追加の検証制約を適用します',
   jsonParseError: 'JSON解析エラー',
-  schemaParseError: 'スキーマ解析エラー'
+  schemaParseError: 'Schema解析エラー',
+  rules: '一般的な検証ルール'
 }; 

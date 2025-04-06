@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'محرر شجرة JSON',
-  description: 'قم بتصور وتحرير بيانات JSON بهيكل شجرة، مع دعم التبديل بين طرق عرض النص والشجرة.',
-  keywords: 'محرر JSON، تحرير شجرة JSON، تصور JSON، محرر عقدة JSON، هيكل شجرة JSON',
+  title: 'أداة مقارنة JSON',
+  description: 'قارن كائنات JSON وعرض الإضافات والحذف والتغييرات بصريًا',
+  keywords: 'مقارنة JSON، اختلافات JSON، مقارن JSON',
   textView: 'عرض النص',
   treeView: 'عرض الشجرة',
   jsonText: 'نص JSON',
@@ -13,7 +13,19 @@ export const treeEditor = {
   copied: 'تم النسخ إلى الحافظة',
   copyFailed: 'فشل النسخ',
   parseError: 'خطأ في التحليل',
-  unknownError: 'خطأ غير معروف أثناء التحليل',
+  unknownError: 'حدث خطأ غير معروف أثناء التحليل',
   updateError: 'خطأ في التحديث',
-  emptyInputMessage: 'الرجاء إدخال JSON صالح في محرر النصوص أولاً'
+  emptyInputMessage: 'الرجاء إدخال JSON صالح في محرر النصوص أولاً',
+  // ترجمات محرر الشجرة
+  addItem: 'إضافة عنصر',
+  addProperty: 'إضافة خاصية',
+  keyName: 'اسم المفتاح',
+  value: 'القيمة',
+  add: 'إضافة',
+  cancel: 'إلغاء',
+  save: 'حفظ',
+  empty: 'فارغ',
+  keyNameEmpty: 'اسم المفتاح لا يمكن أن يكون فارغًا',
+  addFailed: 'فشلت الإضافة',
+  invalidValue: 'قيمة غير صالحة'
 }; 

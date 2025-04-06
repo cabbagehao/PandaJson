@@ -29,7 +29,5 @@ export const validator = {
   jsonStructure: 'JSON संरचना',
   jsonSyntaxError: 'JSON सिंटैक्स त्रुटि',
   parseSuccess: 'सफलतापूर्वक पार्स किया गया, {count} डेटा नोड्स शामिल हैं।',
-  unknownError: 'अज्ञात त्रुटि',
-  clear: 'साफ़ करें',
-  validating: 'वैलिडेट हो रहा है...'
+  unknownError: 'अज्ञात त्रुटि'
 }; 

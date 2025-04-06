@@ -16,5 +16,7 @@ export const diff = {
   diffGuide: 'دليل الاختلافات',
   addedContent: 'المحتوى المضاف',
   removedContent: 'المحتوى المحذوف',
-  modifiedContent: 'المحتوى المعدل'
+  modifiedContent: 'المحتوى المعدل',
+  originalJson: 'JSON الأصلي',
+  updatedJson: 'JSON المحدث'
 }; 

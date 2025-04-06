@@ -60,15 +60,7 @@ export const common = {
     ja: 'Kijapani',
     'zh-tw': 'Kichina cha Jadi',
     ar: 'Kiarabu',
-    hi: 'Kihindi',
-    pt: 'Kireno',
-    fr: 'Kifaransa',
-    ru: 'Kirusi',
-    de: 'Kijerumani',
-    vi: 'Kivietinamu',
-    sw: 'Kiswahili',
-    mk: 'Kimasedonia',
-    uz: 'Kiuzbeki'
+    hi: 'Kihindi'
   },
   ui: {
     copy: 'Nakili',

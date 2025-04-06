@@ -22,5 +22,6 @@ export const schemaValidator = {
   strictMode: 'الوضع الصارم',
   strictModeDescription: 'فرض قيود تحقق إضافية غير محددة في مواصفات مخطط JSON',
   jsonParseError: 'خطأ في تحليل JSON',
-  schemaParseError: 'خطأ في تحليل المخطط'
+  schemaParseError: 'خطأ في تحليل المخطط',
+  rules: 'قواعد التحقق الشائعة'
 }; 

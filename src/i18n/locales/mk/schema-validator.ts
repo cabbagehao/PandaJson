@@ -20,7 +20,8 @@ export const schemaValidator = {
   basicTypesTitle: 'Основни типови',
   commonRulesTitle: 'Вообичаени правила',
   strictMode: 'Строг режим',
-  strictModeDescription: 'Овозможи строги правила за построга валидација',
-  jsonParseError: 'Грешка при парсирање на JSON: {message}',
-  schemaParseError: 'Грешка при парсирање на Шема: {message}'
+  strictModeDescription: 'Примени дополнителни ограничувања за валидација кои не се наведени во спецификацијата на JSON Schema',
+  jsonParseError: 'Грешка при анализа на JSON',
+  schemaParseError: 'Грешка при анализа на шема',
+  rules: 'Вообичаени правила за валидација'
 }; 

@@ -16,5 +16,7 @@ export const diff = {
   diffGuide: 'Руководство По Различиям',
   addedContent: 'Добавленный Контент',
   removedContent: 'Удаленный Контент',
-  modifiedContent: 'Измененный Контент'
+  modifiedContent: 'Измененный Контент',
+  originalJson: 'Исходный JSON',
+  updatedJson: 'Обновленный JSON'
 }; 

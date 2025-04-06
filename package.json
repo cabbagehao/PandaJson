@@ -2,11 +2,14 @@
   "name": "pandajson",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:check": "node scripts/dev-with-checks.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check-translations": "npx ts-node scripts/check-translations.ts"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",
@@ -54,6 +57,7 @@
     "null-loader": "^4.0.1",
     "path-browserify": "^1.0.1",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

@@ -22,5 +22,6 @@ export const schemaValidator = {
   strictMode: 'Strict Mode',
   strictModeDescription: 'Enforce additional validation constraints not specified in the JSON Schema spec',
   jsonParseError: 'JSON Parse Error',
-  schemaParseError: 'Schema Parse Error'
+  schemaParseError: 'Schema Parse Error',
+  rules: 'Common validation rules'
 }; 

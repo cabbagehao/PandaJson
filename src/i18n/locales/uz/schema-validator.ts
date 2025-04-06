@@ -20,7 +20,8 @@ export const schemaValidator = {
   basicTypesTitle: 'Asosiy turlar',
   commonRulesTitle: 'Umumiy qoidalar',
   strictMode: 'Qat\'iy rejim',
-  strictModeDescription: 'Yanada qattiqroq tekshirish uchun qat\'iy qoidalarni yoqish',
-  jsonParseError: 'JSON ni tahlil qilishda xato: {message}',
-  schemaParseError: 'Sxemani tahlil qilishda xato: {message}'
+  strictModeDescription: 'JSON Schema spetsifikatsiyasida ko\'rsatilmagan qo\'shimcha tekshirish cheklovlarini qo\'llash',
+  jsonParseError: 'JSON tahlil qilish xatosi',
+  schemaParseError: 'Sxema tahlil qilish xatosi',
+  rules: 'Umumiy tekshirish qoidalari'
 }; 

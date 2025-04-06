@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { FiChevronRight, FiChevronDown, FiPlus, FiMinus, FiEdit, FiTrash2 } from 'react-icons/fi';
+import { useTranslation } from '@/i18n/hooks';
 
 interface JsonTreeProps {
   data: any;
@@ -9,6 +10,8 @@ interface JsonTreeProps {
 }
 
 const JsonTree: React.FC<JsonTreeProps> = ({ data, onChange }) => {
+  const { t } = useTranslation();
+  
   return (
     <div className="text-sm font-mono">
       <TreeNode 
@@ -16,6 +19,7 @@ const JsonTree: React.FC<JsonTreeProps> = ({ data, onChange }) => {
         path="" 
         onUpdate={(newData) => onChange(newData)} 
         isRoot={true} 
+        t={t}
       />
     </div>
   );
@@ -26,15 +30,17 @@ interface TreeNodeProps {
   path: string;
   onUpdate: (newData: any) => void;
   isRoot?: boolean;
+  t: any;
 }
 
-const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = false }) => {
+const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = false, t }) => {
   const [expanded, setExpanded] = useState(true);
   const [editKey, setEditKey] = useState<string | null>(null);
   const [editValue, setEditValue] = useState<string>('');
   const [newKey, setNewKey] = useState('');
   const [newValue, setNewValue] = useState('');
   const [addingNew, setAddingNew] = useState(false);
+  const treeEditor = t('treeEditor');
 
   if (data === null) {
     return (
@@ -105,7 +111,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
         updateValue(editKey, parsedValue);
         setEditKey(null);
       } catch (err) {
-        alert('无效的值');
+        alert(treeEditor.invalidValue);
       }
     }
   };
@@ -127,7 +133,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
         newData.push(parsedValue);
       } else {
         if (newKey.trim() === '') {
-          alert('键名不能为空');
+          alert(treeEditor.keyNameEmpty);
           return;
         }
         newData[newKey] = parsedValue;
@@ -137,7 +143,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
       setNewValue('');
       setAddingNew(false);
     } catch (err) {
-      alert('添加失败');
+      alert(treeEditor.addFailed);
     }
   };
 
@@ -158,7 +164,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
             {isArray ? '[ ]' : '{ }'}
           </span>
 
-          {isEmpty && <span className="ml-2 text-gray-500 dark:text-gray-400">(空)</span>}
+          {isEmpty && <span className="ml-2 text-gray-500 dark:text-gray-400">({treeEditor.empty})</span>}
         </div>
       )}
 
@@ -189,13 +195,13 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
                         onClick={saveEdit}
                         className="px-2 py-0.5 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded"
                       >
-                        保存
+                        {treeEditor.save}
                       </button>
                       <button
                         onClick={() => setEditKey(null)}
                         className="px-2 py-0.5 text-xs bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded"
                       >
-                        取消
+                        {treeEditor.cancel}
                       </button>
                     </div>
                   ) : (
@@ -212,6 +218,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
                           data={data[key]}
                           path={path ? `${path}.${key}` : key}
                           onUpdate={(newValue) => updateValue(key, newValue)}
+                          t={t}
                         />
                       ) : (
                         <span className={
@@ -264,7 +271,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
                     type="text"
                     value={newKey}
                     onChange={(e) => setNewKey(e.target.value)}
-                    placeholder="键名"
+                    placeholder={treeEditor.keyName}
                     className="px-1 py-0.5 text-sm border border-gray-300 dark:border-gray-700 rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 w-1/3"
                     autoFocus
                   />
@@ -273,20 +280,20 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
                   type="text"
                   value={newValue}
                   onChange={(e) => setNewValue(e.target.value)}
-                  placeholder="值"
+                  placeholder={treeEditor.value}
                   className="px-1 py-0.5 text-sm border border-gray-300 dark:border-gray-700 rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 flex-1"
                 />
                 <button
                   onClick={addNewItem}
                   className="px-2 py-0.5 text-xs bg-green-600 hover:bg-green-700 text-white rounded"
                 >
-                  添加
+                  {treeEditor.add}
                 </button>
                 <button
                   onClick={() => setAddingNew(false)}
                   className="px-2 py-0.5 text-xs bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded"
                 >
-                  取消
+                  {treeEditor.cancel}
                 </button>
               </div>
             </div>
@@ -297,7 +304,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
                 className="inline-flex items-center px-2 py-1 text-xs text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               >
                 <FiPlus size={14} className="mr-1" />
-                添加{isArray ? '项' : '属性'}
+                {isArray ? treeEditor.addItem : treeEditor.addProperty}
               </button>
             </div>
           )}
@@ -307,4 +314,4 @@ const TreeNode: React.FC<TreeNodeProps> = ({ data, path, onUpdate, isRoot = fals
   );
 };
 
-export default JsonTree; 
+export default JsonTree;

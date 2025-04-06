@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'JSON ट्री एडिटर',
-  description: 'ट्री संरचना के साथ JSON डेटा का विज़ुअलाइज़ और संपादन करें, टेक्स्ट और ट्री व्यू के बीच स्विचिंग का समर्थन करता है।',
-  keywords: 'JSON एडिटर, JSON ट्री एडिट, JSON विज़ुअलाइज़ेशन, JSON नोड एडिटर, JSON ट्री स्ट्रक्चर',
+  title: 'JSON अंतर उपकरण',
+  description: 'दो JSON ऑब्जेक्ट्स की तुलना करें और जोड़, हटाए गए और बदले गए आइटम को देखें',
+  keywords: 'JSON अंतर, JSON तुलना, JSON भिन्नता, JSON कम्पेरेटर',
   textView: 'टेक्स्ट व्यू',
   treeView: 'ट्री व्यू',
   jsonText: 'JSON टेक्स्ट',
@@ -11,9 +11,21 @@ export const treeEditor = {
   download: 'डाउनलोड करें',
   clear: 'साफ़ करें',
   copied: 'क्लिपबोर्ड पर कॉपी किया गया',
-  copyFailed: 'कॉपी विफल',
-  parseError: 'पार्स त्रुटि',
+  copyFailed: 'कॉपी विफल रहा',
+  parseError: 'पार्सिंग त्रुटि',
   unknownError: 'पार्सिंग के दौरान अज्ञात त्रुटि',
   updateError: 'अपडेट त्रुटि',
-  emptyInputMessage: 'कृपया पहले टेक्स्ट एडिटर में वैध JSON दर्ज करें'
+  emptyInputMessage: 'कृपया पहले टेक्स्ट एडिटर में वैध JSON दर्ज करें',
+  // ट्री एडिटर के लिए विशेष अनुवाद
+  addItem: 'आइटम जोड़ें',
+  addProperty: 'प्रॉपर्टी जोड़ें',
+  keyName: 'की नाम',
+  value: 'वैल्यू',
+  add: 'जोड़ें',
+  cancel: 'रद्द करें',
+  save: 'सहेजें',
+  empty: 'खाली',
+  keyNameEmpty: 'की नाम खाली नहीं हो सकता',
+  addFailed: 'जोड़ना विफल रहा',
+  invalidValue: 'अमान्य वैल्यू'
 }; 

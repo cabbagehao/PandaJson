@@ -22,5 +22,6 @@ export const schemaValidator = {
   strictMode: 'Chế Độ Nghiêm Ngặt',
   strictModeDescription: 'Áp dụng các ràng buộc xác thực bổ sung không được chỉ định trong đặc tả JSON Schema',
   jsonParseError: 'Lỗi Phân Tích JSON',
-  schemaParseError: 'Lỗi Phân Tích Lược Đồ'
+  schemaParseError: 'Lỗi Phân Tích Lược Đồ',
+  rules: 'Quy Tắc Xác Thực Phổ Biến'
 }; 

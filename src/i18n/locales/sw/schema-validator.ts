@@ -20,7 +20,8 @@ export const schemaValidator = {
   basicTypesTitle: 'Aina za Msingi',
   commonRulesTitle: 'Sheria za Kawaida',
   strictMode: 'Hali Madhubuti',
-  strictModeDescription: 'Ruhusu sheria madhubuti kuhakikisha uthibitishaji mkali',
-  jsonParseError: 'Hitilafu katika kuchakata JSON: {message}',
-  schemaParseError: 'Hitilafu katika kuchakata Mfumo: {message}'
+  strictModeDescription: 'Tekeleza vizuizi vya uthibitishaji vya ziada ambavyo havijabainishwa katika maelezo ya JSON Schema',
+  jsonParseError: 'Hitilafu ya Uchanganuzi wa JSON',
+  schemaParseError: 'Hitilafu ya Uchanganuzi wa Schema',
+  rules: 'Sheria za Kawaida za Uthibitishaji'
 }; 

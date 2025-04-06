@@ -16,5 +16,7 @@ export const diff = {
   diffGuide: '差异对比说明',
   addedContent: '新增内容',
   removedContent: '删除内容',
-  modifiedContent: '修改内容'
+  modifiedContent: '修改内容',
+  originalJson: '原始 JSON',
+  updatedJson: '更新后 JSON'
 }; 

@@ -60,11 +60,7 @@ export const common = {
     ja: 'Japanisch',
     'zh-tw': 'Traditionelles Chinesisch',
     ar: 'Arabisch',
-    hi: 'Hindi',
-    pt: 'Portugiesisch',
-    fr: 'Französisch',
-    ru: 'Russisch',
-    de: 'Deutsch'
+    hi: 'Hindi'
   },
   ui: {
     copy: 'Kopieren',

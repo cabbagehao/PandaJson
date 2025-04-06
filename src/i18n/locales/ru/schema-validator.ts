@@ -22,5 +22,6 @@ export const schemaValidator = {
   strictMode: 'Строгий Режим',
   strictModeDescription: 'Применять дополнительные ограничения валидации, не указанные в спецификации JSON Schema',
   jsonParseError: 'Ошибка Парсинга JSON',
-  schemaParseError: 'Ошибка Парсинга Схемы'
+  schemaParseError: 'Ошибка Парсинга Схемы',
+  rules: 'Общие Правила Валидации'
 }; 

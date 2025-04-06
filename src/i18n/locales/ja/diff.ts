@@ -16,5 +16,7 @@ export const diff = {
   diffGuide: '差分ガイド',
   addedContent: '追加されたコンテンツ',
   removedContent: '削除されたコンテンツ',
-  modifiedContent: '変更されたコンテンツ'
+  modifiedContent: '変更されたコンテンツ',
+  originalJson: '元のJSON',
+  updatedJson: '更新されたJSON'
 }; 

@@ -20,7 +20,8 @@ export const schemaValidator = {
   basicTypesTitle: 'Validation de Types de Base',
   commonRulesTitle: 'Règles de Validation Courantes',
   strictMode: 'Mode Strict',
-  strictModeDescription: 'Appliquer des contraintes de validation supplémentaires non spécifiées dans la spécification du Schéma JSON',
+  strictModeDescription: 'Appliquer des contraintes de validation supplémentaires non spécifiées dans la spécification JSON Schema',
   jsonParseError: 'Erreur d\'Analyse JSON',
-  schemaParseError: 'Erreur d\'Analyse du Schéma'
+  schemaParseError: 'Erreur d\'Analyse de Schéma',
+  rules: 'Règles de Validation Courantes'
 }; 

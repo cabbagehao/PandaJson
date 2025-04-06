@@ -15,5 +15,16 @@ export const treeEditor = {
   parseError: 'Error de análisis',
   unknownError: 'Error desconocido durante el análisis',
   updateError: 'Error de actualización',
-  emptyInputMessage: 'Por favor, ingrese JSON válido en el editor de texto primero'
+  emptyInputMessage: 'Por favor, ingrese JSON válido en el editor de texto primero',
+  addItem: 'Añadir Item',
+  addProperty: 'Añadir Propiedad',
+  keyName: 'Nombre de Clave',
+  value: 'Valor',
+  add: 'Añadir',
+  cancel: 'Cancelar',
+  save: 'Guardar',
+  empty: 'Vacío',
+  keyNameEmpty: 'El nombre de la clave no puede estar vacío',
+  addFailed: 'Error al añadir',
+  invalidValue: 'Valor inválido'
 }; 

@@ -16,5 +16,7 @@ export const diff = {
   diffGuide: 'डिफ गाइड',
   addedContent: 'जोड़ा गया कंटेंट',
   removedContent: 'हटाया गया कंटेंट',
-  modifiedContent: 'संशोधित कंटेंट'
+  modifiedContent: 'संशोधित कंटेंट',
+  originalJson: 'मूल JSON',
+  updatedJson: 'अपडेटेड JSON'
 }; 

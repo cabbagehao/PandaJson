@@ -7,50 +7,51 @@ export const common = {
   home: {
     title: 'JSON uchun to\'liq vositalar to\'plami',
     description: 'JSON ma\'lumotlari bilan ishlash uchun oddiy, tezkor va kuchli vositalar. JSON bilan ishlatishda unumdorlikni oshiring!',
-    features: 'Xususiyatlar',
-    tools: {
+    features: {
       formatter: 'Formatlash',
       validator: 'Tekshirish',
       converter: 'Aylantirish',
-      treeEditor: 'Daraxt muharriri',
-      diff: 'Taqqoslash',
       minifier: 'Kichiklashtirish',
-      schemaValidator: 'Sxema tekshirish'
+      editor: 'Onlayn tahrirlash',
+      compare: 'Taqqoslash vositasi',
+      path: 'So\'rov yo\'li',
+      schema: 'Sxema generatori',
+      comprehensive: 'Keng qamrovli funksiyalar',
+      free: 'Butunlay bepul',
+      secure: 'Xavfsiz va ishonchli'
     },
-    reasons: {
-      title: 'Nima uchun PandaJson tanlash kerak',
-      fast: {
-        title: 'Tez va samarali',
-        description: 'Barcha vositalar optimal ishlashi uchun loyihalashtirilgan va brauzeringizda mahalliy ishlaydi.'
-      },
-      privacy: {
-        title: 'Maxfiylik birinchi o\'rinda',
-        description: 'Ma\'lumotlaringiz hech qachon serverga yuborilmaydi, hamma narsa qurilmangizda qayta ishlanadi.'
-      },
-      easyToUse: {
-        title: 'Foydalanish oson',
-        description: 'JSON bilan muammosiz ishlash uchun intuitiv boshqaruvlar bilan toza foydalanuvchi interfeysi.'
-      },
-      feature: {
-        title: 'Boy xususiyatlar',
-        description: 'Asosiy formatlashdan ilg\'or taqqoslashgacha, barcha JSON ehtiyojlaringiz uchun bizda vositalar mavjud.'
-      }
+    featuresDescription: {
+      formatter: 'JSON ma\'lumotlarini yaxshiroq o\'qilishi uchun chiroyli va formatlash',
+      validator: 'JSON yaroqliligi va tuzilishini tekshirish',
+      converter: 'JSON, XML, YAML va boshqa formatlar o\'rtasida konvertatsiya qilish',
+      minifier: 'Fayl hajmini kamaytirish uchun JSON ma\'lumotlarini minimallashtirish',
+      editor: 'JSON ma\'lumotlarini onlayn tahrirlash va qayta ishlash',
+      compare: 'Ikki JSON ma\'lumotlar to\'plami o\'rtasidagi farqlarni taqqoslash',
+      path: 'JSONPath yordamida ma\'lumotlarni so\'rash va chiqarish',
+      schema: 'JSON ma\'lumotlaridan JSON sxemasini yaratish'
+    },
+    whyChooseUs: 'Nima uchun bizni tanlaysiz',
+    descriptions: {
+      comprehensive: 'Turli xil ishlab chiqish ehtiyojlarini qondirish uchun turli xil JSON qayta ishlash vositalarini taqdim etadi',
+      free: 'Barcha vositalar hech qanday cheklovlarsiz butunlay bepul foydalanish mumkin',
+      secure: 'Ma\'lumotlar mijoz tomonida qayta ishlanadi va serverga yuklanmaydi'
     }
   },
   nav: {
     home: 'Bosh sahifa',
-    formatter: 'Formatlash',
-    validator: 'Tekshirish',
-    converter: 'Aylantirish',
-    treeEditor: 'Daraxt muharriri',
-    diff: 'JSON taqqoslash',
-    minifier: 'Kichiklashtirish',
-    schemaValidator: 'Sxema tekshirish',
-    share: 'Ulashish'
+    formatter: 'JSON Formatlash',
+    validator: 'JSON Tekshirish',
+    converter: 'JSON Aylantirish',
+    diff: 'JSON Taqqoslash',
+    treeEditor: 'JSON Daraxt tahrirlovchisi',
+    schemaValidator: 'JSON Sxema tekshirish',
+    minifier: 'JSON Kichiklashtirish'
   },
   footer: {
-    copyright: '© {year} PandaJson. Barcha huquqlar himoyalangan.',
-    privacyPolicy: 'Maxfiylik siyosati'
+    copyright: 'Mualliflik huquqi',
+    powered: 'Tomonidan quvvatlanadi',
+    terms: 'Shartlar',
+    privacy: 'Maxfiylik'
   },
   language: {
     zh: '简体中文',
@@ -59,30 +60,27 @@ export const common = {
     ja: '日本語',
     'zh-tw': '繁體中文',
     ar: 'العربية',
-    hi: 'हिन्दी',
-    fr: 'Français',
-    ru: 'Русский',
-    de: 'Deutsch',
-    vi: 'Tiếng Việt',
-    sw: 'Kiswahili',
-    mk: 'Македонски',
-    uz: 'O\'zbek'
+    hi: 'हिन्दी'
   },
   ui: {
     copy: 'Nusxalash',
     download: 'Yuklab olish',
     clear: 'Tozalash',
-    upload: 'Yuklash',
-    processing: 'Qayta ishlanmoqda...',
-    success: 'Muvaffaqiyatli',
     error: 'Xato',
-    step1: '1-Qadam',
-    step2: '2-Qadam',
-    step3: '3-Qadam',
-    step4: '4-Qadam',
-    dragAndDrop: 'Faylni bu yerga tashlang',
-    or: 'yoki',
-    browseFile: 'Fayl tanlash',
-    loading: 'Yuklanmoqda...'
+    copied: 'Buferga nusxalandi',
+    copyFailed: 'Nusxalash muvaffaqiyatsiz tugadi',
+    format: 'Format',
+    validate: 'Tekshirish',
+    convert: 'Aylantirish',
+    compare: 'Taqqoslash',
+    compress: 'Siqish',
+    expand: 'Kengaytirish',
+    input: 'Kirish',
+    output: 'Chiqish',
+    result: 'Natija',
+    usageGuide: 'Foydalanish bo\'yicha qo\'llanma',
+    step1: 'Qayta ishlash kerak bo\'lgan JSON ma\'lumotlarini kirish maydoniga joylashtiring',
+    step2: 'Kerak bo\'lsa, parametrlarni sozlang (agar mavjud bo\'lsa)',
+    step3: 'Qayta ishlashdan keyin, natijalarni nusxalashingiz yoki yuklab olishingiz mumkin'
   }
 }; 

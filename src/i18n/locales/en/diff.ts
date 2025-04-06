@@ -16,5 +16,7 @@ export const diff = {
   diffGuide: 'Diff Guide',
   addedContent: 'Added Content',
   removedContent: 'Removed Content',
-  modifiedContent: 'Modified Content'
+  modifiedContent: 'Modified Content',
+  originalJson: 'Original JSON',
+  updatedJson: 'Updated JSON'
 }; 

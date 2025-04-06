@@ -7,6 +7,7 @@ import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-github';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/ext-language_tools';
+import { useTranslation } from '@/i18n/hooks';
 
 // 创建jsondiffpatch实例
 const diffpatcher = create({
@@ -63,6 +64,8 @@ export default function JsonDiffViewer({
   const [isDarkMode, setIsDarkMode] = useState(false);
   const leftEditorRef = useRef<any>(null);
   const rightEditorRef = useRef<any>(null);
+  const { t } = useTranslation();
+  const diff = t('diff');
   
   // 添加差异样式
   useEffect(() => {
@@ -183,24 +186,20 @@ export default function JsonDiffViewer({
             if (bracketCount <= 0) break;
           }
           
-          // 如果找不到具体位置，返回数组开始位置
+          // 如果找不到确切位置，返回数组开始位置
           return searchPos;
         }
         
-        // 常规对象路径处理
+        // 常规对象属性查找
         for (let i = 0; i < path.length; i++) {
           const key = path[i];
-          const keyStr = typeof key === 'string' ? `"${key}"` : `[${key}]`;
-          currentPath += currentPath ? (typeof key === 'number' ? `[${key}]` : `.${key}`) : key;
           
-          // 不同的搜索模式，取决于键的类型
-          const regexPattern = typeof key === 'number' 
-            ? `\\[${key}\\]` 
-            : `"${key}"\\s*:`;
+          // 跳过索引查找，已在上面处理
+          if (typeof key === 'number') continue;
           
+          const regexPattern = `"${key}"\\s*:`;
           const regex = new RegExp(regexPattern);
           
-          // 从当前位置向下搜索匹配的键
           let found = false;
           for (let j = searchPos; j < lines.length; j++) {
             if (regex.test(lines[j])) {
@@ -210,9 +209,9 @@ export default function JsonDiffViewer({
             }
           }
           
-          // 如果找不到，返回最后搜索位置
           if (!found) {
-            return searchPos;
+            // 如果找不到确切的键，尝试找一个大致位置
+            return 0;
           }
         }
         
@@ -319,7 +318,7 @@ export default function JsonDiffViewer({
               }
             }
           }
-        } 
+        }
         // 对象处理
         else if (typeof diff === 'object') {
           // 递归处理嵌套对象的所有键
@@ -371,7 +370,7 @@ export default function JsonDiffViewer({
       <div>
         <div className="mb-2">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-            原始 JSON
+            {diff.originalJson}
           </label>
         </div>
         <AceEditor
@@ -398,7 +397,7 @@ export default function JsonDiffViewer({
       <div>
         <div className="mb-2">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-            更新后 JSON
+            {diff.updatedJson}
           </label>
         </div>
         <AceEditor

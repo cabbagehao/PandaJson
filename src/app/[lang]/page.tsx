@@ -16,51 +16,51 @@ export default async function Home({
   const { common } = t;
   const home = common.home;
 
-  // 确保home.features存在
-  if (!home || !home.features) {
-    console.error('Dictionary or features not loaded correctly:', { locale, common });
+  // 确保home.features和home.featuresDescription存在
+  if (!home || !home.features || !home.featuresDescription) {
+    console.error('Dictionary, features or featuresDescription not loaded correctly:', { locale, common });
     return <div>Loading...</div>;
   }
   
   const features = [
     {
       name: home.features.formatter,
-      description: home.featuresDescription.formatter,
+      description: home.featuresDescription.formatter || "",
       icon: FiCode,
       href: "/formatter",
       color: "bg-blue-500",
     },
     {
       name: home.features.validator,
-      description: home.featuresDescription.validator,
+      description: home.featuresDescription.validator || "",
       icon: FiCheck,
       href: "/validator",
       color: "bg-yellow-500",
     },
     {
       name: home.features.converter,
-      description: home.featuresDescription.converter,
+      description: home.featuresDescription.converter || "",
       icon: FiRepeat,
       href: "/converter",
       color: "bg-purple-500",
     },
     {
       name: home.features.compare,
-      description: home.featuresDescription.compare,
+      description: home.featuresDescription.compare || "",
       icon: FiGitPullRequest,
       href: "/diff",
       color: "bg-red-500",
     },
     {
       name: home.features.minifier,
-      description: home.featuresDescription.minifier,
+      description: home.featuresDescription.minifier || "",
       icon: FiMinimize2,
       href: "/minifier",
       color: "bg-green-500",
     },
     {
       name: home.features.editor,
-      description: home.featuresDescription.editor,
+      description: home.featuresDescription.editor || "",
       icon: FiEdit,
       href: "/tree-editor",
       color: "bg-indigo-500",
@@ -108,15 +108,15 @@ export default async function Home({
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
             <h3 className="font-semibold text-base sm:text-lg mb-2">{home.features.comprehensive}</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions.comprehensive}</p>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions?.comprehensive || ""}</p>
           </div>
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
             <h3 className="font-semibold text-base sm:text-lg mb-2">{home.features.free}</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions.free}</p>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions?.free || ""}</p>
           </div>
           <div className="p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
             <h3 className="font-semibold text-base sm:text-lg mb-2">{home.features.secure}</h3>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions.secure}</p>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{home.descriptions?.secure || ""}</p>
           </div>
         </div>
       </div>

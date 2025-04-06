@@ -1,10 +1,10 @@
 export const diff = {
-  title: 'Herramienta de Comparación JSON',
-  description: 'Compara dos objetos JSON y visualiza adiciones, eliminaciones y modificaciones.',
-  keywords: 'Diferencia JSON,Comparar JSON,Diferencia JSON,Comparación JSON,Comparador JSON',
+  title: 'Herramienta de Diferencia JSON',
+  description: 'Compare dos objetos JSON y visualice adiciones, eliminaciones y modificaciones.',
+  keywords: 'diferencia JSON,comparar JSON,diferencia JSON,comparación JSON,comparador JSON',
   leftInput: 'Primer JSON',
   rightInput: 'Segundo JSON',
-  result: 'Resultado de la Comparación',
+  result: 'Resultado de Comparación',
   placeholderLeft: 'Pegue sus primeros datos JSON aquí',
   placeholderRight: 'Pegue sus segundos datos JSON aquí',
   compare: 'Comparar',
@@ -16,5 +16,7 @@ export const diff = {
   diffGuide: 'Guía de Diferencias',
   addedContent: 'Contenido Añadido',
   removedContent: 'Contenido Eliminado',
-  modifiedContent: 'Contenido Modificado'
+  modifiedContent: 'Contenido Modificado',
+  originalJson: 'JSON Original',
+  updatedJson: 'JSON Actualizado'
 }; 
