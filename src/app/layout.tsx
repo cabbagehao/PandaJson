@@ -19,6 +19,9 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        {/* 百度站点验证 */}
+        <meta name="baidu-site-verification" content="codeva-iyqAn3UUTP" />
+        
         {/* 添加hreflang标签，包括x-default */}
         <link
           rel="alternate"
