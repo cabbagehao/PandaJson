@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'Zana ya Tofauti ya JSON',
-  description: 'Linganisha vitu viwili vya JSON na uone vitu vilivyoongezwa, vilivyoondolewa na vilivyobadilishwa',
-  keywords: 'tofauti za JSON, ulinganisho wa JSON, tofauti za JSON, kilinganishi cha JSON',
+  title: 'Mhariri wa Mti wa JSON',
+  description: 'Onesha, hariri na chambua vipengee vya JSON vilivyosokotana kupitia muundo wa mti, ukitoa uendeshaji rahisi wa kuona',
+  keywords: 'Mhariri wa JSON,Uhariri wa mti wa JSON,Uoneshaji wa JSON,Mhariri wa nodi wa JSON,Muundo wa mti wa JSON',
   textView: 'Mwonekano wa Maandishi',
   treeView: 'Mwonekano wa Mti',
   jsonText: 'Maandishi ya JSON',

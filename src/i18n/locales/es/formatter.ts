@@ -1,5 +1,5 @@
 export const formatter = {
-  title: 'JSON Formatter',
+  title: 'Formateador JSON',
   description: 'Embellece, formatea, valida e imprime datos JSON, haciendo que estructuras JSON complejas sean claras y legibles',
   keywords: 'Formateador JSON,Embellecedor JSON,Formateador JSON en línea,Herramienta de formato JSON,Editor JSON,Indentación JSON,Herramienta de formato JSON,formatear JSON,embellecer JSON,herramienta de diseño JSON,JSON pretty print',
   options: 'Opciones de Formato',

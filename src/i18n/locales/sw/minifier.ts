@@ -1,5 +1,5 @@
 export const minifier = {
-  title: 'Kidogesha cha JSON | Chombo cha Kupunguza Ukubwa cha JSON Mtandaoni',
+  title: 'Mfinyazi wa JSON',
   description: 'Punguza ukubwa wa faili za JSON kwa kuondoa nafasi zisizo na maana, mistari mpya, na ufunguo za nukta, kutengeneza matoleo madogo ya faili za JSON kwa kuboresha utendaji na upelekaji mdogo.',
   keywords: 'Kidogesha cha JSON,Punguza ukubwa wa JSON,Finyo la JSON,Chombo cha finyo la JSON,Chombo cha kupunguza ukubwa cha JSON,Chombo cha JSON mtandaoni,Kidogesha cha JSON mtandaoni',
   input: 'Ingiza JSON',

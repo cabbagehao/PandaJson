@@ -1,5 +1,5 @@
 export const formatter = {
-  title: 'JSON Formatter',
+  title: 'Trình Định Dạng JSON',
   description: 'Làm đẹp, định dạng, xác thực và in dữ liệu JSON, làm cho cấu trúc JSON phức tạp trở nên rõ ràng và dễ đọc',
   keywords: 'Trình định dạng JSON,Trình làm đẹp JSON,Trình định dạng JSON trực tuyến,Công cụ định dạng JSON,Trình chỉnh sửa JSON,Thụt lề JSON,Công cụ định dạng JSON,định dạng JSON,làm đẹp JSON,Công cụ bố cục JSON,JSON pretty print',
   options: 'Tùy Chọn Định Dạng',

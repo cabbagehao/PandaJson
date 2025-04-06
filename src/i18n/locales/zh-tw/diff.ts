@@ -1,5 +1,5 @@
 export const diff = {
-  title: 'JSON Diff',
+  title: 'JSON對比',
   description: '對比兩段JSON數據的差異，高亮顯示添加、刪除和修改的內容',
   keywords: 'JSON對比,JSON比較,JSON差異,JSON比對,JSON比較器',
   leftInput: '第一個 JSON',

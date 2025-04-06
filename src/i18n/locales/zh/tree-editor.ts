@@ -1,5 +1,5 @@
 export const treeEditor = {
-  title: 'JSON Tree Editor',
+  title: 'JSON树形编辑器',
   description: '通过树状结构查看、编辑和解析复杂JSON对象，提供直观的可视化操作',
   keywords: 'JSON树编辑器,JSON可视化,JSON节点编辑,JSON树结构,JSON树状视图',
   textView: '文本视图',

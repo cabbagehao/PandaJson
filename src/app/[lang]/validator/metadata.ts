@@ -11,9 +11,13 @@ export async function generateMetadata({
   const locale = resolvedParams.lang as Locale;
   const { t } = await getServerTranslation(locale);
   const validator = t.validator;
+  const common = t.common;
+
+  // 组合标题：工具名称 - 网站名称
+  const combinedTitle = `${validator.title} - ${common.siteTitle}`;
 
   return {
-    title: validator.title,
+    title: combinedTitle,
     description: validator.description,
     keywords: validator.keywords,
   };

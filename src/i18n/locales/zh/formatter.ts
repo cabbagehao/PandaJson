@@ -1,5 +1,5 @@
 export const formatter = {
-  title: 'JSON Formatter',
+  title: 'JSON格式化',
   description: '美化、格式化、校验和打印JSON数据，让复杂JSON结构变得清晰易读',
   keywords: 'JSON格式化,JSON美化,JSON在线格式化,JSON格式工具,JSON编辑器,JSON缩进,JSON格式化工具,格式化JSON,美化JSON,JSON排版工具,JSON pretty print',
   options: '格式化选项',

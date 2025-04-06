@@ -1,5 +1,5 @@
 export const minifier = {
-  title: 'JSON Minifier',
+  title: 'Minificador JSON',
   description: 'Comprima e minimize o tamanho dos arquivos JSON removendo espaços em branco e símbolos de formatação, melhorando a eficiência de transmissão',
   keywords: 'Minificador JSON,Minificação JSON,Otimização de tamanho JSON,Remoção de espaços em branco JSON,Compressor JSON',
   input: 'JSON de Entrada',

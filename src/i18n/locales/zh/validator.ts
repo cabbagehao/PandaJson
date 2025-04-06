@@ -1,5 +1,5 @@
 export const validator = {
-  title: 'JSON Validator',
+  title: 'JSON校验',
   description: '快速验证JSON语法错误，确保您的JSON符合标准格式规范',
   keywords: 'JSON验证器,JSON校验,JSON格式检查,JSON语法检查,JSON错误定位,在线JSON验证,JSON错误修复',
   input: '输入JSON',

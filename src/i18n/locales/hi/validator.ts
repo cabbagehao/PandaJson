@@ -1,5 +1,5 @@
 export const validator = {
-  title: 'JSON Validator',
+  title: 'JSON वैलिडेटर',
   description: 'JSON वाक्यविन्यास त्रुटियों को तेजी से सत्यापित करें, सुनिश्चित करें कि आपका JSON मानक प्रारूप विनिर्देशों के अनुरूप है',
   keywords: 'JSON वैलिडेटर, JSON वैलिडेशन, JSON फॉर्मेट चेक, JSON सिंटैक्स चेक, JSON त्रुटि लोकेटर, ऑनलाइन JSON वैलिडेटर, JSON त्रुटि सुधार',
   input: 'JSON इनपुट',

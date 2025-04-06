@@ -1,5 +1,5 @@
 export const formatter = {
-  title: 'JSON Formatlash | Onlayn JSON Go\'zallashtirish',
+  title: 'JSON Formatlash',
   description: 'Tartibsiz JSON ma\'lumotlarini formatlangan, to\'g\'ri chekingan shaklga o\'zgartiradigan, JSON o\'qilishini yaxshilaydigan professional onlayn JSON formatlash vositasi. Dasturchilar JSON ma\'lumotlarini nosozliklarni tuzatish va tekshirish uchun chekinish hajmi, qavs uslubi va qator kengligi chegarasini sozlashni qo\'llab-quvvatlaydi.',
   keywords: 'JSON formatlash,JSON go\'zallashtirish,JSON onlayn formatlash,JSON formatlash vositasi,JSON tahrirlash,JSON chekinish,JSON formatlash vositasi,JSON formatlash,JSON go\'zallashtirish,JSON tuzilish vositasi,JSON chiroyli bosib chiqarish',
   options: 'Formatlash parametrlari',

@@ -1,5 +1,5 @@
 export const treeEditor = {
-  title: 'JSON Tree Editor',
+  title: 'JSON ट्री एडिटर',
   description: 'एक ट्री स्ट्रक्चर के माध्यम से जटिल JSON ऑब्जेक्ट्स को विज़ुअलाइज़, एडिट और पार्स करें, सहज विज़ुअल ऑपरेशन प्रदान करें',
   keywords: 'JSON एडिटर, JSON ट्री एडिट, JSON विज़ुअलाइज़ेशन, JSON नोड एडिटर, JSON ट्री स्ट्रक्चर',
   textView: 'टेक्स्ट व्यू',

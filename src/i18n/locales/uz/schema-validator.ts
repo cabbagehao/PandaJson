@@ -1,5 +1,5 @@
 export const schemaValidator = {
-  title: 'JSON Sxema Tekshiruvchisi',
+  title: 'JSON Sxema tekshirish',
   description: 'JSON ma\'lumotlarini JSON Sxema bilan tekshiring, boy tekshirish qoidalari va batafsil xato xabarlarini qo\'llab-quvvatlaydi.',
   keywords: 'JSON Sxema,JSON tekshirish,Sxema tekshirish,JSON tuzilishini tekshirish,JSON formatini tekshirish',
   jsonData: 'JSON Ma\'lumotlari',

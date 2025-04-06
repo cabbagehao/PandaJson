@@ -1,5 +1,5 @@
 export const diff = {
-  title: 'JSON Diff',
+  title: 'JSON डिफ',
   description: 'दो JSON डेटासेट की तुलना करें, जोड़, हटाने और संशोधनों को हाइलाइट करें',
   keywords: 'JSON डिफ, JSON तुलना, JSON अंतर, JSON कंपेरिज़न, JSON कंपेरेटर',
   leftInput: 'पहला JSON',

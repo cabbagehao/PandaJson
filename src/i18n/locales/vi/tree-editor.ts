@@ -1,5 +1,5 @@
 export const treeEditor = {
-  title: 'JSON Tree Editor',
+  title: 'Trình Chỉnh Sửa Cây JSON',
   description: 'Trực quan hóa, chỉnh sửa và phân tích các đối tượng JSON phức tạp thông qua cấu trúc cây, cung cấp các thao tác trực quan trực quan',
   keywords: 'Trình chỉnh sửa JSON,Chỉnh sửa cây JSON,Trực quan hóa JSON,Trình chỉnh sửa nút JSON,Cấu trúc cây JSON',
   textView: 'Chế độ văn bản',

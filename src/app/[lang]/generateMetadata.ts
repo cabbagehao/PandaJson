@@ -13,7 +13,7 @@ export async function generateBaseMetadata({
   path = '',
   params = {},
   namespaceName = 'common',
-  titleKey = 'seo.title',
+  titleKey = 'siteTitle',
   descriptionKey = 'seo.description',
   keywordsKey = 'seo.keywords',
   imageKey = 'seo.image',
@@ -45,10 +45,16 @@ export async function generateBaseMetadata({
   }, {} as Record<string, string>);
   
   // 提取翻译内容
-  const title = titleKey.split('.').reduce((obj, key) => obj?.[key], dictionary as any) || '';
-  const description = descriptionKey.split('.').reduce((obj, key) => obj?.[key], dictionary as any) || '';
-  const keywords = keywordsKey.split('.').reduce((obj, key) => obj?.[key], dictionary as any) || '';
-  const imageUrl = imageKey.split('.').reduce((obj, key) => obj?.[key], dictionary as any) || '/images/json-formatter-og.png';
+  // 首先获取正确的命名空间
+  const namespace = namespaceName === 'common' 
+    ? (dictionary as any).common 
+    : (dictionary as any)[namespaceName];
+  
+  // 从命名空间中提取翻译内容
+  const title = titleKey.split('.').reduce((obj: any, key) => obj?.[key], namespace) || '';
+  const description = descriptionKey.split('.').reduce((obj: any, key) => obj?.[key], namespace) || '';
+  const keywords = keywordsKey.split('.').reduce((obj: any, key) => obj?.[key], namespace) || '';
+  const imageUrl = imageKey.split('.').reduce((obj: any, key) => obj?.[key], namespace) || '/images/json-formatter-og.png';
   
   // 返回元数据配置
   return {
@@ -56,6 +62,13 @@ export async function generateBaseMetadata({
     description,
     keywords: keywords,
     metadataBase: new URL(baseUrl),
+    icons: {
+      icon: [
+        { url: '/favicon.ico' },
+        { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
+      ],
+    },
     alternates: {
       canonical: currentUrl,
       languages: alternateLanguages,
@@ -64,7 +77,7 @@ export async function generateBaseMetadata({
       title,
       description,
       url: currentUrl,
-      siteName: title,
+      siteName: (dictionary as any).common?.siteTitle || title,
       images: [
         {
           url: imageUrl.startsWith('http') ? imageUrl : `${baseUrl}${imageUrl}`,
@@ -104,12 +117,38 @@ export async function generateToolMetadata({
   lang: string;
   toolName: 'formatter' | 'validator' | 'converter' | 'diff' | 'tree-editor' | 'schema-validator' | 'minifier';
 }) {
-  return generateBaseMetadata({
+  const dictionary = await getDictionary(lang as any);
+  const namespace = toolName === 'tree-editor' ? 'treeEditor' : toolName;
+  
+  // 获取通用网站标题
+  const siteTitle = (dictionary as any).common?.siteTitle || 'JSON Panda';
+  
+  // 获取工具标题
+  const toolTitle = (dictionary as any)[namespace]?.title || '';
+  
+  // 组合标题：工具名称 + 网站名称
+  const combinedTitle = `${toolTitle} - ${siteTitle}`;
+  
+  const result = await generateBaseMetadata({
     lang,
     path: toolName,
-    namespaceName: toolName === 'tree-editor' ? 'treeEditor' : toolName,
-    titleKey: 'seo.title',
-    descriptionKey: 'seo.description',
-    keywordsKey: 'seo.keywords',
+    namespaceName: namespace,
+    titleKey: 'title',
+    descriptionKey: 'description',
+    keywordsKey: 'keywords',
   });
+  
+  // 替换标题为组合标题
+  return {
+    ...result,
+    title: combinedTitle,
+    openGraph: {
+      ...result.openGraph,
+      title: combinedTitle
+    },
+    twitter: {
+      ...result.twitter,
+      title: combinedTitle
+    }
+  };
 } 

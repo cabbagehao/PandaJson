@@ -1,5 +1,5 @@
 export const validator = {
-  title: 'Mthibitishaji wa JSON | Mkaguaji wa Muundo wa JSON Mtandaoni',
+  title: 'Mthibitishaji wa JSON',
   description: 'Chombo cha uthibitishaji wa JSON mtandaoni kinachokagua haraka kama data za JSON zimeumbizwa vizuri, kinaonyesha maelezo ya kina ya hitilafu na vidokezo vya mahali ili kusaidia kutambua na kurekebisha matatizo kwa haraka.',
   keywords: 'Mthibitishaji wa JSON,Uthibitishaji wa JSON,Ukaguzi wa muundo wa JSON,Ukaguzi wa sintaksia ya JSON,Kitambuaji cha hitilafu za JSON,Mthibitishaji wa JSON mtandaoni,Urekebishaji wa hitilafu za JSON',
   input: 'Ingiza JSON',

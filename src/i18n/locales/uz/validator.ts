@@ -1,5 +1,5 @@
 export const validator = {
-  title: 'JSON tekshirish | Onlayn JSON sintaksis tekshirish',
+  title: 'JSON Tekshirish',
   description: 'JSON ma\'lumotlari to\'g\'ri formatlanganligini tezda tekshiradigan onlayn JSON tekshirish vositasi, muammolarni tezda aniqlash va tuzatishga yordam berish uchun batafsil xato xabarlarini va joylashuv ko\'rsatmalarini taqdim etadi.',
   keywords: 'JSON tekshirish,JSON tasdiqlash,JSON sintaksis tekshirish,JSON sintaksis tekshirish,JSON xatolarini aniqlash,Onlayn JSON tekshirish,JSON xatolarini tuzatish',
   input: 'JSON kiriting',

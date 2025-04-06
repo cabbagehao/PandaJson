@@ -1,5 +1,5 @@
 export const validator = {
-  title: 'JSON Validator',
+  title: 'Валидатор JSON',
   description: 'Быстро проверяйте синтаксические ошибки JSON, убедитесь, что ваш JSON соответствует стандартным спецификациям формата',
   keywords: 'Валидатор JSON,Валидация JSON,Проверка формата JSON,Проверка синтаксиса JSON,Локатор ошибок JSON,Онлайн-валидатор JSON,Исправление ошибок JSON',
   input: 'Входной JSON',

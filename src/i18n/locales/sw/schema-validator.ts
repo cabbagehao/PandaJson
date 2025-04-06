@@ -1,5 +1,5 @@
 export const schemaValidator = {
-  title: 'Mthibitishaji wa Mfumo wa JSON',
+  title: 'Mthibitishaji wa Muundo wa JSON',
   description: 'Thibitisha data ya JSON dhidi ya Mfumo wa JSON, ukisuportiwa sheria za uthibitishaji zenye utajiri na ujumbe wa kina wa makosa.',
   keywords: 'Mfumo wa JSON,Uthibitishaji wa JSON,Uthibitishaji wa mfumo,Uthibitishaji wa muundo wa JSON,Uthibitishaji wa fomati ya JSON',
   jsonData: 'Data ya JSON',

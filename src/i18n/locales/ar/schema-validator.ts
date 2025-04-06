@@ -1,5 +1,5 @@
 export const schemaValidator = {
-  title: 'JSON Schema Validator',
+  title: 'مدقق مخطط JSON',
   description: 'التحقق من بيانات JSON مقابل مواصفات المخطط، والتحقق من سلامة وصحة هياكل البيانات',
   keywords: 'مخطط JSON، التحقق من صحة JSON، التحقق من صحة المخطط، التحقق من صحة هيكل JSON، التحقق من صحة تنسيق JSON',
   jsonData: 'بيانات JSON',

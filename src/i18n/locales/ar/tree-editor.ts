@@ -1,5 +1,5 @@
 export const treeEditor = {
-  title: 'JSON Tree Editor',
+  title: 'محرر شجرة JSON',
   description: 'تصور وتحرير وتحليل كائنات JSON المعقدة من خلال بنية شجرية، مما يوفر عمليات مرئية بديهية',
   keywords: 'محرر JSON، تحرير شجرة JSON، تصور JSON، محرر عقدة JSON، هيكل شجرة JSON',
   textView: 'عرض النص',

@@ -1,5 +1,5 @@
 export const formatter = {
-  title: 'JSON Formatter',
+  title: 'JSONフォーマッタ',
   description: '複雑なJSON構造を明確で読みやすくするために、JSONデータの美化、フォーマット、検証、表示を行います',
   keywords: 'JSONフォーマッタ,JSON整形ツール,オンラインJSONフォーマッタ,JSONフォーマットツール,JSONエディタ,JSONインデント,JSONフォーマットツール,JSONフォーマット,JSON整形,JSONレイアウトツール,JSONプリティプリント',
   options: 'フォーマットオプション',

@@ -1,5 +1,5 @@
 export const converter = {
-  title: 'Kigeuzaji cha JSON',
+  title: 'Mbadilishaji wa JSON',
   description: 'Badilisha data za JSON kwenda fomati zingine (YAML, XML, CSV), au badilisha fomati zingine kwenda JSON.',
   keywords: 'Kigeuzaji cha JSON,JSON kwenda XML,JSON kwenda YAML,XML kwenda JSON,YAML kwenda JSON,CSV kwenda JSON,JSON kwenda CSV',
   options: {

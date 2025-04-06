@@ -1,5 +1,5 @@
 export const converter = {
-  title: 'JSON Converter',
+  title: 'JSON कन्वर्टर',
   description: 'XML, YAML, CSV और JSON प्रारूपों के बीच आसानी से कनवर्ट करें, द्विदिशात्मक रूपांतरण और कस्टम विकल्पों के साथ',
   keywords: 'JSON कन्वर्टर, JSON से XML, JSON से YAML, XML से JSON, YAML से JSON, CSV से JSON, JSON से CSV',
   options: {

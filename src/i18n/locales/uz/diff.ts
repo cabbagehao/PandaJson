@@ -1,5 +1,5 @@
 export const diff = {
-  title: 'JSON Farq Vositasi',
+  title: 'JSON Taqqoslash',
   description: 'Ikkita JSON ob\'ektini solishtiring va qo\'shimchalar, o\'chirishlar va o\'zgartirishlarni ko\'ring.',
   keywords: 'JSON farq,JSON solishtirish,JSON farqi,JSON taqqoslash,JSON taqqoslovchi',
   leftInput: 'Birinchi JSON',

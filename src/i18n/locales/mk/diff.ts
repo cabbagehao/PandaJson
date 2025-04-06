@@ -1,5 +1,5 @@
 export const diff = {
-  title: 'Алатка за Споредба на JSON',
+  title: 'JSON Споредба',
   description: 'Споредете два JSON објекти и визуелизирајте додавања, бришења и модификации.',
   keywords: 'JSON споредба,JSON разлика,JSON разлики,JSON компарација,JSON компаратор',
   leftInput: 'Прв JSON',

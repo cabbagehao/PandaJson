@@ -1,5 +1,5 @@
 export const minifier = {
-  title: 'JSON Minifier',
+  title: 'Trình Thu Nhỏ JSON',
   description: 'Nén và thu nhỏ kích thước tệp JSON bằng cách loại bỏ khoảng trắng và ký hiệu định dạng, cải thiện hiệu quả truyền tải',
   keywords: 'Trình thu nhỏ JSON,Thu nhỏ JSON,Tối ưu hóa kích thước JSON,Loại bỏ khoảng trắng JSON,Trình nén JSON',
   input: 'JSON Đầu Vào',

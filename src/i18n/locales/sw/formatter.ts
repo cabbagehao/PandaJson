@@ -1,5 +1,5 @@
 export const formatter = {
-  title: 'Mfanyaji wa JSON | Mrembeshaji wa JSON Mtandaoni',
+  title: 'Mfanyaji wa JSON',
   description: 'Chombo cha kitaalamu cha formatisha JSON mtandaoni ambacho kinabadilisha data za JSON zisizo na mpangilio kuwa muundo ulio formatishwa, wenye kuingia vizuri, kuboresha usomekaji wa JSON. Inasaidia ukubwa wa kuingia uliobinafsishwa, mtindo wa mabano na kikomo cha upana wa mstari, kusaidia wasanidi programu kutatua na kukagua data za JSON.',
   keywords: 'Mfanyaji wa JSON,Mrembeshaji wa JSON,Mfanyaji wa JSON mtandaoni,Chombo cha kufanyaji JSON,Mhariri wa JSON,Kuingia kwa JSON,Chombo cha kufanyaji JSON,umbiza JSON,rembesha JSON,Chombo cha upangaji JSON,JSON pretty print',
   options: 'Chaguo za Ufanyaji',

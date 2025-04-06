@@ -1,5 +1,5 @@
 export const treeEditor = {
-  title: 'JSON Tree Editor',
+  title: 'Éditeur d\'Arborescence JSON',
   description: 'Visualisez, éditez et analysez des objets JSON complexes à travers une structure arborescente, offrant des opérations visuelles intuitives',
   keywords: 'Éditeur JSON, Édition d\'arbre JSON, Visualisation JSON, Éditeur de nœuds JSON, Structure d\'arbre JSON',
   textView: 'Vue texte',

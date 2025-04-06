@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'JSON farq vositasi',
-  description: 'Ikkita JSON obyektini solishtiring va qo\'shimchalar, o\'chirishlar va o\'zgarishlarni ko\'ring',
-  keywords: 'JSON farqi, JSON solishtirish, JSON farqlari, JSON solishtiruvchisi',
+  title: 'JSON Daraxt tahrirlovchisi',
+  description: 'Murakkab JSON ob\'ektlarini daraxt tuzilishi orqali vizuallashtiring, tahrirlang va tahlil qiling, intuitiv vizual operatsiyalarni ta\'minlang',
+  keywords: 'JSON muharriri, JSON daraxtini tahrirlash, JSON vizualizatsiyasi, JSON tuguni muharriri, JSON daraxt tuzilishi',
   textView: 'Matn ko\'rinishi',
   treeView: 'Daraxt ko\'rinishi',
   jsonText: 'JSON matni',

@@ -1,5 +1,5 @@
 export const treeEditor = {
-  title: 'JSON Tree Editor',
+  title: 'JSONツリーエディタ',
   description: 'ツリー構造を通じて複雑なJSONオブジェクトを視覚化、編集、解析し、直感的な視覚的操作を提供します',
   keywords: 'JSONツリーエディタ,JSON可視化,JSONノード編集,JSONツリー構造,JSONツリービュー',
   textView: 'テキストビュー',

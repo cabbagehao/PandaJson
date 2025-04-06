@@ -1,5 +1,5 @@
 export const minifier = {
-  title: 'JSON Minifier',
+  title: 'JSON-Minifier',
   description: 'Komprimieren und minimieren Sie die Größe von JSON-Dateien durch Entfernen von Leerzeichen und Formatierungssymbolen, verbessern Sie die Übertragungseffizienz',
   keywords: 'JSON-Minifier,JSON-Minifizierung,JSON-Größenoptimierung,JSON-Leerzeichenentfernung,JSON-Kompressor',
   input: 'JSON-Eingabe',

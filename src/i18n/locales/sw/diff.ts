@@ -1,5 +1,5 @@
 export const diff = {
-  title: 'Chombo cha Tofauti ya JSON',
+  title: 'Mlinganishaji wa JSON',
   description: 'Linganisha vitu viwili vya JSON na uone nyongeza, ufutaji na mabadiliko.',
   keywords: 'Tofauti ya JSON,Linganisha JSON,Tofauti ya JSON,Ulinganishaji wa JSON,Kilinganishi cha JSON',
   leftInput: 'JSON ya Kwanza',

@@ -1,5 +1,5 @@
 export const converter = {
-  title: 'JSON Converter',
+  title: 'JSON转换',
   description: '轻松转换XML、YAML、CSV与JSON格式，支持双向转换和自定义选项',
   keywords: 'JSON转换,JSON到XML,JSON到YAML,XML到JSON,YAML到JSON,CSV到JSON,JSON到CSV',
   options: {

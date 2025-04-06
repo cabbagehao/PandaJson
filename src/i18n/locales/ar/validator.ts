@@ -1,5 +1,5 @@
 export const validator = {
-  title: 'JSON Validator',
+  title: 'مدقق JSON',
   description: 'التحقق السريع من أخطاء بناء JSON، للتأكد من توافق JSON مع مواصفات التنسيق القياسية',
   keywords: 'مدقق JSON، التحقق من صحة JSON، فحص تنسيق JSON، فحص بناء جملة JSON، محدد أخطاء JSON، مدقق JSON عبر الإنترنت، إصلاح أخطاء JSON',
   input: 'إدخال JSON',

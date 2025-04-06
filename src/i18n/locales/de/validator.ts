@@ -1,5 +1,5 @@
 export const validator = {
-  title: 'JSON Validator',
+  title: 'JSON-Validator',
   description: 'Überprüfen Sie schnell JSON-Syntaxfehler und stellen Sie sicher, dass Ihr JSON den Standardformatspezifikationen entspricht',
   keywords: 'JSON-Validator,JSON-Validierung,JSON-Format-Check,JSON-Syntax-Prüfung,JSON-Fehler-Lokalisierung,Online-JSON-Validator,JSON-Fehlerbehebung',
   input: 'JSON-Eingabe',

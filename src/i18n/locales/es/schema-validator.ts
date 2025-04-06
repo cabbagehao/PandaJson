@@ -1,5 +1,5 @@
 export const schemaValidator = {
-  title: 'JSON Schema Validator',
+  title: 'Validador de Esquema JSON',
   description: 'Valida datos JSON contra especificaciones de Schema, comprobando la integridad y validez de las estructuras de datos',
   keywords: 'Esquema JSON,Validación JSON,Validación de esquema,Validación de estructura JSON,Validación de formato JSON',
   jsonData: 'Datos JSON',
