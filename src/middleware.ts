@@ -1,35 +1,69 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { defaultLocale, locales } from './i18n'
+import { match } from '@formatjs/intl-localematcher'
+import Negotiator from 'negotiator'
+import { Locale, locales, defaultLocale } from './i18n'
 
-// 需要排除的路径，不需要重定向
-const PUBLIC_FILES = /\.(.*)$/
+// 获取用户首选语言
+function getLocale(request: NextRequest): Locale {
+  // 1. 检查cookie中的语言设置
+  const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value
+  if (cookieLocale && locales.includes(cookieLocale as Locale)) {
+    return cookieLocale as Locale
+  }
+
+  // 2. 从Accept-Language头部获取首选语言列表
+  let headers = new Headers(request.headers)
+  let acceptLanguage = headers.get('accept-language') || ''
+  
+  // 构造Negotiator需要的headers对象
+  let languages = new Negotiator({ 
+    headers: { 'accept-language': acceptLanguage } 
+  }).languages()
+
+  // 3. 使用intl-localematcher匹配最佳语言
+  try {
+    return match(languages, locales, defaultLocale) as Locale
+  } catch (e) {
+    return defaultLocale
+  }
+}
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
+  const pathname = request.nextUrl.pathname
 
-  // 静态文件和API路由不处理
-  if (
-    PUBLIC_FILES.test(pathname) ||
-    pathname.startsWith('/_next') ||
-    pathname.includes('/api/')
-  ) {
+  // 检查URL是否已经包含语言代码
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  )
+
+  // 如果URL中已有语言代码，或者是其他不需要重定向的路径，则跳过
+  if (pathnameHasLocale || 
+      pathname.startsWith('/_next') || 
+      pathname.startsWith('/api') ||
+      pathname.includes('.')) {
     return NextResponse.next()
   }
 
-  // 检查URL的第一段是否是受支持的语言
-  const pathnameHasLocale = locales.some(
-    locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
+  // 获取用户首选语言
+  const locale = getLocale(request)
+  
+  // 构建重定向URL
+  const newUrl = new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url)
+  
+  // 保留原始的查询参数
+  newUrl.search = request.nextUrl.search
+  
+  // 设置语言cookie，有效期30天
+  const response = NextResponse.redirect(newUrl)
+  response.cookies.set('NEXT_LOCALE', locale, { 
+    maxAge: 30 * 24 * 60 * 60,
+    path: '/',
+  })
+  
+  return response
+}
 
-  // 如果已经有语言代码，不需要重定向
-  if (pathnameHasLocale) return NextResponse.next()
-
-  // 否则重定向到默认语言
-  const locale = defaultLocale
-  request.nextUrl.pathname = pathname === '/' 
-    ? `/${locale}` 
-    : `/${locale}${pathname}`
-
-  // 重定向到相同的URL但添加默认语言前缀
-  return NextResponse.redirect(request.nextUrl)
+// 配置中间件只在这些路径上运行
+export const config = {
+  matcher: ['/((?!_next|api|.*\\..*).*)'],
 } 

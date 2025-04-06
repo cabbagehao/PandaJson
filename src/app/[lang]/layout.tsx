@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/app/components/Navbar";
 import { Locale, defaultLocale } from "@/i18n";
 import { getServerTranslation } from "@/i18n/server";
+import Analytics from "@/app/components/Analytics";
 
 // 导入CSS
 import "../globals.css";
@@ -58,6 +59,7 @@ export default async function RootLayout({
   
   return (
     <html lang={locale} suppressHydrationWarning>
+      <Analytics />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-gray-900`}
         suppressHydrationWarning

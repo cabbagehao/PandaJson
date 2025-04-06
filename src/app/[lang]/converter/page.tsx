@@ -3,7 +3,11 @@ import { getDictionary } from '@/i18n/index';
 import { Locale, defaultLocale } from '@/i18n';
 import ConverterClient from './ConverterClient';
 
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: { lang: string } 
+}): Promise<Metadata> {
   const resolvedParams = await Promise.resolve(params);
   const lang = (resolvedParams.lang || defaultLocale) as Locale;
   const { converter } = await getDictionary(lang);
@@ -15,7 +19,11 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   };
 }
 
-export default async function ConverterPage({ params }: { params: { lang: string } }) {
+export default async function ConverterPage({ 
+  params 
+}: { 
+  params: { lang: string } 
+}) {
   const resolvedParams = await Promise.resolve(params);
   return <ConverterClient params={resolvedParams} />;
 } 
