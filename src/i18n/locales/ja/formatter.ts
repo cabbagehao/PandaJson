@@ -1,6 +1,6 @@
 export const formatter = {
-  title: 'JSONフォーマッタ | オンラインJSON整形ツール',
-  description: '乱雑なJSONデータを整形して適切にインデントされた形式に変換し、JSONの可読性を向上させるプロフェッショナルなオンラインJSONフォーマットツールです。インデントサイズ、括弧スタイル、行幅制限のカスタマイズをサポートし、開発者がJSONデータをデバッグおよび検査するのに役立ちます。',
+  title: 'JSON Formatter',
+  description: '複雑なJSON構造を明確で読みやすくするために、JSONデータの美化、フォーマット、検証、表示を行います',
   keywords: 'JSONフォーマッタ,JSON整形ツール,オンラインJSONフォーマッタ,JSONフォーマットツール,JSONエディタ,JSONインデント,JSONフォーマットツール,JSONフォーマット,JSON整形,JSONレイアウトツール,JSONプリティプリント',
   options: 'フォーマットオプション',
   indentSize: 'インデントサイズ',

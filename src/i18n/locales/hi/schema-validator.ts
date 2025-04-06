@@ -1,6 +1,6 @@
 export const schemaValidator = {
-  title: 'JSON स्कीमा वैलिडेटर',
-  description: 'JSON स्कीमा का उपयोग करके JSON डेटा को वैलिडेट करें, समृद्ध वैलिडेशन नियमों और विस्तृत त्रुटि संदेशों का समर्थन करता है।',
+  title: 'JSON Schema Validator',
+  description: 'JSON डेटा को स्कीमा विनिर्देशों के खिलाफ वैलिडेट करें, डेटा संरचनाओं की अखंडता और वैधता की जांच करें',
   keywords: 'JSON स्कीमा, JSON वैलिडेशन, स्कीमा वैलिडेशन, JSON स्ट्रक्चर वैलिडेशन, JSON फॉर्मेट वैलिडेशन',
   jsonData: 'JSON डेटा',
   jsonSchema: 'JSON स्कीमा',

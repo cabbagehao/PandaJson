@@ -1,6 +1,6 @@
 export const schemaValidator = {
-  title: 'JSONスキーマバリデーター',
-  description: 'JSONスキーマを使用してJSONデータを検証し、豊富な検証ルールと詳細なエラーメッセージをサポートします。',
+  title: 'JSON Schema Validator',
+  description: 'JSONデータがSchema仕様に準拠しているかを検証し、データ構造の整合性と有効性をチェックします',
   keywords: 'JSONスキーマ,JSON検証,スキーマ検証,JSON構造検証,JSONフォーマット検証',
   jsonData: 'JSONデータ',
   jsonSchema: 'JSONスキーマ',

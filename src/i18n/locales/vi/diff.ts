@@ -1,6 +1,6 @@
 export const diff = {
-  title: 'Công Cụ So Sánh JSON',
-  description: 'So sánh hai đối tượng JSON và trực quan hóa các nội dung thêm vào, xóa đi và sửa đổi.',
+  title: 'JSON Diff',
+  description: 'So sánh hai tập dữ liệu JSON, làm nổi bật các phần bổ sung, xóa và sửa đổi',
   keywords: 'so sánh JSON,đối chiếu JSON,khác biệt JSON,so sánh JSON,bộ so sánh JSON',
   leftInput: 'JSON Thứ Nhất',
   rightInput: 'JSON Thứ Hai',

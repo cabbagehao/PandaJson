@@ -1,6 +1,7 @@
 import { getServerTranslation } from '@/i18n/server';
 import { Locale } from '@/i18n';
 import MinifierClient from './MinifierClient';
+import { Suspense } from 'react';
 
 // 导出元数据生成函数
 export { generateMetadata } from './metadata';
@@ -15,10 +16,12 @@ export default async function JsonMinifier({
   const minifier = t.minifier;
 
   return (
-    <MinifierClient 
-      pageTitle={minifier.title}
-      pageDescription={minifier.description}
-      pageKeywords={minifier.keywords}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <MinifierClient 
+        pageTitle={minifier.title}
+        pageDescription={minifier.description}
+        pageKeywords={minifier.keywords}
+      />
+    </Suspense>
   );
 } 

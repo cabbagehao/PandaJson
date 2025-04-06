@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'Outil de différence JSON',
-  description: 'Comparez deux objets JSON et visualisez les ajouts, suppressions et modifications',
-  keywords: 'différence JSON, comparaison JSON, différences JSON, comparateur JSON',
+  title: 'JSON Tree Editor',
+  description: 'Visualisez, éditez et analysez des objets JSON complexes à travers une structure arborescente, offrant des opérations visuelles intuitives',
+  keywords: 'Éditeur JSON, Édition d\'arbre JSON, Visualisation JSON, Éditeur de nœuds JSON, Structure d\'arbre JSON',
   textView: 'Vue texte',
   treeView: 'Vue arborescence',
   jsonText: 'Texte JSON',

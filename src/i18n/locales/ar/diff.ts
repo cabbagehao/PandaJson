@@ -1,6 +1,6 @@
 export const diff = {
-  title: 'أداة مقارنة JSON',
-  description: 'قارن بين كائنات JSON وتصور الإضافات والحذف والتعديلات.',
+  title: 'JSON Diff',
+  description: 'مقارنة مجموعتين من بيانات JSON، مع تسليط الضوء على الإضافات والحذف والتعديلات',
   keywords: 'مقارنة JSON، مقارنة JSON، اختلاف JSON، مقارنة JSON، مقارن JSON',
   leftInput: 'JSON الأول',
   rightInput: 'JSON الثاني',

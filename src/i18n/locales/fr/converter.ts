@@ -1,6 +1,6 @@
 export const converter = {
-  title: 'Convertisseur JSON',
-  description: 'Convertir des données JSON vers d\'autres formats (YAML, XML, CSV), ou convertir d\'autres formats vers JSON.',
+  title: 'JSON Converter',
+  description: 'Convertissez facilement entre les formats XML, YAML, CSV et JSON, avec conversion bidirectionnelle et options personnalisées',
   keywords: 'Convertisseur JSON,JSON vers XML,JSON vers YAML,XML vers JSON,YAML vers JSON,CSV vers JSON,JSON vers CSV',
   options: {
     title: 'Options de Conversion',

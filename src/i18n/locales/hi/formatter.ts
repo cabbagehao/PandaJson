@@ -1,6 +1,6 @@
 export const formatter = {
-  title: 'JSON फॉर्मेटर टूल',
-  description: 'JSON डेटा को सुंदर और व्यवस्थित करें, कोड पठनीयता और संरचना स्पष्टता में सुधार करें',
+  title: 'JSON Formatter',
+  description: 'JSON डेटा को सुंदर, स्वरूपित, सत्यापित और प्रिंट करें, जटिल JSON संरचनाओं को स्पष्ट और पठनीय बनाएं',
   keywords: 'JSON फॉर्मेटर,JSON ब्यूटिफायर,JSON व्यवस्थापक,JSON एडिटर,JSON फॉर्मेट कन्वर्टर,JSON इंडेंटेशन,JSON स्ट्रक्चरिंग,फ्री JSON फॉर्मेटिंग टूल',
   options: 'फॉर्मेटिंग विकल्प',
   indentSize: 'इंडेंट आकार',

@@ -1,6 +1,6 @@
 export const minifier = {
-  title: 'مصغر JSON',
-  description: 'ضغط بيانات JSON عن طريق إزالة المسافات البيضاء وفواصل الأسطر، مما يقلل حجم الملف للنقل والتخزين.',
+  title: 'JSON Minifier',
+  description: 'ضغط وتقليل حجم ملفات JSON من خلال إزالة المسافات البيضاء ورموز التنسيق، مما يحسن كفاءة النقل',
   keywords: 'مصغر JSON، تصغير JSON، تحسين حجم JSON، إزالة المسافات البيضاء من JSON، ضاغط JSON',
   input: 'إدخال JSON',
   output: 'نتيجة التصغير',

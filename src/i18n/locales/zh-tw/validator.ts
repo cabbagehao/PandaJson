@@ -1,6 +1,6 @@
 export const validator = {
-  title: 'JSON驗證器 | 在線JSON格式檢查器',
-  description: '在線JSON驗證工具，可快速檢查JSON數據是否正確格式化，顯示詳細的錯誤信息和位置提示，幫助快速定位和修復問題。',
+  title: 'JSON Validator',
+  description: '快速驗證JSON語法錯誤，確保您的JSON符合標準格式規範',
   keywords: 'JSON驗證器,JSON驗證,JSON格式檢查,JSON語法檢查,JSON錯誤定位器,在線JSON驗證器,JSON錯誤修復',
   input: '輸入JSON',
   validate: '驗證JSON',

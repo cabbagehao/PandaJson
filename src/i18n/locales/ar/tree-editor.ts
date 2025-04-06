@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'أداة مقارنة JSON',
-  description: 'قارن كائنات JSON وعرض الإضافات والحذف والتغييرات بصريًا',
-  keywords: 'مقارنة JSON، اختلافات JSON، مقارن JSON',
+  title: 'JSON Tree Editor',
+  description: 'تصور وتحرير وتحليل كائنات JSON المعقدة من خلال بنية شجرية، مما يوفر عمليات مرئية بديهية',
+  keywords: 'محرر JSON، تحرير شجرة JSON، تصور JSON، محرر عقدة JSON، هيكل شجرة JSON',
   textView: 'عرض النص',
   treeView: 'عرض الشجرة',
   jsonText: 'نص JSON',

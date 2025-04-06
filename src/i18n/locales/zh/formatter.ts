@@ -1,6 +1,6 @@
 export const formatter = {
-  title: 'JSON 格式化工具 | 在线美化JSON数据',
-  description: '专业的在线JSON格式化工具，可以将混乱的JSON数据转换为格式化、缩进规范的形式，提高JSON可读性。支持自定义缩进大小、大括号风格和行宽限制，帮助开发者调试和检查JSON数据。',
+  title: 'JSON Formatter',
+  description: '美化、格式化、校验和打印JSON数据，让复杂JSON结构变得清晰易读',
   keywords: 'JSON格式化,JSON美化,JSON在线格式化,JSON格式工具,JSON编辑器,JSON缩进,JSON格式化工具,格式化JSON,美化JSON,JSON排版工具,JSON pretty print',
   options: '格式化选项',
   indentSize: '缩进大小',

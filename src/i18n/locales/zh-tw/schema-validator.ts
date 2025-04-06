@@ -1,6 +1,6 @@
 export const schemaValidator = {
-  title: 'JSON Schema驗證器',
-  description: '使用JSON Schema驗證JSON數據，支持豐富的驗證規則和詳細的錯誤信息。',
+  title: 'JSON Schema Validator',
+  description: '驗證JSON數據是否符合Schema規範，檢查數據結構的完整性和有效性',
   keywords: 'JSON Schema,JSON驗證,Schema驗證,JSON結構驗證,JSON格式驗證',
   jsonData: 'JSON數據',
   jsonSchema: 'JSON Schema',

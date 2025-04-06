@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'JSON差分ツール',
-  description: '2つのJSONオブジェクトを比較し、追加、削除、変更を視覚化します。',
-  keywords: 'JSON差分,JSON比較,JSON違い,JSON比較,JSONコンパレータ',
+  title: 'JSON Tree Editor',
+  description: 'ツリー構造を通じて複雑なJSONオブジェクトを視覚化、編集、解析し、直感的な視覚的操作を提供します',
+  keywords: 'JSONツリーエディタ,JSON可視化,JSONノード編集,JSONツリー構造,JSONツリービュー',
   textView: 'テキストビュー',
   treeView: 'ツリービュー',
   jsonText: 'JSONテキスト',

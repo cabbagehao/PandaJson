@@ -1,6 +1,6 @@
 export const diff = {
-  title: 'Outil de Différence JSON',
-  description: 'Comparez deux objets JSON et visualisez les ajouts, suppressions et modifications.',
+  title: 'JSON Diff',
+  description: 'Comparez deux ensembles de données JSON, en mettant en évidence les ajouts, les suppressions et les modifications',
   keywords: 'différence JSON,comparer JSON,différence JSON,comparaison JSON,comparateur JSON',
   leftInput: 'Premier JSON',
   rightInput: 'Second JSON',

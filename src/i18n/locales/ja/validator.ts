@@ -1,6 +1,6 @@
 export const validator = {
-  title: 'JSON検証ツール | オンラインJSONフォーマットチェッカー',
-  description: 'JSONデータが正しくフォーマットされているかどうかを迅速に確認するためのオンラインJSON検証ツールで、詳細なエラー情報と位置のヒントを表示して、問題をすばやく特定して修正するのに役立ちます。',
+  title: 'JSON Validator',
+  description: 'JSON構文エラーを素早く検証し、JSONが標準フォーマット仕様に準拠していることを確認します',
   keywords: 'JSON検証ツール,JSON検証,JSONフォーマットチェック,JSON構文チェック,JSONエラーロケーター,オンラインJSON検証ツール,JSONエラー修正',
   input: 'JSON入力',
   validate: 'JSONを検証',

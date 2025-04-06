@@ -1,6 +1,6 @@
 export const formatter = {
-  title: 'JSON Formatter | Online JSON Beautifier',
-  description: 'Professional online JSON formatting tool that converts messy JSON data into formatted, properly indented form, improving JSON readability. Supports custom indentation size, brace style and line width limit, helping developers debug and inspect JSON data.',
+  title: 'JSON Formatter',
+  description: 'Beautify, format, validate and print JSON data, making complex JSON structures clear and readable',
   keywords: 'JSON formatter,JSON beautifier,JSON online formatter,JSON formatting tool,JSON editor,JSON indentation,JSON formatting tool,format JSON,beautify JSON,JSON layout tool,JSON pretty print',
   options: 'Formatting Options',
   indentSize: 'Indent Size',

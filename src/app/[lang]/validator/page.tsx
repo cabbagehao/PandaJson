@@ -1,6 +1,7 @@
 import { getServerTranslation } from '@/i18n/server';
 import { Locale } from '@/i18n';
 import ValidatorClient from './ValidatorClient';
+import { Suspense } from 'react';
 
 // 导出元数据生成函数
 export { generateMetadata } from './metadata';
@@ -15,10 +16,12 @@ export default async function JsonValidator({
   const validator = t.validator;
 
   return (
-    <ValidatorClient 
-      pageTitle={validator.title}
-      pageDescription={validator.description}
-      pageKeywords={validator.keywords}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <ValidatorClient 
+        pageTitle={validator.title}
+        pageDescription={validator.description}
+        pageKeywords={validator.keywords}
+      />
+    </Suspense>
   );
 } 

@@ -7,6 +7,7 @@ import Navbar from '@/app/components/Navbar';
 import Analytics from '@/app/components/Analytics';
 import { generateBaseMetadata } from './generateMetadata';
 import { getServerTranslation } from '@/i18n/server';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -48,7 +49,9 @@ export default async function RootLayout({
             </div>
           </footer>
         </div>
-        <Analytics />
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 export const validator = {
-  title: 'JSON-Validator | Online JSON-Format-Prüfer',
-  description: 'Online-JSON-Validierungstool zur schnellen Überprüfung, ob JSON-Daten korrekt formatiert sind, mit detaillierten Fehlerinformationen und Positionshinweisen, um Probleme schnell zu lokalisieren und zu beheben.',
+  title: 'JSON Validator',
+  description: 'Überprüfen Sie schnell JSON-Syntaxfehler und stellen Sie sicher, dass Ihr JSON den Standardformatspezifikationen entspricht',
   keywords: 'JSON-Validator,JSON-Validierung,JSON-Format-Check,JSON-Syntax-Prüfung,JSON-Fehler-Lokalisierung,Online-JSON-Validator,JSON-Fehlerbehebung',
   input: 'JSON-Eingabe',
   validate: 'JSON validieren',

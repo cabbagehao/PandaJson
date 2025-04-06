@@ -1,6 +1,6 @@
 export const validator = {
-  title: 'JSON Validator | Online JSON Format Checker',
-  description: 'Online JSON validation tool to quickly check if JSON data is correctly formatted, showing detailed error information and location hints to help quickly locate and fix issues.',
+  title: 'JSON Validator',
+  description: 'Quickly validate JSON syntax errors, ensuring your JSON conforms to standard format specifications',
   keywords: 'JSON validator,JSON validation,JSON format check,JSON syntax check,JSON error locator,online JSON validator,JSON error fixing',
   input: 'Input JSON',
   validate: 'Validate JSON',

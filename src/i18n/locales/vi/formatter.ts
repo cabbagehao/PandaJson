@@ -1,6 +1,6 @@
 export const formatter = {
-  title: 'Trình Định Dạng JSON | Trình Làm Đẹp JSON Trực Tuyến',
-  description: 'Công cụ định dạng JSON trực tuyến chuyên nghiệp chuyển đổi dữ liệu JSON lộn xộn thành hình thức được định dạng, thụt lề đúng cách, cải thiện khả năng đọc JSON. Hỗ trợ kích thước thụt lề tùy chỉnh, kiểu dấu ngoặc và giới hạn chiều rộng dòng, giúp nhà phát triển gỡ lỗi và kiểm tra dữ liệu JSON.',
+  title: 'JSON Formatter',
+  description: 'Làm đẹp, định dạng, xác thực và in dữ liệu JSON, làm cho cấu trúc JSON phức tạp trở nên rõ ràng và dễ đọc',
   keywords: 'Trình định dạng JSON,Trình làm đẹp JSON,Trình định dạng JSON trực tuyến,Công cụ định dạng JSON,Trình chỉnh sửa JSON,Thụt lề JSON,Công cụ định dạng JSON,định dạng JSON,làm đẹp JSON,Công cụ bố cục JSON,JSON pretty print',
   options: 'Tùy Chọn Định Dạng',
   indentSize: 'Kích Thước Thụt Lề',

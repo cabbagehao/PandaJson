@@ -1,6 +1,6 @@
 export const minifier = {
   title: 'JSON Minifier',
-  description: 'Compress JSON data by removing whitespace and line breaks, reducing file size for transmission and storage.',
+  description: 'Compress and minimize JSON file size by removing whitespace and formatting symbols, improving transmission efficiency',
   keywords: 'JSON minifier,JSON minification,JSON size optimization,JSON whitespace removal,JSON compressor',
   input: 'Input JSON',
   output: 'Minified Result',

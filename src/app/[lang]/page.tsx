@@ -1,6 +1,7 @@
 import { Locale } from "@/i18n";
 import { getServerTranslation } from "@/i18n/server";
 import HomeClient from "./HomeClient";
+import { Suspense } from 'react';
 
 // 导出元数据生成函数
 export { generateMetadata } from "./home-metadata";
@@ -33,5 +34,9 @@ export default async function Home({
     common
   };
 
-  return <HomeClient pageData={pageData} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeClient pageData={pageData} />
+    </Suspense>
+  );
 } 

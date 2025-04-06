@@ -1,6 +1,6 @@
 export const converter = {
-  title: 'محول JSON',
-  description: 'تحويل بيانات JSON إلى تنسيقات أخرى (YAML، XML، CSV)، أو تحويل تنسيقات أخرى إلى JSON.',
+  title: 'JSON Converter',
+  description: 'تحويل بسهولة بين تنسيقات XML و YAML و CSV و JSON، مع دعم التحويل ثنائي الاتجاه والخيارات المخصصة',
   keywords: 'محول JSON، تحويل JSON إلى XML، تحويل JSON إلى YAML، تحويل XML إلى JSON، تحويل YAML إلى JSON، تحويل CSV إلى JSON، تحويل JSON إلى CSV',
   options: {
     title: 'خيارات التحويل',

@@ -1,6 +1,6 @@
 export const treeEditor = {
-  title: 'Editor de Árbol JSON',
-  description: 'Visualiza y edita datos JSON con una estructura de árbol, admitiendo cambios entre vistas de texto y árbol.',
+  title: 'JSON Tree Editor',
+  description: 'Visualiza, edita y analiza objetos JSON complejos a través de una estructura de árbol, proporcionando operaciones visuales intuitivas',
   keywords: 'Editor JSON,Edición de árbol JSON,Visualización JSON,Editor de nodos JSON,Estructura de árbol JSON',
   textView: 'Vista de Texto',
   treeView: 'Vista de Árbol',

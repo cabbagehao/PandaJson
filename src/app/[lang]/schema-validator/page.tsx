@@ -1,6 +1,7 @@
 import { getServerTranslation } from '@/i18n/server';
 import { Locale } from '@/i18n';
 import SchemaValidatorClient from './SchemaValidatorClient';
+import { Suspense } from 'react';
 
 // 导出元数据生成函数
 export { generateMetadata } from './metadata';
@@ -15,10 +16,12 @@ export default async function SchemaValidator({
   const schemaValidator = t.schemaValidator;
 
   return (
-    <SchemaValidatorClient 
-      pageTitle={schemaValidator.title}
-      pageDescription={schemaValidator.description}
-      pageKeywords={schemaValidator.keywords}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <SchemaValidatorClient 
+        pageTitle={schemaValidator.title}
+        pageDescription={schemaValidator.description}
+        pageKeywords={schemaValidator.keywords}
+      />
+    </Suspense>
   );
 } 

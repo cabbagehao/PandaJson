@@ -1,6 +1,7 @@
 import { getServerTranslation } from '@/i18n/server';
 import { Locale } from '@/i18n';
 import FormatterClient from './FormatterClient';
+import { Suspense } from 'react';
 
 // 导出元数据生成函数
 export { generateMetadata } from './metadata';
@@ -15,11 +16,13 @@ export default async function JsonFormatter({
   const formatter = t.formatter;
 
   return (
-    <FormatterClient 
-      pageTitle={formatter.title}
-      pageDescription={formatter.description}
-      pageKeywords={formatter.keywords}
-      locale={locale}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <FormatterClient 
+        pageTitle={formatter.title}
+        pageDescription={formatter.description}
+        pageKeywords={formatter.keywords}
+        locale={locale}
+      />
+    </Suspense>
   );
 } 

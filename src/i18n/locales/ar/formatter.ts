@@ -1,6 +1,6 @@
 export const formatter = {
-  title: 'أداة تنسيق JSON',
-  description: 'تجميل وترتيب بيانات JSON، تحسين قابلية قراءة الكود ووضوح الهيكل',
+  title: 'JSON Formatter',
+  description: 'تجميل وتنسيق والتحقق من بيانات JSON وطباعتها، مما يجعل هياكل JSON المعقدة واضحة وقابلة للقراءة',
   keywords: 'منسق JSON,مجمل JSON,مرتب JSON,محرر JSON,تحويل تنسيق JSON,مسافة بادئة JSON,هيكلة JSON,أداة تنسيق JSON مجانية',
   options: 'خيارات التنسيق',
   indentSize: 'حجم المسافة البادئة',

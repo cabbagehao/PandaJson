@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'Công cụ so sánh JSON',
-  description: 'So sánh hai đối tượng JSON và hiển thị trực quan các phần thêm vào, xóa đi và thay đổi',
-  keywords: 'khác biệt JSON, so sánh JSON, sự khác nhau JSON, trình so sánh JSON',
+  title: 'JSON Tree Editor',
+  description: 'Trực quan hóa, chỉnh sửa và phân tích các đối tượng JSON phức tạp thông qua cấu trúc cây, cung cấp các thao tác trực quan trực quan',
+  keywords: 'Trình chỉnh sửa JSON,Chỉnh sửa cây JSON,Trực quan hóa JSON,Trình chỉnh sửa nút JSON,Cấu trúc cây JSON',
   textView: 'Chế độ văn bản',
   treeView: 'Chế độ cây',
   jsonText: 'Văn bản JSON',

@@ -1,6 +1,6 @@
 export const formatter = {
-  title: 'Formateur JSON | Embellisseur JSON en Ligne',
-  description: 'Outil professionnel de formatage JSON en ligne qui convertit des données JSON désordonnées en forme formatée et correctement indentée, améliorant la lisibilité du JSON. Prend en charge la taille d\'indentation personnalisée, le style d\'accolades et la limite de largeur de ligne, aidant les développeurs à déboguer et inspecter les données JSON.',
+  title: 'JSON Formatter',
+  description: 'Embellir, formater, valider et afficher des données JSON, rendant les structures JSON complexes claires et lisibles',
   keywords: 'Formateur JSON,Embellisseur JSON,Formateur JSON en ligne,Outil de formatage JSON,Éditeur JSON,Indentation JSON,Outil de formatage JSON,formater JSON,embellir JSON,Outil de mise en page JSON,JSON pretty print',
   options: 'Options de Formatage',
   indentSize: 'Taille d\'Indentation',

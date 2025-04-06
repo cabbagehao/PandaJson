@@ -1,6 +1,6 @@
 export const converter = {
-  title: 'Trình Chuyển Đổi JSON',
-  description: 'Chuyển đổi dữ liệu JSON sang các định dạng khác (YAML, XML, CSV), hoặc chuyển đổi các định dạng khác sang JSON.',
+  title: 'JSON Converter',
+  description: 'Dễ dàng chuyển đổi giữa các định dạng XML, YAML, CSV và JSON, với chuyển đổi hai chiều và tùy chọn tùy chỉnh',
   keywords: 'Trình chuyển đổi JSON,JSON sang XML,JSON sang YAML,XML sang JSON,YAML sang JSON,CSV sang JSON,JSON sang CSV',
   options: {
     title: 'Tùy Chọn Chuyển Đổi',

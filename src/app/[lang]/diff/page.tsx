@@ -1,6 +1,7 @@
 import { getServerTranslation } from '@/i18n/server';
 import { Locale } from '@/i18n';
 import DiffClient from './DiffClient';
+import { Suspense } from 'react';
 
 // 导出元数据生成函数
 export { generateMetadata } from './metadata';
@@ -15,10 +16,12 @@ export default async function JsonDiff({
   const diff = t.diff;
 
   return (
-    <DiffClient 
-      pageTitle={diff.title}
-      pageDescription={diff.description}
-      pageKeywords={diff.keywords}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <DiffClient 
+        pageTitle={diff.title}
+        pageDescription={diff.description}
+        pageKeywords={diff.keywords}
+      />
+    </Suspense>
   );
 } 

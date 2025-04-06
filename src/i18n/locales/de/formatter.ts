@@ -1,6 +1,6 @@
 export const formatter = {
-  title: 'JSON-Formatierer | Online JSON-Beautifier',
-  description: 'Professionelles Online-JSON-Formatierungstool, das unübersichtliche JSON-Daten in ein formatiertes, korrekt eingerücktes Format umwandelt und die JSON-Lesbarkeit verbessert. Unterstützt benutzerdefinierte Einrückungsgröße, Klammerstil und Zeilenbegrenzung und hilft Entwicklern, JSON-Daten zu debuggen und zu inspizieren.',
+  title: 'JSON Formatter',
+  description: 'Verschönern, formatieren, validieren und drucken Sie JSON-Daten, um komplexe JSON-Strukturen klar und lesbar zu machen',
   keywords: 'JSON-Formatierer,JSON-Beautifier,JSON-Online-Formatierer,JSON-Formatierungstool,JSON-Editor,JSON-Einrückung,JSON-Formatierungstool,JSON formatieren,JSON verschönern,JSON-Layout-Tool,JSON-Pretty-Print',
   options: 'Formatierungsoptionen',
   indentSize: 'Einrückungsgröße',
