@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiCheckCircle, FiXCircle, FiInfo, FiRefreshCw, FiCopy, FiCheck } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
 import ToolLayout from '../../components/ToolLayout';
@@ -10,6 +10,7 @@ interface ValidatorClientProps {
   pageTitle: string;
   pageDescription: string;
   pageKeywords: string;
+  pageIntroduction?: string;
 }
 
 interface ErrorHighlight {
@@ -24,7 +25,8 @@ interface ErrorHighlight {
 export default function ValidatorClient({
   pageTitle,
   pageDescription,
-  pageKeywords
+  pageKeywords,
+  pageIntroduction
 }: ValidatorClientProps) {
   const { t } = useTranslation();
   const validator = t('validator');
@@ -37,6 +39,12 @@ export default function ValidatorClient({
     details?: string;
     errorHighlight?: ErrorHighlight;
   } | null>(null);
+
+  // 设置页面标题
+  useEffect(() => {
+    // 直接使用翻译文件中的seo_title设置页面标题
+    document.title = validator.seo_title;
+  }, [validator.seo_title]);
 
   const validateJson = () => {
     if (!input.trim()) {
@@ -301,7 +309,8 @@ export default function ValidatorClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
-      iconComponent={<FiCheck className="w-6 h-6 text-yellow-500" />}
+      introduction={pageIntroduction}
+      iconComponent={<FiCheck className="w-6 h-6 text-green-500" />}
     >
       <div className="space-y-6">
         {/* 验证操作按钮 */}

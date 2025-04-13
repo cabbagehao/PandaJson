@@ -1,7 +1,9 @@
 export const formatter = {
   title: 'JSON Formatter',
-  description: 'Beautify, format, validate and print JSON data, making complex JSON structures clear and readable',
-  keywords: 'JSON formatter,JSON beautifier,JSON online formatter,JSON formatting tool,JSON editor,JSON indentation,JSON formatting tool,format JSON,beautify JSON,JSON layout tool,JSON pretty print',
+  seo_title: 'JSON Formatter & Beautifier – Prettify, Indent & Structure JSON Code',
+  description: 'Format messy JSON data into readable, properly indented code with our free online JSON formatter and beautifier tool',
+  keywords: 'JSON formatter,JSON beautifier,pretty print JSON,format JSON online,JSON indentation,JSON structure,clean JSON code,JSON prettifier,JSON readability tool,beautify JSON,JSON code formatter,JSON syntax highlighting,online JSON formatter,minified JSON formatter,JSON line breaks,JSON spacing,JSON organization,JSON layout,JSON code structure',
+  introduction: 'The JSON Formatter transforms unformatted, minified, or poorly structured JSON data into clean, readable, and properly indented code. Whether you\'re debugging an API response, preparing documentation, or analyzing data structures, our formatter makes working with JSON data significantly easier.\n\nSimply paste your unformatted JSON into the editor, and our tool instantly applies proper indentation, spacing, and line breaks according to JSON syntax standards. The result is beautifully formatted JSON that\'s easier to read, understand, and modify.\n\nKey features include:\n• One-click formatting with adjustable indentation settings\n• Line numbers for easy reference and debugging\n• Syntax highlighting for improved readability\n• Options to customize the appearance of your formatted JSON\n• The ability to compact JSON for minimized file size\n• Support for large JSON documents\n• Error detection for invalid JSON\n\nWhether you\'re a developer, data analyst, or technical writer, our JSON Formatter helps you work more efficiently with JSON data by presenting it in a clean, organized structure that highlights the relationships between elements.',
   options: 'Formatting Options',
   indentSize: 'Indent Size',
   spaces2: '2 spaces',

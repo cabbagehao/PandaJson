@@ -8,6 +8,7 @@ import { useTranslation } from '@/i18n/hooks';
 interface ToolLayoutProps {
   title: string;
   description: string;
+  introduction?: string;
   children: ReactNode;
   actionComponent?: ReactNode;
   keywords?: string;
@@ -17,6 +18,7 @@ interface ToolLayoutProps {
 export default function ToolLayout({
   title,
   description,
+  introduction,
   children,
   actionComponent,
   keywords,
@@ -48,7 +50,16 @@ export default function ToolLayout({
           )}
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">{title}</h1>
         </div>
-        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300">{description}</p>
+        <div className="prose dark:prose-invert max-w-none text-base sm:text-lg text-gray-600 dark:text-gray-300">
+          {description.split('\n').map((paragraph, index) => (
+            <p key={index} dangerouslySetInnerHTML={{ 
+              __html: paragraph
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`([^`]+)`/g, '<code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm">$1</code>')
+            }} />
+          ))}
+        </div>
         {keywords && (
           <meta name="keywords" content={keywords} />
         )}
@@ -85,6 +96,39 @@ export default function ToolLayout({
           </div>
         </div>
       </div>
+      
+      {introduction && (
+        <div className="mt-8 sm:mt-10 border-t border-gray-200 dark:border-gray-700 pt-4 sm:pt-6">
+          <div className="prose dark:prose-invert max-w-none">
+            {introduction.split('\n\n').map((paragraph, index) => {
+              if (paragraph.includes('Key features include:') || paragraph.includes('This tool is perfect for:')) {
+                const parts = paragraph.split(/:([\s\S]*)/);
+                const beforeText = parts[0] + ':';
+                const listContent = parts[1].trim();
+                
+                const listItems = listContent.split('•').filter(item => item.trim().length > 0);
+                
+                return (
+                  <div key={index} className="mb-4">
+                    <p className="mb-2 text-gray-700 dark:text-gray-300">{beforeText}</p>
+                    <ul className="list-disc pl-6 space-y-1">
+                      {listItems.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-gray-700 dark:text-gray-300">{item.trim()}</li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              }
+              
+              return (
+                <p key={index} className="mb-3 text-gray-700 dark:text-gray-300">
+                  {paragraph}
+                </p>
+              );
+            })}
+          </div>
+        </div>
+      )}
       
       <div className="mt-12 sm:mt-16 text-center px-4 sm:px-0 border-t border-gray-200 dark:border-gray-700 pt-6 sm:pt-8">
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">

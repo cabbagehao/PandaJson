@@ -1,7 +1,9 @@
 export const diff = {
   title: 'Trình So Sánh JSON',
+  seo_title: 'So Sánh Tập Dữ Liệu JSON Trực Tuyến – Làm Nổi Bật Phần Thêm, Xóa và Thay Đổi',
   description: 'So sánh hai tập dữ liệu JSON, làm nổi bật các phần bổ sung, xóa và sửa đổi',
-  keywords: 'so sánh JSON,đối chiếu JSON,khác biệt JSON,so sánh JSON,bộ so sánh JSON',
+  keywords: 'so sánh JSON,đối chiếu JSON,khác biệt JSON,so sánh JSON,bộ so sánh JSON,tìm khác biệt JSON,theo dõi thay đổi JSON,so sánh phiên bản JSON,khác biệt dữ liệu JSON,so sánh tệp JSON,so sánh JSON cạnh nhau,so sánh cấu trúc JSON,công cụ so sánh JSON,xác định thay đổi JSON,theo dõi sửa đổi JSON,delta JSON,khác biệt trực quan JSON,giải quyết xung đột JSON',
+  introduction: 'Bạn đang làm việc trên một dự án nhóm hoặc theo dõi thay đổi phiên bản JSON? Công cụ JSON Diff của chúng tôi giúp bạn nhanh chóng so sánh hai tệp JSON và trực quan hóa sự khác biệt. Chúng tôi làm nổi bật các khóa được thêm vào, mục đã xóa và giá trị đã sửa đổi trong một chế độ xem rõ ràng, được mã hóa màu, vì vậy bạn có thể phát hiện các thay đổi chỉ trong nháy mắt.\nCác trường hợp sử dụng bao gồm:\nXem xét yêu cầu kéo với cấu hình JSON\nTheo dõi lịch sử phiên bản dữ liệu trong cơ sở dữ liệu\nGỡ lỗi sự không khớp giữa các phản hồi API\nKhông cần phải cuộn qua các dòng mã nữa—công cụ của chúng tôi tự động phân tích các đối tượng và mảng lồng nhau, làm cho việc so sánh phức tạp trở nên đơn giản. Dán hoặc tải lên hai tệp JSON, và để tính năng so sánh json của chúng tôi cho bạn thấy chính xác những gì đã thay đổi. Lý tưởng cho các nhà phát triển, nhóm QA và người quản lý dữ liệu!',
   leftInput: 'JSON Thứ Nhất',
   rightInput: 'JSON Thứ Hai',
   result: 'Kết Quả So Sánh',

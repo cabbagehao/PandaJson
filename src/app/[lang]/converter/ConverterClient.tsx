@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiDownload, FiCopy, FiRefreshCw, FiRepeat } from 'react-icons/fi';
 import * as yaml from 'js-yaml';
 import { xml2json, json2xml } from 'xml-js';
@@ -16,6 +16,7 @@ interface ConverterClientProps {
   pageTitle: string;
   pageDescription: string;
   pageKeywords: string;
+  pageIntroduction?: string;
   locale: Locale;
 }
 
@@ -23,6 +24,7 @@ export default function ConverterClient({
   pageTitle,
   pageDescription,
   pageKeywords,
+  pageIntroduction,
   locale 
 }: ConverterClientProps) {
   const { t } = useTranslation();
@@ -34,6 +36,12 @@ export default function ConverterClient({
   const [error, setError] = useState<string | null>(null);
   const [conversionType, setConversionType] = useState<ConversionType>('json-to-yaml');
   const [isProcessing, setIsProcessing] = useState(false);
+
+  // 设置页面标题
+  useEffect(() => {
+    // 直接使用翻译文件中的seo_title设置页面标题
+    document.title = converter.seo_title;
+  }, [converter.seo_title]);
 
   // 转换处理函数
   const handleConvert = () => {
@@ -239,7 +247,8 @@ export default function ConverterClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
-      iconComponent={<FiRepeat className="w-6 h-6 text-purple-500" />}
+      introduction={pageIntroduction}
+      iconComponent={<FiRepeat className="w-6 h-6 text-orange-500" />}
     >
       <div className="space-y-6">
         {/* 转换选项 */}
@@ -285,10 +294,16 @@ export default function ConverterClient({
         {/* 输入/输出区域 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
+            <div className="mb-2 flex justify-between items-center">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {getInputLabel()}
+              </label>
+              {/* 空div，用于占位对齐 */}
+              <div className="opacity-0 invisible h-10"></div>
+            </div>
             <JsonEditor
               value={input}
               onChange={setInput}
-              label={getInputLabel()}
               placeholder={getInputPlaceholder()}
               error={error || undefined}
             />

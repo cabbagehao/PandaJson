@@ -21,6 +21,7 @@ export default async function JsonFormatter({
         pageTitle={formatter.title}
         pageDescription={formatter.description}
         pageKeywords={formatter.keywords}
+        pageIntroduction={formatter.introduction}
         locale={locale}
       />
     </Suspense>

@@ -1,7 +1,8 @@
 export const minifier = {
   title: 'Minimizador JSON',
+  seo_title: 'Minificador JSON – Comprimir y Reducir el Tamaño de Archivos JSON Eliminando Espacios en Blanco',
   description: 'Comprime y minimiza el tamaño de archivos JSON eliminando espacios en blanco y símbolos de formato, mejorando la eficiencia de transmisión',
-  keywords: 'Minificador JSON,Minificación JSON,Optimización de tamaño JSON,Eliminación de espacios en blanco JSON,Compresor JSON',
+  keywords: 'Minificador JSON,Minificación JSON,Optimización de tamaño JSON,Eliminación de espacios en blanco JSON,Compresor JSON,Reducir tamaño JSON,JSON compacto,Herramienta de compresión JSON,Optimizar transferencia JSON,Reducción de ancho de banda JSON,Eficiencia de transmisión JSON,Minificar JSON en línea,Reductor de tamaño de archivo JSON,Optimizador JSON,JSON ligero,Reducción de carga útil JSON',
   input: 'JSON de Entrada',
   output: 'Resultado Minificado',
   placeholder: 'Pegue sus datos JSON aquí para minificar',

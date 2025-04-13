@@ -1,7 +1,9 @@
 export const schemaValidator = {
   title: 'JSON Sxema tekshirish',
+  seo_title: 'JSON ni Sxema bo\'yicha tekshirish – Ma\'lumotlar tuzilishi yaxlitligini ta\'minlash',
   description: 'JSON ma\'lumotlarini JSON Sxema bilan tekshiring, boy tekshirish qoidalari va batafsil xato xabarlarini qo\'llab-quvvatlaydi.',
-  keywords: 'JSON Sxema,JSON tekshirish,Sxema tekshirish,JSON tuzilishini tekshirish,JSON formatini tekshirish',
+  keywords: 'JSON Sxema,JSON tekshirish,Sxema tekshirish,JSON tuzilishini tekshirish,JSON formatini tekshirish,JSON sxema tekshiruvchi,sxema muvofiqlik tekshiruvchi,JSON ma\'lumotlar yaxlitligi,sxemaga qarshi tekshirish,JSON cheklov tekshirish,tur tekshirish,tuzilish tekshirish,naqsh tekshirish,JSON qoidalari tekshirish,majburiy maydonlar tekshiruvchi,JSON format tekshiruvchi,JSON shartnoma tekshiruvchi,API sxema tekshirish',
+  introduction: 'JSON ma\'lumotlaringiz ma\'lum bir sxemaga (masalan, API shartnomalariga yoki ma\'lumotlar modellariga) mos kelishini tekshirish kerakmi? Bizning **JSON Sxema Tekshiruvchi** vositamiz JSON ma\'lumotlaringiz belgilangan sxemaga mosligini tekshiradi, maydon turlarini, majburiy kalitlarni va ma\'lumotlar cheklovlarini tekshiradi. Bu jamoa hamkorligi, API hujjatlari va tizimlar bo\'ylab ma\'lumotlar izchilligini ta\'minlash uchun juda muhimdir.\n\nQanday ishlaydi: JSON va sxema faylingizni yuklang (yoki to\'g\'ridan-to\'g\'ri sxemani kiriting), va biz `type`, `enum`, `minimum` va `pattern` kabi xususiyatlarga qarshi tekshiramiz. Xato xabarlari ma\'lumotlar sxemaga mos kelmaydigan joyni aniq ko\'rsatadi, bu muammolarni tezda bartaraf etishga yordam beradi.\n\nXoh siz mikroxizmatlarni ishlab chiqayotgan bo\'ling, foydalanuvchi kiritishlarini tekshirayotgan bo\'ling yoki ma\'lumotlar oqimlarini standartlashtirmoqchi bo\'ling, bizning **json sxemasini tekshirish** vositamiz ma\'lumotlar tuzilmalaringiz ishonchli va mos ekanligini ta\'minlaydi. Bugun bepul sinab ko\'ring!',
   jsonData: 'JSON Ma\'lumotlari',
   jsonSchema: 'JSON Sxema',
   options: 'Parametrlar',

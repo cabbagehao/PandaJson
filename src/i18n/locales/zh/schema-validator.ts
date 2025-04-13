@@ -1,7 +1,9 @@
 export const schemaValidator = {
   title: 'JSON Schema验证',
+  seo_title: '根据Schema验证JSON – 确保数据结构完整性',
   description: '验证JSON数据是否符合Schema规范，检查数据结构的完整性和有效性',
-  keywords: 'JSON Schema,JSON验证,Schema验证,JSON结构验证,JSON格式验证',
+  keywords: 'JSON Schema,JSON验证,Schema验证,JSON结构验证,JSON格式验证,JSON schema验证器,schema一致性检查,JSON数据完整性,根据schema验证,JSON约束验证,类型验证,结构验证,模式验证,JSON规则验证,必填字段验证器,JSON格式检查器,JSON合约验证器,API schema验证',
+  introduction: '需要确保您的JSON数据匹配特定的schema（例如API契约或数据模型）？我们的**JSON Schema验证器**检查您的JSON是否符合定义的schema，验证字段类型、必填键和数据约束。这对团队协作、API文档和确保跨系统的数据一致性至关重要。\n\n工作原理：上传您的JSON和schema文件（或直接粘贴schema），我们将针对`type`、`enum`、`minimum`和`pattern`等属性进行验证。错误消息会精确指出数据不符合schema的位置，帮助您快速修复问题。\n\n无论您是开发微服务、验证用户输入还是标准化数据管道，我们的**validate json schema**工具都能确保您的数据结构可靠且合规。立即免费试用！',
   jsonData: 'JSON 数据',
   jsonSchema: 'JSON Schema',
   options: '验证选项',

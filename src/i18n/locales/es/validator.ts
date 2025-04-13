@@ -1,7 +1,9 @@
 export const validator = {
   title: 'Validador JSON',
+  seo_title: 'Validador JSON – Verifica la Sintaxis JSON y Encuentra Errores Instantáneamente',
   description: 'Valida rápidamente errores de sintaxis JSON, asegurando que tu JSON se ajuste a las especificaciones de formato estándar',
-  keywords: 'Validador JSON,Validación JSON,Comprobación de formato JSON,Comprobación de sintaxis JSON,Localizador de errores JSON,Validador JSON en línea,Corrección de errores JSON',
+  keywords: 'Validador JSON,Validación JSON,Comprobación de formato JSON,Comprobación de sintaxis JSON,Localizador de errores JSON,Validador JSON en línea,Corrección de errores JSON,Error de análisis JSON,Detección de errores de sintaxis,Herramienta de depuración JSON,Validación de estructura JSON,Buscador de ubicación de errores,Mensajes de error JSON,Corregir sintaxis JSON,Validador de código JSON',
+  introduction: 'El Validador JSON te ayuda a identificar rápidamente errores de sintaxis y problemas estructurales en tus datos JSON. Ya sea que estés depurando una API web, trabajando con archivos de configuración o procesando fuentes de datos, nuestra herramienta proporciona retroalimentación instantánea sobre la validez de tu JSON.\n\nCuando se detectan errores, el validador señala la ubicación exacta del problema y proporciona una guía clara y práctica sobre cómo solucionarlo. Cada error se resalta con información de línea y columna, haciendo que la solución de problemas sea eficiente y directa.\n\nLas características principales incluyen:\n• Validación instantánea de sintaxis contra el estándar JSON\n• Ubicación precisa de errores con números de línea y columna\n• Descripciones detalladas de errores para una resolución rápida de problemas\n• Soporte para documentos JSON grandes\n• Interfaz limpia e intuitiva con retroalimentación en tiempo real\n• Validación con un solo clic con resultados completos\n\nSimplemente pega tu JSON y deja que nuestro validador compruebe si hay errores, asegurando que tus datos estén correctamente formateados antes de usarlos en tus aplicaciones.',
   input: 'Entrada JSON',
   validate: 'Validar JSON',
   validJson: 'JSON Válido',

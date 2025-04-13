@@ -1,7 +1,9 @@
 export const minifier = {
   title: 'Trình Thu Nhỏ JSON',
+  seo_title: 'Trình Thu Nhỏ JSON – Nén & Giảm Kích Thước Tệp JSON Bằng Cách Loại Bỏ Khoảng Trắng',
   description: 'Nén và thu nhỏ kích thước tệp JSON bằng cách loại bỏ khoảng trắng và ký hiệu định dạng, cải thiện hiệu quả truyền tải',
-  keywords: 'Trình thu nhỏ JSON,Thu nhỏ JSON,Tối ưu hóa kích thước JSON,Loại bỏ khoảng trắng JSON,Trình nén JSON',
+  keywords: 'Trình thu nhỏ JSON,Thu nhỏ JSON,Tối ưu hóa kích thước JSON,Loại bỏ khoảng trắng JSON,Trình nén JSON,giảm kích thước JSON,JSON nhỏ gọn,công cụ nén JSON,tối ưu hóa chuyển JSON,giảm băng thông JSON,hiệu quả truyền JSON,thu nhỏ JSON trực tuyến,công cụ giảm kích thước JSON,trình tối ưu hóa JSON,JSON nhẹ,giảm tải JSON',
+  introduction: 'Trình Thu Nhỏ JSON của chúng tôi là một công cụ trực tuyến miễn phí giúp bạn nén dữ liệu JSON bằng cách loại bỏ các khoảng trắng và ký tự định dạng không cần thiết. Việc thu nhỏ JSON làm giảm kích thước tệp, tối ưu hóa băng thông và cải thiện tốc độ truyền tải. Công cụ này đặc biệt hữu ích cho các nhà phát triển web, API và các dịch vụ web muốn tối ưu hóa hiệu suất. Sử dụng trình thu nhỏ JSON để giảm đáng kể kích thước dữ liệu JSON mà không làm thay đổi cấu trúc hoặc nội dung của dữ liệu.',
   input: 'JSON Đầu Vào',
   output: 'Kết Quả Thu Nhỏ',
   placeholder: 'Dán dữ liệu JSON của bạn tại đây để thu nhỏ',

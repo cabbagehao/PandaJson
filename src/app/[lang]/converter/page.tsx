@@ -21,6 +21,7 @@ export default async function ConverterPage({
         pageTitle={converter.title}
         pageDescription={converter.description}
         pageKeywords={converter.keywords}
+        pageIntroduction={converter.introduction}
         locale={locale}
       />
     </Suspense>

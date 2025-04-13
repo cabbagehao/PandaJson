@@ -14,12 +14,14 @@ interface TreeEditorClientProps {
   pageTitle: string;
   pageDescription: string;
   pageKeywords: string;
+  pageIntroduction?: string;
 }
 
 export default function TreeEditorClient({
   pageTitle,
   pageDescription,
-  pageKeywords
+  pageKeywords,
+  pageIntroduction
 }: TreeEditorClientProps) {
   const { t } = useTranslation();
   const treeEditor = t('treeEditor');
@@ -29,6 +31,12 @@ export default function TreeEditorClient({
   const [jsonData, setJsonData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'text' | 'tree'>('text');
+
+  // 设置页面标题
+  useEffect(() => {
+    // 直接使用翻译文件中的seo_title设置页面标题
+    document.title = treeEditor.seo_title;
+  }, [treeEditor.seo_title]);
 
   // 当文本编辑器内容变化时更新树视图
   useEffect(() => {
@@ -104,6 +112,7 @@ export default function TreeEditorClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      introduction={pageIntroduction}
       iconComponent={<FiEdit className="w-6 h-6 text-indigo-500" />}
     >
       <div className="space-y-6">

@@ -21,6 +21,7 @@ export default async function JsonDiff({
         pageTitle={diff.title}
         pageDescription={diff.description}
         pageKeywords={diff.keywords}
+        pageIntroduction={diff.introduction}
       />
     </Suspense>
   );

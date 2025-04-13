@@ -7,6 +7,9 @@ const locales = [
   'pt', 'fr', 'ru', 'de', 'vi', 'sw', 'mk', 'uz'
 ];
 
+// 默认语言
+const defaultLocale = 'en';
+
 // 网站域名
 const DOMAIN = 'https://jsonpanda.com';
 
@@ -29,13 +32,16 @@ function generateSitemap() {
   
   <!-- 首页 -->
   <url>
-    <loc>${DOMAIN}/en</loc>
+    <loc>${DOMAIN}</loc>
 `;
 
   // 添加所有语言版本的首页链接
   locales.forEach(locale => {
     sitemap += `    <xhtml:link rel="alternate" hreflang="${locale}" href="${DOMAIN}/${locale}" />\n`;
   });
+  
+  // 添加x-default标签
+  sitemap += `    <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}" />\n`;
 
   sitemap += `    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -47,16 +53,22 @@ function generateSitemap() {
   TOOL_PATHS.forEach(tool => {
     sitemap += `  <!-- ${getTitleForTool(tool)}页面 -->
   <url>
-    <loc>${DOMAIN}/en/${tool}</loc>
+    <loc>${DOMAIN}/${defaultLocale}/${tool}</loc>
 `;
 
     // 添加所有语言版本的工具页面链接
     locales.forEach(locale => {
       sitemap += `    <xhtml:link rel="alternate" hreflang="${locale}" href="${DOMAIN}/${locale}/${tool}" />\n`;
     });
+    
+    // 添加x-default标签
+    sitemap += `    <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}/${tool}" />\n`;
+
+    // 为formatter页面设置更高的优先级
+    const priority = tool === 'formatter' ? '1.0' : '0.9';
 
     sitemap += `    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>${priority}</priority>
   </url>
 
 `;

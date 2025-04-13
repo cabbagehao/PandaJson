@@ -1,7 +1,9 @@
 export const schemaValidator = {
   title: 'Validateur de Schéma JSON',
+  seo_title: 'Validateur de Schéma JSON - Vérifiez vos Données JSON Selon les Normes',
   description: 'Validez les données JSON par rapport aux spécifications de Schema, en vérifiant l\'intégrité et la validité des structures de données',
   keywords: 'Schéma JSON,Validation JSON,Validation de schéma,Validation de structure JSON,Validation de format JSON',
+  introduction: 'Le Validateur de Schéma JSON est un outil spécialisé pour vérifier la structure et la validité des données JSON par rapport aux spécifications de Schéma JSON. Il est spécialement conçu pour les développeurs, ingénieurs de données et testeurs qui ont besoin de s\'assurer que les données sont conformes aux normes prédéfinies.\n\nL\'outil fonctionne simplement : entrez les données JSON que vous souhaitez valider dans le panneau de données, entrez votre Schéma JSON dans le panneau de schéma, puis cliquez sur "Valider". L\'outil comparera les données au schéma et fournira instantanément les résultats de validation.\n\nLes fonctionnalités principales comprennent :\n• Validation complète de toutes les propriétés et valeurs des données JSON\n• Identification détaillée des erreurs avec des pointeurs précis vers les problèmes\n• Support pour des schémas JSON complexes multi-niveaux\n• Analyse approfondie des données imbriquées\n• Options de validation personnalisables avec mode strict optionnel\n• Exemples préparés pour aider à comprendre le fonctionnement de la validation\n\nQue vous validiez des réponses d\'API, assuriez la compatibilité des données avant stockage, ou vérifiiez des configurations d\'application, le Validateur de Schéma JSON vous aide à garantir que vos données JSON répondent exactement aux exigences structurelles attendues.',
   jsonData: 'Données JSON',
   jsonSchema: 'Schéma JSON',
   options: 'Options de Validation',

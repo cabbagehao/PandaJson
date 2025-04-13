@@ -1,7 +1,9 @@
 export const formatter = {
   title: 'JSON格式化',
+  seo_title: 'JSON格式化與美化工具 – 美化、縮進與結構化JSON代碼',
   description: '美化、格式化、校驗和打印JSON數據，讓複雜JSON結構變得清晰易讀',
-  keywords: 'JSON格式化,JSON美化,JSON整理,JSON編輯器,JSON格式轉換,JSON縮進,JSON結構化,免費JSON格式化工具',
+  keywords: 'JSON格式化,JSON美化,JSON整理,JSON編輯器,JSON格式轉換,JSON縮進,JSON結構化,免費JSON格式化工具,JSON語法高亮,在線美化JSON,JSON結構可視化,JSON自動縮進,JSON文件格式化,JSON漂亮打印,JSON可讀性工具,美化JSON代碼,JSON格式化器,JSON縮進工具,JSON程式碼美化,JSON程式碼格式',
+  introduction: 'JSON格式化工具將未格式化、壓縮或結構混亂的JSON數據轉換為乾淨、可讀且正確縮進的代碼。無論您是在調試API響應、準備文檔還是分析數據結構，我們的格式化工具都能讓JSON數據處理變得更加簡單。\n\n只需將未格式化的JSON粘貼到編輯器中，我們的工具就會立即按照JSON語法標準應用適當的縮進、間距和換行。結果是美觀格式化的JSON，更易於閱讀、理解和修改。\n\n主要功能包括：\n• 一鍵格式化，可調整縮進設置\n• 行號便於引用和調試\n• 語法高亮提高可讀性\n• 自定義格式化JSON外觀的選項\n• 壓縮JSON以最小化文件大小的功能\n• 支持大型JSON文檔\n• 對無效JSON的錯誤檢測\n\n無論您是開發人員、數據分析師還是技術文檔撰寫者，我們的JSON格式化工具通過以清晰、有組織的結構呈現JSON數據，突顯元素之間的關係，幫助您更高效地處理JSON數據。',
   options: '格式化選項',
   indentSize: '縮進大小',
   spaces2: '2個空格',

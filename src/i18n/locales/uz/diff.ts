@@ -1,7 +1,9 @@
 export const diff = {
   title: 'JSON Taqqoslash',
+  seo_title: 'JSON Ma\'lumotlar to\'plamini onlayn taqqoslash – Qo\'shimchalar, O\'chirishlar va O\'zgartirishlarni ajratib ko\'rsating',
   description: 'Ikkita JSON ob\'ektini solishtiring va qo\'shimchalar, o\'chirishlar va o\'zgartirishlarni ko\'ring.',
-  keywords: 'JSON farq,JSON solishtirish,JSON farqi,JSON taqqoslash,JSON taqqoslovchi',
+  keywords: 'JSON farq,JSON solishtirish,JSON farqi,JSON taqqoslash,JSON taqqoslovchi,JSON farqlarini topish,JSON o\'zgarishlarini kuzatuvchi,JSON versiyasi taqqoslash,JSON ma\'lumotlar farqi,JSON fayl solishtirish,JSON yonma-yon solishtirish,JSON tuzilishi taqqoslash,JSON farq vositasi,JSON o\'zgarishlarini aniqlash,JSON o\'zgartirishlarini kuzatish,JSON delta,vizual JSON farq,JSON ziddiyatlarini hal qilish',
+  introduction: 'Jamoa loyihasi ustida ishlayapsizmi yoki JSON versiyasidagi o\'zgarishlarni kuzatmoqchimisiz? Bizning JSON Diff vositamiz ikkita JSON faylni tezda solishtirish va farqlarni vizualizatsiya qilishga yordam beradi. Biz qo\'shilgan kalitlar, o\'chirilgan yozuvlar va o\'zgartirilgan qiymatlarni bir qarashda farqlarni ko\'rish imkonini beruvchi aniq, rang-kodlangan ko\'rinishda ajratib ko\'rsatamiz.\nQo\'llanilish misollari quyidagilarni o\'z ichiga oladi:\nJSON konfiguratsiyalari bilan so\'rovlarni ko\'rib chiqish\nMa\'lumotlar bazasida ma\'lumotlar versiyalari tarixini kuzatish\nAPI javoblari o\'rtasidagi nomuvofiqliklarni tuzatish\nKod qatorlari orqali aylantirish kerak emas - bizning vositamiz murakkab taqqoslashlarni soddalashtirish uchun ichki ob\'ektlar va massivlarni avtomatik ravishda tahlil qiladi. Ikkita JSON faylni joylashtiring yoki yuklang va json taqqoslash xususiyatimizga nima o\'zgarganligini ko\'rsatishga ruxsat bering. Dasturchilar, QA guruhlari va ma\'lumotlar boshqaruvchilari uchun ideal!',
   leftInput: 'Birinchi JSON',
   rightInput: 'Ikkinchi JSON',
   result: 'Solishtirish Natijasi',

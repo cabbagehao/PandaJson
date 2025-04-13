@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
-import { FiCopy, FiRefreshCw, FiInfo, FiList } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
+import { FiCopy, FiRefreshCw, FiInfo, FiList, FiFileText } from 'react-icons/fi';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import JsonEditor from '../../components/JsonEditor';
 import ToolLayout from '../../components/ToolLayout';
 import { useTranslation } from '@/i18n/hooks';
+import { Locale } from '@/i18n';
 
 // 初始化验证器
 const ajv = new Ajv({ allErrors: true });
@@ -16,15 +17,19 @@ interface SchemaValidatorClientProps {
   pageTitle: string;
   pageDescription: string;
   pageKeywords: string;
+  pageIntroduction?: string;
+  locale: Locale; 
 }
 
 export default function SchemaValidatorClient({
   pageTitle,
   pageDescription,
-  pageKeywords
+  pageKeywords,
+  pageIntroduction,
+  locale
 }: SchemaValidatorClientProps) {
   const { t } = useTranslation();
-  const sv = t('schemaValidator');
+  const schemaValidator = t('schemaValidator');
   const ui = t('common').ui;
   
   const [jsonInput, setJsonInput] = useState('');
@@ -37,6 +42,12 @@ export default function SchemaValidatorClient({
   const [isValidating, setIsValidating] = useState(false);
   const [jsonError, setJsonError] = useState<string | null>(null);
   const [schemaError, setSchemaError] = useState<string | null>(null);
+
+  // 设置页面标题
+  useEffect(() => {
+    // 直接使用翻译文件中的seo_title设置页面标题
+    document.title = schemaValidator.seo_title;
+  }, [schemaValidator.seo_title]);
 
   const validateJson = () => {
     setIsValidating(true);
@@ -69,17 +80,17 @@ export default function SchemaValidatorClient({
       } catch (err) {
         // Schema解析错误
         if (err instanceof Error) {
-          setSchemaError(`${sv.schemaParseError}: ${err.message}`);
+          setSchemaError(`${schemaValidator.schemaParseError}: ${err.message}`);
         } else {
-          setSchemaError(sv.schemaParseError);
+          setSchemaError(schemaValidator.schemaParseError);
         }
       }
     } catch (err) {
       // JSON解析错误
       if (err instanceof Error) {
-        setJsonError(`${sv.jsonParseError}: ${err.message}`);
+        setJsonError(`${schemaValidator.jsonParseError}: ${err.message}`);
       } else {
-        setJsonError(sv.jsonParseError);
+        setJsonError(schemaValidator.jsonParseError);
       }
     } finally {
       setIsValidating(false);
@@ -133,7 +144,8 @@ export default function SchemaValidatorClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
-      iconComponent={<FiList className="w-6 h-6 text-blue-500" />}
+      introduction={pageIntroduction}
+      iconComponent={<FiFileText className="w-6 h-6 text-teal-500" />}
     >
       <div className="space-y-6">
         {/* 工具操作按钮 */}
@@ -145,7 +157,7 @@ export default function SchemaValidatorClient({
               disabled={isValidating}
               className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50"
             >
-              {isValidating ? sv.validating : sv.validate}
+              {isValidating ? schemaValidator.validating : schemaValidator.validate}
             </button>
             
             <button
@@ -153,7 +165,7 @@ export default function SchemaValidatorClient({
               onClick={loadExample}
               className="inline-flex justify-center items-center px-4 py-2 border border-gray-300 dark:border-gray-700 text-sm font-medium rounded-md shadow-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              {sv.loadExample}
+              {schemaValidator.loadExample}
             </button>
           </div>
           
@@ -178,12 +190,12 @@ export default function SchemaValidatorClient({
               className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 dark:border-gray-700 rounded"
             />
             <div className="ml-3 text-sm flex items-center">
-              <label htmlFor="strict-mode" className="font-medium text-gray-700 dark:text-gray-300">{sv.strictMode}</label>
+              <label htmlFor="strict-mode" className="font-medium text-gray-700 dark:text-gray-300">{schemaValidator.strictMode}</label>
               <div className="relative ml-1 inline-block">
                 <span className="group">
                   <FiInfo className="h-4 w-4 text-gray-400 inline-block" />
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 p-2 w-64 bg-gray-800 text-white text-xs rounded shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    {sv.strictModeDescription}
+                    {schemaValidator.strictModeDescription}
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-800 rotate-45"></div>
                   </div>
                 </span>
@@ -217,7 +229,7 @@ export default function SchemaValidatorClient({
                     ? 'text-green-800 dark:text-green-300' 
                     : 'text-red-800 dark:text-red-300'
                 }`}>
-                  {validationResults.valid ? sv.valid : sv.invalid}
+                  {validationResults.valid ? schemaValidator.valid : schemaValidator.invalid}
                 </h3>
                 {!validationResults.valid && validationResults.errors && (
                   <div className="mt-2">
@@ -239,9 +251,9 @@ export default function SchemaValidatorClient({
             <JsonEditor
               value={jsonInput}
               onChange={setJsonInput}
-              label={sv.jsonData}
+              label={schemaValidator.jsonData}
               error={jsonError || undefined}
-              placeholder={sv.jsonPlaceholder}
+              placeholder={schemaValidator.jsonPlaceholder}
             />
           </div>
           
@@ -249,9 +261,9 @@ export default function SchemaValidatorClient({
             <JsonEditor
               value={schemaInput}
               onChange={setSchemaInput}
-              label={sv.jsonSchema}
+              label={schemaValidator.jsonSchema}
               error={schemaError || undefined}
-              placeholder={sv.schemaPlaceholder}
+              placeholder={schemaValidator.schemaPlaceholder}
             />
           </div>
         </div>

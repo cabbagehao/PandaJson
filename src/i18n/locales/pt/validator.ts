@@ -1,7 +1,9 @@
 export const validator = {
   title: 'Validador JSON',
+  seo_title: 'Validador JSON - Verifique a Formatação e Sintaxe dos seus Dados JSON',
   description: 'Valide rapidamente erros de sintaxe JSON, garantindo que seu JSON esteja em conformidade com as especificações de formato padrão',
   keywords: 'Validador JSON,Validação JSON,Verificação de formato JSON,Verificação de sintaxe JSON,Localizador de erros JSON,Validador JSON online,Correção de erros JSON',
+  introduction: 'O Validador JSON é uma ferramenta essencial para garantir a validade e conformidade dos seus dados JSON. Ele fornece validação instantânea de sintaxe e formatação JSON, ajudando os desenvolvedores a identificar e resolver problemas rapidamente.\n\nAtravés de um validador rápido do lado do cliente, a ferramenta consegue detectar muitos erros comuns na sintaxe JSON, incluindo colchetes incompatíveis, vírgulas ausentes, chaves duplicadas e strings não fechadas.\n\nAs principais características incluem:\n• Verificação precisa da sintaxe JSON\n• Indicações claras da localização de erros e linha específica do código\n• Descrições detalhadas de erros com sugestões para correção\n• Visualização interativa em árvore dos dados quando a validação é bem-sucedida\n• Execução instantânea sem necessidade de processamento no servidor\n\nSeja verificando um arquivo de configuração, uma resposta de API ou um conjunto de dados complexo, o Validador JSON ajuda a garantir que seus dados estejam formatados corretamente e em conformidade com o padrão JSON. Isso economiza tempo na identificação de erros e garante que os dados que você está trabalhando funcionem como esperado em suas aplicações.',
   input: 'JSON de Entrada',
   validate: 'Validar JSON',
   validJson: 'JSON Válido',

@@ -1,7 +1,8 @@
 export const minifier = {
   title: 'JSON压缩',
+  seo_title: 'JSON压缩工具 – 通过移除空白字符压缩和减小JSON文件大小',
   description: '压缩和最小化JSON文件体积，去除空白和格式化符号，提高传输效率',
-  keywords: 'JSON压缩,JSON最小化,JSON体积优化,JSON去空格,JSON压缩器',
+  keywords: 'JSON压缩,JSON最小化,JSON体积优化,JSON去空格,JSON压缩器,减小JSON大小,紧凑JSON,JSON压缩工具,优化JSON传输,JSON带宽减少,JSON传输效率,在线压缩JSON,JSON文件大小减少器,JSON优化器,轻量级JSON,JSON载荷减少',
   input: '输入 JSON',
   output: '压缩结果',
   placeholder: '在此粘贴需要压缩的JSON数据',

@@ -21,6 +21,7 @@ export default async function JsonValidator({
         pageTitle={validator.title}
         pageDescription={validator.description}
         pageKeywords={validator.keywords}
+        pageIntroduction={validator.introduction}
       />
     </Suspense>
   );

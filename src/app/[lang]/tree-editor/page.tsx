@@ -21,6 +21,7 @@ export default async function TreeEditor({
         pageTitle={treeEditor.title}
         pageDescription={treeEditor.description}
         pageKeywords={treeEditor.keywords}
+        pageIntroduction={treeEditor.introduction}
       />
     </Suspense>
   );

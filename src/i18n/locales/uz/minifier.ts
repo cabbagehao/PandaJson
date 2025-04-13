@@ -1,7 +1,9 @@
 export const minifier = {
   title: 'JSON Kichiklashtirish',
+  seo_title: 'JSON Kichiklashtiruvchi – Bo\'sh joylarni olib tashlash orqali JSON fayl hajmini siqish va kamaytirish',
   description: 'JSON fayllarining hajmini ortiqcha bo\'sh joylar, yangi qatorlar va kalit qo\'shtirnoqlarini olib tashlash orqali kichiklashtiring, samaradorlik va kichikroq yetkazib berish uchun JSON fayllarning ixcham versiyalarini yarating.',
-  keywords: 'JSON minimizator,JSON o\'lchamini kichiklashtirish,JSON zichlagich,JSON siqish vositasi,JSON o\'lchamini kamaytirish vositasi,Onlayn JSON vositasi,Onlayn JSON minimizator',
+  keywords: 'JSON minimizator,JSON o\'lchamini kichiklashtirish,JSON zichlagich,JSON siqish vositasi,JSON o\'lchamini kamaytirish vositasi,Onlayn JSON vositasi,Onlayn JSON minimizator,JSON siqish,JSON ma\'lumotlarini siqish,JSON o\'lchamini kamaytirish,JSON bo\'sh joylarini olib tashlash,JSON kompressor,ixcham JSON,JSON siqish vositasi,JSON uzatishni optimallashtirish,JSON bandvitini kamaytirish,JSON uzatish samaradorligi,onlayn JSON kichiklashtirish,JSON fayl hajmini kamaytirish,JSON optimizatori,engil JSON,JSON ma\'lumotlarini kamaytirish',
+  introduction: 'JSON Kichiklashtiruvchi fayl hajmini kamaytirish uchun JSON ma\'lumotlaridan keraksiz bo\'sh joylar va formatlash belgilarini olib tashlaydigan vositadir. Bu veb-ilovalar, API javoblari va tarmoq ma\'lumotlarini uzatish samaradorligini oshirish uchun foydalidir.\n\nMa\'lumotlarni uzatish tezligini oshirish va bandvit foydalanishini kamaytirish uchun, bizning kichiklashtiruvchimiz JSON ma\'lumotlaringizdan keraksiz bo\'shliqlar, tablar va qator uzilishlarini olib tashlaydi, shu bilan birga ma\'lumotlar tuzilishi va yaroqliligini saqlab qoladi.\n\nBu vosita quyidagilar uchun ishlatilishi mumkin:\n• API javoblarini optimallashtirish\n• Veb-ilovalar ishlashini yaxshilash\n• Konfiguratsiya fayllarini ixchamlash\n• Saqlash joyini tejash\n\nShunchaki JSON ma\'lumotlaringizni kiriting, va bizning vositamiz tezda uni siqib, qancha joy tejab qolganingizni ko\'rsatadi.',
   input: 'JSON kiriting',
   output: 'Kichiklashtirilgan JSON',
   placeholder: 'Bu yerga JSON kiriting',

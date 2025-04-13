@@ -1,7 +1,8 @@
 export const minifier = {
   title: 'JSON Minifier',
+  seo_title: 'JSON Minifier – Compress & Reduce JSON File Size by Removing Whitespace',
   description: 'Compress and minimize JSON file size by removing whitespace and formatting symbols, improving transmission efficiency',
-  keywords: 'JSON minifier,JSON minification,JSON size optimization,JSON whitespace removal,JSON compressor',
+  keywords: 'JSON minifier,JSON minification,JSON size optimization,JSON whitespace removal,JSON compressor,reduce JSON size,compact JSON,JSON compression tool,optimize JSON transfer,JSON bandwidth reduction,JSON transmission efficiency,minify JSON online,JSON file size reducer,JSON optimizer,lightweight JSON,JSON payload reduction',
   input: 'Input JSON',
   output: 'Minified Result',
   placeholder: 'Paste your JSON data here to minify',

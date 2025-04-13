@@ -1,7 +1,9 @@
 export const diff = {
   title: 'Comparador JSON',
+  seo_title: 'Comparar Conjuntos de Datos JSON en Línea – Resaltar Adiciones, Eliminaciones y Cambios',
   description: 'Compara dos conjuntos de datos JSON, resaltando adiciones, eliminaciones y modificaciones',
-  keywords: 'diferencia JSON,comparar JSON,diferencia JSON,comparación JSON,comparador JSON',
+  keywords: 'diferencia JSON,comparar JSON,diferencia JSON,comparación JSON,comparador JSON,encontrar diferencias JSON,rastreador de cambios JSON,comparación de versiones JSON,diferencia de datos JSON,comparación de archivos JSON,comparación JSON lado a lado,comparación de estructura JSON,herramienta de comparación JSON,identificar cambios JSON,rastrear modificaciones JSON,delta JSON,diferencia visual JSON,resolución de conflictos JSON',
+  introduction: '¿Trabajando en un proyecto de equipo o haciendo seguimiento a cambios de versiones JSON? Nuestra herramienta JSON Diff te ayuda a comparar rápidamente dos archivos JSON y visualizar diferencias. Resaltamos claves añadidas, entradas eliminadas y valores modificados en una vista clara y codificada por colores, para que puedas detectar cambios de un vistazo.\nLos casos de uso incluyen:\nRevisión de solicitudes de extracción con configuraciones JSON\nSeguimiento del historial de versiones de datos en bases de datos\nDepuración de discrepancias entre respuestas de API\n¡No más desplazamiento a través de líneas de código—nuestra herramienta analiza automáticamente objetos y arrays anidados, haciendo simples las comparaciones complejas. Pega o carga dos archivos JSON, y deja que nuestra función de comparación JSON te muestre exactamente lo que ha cambiado. ¡Ideal para desarrolladores, equipos de QA y gestores de datos!',
   leftInput: 'Primer JSON',
   rightInput: 'Segundo JSON',
   result: 'Resultado de Comparación',

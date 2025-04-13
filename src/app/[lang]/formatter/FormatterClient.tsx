@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import jsBeautify from 'js-beautify';
 import { FiCopy, FiDownload, FiRefreshCw, FiCode } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
@@ -8,6 +8,7 @@ import ToolLayout from '../../components/ToolLayout';
 import { useTranslation } from '@/i18n/hooks';
 import dynamic from 'next/dynamic';
 import { Locale } from '@/i18n';
+import Head from 'next/head';
 
 // 动态导入JsonLdClient组件
 const JsonLdClient = dynamic(() => import("../../components/JsonLdClient"), { ssr: false });
@@ -18,6 +19,7 @@ interface FormatterClientProps {
   pageTitle: string;
   pageDescription: string;
   pageKeywords: string;
+  pageIntroduction?: string;
   locale: Locale;
 }
 
@@ -25,6 +27,7 @@ export default function FormatterClient({
   pageTitle,
   pageDescription,
   pageKeywords,
+  pageIntroduction,
   locale
 }: FormatterClientProps) {
   const { t } = useTranslation();
@@ -49,6 +52,12 @@ export default function FormatterClient({
     description: pageDescription,
     language: locale
   };
+
+  // 设置页面标题
+  useEffect(() => {
+    // 直接使用翻译文件中的seo_title设置页面标题
+    document.title = formatter.seo_title;
+  }, [formatter.seo_title]);
 
   const formatJson = () => {
     setError(null);
@@ -113,6 +122,7 @@ export default function FormatterClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      introduction={pageIntroduction}
       iconComponent={<FiCode className="w-6 h-6 text-blue-500" />}
     >
       {/* 添加结构化数据 */}
@@ -187,10 +197,16 @@ export default function FormatterClient({
         {/* 输入/输出区域 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
+            <div className="mb-2 flex justify-between items-center">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                {formatter.input}
+              </label>
+              {/* 空div，用于占位对齐 */}
+              <div className="opacity-0 invisible h-10"></div>
+            </div>
             <JsonEditor
               value={input}
               onChange={setInput}
-              label={formatter.input}
               placeholder={formatter.placeholder}
               error={error || undefined}
             />

@@ -21,6 +21,8 @@ export default async function SchemaValidator({
         pageTitle={schemaValidator.title}
         pageDescription={schemaValidator.description}
         pageKeywords={schemaValidator.keywords}
+        pageIntroduction={schemaValidator.introduction}
+        locale={locale}
       />
     </Suspense>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiRefreshCw, FiCopy, FiGitPullRequest } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
 import JsonDiffViewer from '../../components/JsonDiffViewer';
@@ -11,12 +11,14 @@ interface DiffClientProps {
   pageTitle: string;
   pageDescription: string;
   pageKeywords: string;
+  pageIntroduction?: string;
 }
 
 export default function DiffClient({
   pageTitle,
   pageDescription,
-  pageKeywords
+  pageKeywords,
+  pageIntroduction
 }: DiffClientProps) {
   const { t } = useTranslation();
   const diff = t('diff');
@@ -27,6 +29,12 @@ export default function DiffClient({
   const [showDiff, setShowDiff] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+
+  // 设置页面标题
+  useEffect(() => {
+    // 直接使用翻译文件中的seo_title设置页面标题
+    document.title = diff.seo_title;
+  }, [diff.seo_title]);
 
   const handleCompare = () => {
     setError(null);
@@ -96,7 +104,8 @@ export default function DiffClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
-      iconComponent={<FiGitPullRequest className="w-6 h-6 text-red-500" />}
+      introduction={pageIntroduction}
+      iconComponent={<FiGitPullRequest className="w-6 h-6 text-purple-500" />}
     >
       <div className="space-y-6">
         {/* 工具栏 */}
