@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import jsBeautify from 'js-beautify';
-import { FiCopy, FiDownload, FiRefreshCw } from 'react-icons/fi';
+import { FiCopy, FiDownload, FiRefreshCw, FiCode } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
 import ToolLayout from '../../components/ToolLayout';
 import { useTranslation } from '@/i18n/hooks';
@@ -113,6 +113,7 @@ export default function FormatterClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      iconComponent={<FiCode className="w-6 h-6 text-blue-500" />}
     >
       {/* 添加结构化数据 */}
       <JsonLdClient seoData={seoData} />

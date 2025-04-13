@@ -20,7 +20,6 @@ export default function Navbar({ locale, translations }: NavbarProps) {
   const common = translations.common;
   
   const navItems = [
-    { name: common.nav.home, href: '/' },
     { name: common.nav.formatter, href: '/formatter' },
     { name: common.nav.validator, href: '/validator' },
     { name: common.nav.converter, href: '/converter' },
@@ -46,9 +45,9 @@ export default function Navbar({ locale, translations }: NavbarProps) {
   
   // 判断给定路径是否为活动路径
   const isActivePath = (itemHref: string) => {
-    // 如果是首页
-    if (itemHref === '/') {
-      return pathname === '/' || pathname === `/${locale}`;
+    // 如果是formatter路径且当前在首页，高亮显示formatter选项
+    if (itemHref === '/formatter' && (pathname === '/' || pathname === `/${locale}`)) {
+      return true;
     }
     
     // 去除前导斜杠
@@ -66,30 +65,31 @@ export default function Navbar({ locale, translations }: NavbarProps) {
         <div className="flex justify-between h-14 sm:h-16">
           <div className="flex items-center">
             <Link 
-              href={getLocalizedHref('/')}
+              href={getLocalizedHref('/formatter')}
               className="flex-shrink-0 flex items-center text-lg sm:text-xl font-bold text-blue-600 dark:text-blue-400"
             >
               {common.siteTitle}
             </Link>
-            <div className="hidden md:ml-6 md:flex md:space-x-2 lg:space-x-4 overflow-x-auto">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={getLocalizedHref(item.href)}
-                  className={`whitespace-nowrap inline-flex items-center px-2 lg:px-3 py-2 border-b-2 text-sm font-medium ${
-                    isActivePath(item.href)
-                      ? 'border-blue-500 text-gray-900 dark:text-white'
-                      : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-200'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
           </div>
           
           <div className="flex items-center">
-            <div className="hidden md:block mr-4">
+            {/* 将导航菜单移到右侧，与语言切换按钮相邻 */}
+            <div className="hidden md:flex md:items-center">
+              <div className="md:flex md:space-x-2 lg:space-x-4 mr-4">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={getLocalizedHref(item.href)}
+                    className={`whitespace-nowrap inline-flex items-center px-2 lg:px-3 py-2 border-b-2 text-sm font-medium ${
+                      isActivePath(item.href)
+                        ? 'border-blue-500 text-gray-900 dark:text-white'
+                        : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-200'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
               <LanguageSwitcher locale={locale} />
             </div>
             

@@ -5,30 +5,10 @@ export const common = {
     keywords: 'PandaJson,JSONフォーマッタ,JSON検証ツール,JSON変換ツール,JSON比較ツール,JSONエディタ,JSONスキーマ,JSON圧縮ツール,JSON整形ツール,JSONパーサー,JSONオンラインツール'
   },
   home: {
-    title: 'PandaJson フォーマットツールキット',
-    description: '開発者がJSONデータをより効率的に処理するための一元的なJSONデータ処理ツール',
     features: {
-      formatter: 'フォーマッタ',
-      validator: '検証ツール',
-      converter: '変換ツール',
-      minifier: '圧縮ツール',
-      editor: 'オンラインエディタ',
-      compare: '比較ツール',
-      path: 'パスクエリ',
-      schema: 'スキーマジェネレータ',
       comprehensive: '包括的な機能',
       free: '完全無料',
       secure: '安全で信頼性の高い'
-    },
-    featuresDescription: {
-      formatter: 'JSONデータを美しく整形して可読性を向上',
-      validator: 'JSON の有効性と構造を検証',
-      converter: 'JSON、XML、YAMLなどの形式間で変換',
-      minifier: 'JSONデータを圧縮してファイルサイズを削減',
-      editor: 'オンラインでJSONデータを編集・処理',
-      compare: '2つのJSONデータセット間の違いを比較',
-      path: 'JSONPathを使用してデータをクエリおよび抽出',
-      schema: 'JSONデータからJSONスキーマを生成'
     },
     whyChooseUs: '当サービスを選ぶ理由',
     descriptions: {
@@ -38,7 +18,6 @@ export const common = {
     }
   },
   nav: {
-    home: 'ホーム',
     formatter: 'JSONフォーマッタ',
     validator: 'JSON検証ツール',
     converter: 'JSON変換ツール',

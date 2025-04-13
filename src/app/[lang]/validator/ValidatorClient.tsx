@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FiCheckCircle, FiXCircle, FiInfo, FiRefreshCw } from 'react-icons/fi';
+import { FiCheckCircle, FiXCircle, FiInfo, FiRefreshCw, FiCopy, FiCheck } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
 import ToolLayout from '../../components/ToolLayout';
 import { useTranslation } from '@/i18n/hooks';
@@ -301,6 +301,7 @@ export default function ValidatorClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      iconComponent={<FiCheck className="w-6 h-6 text-yellow-500" />}
     >
       <div className="space-y-6">
         {/* 验证操作按钮 */}

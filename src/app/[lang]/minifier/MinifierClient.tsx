@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FiCopy, FiDownload, FiRefreshCw } from 'react-icons/fi';
+import { FiCopy, FiDownload, FiRefreshCw, FiMinimize2 } from 'react-icons/fi';
 import ToolLayout from '../../components/ToolLayout';
 import JsonEditor from '../../components/JsonEditor';
 import { useTranslation } from '@/i18n/hooks';
@@ -109,6 +109,7 @@ export default function MinifierClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      iconComponent={<FiMinimize2 className="w-6 h-6 text-green-500" />}
     >
       <div className="space-y-6">
         {/* 工具操作 */}

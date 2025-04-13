@@ -5,30 +5,10 @@ export const common = {
     keywords: 'PandaJson,форматтер JSON,валидатор JSON,конвертер JSON,сравнение JSON,редактор JSON,схема JSON,минификатор JSON,приукрашиватель JSON,парсер JSON,онлайн-инструменты JSON'
   },
   home: {
-    title: 'Набор Инструментов Форматирования PandaJson',
-    description: 'Полный набор инструментов обработки данных JSON, помогающий разработчикам более эффективно манипулировать данными JSON',
     features: {
-      formatter: 'Форматтер',
-      validator: 'Валидатор',
-      converter: 'Конвертер',
-      minifier: 'Минификатор',
-      editor: 'Онлайн-редактор',
-      compare: 'Инструмент Сравнения',
-      path: 'Запрос Пути',
-      schema: 'Генератор Схемы',
       comprehensive: 'Всесторонние Функции',
       free: 'Полностью Бесплатно',
       secure: 'Безопасно и Надежно'
-    },
-    featuresDescription: {
-      formatter: 'Приукрасьте и отформатируйте данные JSON для лучшей читаемости',
-      validator: 'Проверьте структуру и правильность JSON',
-      converter: 'Конвертируйте между JSON, XML, YAML и другими форматами',
-      minifier: 'Минифицируйте данные JSON для уменьшения размера файла',
-      editor: 'Редактируйте и обрабатывайте данные JSON онлайн',
-      compare: 'Сравнивайте различия между двумя наборами данных JSON',
-      path: 'Запрашивайте и извлекайте данные с помощью JSONPath',
-      schema: 'Генерируйте схему JSON из данных JSON'
     },
     whyChooseUs: 'Почему Выбирают Нас',
     descriptions: {
@@ -38,7 +18,6 @@ export const common = {
     }
   },
   nav: {
-    home: 'Главная',
     formatter: 'Форматтер JSON',
     validator: 'Валидатор JSON',
     converter: 'Конвертер JSON',

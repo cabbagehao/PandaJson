@@ -5,30 +5,10 @@ export const common = {
     keywords: 'PandaJson,formateur JSON,validateur JSON,convertisseur JSON,diff JSON,éditeur JSON,Schéma JSON,minificateur JSON,embellisseur JSON,analyseur JSON,outils en ligne JSON'
   },
   home: {
-    title: 'Kit d\'Outils de Formatage PandaJson',
-    description: 'Outils complets de traitement des données JSON pour aider les développeurs à manipuler les données JSON plus efficacement',
     features: {
-      formatter: 'Formateur',
-      validator: 'Validateur',
-      converter: 'Convertisseur',
-      minifier: 'Minificateur',
-      editor: 'Éditeur en Ligne',
-      compare: 'Outil de Comparaison',
-      path: 'Requête de Chemin',
-      schema: 'Générateur de Schéma',
       comprehensive: 'Fonctionnalités Complètes',
       free: 'Entièrement Gratuit',
       secure: 'Sécurisé et Fiable'
-    },
-    featuresDescription: {
-      formatter: 'Embellir et formater les données JSON pour une meilleure lisibilité',
-      validator: 'Valider la structure et la validité du JSON',
-      converter: 'Convertir entre JSON, XML, YAML et autres formats',
-      minifier: 'Minifier les données JSON pour réduire la taille du fichier',
-      editor: 'Éditer et traiter les données JSON en ligne',
-      compare: 'Comparer les différences entre deux ensembles de données JSON',
-      path: 'Interroger et extraire des données en utilisant JSONPath',
-      schema: 'Générer un schéma JSON à partir de données JSON'
     },
     whyChooseUs: 'Pourquoi Nous Choisir',
     descriptions: {
@@ -38,7 +18,6 @@ export const common = {
     }
   },
   nav: {
-    home: 'Accueil',
     formatter: 'Formateur JSON',
     validator: 'Validateur JSON',
     converter: 'Convertisseur JSON',

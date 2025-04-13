@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FiCopy, FiRefreshCw, FiInfo } from 'react-icons/fi';
+import { FiCopy, FiRefreshCw, FiInfo, FiList } from 'react-icons/fi';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import JsonEditor from '../../components/JsonEditor';
@@ -133,6 +133,7 @@ export default function SchemaValidatorClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      iconComponent={<FiList className="w-6 h-6 text-blue-500" />}
     >
       <div className="space-y-6">
         {/* 工具操作按钮 */}

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { FiRefreshCw, FiCopy, FiDownload } from 'react-icons/fi';
+import { FiRefreshCw, FiCopy, FiDownload, FiEdit } from 'react-icons/fi';
 import dynamic from 'next/dynamic';
 import ToolLayout from '../../components/ToolLayout';
 import JsonEditor from '../../components/JsonEditor';
@@ -104,6 +104,7 @@ export default function TreeEditorClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      iconComponent={<FiEdit className="w-6 h-6 text-indigo-500" />}
     >
       <div className="space-y-6">
         {/* 视图切换 */}

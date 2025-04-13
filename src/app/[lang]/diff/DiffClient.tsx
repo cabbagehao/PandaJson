@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FiRefreshCw } from 'react-icons/fi';
+import { FiRefreshCw, FiCopy, FiGitPullRequest } from 'react-icons/fi';
 import JsonEditor from '../../components/JsonEditor';
 import JsonDiffViewer from '../../components/JsonDiffViewer';
 import ToolLayout from '../../components/ToolLayout';
@@ -96,6 +96,7 @@ export default function DiffClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      iconComponent={<FiGitPullRequest className="w-6 h-6 text-red-500" />}
     >
       <div className="space-y-6">
         {/* 工具栏 */}

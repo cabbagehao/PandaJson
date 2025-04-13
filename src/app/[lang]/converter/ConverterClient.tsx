@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FiDownload, FiCopy, FiRefreshCw } from 'react-icons/fi';
+import { FiDownload, FiCopy, FiRefreshCw, FiRepeat } from 'react-icons/fi';
 import * as yaml from 'js-yaml';
 import { xml2json, json2xml } from 'xml-js';
 import Papa from 'papaparse';
@@ -239,6 +239,7 @@ export default function ConverterClient({
       title={pageTitle}
       description={pageDescription}
       keywords={pageKeywords}
+      iconComponent={<FiRepeat className="w-6 h-6 text-purple-500" />}
     >
       <div className="space-y-6">
         {/* 转换选项 */}

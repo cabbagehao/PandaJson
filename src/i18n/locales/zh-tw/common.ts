@@ -5,30 +5,10 @@ export const common = {
     keywords: '熊貓Json,JSON格式化,JSON校驗,JSON轉換,JSON對比,JSON編輯器,JSON Schema,JSON壓縮,JSON美化,JSON解析,JSON在線工具'
   },
   home: {
-    title: '熊貓Json格式化工具集',
-    description: '一站式JSON數據處理工具，幫助開發者更高效地處理JSON數據',
     features: {
-      formatter: '格式化工具',
-      validator: '驗證工具',
-      converter: '轉換工具',
-      minifier: '壓縮工具',
-      editor: '在線編輯器',
-      compare: '比較工具',
-      path: '路徑查詢',
-      schema: '模式生成',
       comprehensive: '全面的功能',
       free: '完全免費',
       secure: '安全可靠'
-    },
-    featuresDescription: {
-      formatter: '美化並格式化JSON數據，提高可讀性',
-      validator: '驗證JSON的有效性和結構',
-      converter: '在JSON、XML、YAML等格式之間轉換',
-      minifier: '壓縮JSON數據以減小文件大小',
-      editor: '在線編輯和處理JSON數據',
-      compare: '比較兩個JSON數據的差異',
-      path: '使用JSONPath查詢和提取數據',
-      schema: '從JSON數據生成JSON Schema'
     },
     whyChooseUs: '為什麼選擇我們',
     descriptions: {
@@ -38,7 +18,6 @@ export const common = {
     }
   },
   nav: {
-    home: '首頁',
     formatter: 'JSON格式化',
     validator: 'JSON校驗',
     converter: 'JSON轉換',

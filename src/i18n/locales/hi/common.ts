@@ -5,30 +5,10 @@ export const common = {
     keywords: 'पांडा जेसन,JSON फॉर्मेटर,JSON वैलिडेटर,JSON कन्वर्टर,JSON डिफ,JSON एडिटर,JSON स्कीमा,JSON मिनिफायर,JSON ब्यूटिफायर,JSON पार्सर,JSON ऑनलाइन टूल्स'
   },
   home: {
-    title: 'पांडा जेसन फॉर्मेटिंग टूलकिट',
-    description: 'डेवलपर्स को JSON डेटा को अधिक कुशलता से संभालने में मदद करने के लिए वन-स्टॉप JSON डेटा प्रोसेसिंग टूल',
     features: {
-      formatter: 'फॉर्मेटर',
-      validator: 'वैलिडेटर',
-      converter: 'कन्वर्टर',
-      minifier: 'मिनिफायर',
-      editor: 'ऑनलाइन एडिटर',
-      compare: 'तुलना उपकरण',
-      path: 'पाथ क्वेरी',
-      schema: 'स्कीमा जनरेटर',
       comprehensive: 'व्यापक सुविधाएँ',
       free: 'पूरी तरह से मुफ़्त',
       secure: 'सुरक्षित और विश्वसनीय'
-    },
-    featuresDescription: {
-      formatter: 'बेहतर पठनीयता के लिए JSON डेटा को सुंदर और फॉर्मेट करें',
-      validator: 'JSON की वैधता और संरचना का सत्यापन करें',
-      converter: 'JSON, XML, YAML और अन्य प्रारूपों के बीच परिवर्तित करें',
-      minifier: 'फ़ाइल आकार को कम करने के लिए JSON डेटा को संक्षिप्त करें',
-      editor: 'ऑनलाइन JSON डेटा संपादित और संसाधित करें',
-      compare: 'दो JSON डेटासेट के बीच मतभेदों की तुलना करें',
-      path: 'JSONPath का उपयोग करके क्वेरी और डेटा निकालें',
-      schema: 'JSON डेटा से JSON स्कीमा जेनरेट करें'
     },
     whyChooseUs: 'हमें क्यों चुनें',
     descriptions: {
@@ -38,7 +18,6 @@ export const common = {
     }
   },
   nav: {
-    home: 'होम',
     formatter: 'JSON फॉर्मेटर',
     validator: 'JSON वैलिडेटर',
     converter: 'JSON कन्वर्टर',
