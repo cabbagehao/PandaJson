@@ -44,7 +44,7 @@ export default function DiffClient({
       // 验证JSON格式
       JSON.parse(json1);
       JSON.parse(json2);
-      
+
       // 显示差异视图
       setShowDiff(true);
     } catch (err) {
@@ -81,7 +81,7 @@ export default function DiffClient({
       },
       "inStock": true
     }, null, 2));
-    
+
     setJson2(JSON.stringify({
       "name": "Product",
       "version": "1.1.0",
@@ -119,7 +119,7 @@ export default function DiffClient({
             >
               {isProcessing ? diff.processing : diff.compare}
             </button>
-            
+
             <button
               type="button"
               onClick={clearAll}
@@ -128,7 +128,7 @@ export default function DiffClient({
               <FiRefreshCw className="mr-2" />
               {ui.clear}
             </button>
-            
+
             <button
               type="button"
               onClick={loadExample}
@@ -164,10 +164,9 @@ export default function DiffClient({
                 onChange={setJson1}
                 label={diff.leftInput}
                 placeholder={diff.placeholderLeft}
-                error={error || undefined}
               />
             </div>
-            
+
             <div>
               <JsonEditor
                 value={json2}
@@ -200,4 +199,4 @@ export default function DiffClient({
       </div>
     </ToolLayout>
   );
-} 
+}

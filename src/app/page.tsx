@@ -11,7 +11,7 @@ export async function generateMetadata() {
   return {
     ...await generateMetadata({ params: { lang: locale } }),
     alternates: {
-      canonical: `https://jsonpanda.com/formatter`, // 添加canonical标签指向formatter页面
+      canonical: `https://jsonpanda.com`, // 首页canonical指向自己
     }
   };
 }
@@ -20,14 +20,14 @@ export default async function Home() {
   // 获取英文版本的翻译内容
   const { t } = await getServerTranslation(locale);
   const formatter = t.formatter;
-  
+
   // 动态导入英文版本的formatter页面组件
   const FormatterClient = (await import('./[lang]/formatter/FormatterClient')).default;
-  
+
   return (
     <LayoutWrapper locale={locale} translations={t}>
       <Suspense fallback={<div>Loading...</div>}>
-        <FormatterClient 
+        <FormatterClient
           pageTitle={formatter.title}
           pageDescription={formatter.description}
           pageKeywords={formatter.keywords}
@@ -36,4 +36,4 @@ export default async function Home() {
       </Suspense>
     </LayoutWrapper>
   );
-} 
+}

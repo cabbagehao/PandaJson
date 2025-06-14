@@ -3,7 +3,7 @@ import path from 'path';
 
 // 网站支持的语言
 const locales = [
-  'zh', 'en', 'es', 'ja', 'zh-tw', 'ar', 'hi', 
+  'zh', 'en', 'es', 'ja', 'zh-tw', 'ar', 'hi',
   'pt', 'fr', 'ru', 'de', 'vi', 'sw', 'mk', 'uz'
 ];
 
@@ -29,7 +29,7 @@ function generateSitemap() {
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
+
   <!-- 首页 -->
   <url>
     <loc>${DOMAIN}</loc>
@@ -39,7 +39,7 @@ function generateSitemap() {
   locales.forEach(locale => {
     sitemap += `    <xhtml:link rel="alternate" hreflang="${locale}" href="${DOMAIN}/${locale}" />\n`;
   });
-  
+
   // 添加x-default标签
   sitemap += `    <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}" />\n`;
 
@@ -53,15 +53,15 @@ function generateSitemap() {
   TOOL_PATHS.forEach(tool => {
     sitemap += `  <!-- ${getTitleForTool(tool)}页面 -->
   <url>
-    <loc>${DOMAIN}/${defaultLocale}/${tool}</loc>
+    <loc>${DOMAIN}/${tool}</loc>
 `;
 
     // 添加所有语言版本的工具页面链接
     locales.forEach(locale => {
       sitemap += `    <xhtml:link rel="alternate" hreflang="${locale}" href="${DOMAIN}/${locale}/${tool}" />\n`;
     });
-    
-    // 添加x-default标签
+
+    // 添加x-default标签（指向根路径，不是/en/路径）
     sitemap += `    <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}/${tool}" />\n`;
 
     // 为formatter页面设置更高的优先级
@@ -92,9 +92,9 @@ function getTitleForTool(tool: string): string {
     'schema-validator': 'Schema验证工具',
     'minifier': '压缩工具'
   };
-  
+
   return toolTitles[tool] || tool;
 }
 
 // 执行生成
-generateSitemap(); 
+generateSitemap();

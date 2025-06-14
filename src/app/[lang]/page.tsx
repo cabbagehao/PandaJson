@@ -10,15 +10,15 @@ export async function generateMetadata({
   params: { lang: string };
 }) {
   const locale = params.lang as Locale;
-  
+
   // 导入并使用formatter元数据生成函数
   const { generateMetadata } = await import('./formatter/metadata');
   const formatterMetadata = await generateMetadata({ params: { lang: locale } });
-  
+
   return {
     ...formatterMetadata,
     alternates: {
-      canonical: `https://jsonpanda.com/formatter`, // 添加canonical标签指向formatter页面
+      canonical: `https://jsonpanda.com`, // 多语言首页也指向主域首页
     }
   };
 }
@@ -29,14 +29,14 @@ export default async function Home({
   params: { lang: string };
 }) {
   const locale = params.lang as Locale;
-  
+
   // 获取翻译内容
   const { t } = await getServerTranslation(locale);
   const formatter = t.formatter;
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <FormatterClient 
+      <FormatterClient
         pageTitle={formatter.title}
         pageDescription={formatter.description}
         pageKeywords={formatter.keywords}
@@ -44,4 +44,4 @@ export default async function Home({
       />
     </Suspense>
   );
-} 
+}

@@ -42,7 +42,7 @@ export default function FormatterClient({
     braceStyle: 'collapse' as BraceStyle,
     preserveNewlines: true,
     maxPreserveNewlines: 2,
-    wrapLineLength: 80, 
+    wrapLineLength: 80,
   });
 
   // SEO数据
@@ -61,11 +61,11 @@ export default function FormatterClient({
 
   const formatJson = () => {
     setError(null);
-    
+
     try {
       // 首先检查输入是否为有效JSON
       const parsedJson = JSON.parse(input);
-      
+
       // 使用js-beautify格式化
       const formattedJson = jsBeautify.js_beautify(JSON.stringify(parsedJson), {
         indent_size: indentSize,
@@ -74,7 +74,7 @@ export default function FormatterClient({
         max_preserve_newlines: formatOptions.maxPreserveNewlines,
         wrap_line_length: formatOptions.wrapLineLength,
       });
-      
+
       setOutput(formattedJson);
     } catch (err) {
       if (err instanceof Error) {
@@ -130,16 +130,30 @@ export default function FormatterClient({
 
       <div className="space-y-6">
         {/* 工具配置 */}
-        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">{formatter.options}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div>
-              <label htmlFor="indent-size" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 border border-blue-100 dark:border-gray-700 p-4 sm:p-6 rounded-xl shadow-sm">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
+              <FiCode className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
+              {formatter.options}
+            </h3>
+            <button
+              type="button"
+              onClick={formatJson}
+              className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              <FiRefreshCw className="w-4 h-4 mr-2" />
+              {formatter.format}
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <div className="space-y-2">
+              <label htmlFor="indent-size" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 {formatter.indentSize}
               </label>
               <select
                 id="indent-size"
-                className="block w-full rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-white sm:text-sm"
+                className="block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors sm:text-sm"
                 value={indentSize}
                 onChange={(e) => setIndentSize(Number(e.target.value))}
               >
@@ -149,13 +163,13 @@ export default function FormatterClient({
               </select>
             </div>
 
-            <div>
-              <label htmlFor="brace-style" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <div className="space-y-2">
+              <label htmlFor="brace-style" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 {formatter.braceStyle}
               </label>
               <select
                 id="brace-style"
-                className="block w-full rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-white sm:text-sm"
+                className="block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors sm:text-sm"
                 value={formatOptions.braceStyle}
                 onChange={(e) => setFormatOptions({...formatOptions, braceStyle: e.target.value as BraceStyle})}
               >
@@ -165,13 +179,13 @@ export default function FormatterClient({
               </select>
             </div>
 
-            <div>
-              <label htmlFor="wrap-line" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            <div className="space-y-2">
+              <label htmlFor="wrap-line" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 {formatter.lineWidth}
               </label>
               <select
                 id="wrap-line"
-                className="block w-full rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-white sm:text-sm"
+                className="block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors sm:text-sm"
                 value={formatOptions.wrapLineLength}
                 onChange={(e) => setFormatOptions({...formatOptions, wrapLineLength: Number(e.target.value)})}
               >
@@ -181,18 +195,24 @@ export default function FormatterClient({
                 <option value="120">{formatter.chars120}</option>
               </select>
             </div>
-
-            <div className="flex items-end">
-              <button
-                type="button"
-                onClick={formatJson}
-                className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full h-10"
-              >
-                {formatter.format}
-              </button>
-            </div>
           </div>
         </div>
+
+        {/* 错误信息显示区域 */}
+        {error && (
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-red-800 dark:text-red-300">{error}</p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* 输入/输出区域 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -208,17 +228,16 @@ export default function FormatterClient({
               value={input}
               onChange={setInput}
               placeholder={formatter.placeholder}
-              error={error || undefined}
             />
           </div>
-          
+
           <div>
             <div className="mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-center">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-0">
                 {formatter.output}
               </label>
               <div className="flex space-x-2">
-                <button 
+                <button
                   onClick={copyOutput}
                   disabled={!output}
                   className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
@@ -226,7 +245,7 @@ export default function FormatterClient({
                   <FiCopy className="mr-1" />
                   {ui.copy}
                 </button>
-                <button 
+                <button
                   onClick={downloadOutput}
                   disabled={!output}
                   className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
@@ -234,7 +253,7 @@ export default function FormatterClient({
                   <FiDownload className="mr-1" />
                   {ui.download}
                 </button>
-                <button 
+                <button
                   onClick={clearAll}
                   className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
@@ -243,15 +262,14 @@ export default function FormatterClient({
                 </button>
               </div>
             </div>
-            <JsonEditor 
+                        <JsonEditor
               value={output}
               onChange={setOutput}
               readOnly={true}
-              height="400px"
             />
           </div>
         </div>
       </div>
     </ToolLayout>
   );
-} 
+}

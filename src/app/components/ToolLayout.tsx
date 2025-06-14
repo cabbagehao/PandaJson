@@ -52,7 +52,7 @@ export default function ToolLayout({
         </div>
         <div className="prose dark:prose-invert max-w-none text-base sm:text-lg text-gray-600 dark:text-gray-300">
           {description.split('\n').map((paragraph, index) => (
-            <p key={index} dangerouslySetInnerHTML={{ 
+            <p key={index} dangerouslySetInnerHTML={{
               __html: paragraph
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*(.*?)\*/g, '<em>$1</em>')
@@ -96,32 +96,68 @@ export default function ToolLayout({
           </div>
         </div>
       </div>
-      
-      {introduction && (
+
+            {introduction && (
         <div className="mt-8 sm:mt-10 border-t border-gray-200 dark:border-gray-700 pt-4 sm:pt-6">
           <div className="prose dark:prose-invert max-w-none">
             {introduction.split('\n\n').map((paragraph, index) => {
-              if (paragraph.includes('Key features include:') || paragraph.includes('This tool is perfect for:')) {
-                const parts = paragraph.split(/:([\s\S]*)/);
-                const beforeText = parts[0] + ':';
-                const listContent = parts[1].trim();
-                
-                const listItems = listContent.split('•').filter(item => item.trim().length > 0);
-                
+                            // 处理包含冒号的列表部分（支持中英文模式）
+              const listPatterns = [
+                'Key features include:',
+                'This tool is perfect for:',
+                '主要功能包括：',
+                '功能包括：',
+                '特点包括：',
+                '优势包括：',
+                '包括：'
+              ];
+
+              const hasListPattern = listPatterns.some(pattern => paragraph.includes(pattern));
+
+              if (hasListPattern || paragraph.includes('：') && paragraph.includes('•')) {
+                const parts = paragraph.split(/[：:]([\s\S]*)/);
+                const beforeText = parts[0] + (paragraph.includes('：') ? '：' : ':');
+                const listContent = parts[1] ? parts[1].trim() : '';
+
+                if (listContent) {
+                  const listItems = listContent.split('•').filter(item => item.trim().length > 0);
+
+                  return (
+                    <div key={index} className="mb-4">
+                      <p className="mb-2 text-gray-700 dark:text-gray-300">{beforeText}</p>
+                      <ul className="list-disc pl-6 space-y-2">
+                        {listItems.map((item, itemIndex) => (
+                          <li key={itemIndex} className="text-gray-700 dark:text-gray-300 leading-relaxed">{item.trim()}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                }
+              }
+
+              // 处理数字编号列表 (1. 2. 3. 等)
+              const numberedListRegex = /^\d+\.\s/;
+              if (numberedListRegex.test(paragraph.trim())) {
+                const items = paragraph.split(/(?=\d+\.\s)/).filter(item => item.trim().length > 0);
+
                 return (
                   <div key={index} className="mb-4">
-                    <p className="mb-2 text-gray-700 dark:text-gray-300">{beforeText}</p>
-                    <ul className="list-disc pl-6 space-y-1">
-                      {listItems.map((item, itemIndex) => (
-                        <li key={itemIndex} className="text-gray-700 dark:text-gray-300">{item.trim()}</li>
-                      ))}
-                    </ul>
+                    <ol className="list-decimal list-inside space-y-2">
+                      {items.map((item, itemIndex) => {
+                        const cleanItem = item.replace(/^\d+\.\s/, '').trim();
+                        return (
+                          <li key={itemIndex} className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {cleanItem}
+                          </li>
+                        );
+                      })}
+                    </ol>
                   </div>
                 );
               }
-              
+
               return (
-                <p key={index} className="mb-3 text-gray-700 dark:text-gray-300">
+                <p key={index} className="mb-3 text-gray-700 dark:text-gray-300 leading-relaxed">
                   {paragraph}
                 </p>
               );
@@ -129,7 +165,7 @@ export default function ToolLayout({
           </div>
         </div>
       )}
-      
+
       <div className="mt-12 sm:mt-16 text-center px-4 sm:px-0 border-t border-gray-200 dark:border-gray-700 pt-6 sm:pt-8">
         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
           {home.whyChooseUs}
@@ -157,4 +193,4 @@ export default function ToolLayout({
       )}
     </div>
   );
-} 
+}

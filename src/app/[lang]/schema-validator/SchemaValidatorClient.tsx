@@ -18,7 +18,7 @@ interface SchemaValidatorClientProps {
   pageDescription: string;
   pageKeywords: string;
   pageIntroduction?: string;
-  locale: Locale; 
+  locale: Locale;
 }
 
 export default function SchemaValidatorClient({
@@ -31,7 +31,7 @@ export default function SchemaValidatorClient({
   const { t } = useTranslation();
   const schemaValidator = t('schemaValidator');
   const ui = t('common').ui;
-  
+
   const [jsonInput, setJsonInput] = useState('');
   const [schemaInput, setSchemaInput] = useState('');
   const [validationResults, setValidationResults] = useState<{
@@ -58,20 +58,20 @@ export default function SchemaValidatorClient({
     try {
       // 解析输入的JSON数据
       const jsonData = JSON.parse(jsonInput);
-      
+
       try {
         // 解析输入的JSON Schema
         const schema = JSON.parse(schemaInput);
-        
+
         // 创建一个新的验证器实例（根据严格模式设置选项）
         const validator = ajv.compile({
           ...schema,
           additionalProperties: strictMode ? false : undefined
         });
-        
+
         // 执行验证
         const isValid = validator(jsonData);
-        
+
         // 设置验证结果
         setValidationResults({
           valid: isValid,
@@ -116,13 +116,13 @@ export default function SchemaValidatorClient({
       },
       required: ["name", "email"]
     }, null, 2);
-    
+
     const exampleJson = JSON.stringify({
       name: "John Doe",
       age: 30,
       email: "john@example.com"
     }, null, 2);
-    
+
     setSchemaInput(exampleSchema);
     setJsonInput(exampleJson);
     setValidationResults(null);
@@ -135,7 +135,7 @@ export default function SchemaValidatorClient({
     if (error.keyword === 'additionalProperties') {
       return `${error.instancePath} ${error.message}: '${error.params.additionalProperty}'`;
     }
-    
+
     return `${error.instancePath} ${error.message}`;
   };
 
@@ -159,7 +159,7 @@ export default function SchemaValidatorClient({
             >
               {isValidating ? schemaValidator.validating : schemaValidator.validate}
             </button>
-            
+
             <button
               type="button"
               onClick={loadExample}
@@ -168,8 +168,8 @@ export default function SchemaValidatorClient({
               {schemaValidator.loadExample}
             </button>
           </div>
-          
-          <button 
+
+          <button
             onClick={clearAll}
             className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
@@ -203,12 +203,12 @@ export default function SchemaValidatorClient({
             </div>
           </div>
         </div>
-        
+
         {/* 验证结果 */}
         {validationResults && (
           <div className={`rounded-md p-4 ${
-            validationResults.valid 
-              ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' 
+            validationResults.valid
+              ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800'
               : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'
           }`}>
             <div className="flex">
@@ -225,8 +225,8 @@ export default function SchemaValidatorClient({
               </div>
               <div className="ml-3">
                 <h3 className={`text-sm font-medium ${
-                  validationResults.valid 
-                    ? 'text-green-800 dark:text-green-300' 
+                  validationResults.valid
+                    ? 'text-green-800 dark:text-green-300'
                     : 'text-red-800 dark:text-red-300'
                 }`}>
                   {validationResults.valid ? schemaValidator.valid : schemaValidator.invalid}
@@ -245,6 +245,44 @@ export default function SchemaValidatorClient({
           </div>
         )}
 
+                {/* 错误信息显示区域 */}
+        {(jsonError || schemaError) && (
+          <div className="mb-4 space-y-3">
+            {jsonError && (
+              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm text-red-800 dark:text-red-300">
+                      <span className="font-medium">{schemaValidator.jsonData}:</span> {jsonError}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+            {schemaError && (
+              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm text-red-800 dark:text-red-300">
+                      <span className="font-medium">{schemaValidator.jsonSchema}:</span> {schemaError}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* 输入区域 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
@@ -252,17 +290,15 @@ export default function SchemaValidatorClient({
               value={jsonInput}
               onChange={setJsonInput}
               label={schemaValidator.jsonData}
-              error={jsonError || undefined}
               placeholder={schemaValidator.jsonPlaceholder}
             />
           </div>
-          
+
           <div>
             <JsonEditor
               value={schemaInput}
               onChange={setSchemaInput}
               label={schemaValidator.jsonSchema}
-              error={schemaError || undefined}
               placeholder={schemaValidator.schemaPlaceholder}
             />
           </div>
@@ -270,4 +306,4 @@ export default function SchemaValidatorClient({
       </div>
     </ToolLayout>
   );
-} 
+}

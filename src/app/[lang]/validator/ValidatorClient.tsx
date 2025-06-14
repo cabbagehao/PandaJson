@@ -58,10 +58,10 @@ export default function ValidatorClient({
     try {
       // 尝试解析JSON
       const parsedJson = JSON.parse(input);
-      
+
       // 检查一些常见的JSON结构问题
       const validation = validateStructure(parsedJson);
-      
+
       if (validation.ok) {
         setValidationResults({
           isValid: true,
@@ -105,14 +105,14 @@ export default function ValidatorClient({
   const parseJsonError = (error: SyntaxError, input: string): ErrorHighlight | null => {
     try {
       const message = error.message;
-      
+
       // 尝试从常见的JSON错误消息中提取位置信息
       let positionMatch = message.match(/at position (\d+)/);
       if (positionMatch) {
         const position = parseInt(positionMatch[1], 10);
         return findErrorPosition(input, position);
       }
-      
+
       // 另一种常见格式: line X, column Y
       positionMatch = message.match(/line (\d+) column (\d+)/i);
       if (positionMatch) {
@@ -120,7 +120,7 @@ export default function ValidatorClient({
         const column = parseInt(positionMatch[2], 10);
         return analyzeError(input, line, column);
       }
-      
+
       return null;
     } catch (e) {
       console.error("Error parsing JSON error:", e);
@@ -134,7 +134,7 @@ export default function ValidatorClient({
       const lines = input.substring(0, position).split('\n');
       const line = lines.length;
       const column = lines[lines.length - 1].length + 1;
-      
+
       return analyzeError(input, line, column);
     } catch (e) {
       return null;
@@ -149,7 +149,7 @@ export default function ValidatorClient({
     const errorChar = errorLine[column - 1] || '';
     const prevChar = errorLine[column - 2] || '';
     const nextChar = errorLine[column] || '';
-    
+
     // 默认结果
     const result: ErrorHighlight = {
       line,
@@ -158,7 +158,7 @@ export default function ValidatorClient({
       errorChar,
       expectedType: 'other'
     };
-    
+
     // 根据上下文判断可能的错误类型
     if (errorChar === '') {
       // 行尾错误，可能是缺少逗号、括号或引号
@@ -168,8 +168,8 @@ export default function ValidatorClient({
       }
       else if (prevChar === '}' || prevChar === ']') {
         // 对象或数组结束后可能缺少逗号
-        if (!errorLine.trim().endsWith(',') && 
-            line < lines.length && 
+        if (!errorLine.trim().endsWith(',') &&
+            line < lines.length &&
             (lines[line].trim().startsWith('"') || lines[line].trim().startsWith('{'))) {
           result.expectedType = 'missingComma';
           result.fixSuggestion = ',';
@@ -192,7 +192,7 @@ export default function ValidatorClient({
       result.expectedType = 'missingComma';
       result.fixSuggestion = ',';
     }
-    
+
     return result;
   };
 
@@ -201,13 +201,13 @@ export default function ValidatorClient({
     if (obj === null || obj === undefined) {
       return 0;
     }
-    
+
     if (typeof obj !== 'object') {
       return 1;
     }
-    
+
     let count = 1; // 当前对象/数组计为1
-    
+
     if (Array.isArray(obj)) {
       obj.forEach(item => {
         count += countNodes(item);
@@ -217,7 +217,7 @@ export default function ValidatorClient({
         count += countNodes(obj[key]);
       });
     }
-    
+
     return count;
   };
 
@@ -227,19 +227,19 @@ export default function ValidatorClient({
     if (data === null) {
       return { ok: true, message: '' }; // null是合法的JSON值
     }
-    
+
     // 验证对象中的键是否有重复
     if (typeof data === 'object' && !Array.isArray(data)) {
       const keySet = new Set();
       for (const key in data) {
         if (keySet.has(key)) {
-          return { 
-            ok: false, 
-            message: validator.duplicateKey + `: "${key}"` 
+          return {
+            ok: false,
+            message: validator.duplicateKey + `: "${key}"`
           };
         }
         keySet.add(key);
-        
+
         // 递归检查子对象
         if (typeof data[key] === 'object' && data[key] !== null) {
           const result = validateStructure(data[key]);
@@ -249,7 +249,7 @@ export default function ValidatorClient({
         }
       }
     }
-    
+
     // 递归检查数组中的元素
     if (Array.isArray(data)) {
       for (const item of data) {
@@ -261,7 +261,7 @@ export default function ValidatorClient({
         }
       }
     }
-    
+
     return { ok: true, message: '' };
   };
 
@@ -286,13 +286,13 @@ export default function ValidatorClient({
       case 'wrongSeparator':
         return (
           <div>
-            <p className="text-sm font-medium">{validator.errorType}: {highlight.errorChar === "'" ? 
-              validator.unexpectedToken.replace('{token}', "'") : 
+            <p className="text-sm font-medium">{validator.errorType}: {highlight.errorChar === "'" ?
+              validator.unexpectedToken.replace('{token}', "'") :
               validator.missingColon}
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              {validator.repairSuggestion}: {highlight.fixSuggestion ? 
-                validator.expectedToken.replace('{token}', highlight.fixSuggestion) : 
+              {validator.repairSuggestion}: {highlight.fixSuggestion ?
+                validator.expectedToken.replace('{token}', highlight.fixSuggestion) :
                 ''}
             </p>
           </div>
@@ -322,8 +322,8 @@ export default function ValidatorClient({
           >
             {validator.validate}
           </button>
-          
-          <button 
+
+          <button
             onClick={clearAll}
             className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
@@ -335,8 +335,8 @@ export default function ValidatorClient({
         {/* 验证结果 */}
         {validationResults && (
           <div className={`rounded-md p-4 ${
-            validationResults.isValid 
-              ? 'bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800' 
+            validationResults.isValid
+              ? 'bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800'
               : 'bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800'
           }`}>
             <div className="flex">
@@ -349,16 +349,16 @@ export default function ValidatorClient({
               </div>
               <div className="ml-3">
                 <h3 className={`text-sm font-medium ${
-                  validationResults.isValid 
-                    ? 'text-green-800 dark:text-green-300' 
+                  validationResults.isValid
+                    ? 'text-green-800 dark:text-green-300'
                     : 'text-red-800 dark:text-red-300'
                 }`}>
                   {validationResults.message}
                 </h3>
                 {validationResults.details && (
                   <div className={`mt-2 text-sm ${
-                    validationResults.isValid 
-                      ? 'text-green-700 dark:text-green-200' 
+                    validationResults.isValid
+                      ? 'text-green-700 dark:text-green-200'
                       : 'text-red-700 dark:text-red-200'
                   }`}>
                     <p>{validationResults.details}</p>
@@ -391,7 +391,7 @@ export default function ValidatorClient({
         )}
 
         {/* JSON输入编辑器 */}
-        <div className="h-[450px]">
+        <div>
           <JsonEditor
             value={input}
             onChange={setInput}
@@ -403,4 +403,4 @@ export default function ValidatorClient({
       </div>
     </ToolLayout>
   );
-} 
+}

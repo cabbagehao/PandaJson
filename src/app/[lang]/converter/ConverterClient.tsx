@@ -20,17 +20,17 @@ interface ConverterClientProps {
   locale: Locale;
 }
 
-export default function ConverterClient({ 
+export default function ConverterClient({
   pageTitle,
   pageDescription,
   pageKeywords,
   pageIntroduction,
-  locale 
+  locale
 }: ConverterClientProps) {
   const { t } = useTranslation();
   const converter = t('converter');
   const ui = t('common').ui;
-  
+
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -102,7 +102,7 @@ export default function ConverterClient({
   // JSON -> CSV 转换
   const convertJsonToCsv = (jsonStr: string): string => {
     const parsed = JSON.parse(jsonStr);
-    
+
     // 检查是否为数组
     if (!Array.isArray(parsed)) {
       throw new Error(converter.errors.jsonNotArray);
@@ -252,16 +252,31 @@ export default function ConverterClient({
     >
       <div className="space-y-6">
         {/* 转换选项 */}
-        <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-md">
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">{converter.options.title}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <div>
-              <label htmlFor="conversion-type" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-900 border border-orange-100 dark:border-gray-700 p-4 sm:p-6 rounded-xl shadow-sm">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
+              <FiRepeat className="w-5 h-5 mr-2 text-orange-600 dark:text-orange-400" />
+              {converter.options.title}
+            </h3>
+            <button
+              type="button"
+              onClick={handleConvert}
+              disabled={isProcessing || !input.trim()}
+              className="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-400 text-white text-sm font-medium rounded-lg shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            >
+              <FiRepeat className="w-4 h-4 mr-2" />
+              {isProcessing ? converter.actions.processing : converter.actions.convert}
+            </button>
+          </div>
+
+          <div className="max-w-md">
+            <div className="space-y-2">
+              <label htmlFor="conversion-type" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 {converter.options.conversionType}
               </label>
               <select
                 id="conversion-type"
-                className="block w-full rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:text-white sm:text-sm"
+                className="block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors sm:text-sm"
                 value={conversionType}
                 onChange={(e) => setConversionType(e.target.value as ConversionType)}
               >
@@ -277,19 +292,24 @@ export default function ConverterClient({
                 </optgroup>
               </select>
             </div>
-
-            <div className="flex items-end sm:col-span-2">
-              <button
-                type="button"
-                onClick={handleConvert}
-                disabled={isProcessing || !input.trim()}
-                className="inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
-              >
-                {isProcessing ? converter.actions.processing : converter.actions.convert}
-              </button>
-            </div>
           </div>
         </div>
+
+        {/* 错误信息显示区域 */}
+        {error && (
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-red-800 dark:text-red-300">{error}</p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* 输入/输出区域 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -305,17 +325,16 @@ export default function ConverterClient({
               value={input}
               onChange={setInput}
               placeholder={getInputPlaceholder()}
-              error={error || undefined}
             />
           </div>
-          
+
           <div>
             <div className="mb-2 flex justify-between items-center">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 {getOutputLabel()}
               </label>
               <div className="flex space-x-2">
-                <button 
+                <button
                   onClick={copyOutput}
                   disabled={!output}
                   className="inline-flex items-center px-2.5 py-1.5 border border-gray-300 dark:border-gray-700 shadow-sm text-xs font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
@@ -323,7 +342,7 @@ export default function ConverterClient({
                   <FiCopy className="mr-1" />
                   {ui.copy}
                 </button>
-                <button 
+                <button
                   onClick={downloadOutput}
                   disabled={!output}
                   className="inline-flex items-center px-2.5 py-1.5 border border-gray-300 dark:border-gray-700 shadow-sm text-xs font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
@@ -331,7 +350,7 @@ export default function ConverterClient({
                   <FiDownload className="mr-1" />
                   {ui.download}
                 </button>
-                <button 
+                <button
                   onClick={clearAll}
                   className="inline-flex items-center px-2.5 py-1.5 border border-gray-300 dark:border-gray-700 shadow-sm text-xs font-medium rounded text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
@@ -350,4 +369,4 @@ export default function ConverterClient({
       </div>
     </ToolLayout>
   );
-} 
+}

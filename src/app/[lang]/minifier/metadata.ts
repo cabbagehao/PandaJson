@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getServerTranslation } from '@/i18n/server';
 import { Locale } from '@/i18n';
+import { generateToolPageSEO } from '@/lib/seo-utils';
 
 export async function generateMetadata({
   params,
@@ -18,7 +19,6 @@ export async function generateMetadata({
 
   return {
     title: combinedTitle,
-    description: minifier.description,
-    keywords: minifier.keywords,
+    ...generateToolPageSEO('minifier', locale, minifier.description, minifier.keywords),
   };
-} 
+}

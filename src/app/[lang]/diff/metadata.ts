@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getServerTranslation } from '@/i18n/server';
 import { Locale } from '@/i18n';
+import { generateToolPageSEO } from '@/lib/seo-utils';
 
 export async function generateMetadata({
   params,
@@ -14,7 +15,6 @@ export async function generateMetadata({
 
   return {
     // title属性由客户端组件动态设置，这里不设置title
-    description: diff.description,
-    keywords: diff.keywords,
+    ...generateToolPageSEO('diff', locale, diff.description, diff.keywords),
   };
-} 
+}

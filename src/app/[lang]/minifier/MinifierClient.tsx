@@ -20,7 +20,7 @@ export default function MinifierClient({
   const { t } = useTranslation();
   const minifier = t('minifier');
   const ui = t('common').ui;
-  
+
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -32,19 +32,19 @@ export default function MinifierClient({
 
   const minifyJson = () => {
     setError(null);
-    
+
     try {
       // 首先检查输入是否为有效JSON
       const parsedJson = JSON.parse(input);
-      
+
       // 使用JSON.stringify压缩（不包含空格）
       const minifiedJson = JSON.stringify(parsedJson);
-      
+
       // 计算压缩比
       const originalSize = new Blob([input]).size;
       const compressedSize = new Blob([minifiedJson]).size;
       const compressionRatio = ((originalSize - compressedSize) / originalSize) * 100;
-      
+
       setOutput(minifiedJson);
       setCompressionResults({
         originalSize,
@@ -121,8 +121,8 @@ export default function MinifierClient({
           >
             {minifier.minify}
           </button>
-          
-          <button 
+
+          <button
             onClick={clearAll}
             className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
@@ -150,7 +150,7 @@ export default function MinifierClient({
                   </div>
                 </div>
                 <div className="mt-4 sm:mt-0 flex space-x-2">
-                  <button 
+                  <button
                     onClick={copyOutput}
                     disabled={!output}
                     className="inline-flex items-center px-2.5 py-1.5 border border-blue-300 dark:border-blue-700 shadow-sm text-xs font-medium rounded text-blue-700 dark:text-blue-300 bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
@@ -158,7 +158,7 @@ export default function MinifierClient({
                     <FiCopy className="mr-1" />
                     {minifier.copy}
                   </button>
-                  <button 
+                  <button
                     onClick={downloadOutput}
                     disabled={!output}
                     className="inline-flex items-center px-2.5 py-1.5 border border-blue-300 dark:border-blue-700 shadow-sm text-xs font-medium rounded text-blue-700 dark:text-blue-300 bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
@@ -172,6 +172,22 @@ export default function MinifierClient({
           </div>
         )}
 
+        {/* 错误信息显示区域 */}
+        {error && (
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-red-800 dark:text-red-300">{error}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* 输入/输出区域 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
@@ -180,10 +196,9 @@ export default function MinifierClient({
               onChange={setInput}
               label={minifier.input}
               placeholder={minifier.placeholder}
-              error={error || undefined}
             />
           </div>
-          
+
           <div>
             <JsonEditor
               value={output}
@@ -196,4 +211,4 @@ export default function MinifierClient({
       </div>
     </ToolLayout>
   );
-} 
+}
