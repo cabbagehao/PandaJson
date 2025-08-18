@@ -1,5 +1,5 @@
 export const common = {
-  siteTitle: '無料オンラインJSONツール - フォーマット、検証、変換',
+  siteTitle: 'PandaJson',
   seo: {
     description: 'フォーマッタ、バリデータ、コンバータ、Diffツール、ミニファイヤ、スキーマバリデータを備えたプロフェッショナルな無料JSONツールコレクション。包括的なJSONツールキットでJSONデータを即座にオンライン形式、検証、変換します。',
     keywords: 'PandaJson,JSONフォーマッタ,JSON検証ツール,JSON変換ツール,JSON比較ツール,JSONエディタ,JSONスキーマ,JSON圧縮ツール,JSON整形ツール,JSONパーサー,JSONオンラインツール,無料JSONツール,JSONツールキット,JSONフォーマット,JSON検証,JSON変換,JSON比較'

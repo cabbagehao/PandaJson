@@ -1,5 +1,5 @@
 export const common = {
-  siteTitle: 'Outils JSON Gratuits - Formater, Valider et Convertir JSON',
+  siteTitle: 'PandaJson',
   seo: {
     description: 'Collection professionnelle d\'outils JSON gratuits avec formateur, validateur, convertisseur, comparateur, minificateur et validateur de schéma. Formatez, validez et transformez des données JSON en ligne instantanément.',
     keywords: 'PandaJson,formateur JSON,validateur JSON,convertisseur JSON,diff JSON,éditeur JSON,Schéma JSON,minificateur JSON,embellisseur JSON,analyseur JSON,outils en ligne JSON,outils JSON gratuits,boîte à outils JSON,formater JSON,valider JSON,convertir JSON,comparer JSON'

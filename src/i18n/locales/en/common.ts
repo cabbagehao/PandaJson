@@ -1,5 +1,5 @@
 export const common = {
-  siteTitle: 'Free Online JSON Tools - Format, Validate & Convert JSON',
+  siteTitle: 'PandaJson',
   seo: {
     description: 'Professional free JSON tools collection featuring formatter, validator, converter, diff tool, minifier and schema validator. Format, validate and transform JSON data online instantly with our comprehensive JSON toolkit.',
     keywords: 'PandaJson,JSON formatter,JSON validator,JSON converter,JSON diff,JSON editor,JSON Schema,JSON minifier,JSON beautifier,JSON parser,JSON online tools,free JSON tools,JSON toolkit,format JSON,validate JSON,convert JSON,compare JSON'

@@ -68,6 +68,7 @@ export default function Navbar({ locale, translations }: NavbarProps) {
               href={getLocalizedHref('/formatter')}
               className="flex-shrink-0 flex items-center text-lg sm:text-xl font-bold text-blue-600 dark:text-blue-400"
             >
+              <span className="text-2xl mr-2">🐼</span>
               {common.siteTitle}
             </Link>
           </div>
