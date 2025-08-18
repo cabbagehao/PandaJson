@@ -2,14 +2,15 @@ import { Locale } from "@/i18n";
 import { getServerTranslation } from "@/i18n/server";
 import { Suspense } from 'react';
 import FormatterClient from "./formatter/FormatterClient";
+import { resolveParams } from '@/app/types';
 
 // 导出自定义元数据生成函数
 export async function generateMetadata({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }> | { lang: string };
 }) {
-  const resolvedParams = await Promise.resolve(params);
+  const resolvedParams = await resolveParams(params);
   const locale = resolvedParams.lang as Locale;
 
   // 导入并使用formatter元数据生成函数
@@ -27,9 +28,9 @@ export async function generateMetadata({
 export default async function Home({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }> | { lang: string };
 }) {
-  const resolvedParams = await Promise.resolve(params);
+  const resolvedParams = await resolveParams(params);
   const locale = resolvedParams.lang as Locale;
 
   // 获取翻译内容

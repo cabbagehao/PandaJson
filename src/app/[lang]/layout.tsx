@@ -7,6 +7,7 @@ import Analytics from '@/app/components/Analytics';
 import { generateBaseMetadata } from './generateMetadata';
 import { getServerTranslation } from '@/i18n/server';
 import { Suspense } from 'react';
+import { resolveParams } from '@/app/types';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,9 +19,9 @@ export const viewport = {
 export async function generateMetadata({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }> | { lang: string };
 }): Promise<Metadata> {
-  const resolvedParams = await Promise.resolve(params);
+  const resolvedParams = await resolveParams(params);
   const { lang } = resolvedParams;
   return await generateBaseMetadata({ lang });
 }
@@ -35,9 +36,9 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }> | { lang: string };
 }) {
-  const resolvedParams = await Promise.resolve(params);
+  const resolvedParams = await resolveParams(params);
   const locale = resolvedParams.lang as Locale;
   const { t } = await getServerTranslation(locale);
 

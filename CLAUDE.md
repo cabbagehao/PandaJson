@@ -45,6 +45,21 @@ npm run check-translations
 npm run generate-sitemap
 ```
 
+### 本地模拟生产构建
+```bash
+# 完整的生产构建测试（模拟Netlify环境）
+npm run build
+
+# 如果构建成功，启动生产服务器
+npm run start
+
+# 调试构建问题
+npm run build 2>&1 | tee build.log
+
+# 检查特定页面生成
+npx next build --debug
+```
+
 ## 项目结构
 
 ```
@@ -245,15 +260,23 @@ export const viewport = {
 - ✅ 解决: 在Next.js 15中params可能是Promise，需要resolve
 
 ```typescript
-// 错误写法
+// 推荐的解决方案（已在项目中实现）
+import { resolveParams } from '@/app/types';
+
 export default async function Page({ params }) {
-  const locale = params.lang as Locale;
+  const resolvedParams = await resolveParams(params);
+  const locale = resolvedParams.lang as Locale;
 }
 
-// 正确写法
-export default async function Page({ params }) {
-  const resolvedParams = await Promise.resolve(params);
-  const locale = resolvedParams.lang as Locale;
+// 辅助函数（在src/app/types.ts中）
+export async function resolveParams(params: Promise<{ lang: string }> | { lang: string }): Promise<{ lang: string }> {
+  try {
+    const resolved = await Promise.resolve(params);
+    return resolved || { lang: 'en' }; // 默认回退
+  } catch (error) {
+    console.error('Failed to resolve params:', error);
+    return { lang: 'en' }; // 错误回退
+  }
 }
 ```
 
