@@ -1,7 +1,9 @@
 export const formatter = {
-  title: 'JSON-Formatierer',
-  description: 'Verschönern, formatieren, validieren und drucken Sie JSON-Daten, um komplexe JSON-Strukturen klar und lesbar zu machen',
-  keywords: 'JSON-Formatierer,JSON-Beautifier,JSON-Online-Formatierer,JSON-Formatierungstool,JSON-Editor,JSON-Einrückung,JSON-Formatierungstool,JSON formatieren,JSON verschönern,JSON-Layout-Tool,JSON-Pretty-Print',
+  title: 'JSON Online Formatieren - Kostenloser JSON-Beautifier & Code-Formatter',
+  seo_title: 'JSON Online Formatieren - Kostenloser JSON-Beautifier & Code-Formatter',
+  description: 'Formatieren und verschönern Sie unordentliche JSON-Daten zu sauberem, lesbarem Code mit korrekter Einrückung. Kostenloses Online-JSON-Formatierungstool mit Syntax-Hervorhebung, anpassbaren Optionen und sofortigen Ergebnissen.',
+  keywords: 'JSON-Formatierer,JSON-Beautifier,JSON formatieren online,JSON-Einrückung,JSON-Struktur,sauberer JSON-Code,JSON-Verschönerer,JSON-Lesbarkeits-Tool,JSON verschönern,JSON-Code-Formatter,JSON-Syntax-Hervorhebung,Online-JSON-Formatierer,minifizierter JSON-Formatierer,JSON-Zeilenumbrüche,JSON-Abstände,JSON-Organisation,JSON-Layout,JSON-Code-Struktur',
+  introduction: 'Der JSON-Formatierer verwandelt unformatierte, minifizierte oder schlecht strukturierte JSON-Daten in sauberen, lesbaren und korrekt eingerückten Code. Ob Sie eine API-Antwort debuggen, Dokumentation vorbereiten oder Datenstrukturen analysieren – unser Formatierer macht die Arbeit mit JSON-Daten erheblich einfacher.\n\nFügen Sie einfach Ihr unformatiertes JSON in den Editor ein, und unser Tool wendet sofort korrekte Einrückung, Abstände und Zeilenumbrüche gemäß JSON-Syntax-Standards an. Das Ergebnis ist wunderschön formatiertes JSON, das einfacher zu lesen, zu verstehen und zu modifizieren ist.\n\nWichtige Funktionen:\n• Ein-Klick-Formatierung mit anpassbaren Einrückungseinstellungen\n• Zeilennummern für einfache Referenz und Debugging\n• Syntax-Hervorhebung für verbesserte Lesbarkeit\n• Optionen zur Anpassung des Erscheinungsbilds Ihres formatierten JSON\n• Möglichkeit, JSON für minimierte Dateigröße zu komprimieren\n• Unterstützung für große JSON-Dokumente\n• Fehlererkennung für ungültiges JSON\n\nOb Sie Entwickler, Datenanalyst oder technischer Autor sind – unser JSON-Formatierer hilft Ihnen, effizienter mit JSON-Daten zu arbeiten, indem er sie in einer sauberen, organisierten Struktur präsentiert, die die Beziehungen zwischen Elementen hervorhebt.',
   options: 'Formatierungsoptionen',
   indentSize: 'Einrückungsgröße',
   spaces2: '2 Leerzeichen',

@@ -1,7 +1,7 @@
 export const validator = {
-  title: 'JSON Validator',
-  seo_title: 'JSON Validator – Check JSON Syntax & Find Errors Instantly',
-  description: 'Validate JSON data structure and syntax to identify errors with detailed feedback',
+  title: 'Validate JSON Online - Check Syntax Errors & Fix JSON Code',
+  seo_title: 'Validate JSON Online - Check Syntax Errors & Fix JSON Code',
+  description: 'Validate JSON syntax and data structure instantly with detailed error feedback. Find JSON parsing errors, syntax issues and fix them quickly with our free online JSON validator tool.',
   keywords: 'JSON validator,JSON syntax checker,validate JSON,JSON error finder,JSON format validator,JSON verification tool,JSON parsing error,syntax error detection,JSON debugging tool,JSON structure validation,error location finder,JSON error messages,fix JSON syntax,JSON code validator',
   introduction: 'The JSON Validator helps you quickly identify syntax errors and structural issues in your JSON data. Whether you\'re debugging a web API, working with configuration files, or processing data feeds, our tool provides instant feedback on your JSON\'s validity.\n\nWhen errors are detected, the validator pinpoints the exact location of the problem and provides clear, actionable guidance on how to fix it. Each error is highlighted with line and column information, making troubleshooting efficient and straightforward.\n\nKey features include:\n• Instant syntax validation against the JSON standard\n• Precise error location with line and column numbers\n• Detailed error descriptions for quick problem resolution\n• Support for large JSON documents\n• Clean, intuitive interface with real-time feedback\n• One-click validation with comprehensive results\n\nSimply paste your JSON and let our validator check for errors, ensuring your data is properly formatted before you use it in your applications.',
   input: 'Input JSON',

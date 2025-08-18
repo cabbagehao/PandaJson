@@ -1,7 +1,9 @@
 export const diff = {
-  title: 'JSON-Vergleicher',
-  description: 'Vergleichen Sie zwei JSON-Datensätze, mit Hervorhebung von Hinzufügungen, Löschungen und Änderungen',
-  keywords: 'JSON-Diff,JSON-Vergleich,JSON-Unterschied,JSON-Vergleichung,JSON-Komparator',
+  title: 'JSON-Dateien Online Vergleichen - Visueller JSON-Diff & Änderungs-Detektor',
+  seo_title: 'JSON-Dateien Online Vergleichen - Visueller JSON-Diff & Änderungs-Detektor',
+  description: 'Zwei JSON-Dateien nebeneinander vergleichen und Unterschiede mit visueller Farbkodierung hervorheben. Hinzufügungen, Löschungen und Änderungen schnell finden mit unserem kostenlosen JSON-Diff-Vergleichstool.',
+  keywords: 'JSON-Diff,JSON vergleichen,JSON-Unterschied,JSON-Vergleich,JSON-Komparator,JSON-Unterschiede finden,JSON-Änderungs-Tracker,JSON-Versionenvergleich,JSON-Daten-Diff,JSON-Datei vergleichen,nebeneinander JSON-Vergleich,JSON-Struktur-Vergleich,JSON-Diff-Tool,JSON-Änderungen identifizieren,JSON-Änderungen verfolgen,JSON-Delta,visueller JSON-Diff,JSON-Konfliktlösung',
+  introduction: 'Arbeiten Sie in einem Team-Projekt oder verfolgen JSON-Versionsänderungen? Unser JSON-Diff-Tool hilft Ihnen, zwei JSON-Dateien schnell zu vergleichen und Unterschiede zu visualisieren. Wir heben hinzugefügte Schlüssel, gelöschte Einträge und geänderte Werte in einer klaren, farbkodierten Ansicht hervor, sodass Sie Änderungen auf einen Blick erkennen können.\nAnwendungsfälle umfassen:\nPull-Requests mit JSON-Konfigurationen überprüfen\nDatenversionsverlauf in Datenbanken verfolgen\nAbweichungen zwischen API-Antworten debuggen\nKein Scrollen mehr durch Codezeilen – unser Tool parst automatisch verschachtelte Objekte und Arrays und macht komplexe Vergleiche einfach. Fügen Sie zwei JSON-Dateien ein oder laden Sie sie hoch, und lassen Sie unser JSON-Vergleichsfeature Ihnen genau zeigen, was sich geändert hat. Ideal für Entwickler, QA-Teams und Datenmanager!',
   leftInput: 'Erstes JSON',
   rightInput: 'Zweites JSON',
   result: 'Vergleichsergebnis',

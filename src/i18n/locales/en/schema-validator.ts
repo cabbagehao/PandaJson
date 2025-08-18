@@ -1,7 +1,7 @@
 export const schemaValidator = {
-  title: 'JSON Schema Validator',
-  seo_title: 'Validate JSON Against Schema – Ensure Data Structure Integrity',
-  description: 'Validate JSON data against Schema specifications, checking the integrity and validity of data structures',
+  title: 'Validate JSON Against Schema - Check Data Structure Integrity',
+  seo_title: 'Validate JSON Against Schema - Check Data Structure Integrity',
+  description: 'Validate JSON data against schema specifications online. Check data structure integrity, field types and constraints with our free JSON schema validation tool.',
   keywords: 'JSON Schema,JSON validation,Schema validation,JSON structure validation,JSON format validation,JSON schema validator,schema conformance checker,JSON data integrity,validate against schema,JSON constraint validation,type validation,structural validation,pattern validation,JSON rules validation,required fields validator,JSON format checker,JSON contract validator,API schema validation',
   introduction: 'Need to ensure your JSON data matches a specific schema (e.g., API contracts or data models)? Our **JSON Schema Validator** checks if your JSON conforms to a defined schema, verifying field types, required keys, and data constraints. This is critical for team collaborations, API documentation, and ensuring data consistency across systems.\n\nHow it works: Upload your JSON and schema file (or paste the schema directly), and we\'ll validate against properties like `type`, `enum`, `minimum`, and `pattern`. Error messages point to exactly where the data fails to match the schema, helping you fix issues quickly.\n\nWhether you\'re developing microservices, validating user inputs, or standardizing data pipelines, our **validate json schema** tool ensures your data structures are reliable and compliant. Try it for free today!',
   jsonData: 'JSON Data',

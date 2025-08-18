@@ -8,7 +8,10 @@ const inter = Inter({ subsets: ['latin'] });
 export async function generateMetadata(): Promise<Metadata> {
   // 导入并使用英文版本的元数据生成函数
   const { generateBaseMetadata } = await import('./[lang]/generateMetadata');
-  return generateBaseMetadata({ lang: locale });
+  return {
+    ...await generateBaseMetadata({ lang: locale }),
+    viewport: 'width=device-width, initial-scale=1',
+  };
 }
 
 export default function RootLayout({

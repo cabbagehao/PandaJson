@@ -1,6 +1,6 @@
 export const diff = {
-  title: 'JSON对比',
-  seo_title: '在线比较JSON数据集 – 高亮显示添加、删除和更改的内容',
+  title: '在线JSON文件对比 - 可视化JSON差异检测器',
+  seo_title: '在线JSON文件对比 - 可视化JSON差异检测器',
   description: '对比两段JSON数据的差异，高亮显示添加、删除和修改的内容',
   keywords: 'JSON对比,JSON比较,JSON差异,JSON比对,JSON比较器,查找JSON差异,JSON变更跟踪,JSON版本比较,JSON数据对比,JSON文件对比,并排JSON比较,JSON结构比较,JSON对比工具,识别JSON变化,追踪JSON修改,JSON增量对比,可视化JSON差异,JSON冲突解决',
   introduction: '正在进行团队项目或追踪JSON版本变更？我们的JSON对比工具帮助您快速比较两个JSON文件并可视化差异。我们用清晰、彩色编码的视图突出显示添加的键、删除的条目和修改的值，让您一目了然地发现变化。\n使用场景包括：\n审查包含JSON配置的拉取请求\n跟踪数据库中的数据版本历史\n调试API响应之间的不匹配\n无需再滚动浏览大量代码行—我们的工具自动解析嵌套对象和数组，使复杂比较变得简单。粘贴或上传两个JSON文件，让我们的JSON比较功能准确显示变更内容。非常适合开发人员、QA团队和数据管理人员！',

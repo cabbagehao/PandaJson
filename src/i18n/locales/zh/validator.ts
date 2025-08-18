@@ -1,6 +1,6 @@
 export const validator = {
-  title: 'JSON校验',
-  seo_title: 'JSON验证器 – 即时检查JSON语法与查找错误',
+  title: '在线JSON校验 - 检查语法错误修复JSON代码',
+  seo_title: '在线JSON校验 - 检查语法错误修复JSON代码',
   description: '快速验证JSON语法错误，确保您的JSON符合标准格式规范',
   keywords: 'JSON验证器,JSON校验,JSON格式检查,JSON语法检查,JSON错误定位,在线JSON验证,JSON错误修复,JSON解析错误,语法错误检测,JSON调试工具,JSON结构验证,错误位置查找器,JSON错误信息,修复JSON语法,JSON代码验证器',
   introduction: 'JSON验证器可帮助您快速识别JSON数据中的语法错误和结构问题。无论您是在调试Web API、处理配置文件还是处理数据源，我们的工具都能即时反馈您的JSON有效性。\n\n当检测到错误时，验证器会精确定位问题所在位置，并提供明确、可操作的指导来解决它。每个错误都会用行号和列号信息高亮显示，使故障排除高效而直接。\n\n主要功能包括：\n• 根据JSON标准进行即时语法验证\n• 使用行号和列号精确定位错误位置\n• 详细的错误描述，快速解决问题\n• 支持大型JSON文档\n• 清晰、直观的界面，实时反馈\n• 一键验证，提供全面结果\n\n只需粘贴您的JSON，让我们的验证器检查错误，确保您的数据在应用程序中使用前格式正确。',

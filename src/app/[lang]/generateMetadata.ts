@@ -35,8 +35,11 @@ export async function generateBaseMetadata({
   // 基础URL，不包含语言代码
   const baseUrl = `${DOMAIN}`;
   
-  // 当前完整URL
+  // 当前完整URL （带语言代码的版本）
   const currentUrl = `${baseUrl}/${lang}${currentPath ? `/${currentPath}` : ''}`;
+  
+  // 规范URL（不带语言代码，不带www，不带尾部斜杠，统一入口）
+  const canonicalUrl = currentPath ? `${baseUrl}/${currentPath}` : baseUrl;
   
   // 生成所有语言版本的替代链接
   const alternateLanguages = locales.reduce((acc, locale) => {
@@ -70,7 +73,7 @@ export async function generateBaseMetadata({
       ],
     },
     alternates: {
-      canonical: currentUrl,
+      canonical: canonicalUrl,
       languages: alternateLanguages,
     },
     openGraph: {

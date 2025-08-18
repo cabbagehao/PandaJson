@@ -1,8 +1,8 @@
 export const common = {
-  siteTitle: 'PandaJson',
+  siteTitle: 'Kostenlose Online JSON-Tools - Formatieren, Validieren & Konvertieren',
   seo: {
-    description: 'Kostenlose professionelle Sammlung von PandaJson-Tools, die JSON-Formatierung, Komprimierung, Validierung, Konvertierung, Differenzvergleich, Baumeditor und Schema-Validierung bietet.',
-    keywords: 'PandaJson,JSON-Formatierer,JSON-Validator,JSON-Konverter,JSON-Diff,JSON-Editor,JSON-Schema,JSON-Minifier,JSON-Beautifier,JSON-Parser,Online-JSON-Tools'
+    description: 'Professionelle kostenlose JSON-Tools-Sammlung mit Formatter, Validator, Converter, Diff-Tool, Minifier und Schema-Validator. JSON-Daten online sofort formatieren, validieren und transformieren mit unserem umfassenden JSON-Toolkit.',
+    keywords: 'PandaJson,JSON-Formatierer,JSON-Validator,JSON-Konverter,JSON-Diff,JSON-Editor,JSON-Schema,JSON-Minifier,JSON-Beautifier,JSON-Parser,Online-JSON-Tools,kostenlose JSON-Tools,JSON-Toolkit,JSON formatieren,JSON validieren,JSON konvertieren,JSON vergleichen'
   },
   home: {
     features: {

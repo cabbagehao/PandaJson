@@ -1,6 +1,6 @@
 export const converter = {
-  title: 'JSON转换',
-  seo_title: 'JSON转换器 – 在JSON与YAML、XML、CSV等格式之间相互转换',
+  title: 'JSON转换为YAML、XML、CSV - 免费数据格式转换器',
+  seo_title: 'JSON转换为YAML、XML、CSV - 免费数据格式转换器',
   description: '轻松转换XML、YAML、CSV与JSON格式，支持双向转换和自定义选项',
   keywords: 'JSON转换,JSON到XML,JSON到YAML,XML到JSON,YAML到JSON,CSV到JSON,JSON到CSV,JSON转换工具,YAML转JSON,XML转JSON,CSV转JSON,转换数据格式,JSON数据转换,格式转换工具,双向转换,数据交换格式,在线转换JSON,数据格式转换器,文件格式转换,JSON导入导出,JSON迁移工具',
   introduction: 'JSON转换器是您在JSON和其他流行格式之间无缝转换数据的一站式解决方案。无论您是需要将JSON转换为YAML用于配置文件，将JSON转换为XML用于传统系统，还是将JSON导出为CSV用于数据分析，我们的工具都能精确轻松地处理这些转换。\n\n我们的转换器在转换过程中保持数据完整性，保留层次关系、数据类型和结构元素。直观的界面允许您粘贴或上传源数据，选择目标格式，并立即查看转换后的输出。\n\n主要功能包括：\n• 在JSON与YAML、XML、CSV和TSV之间的双向转换\n• 在支持的范围内保留嵌套结构和数据类型\n• 每种格式转换的可自定义选项\n• 转换输出的实时预览\n• 复制到剪贴板或下载功能\n• 支持大型数据集\n\n只需粘贴您的数据，选择目标格式，然后让我们的转换器处理剩下的工作—为您的开发工作流程节省宝贵的时间和精力。',

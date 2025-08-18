@@ -1,7 +1,8 @@
 export const minifier = {
-  title: 'JSON-Minifier',
-  description: 'Komprimieren und minimieren Sie die Größe von JSON-Dateien durch Entfernen von Leerzeichen und Formatierungssymbolen, verbessern Sie die Übertragungseffizienz',
-  keywords: 'JSON-Minifier,JSON-Minifizierung,JSON-Größenoptimierung,JSON-Leerzeichenentfernung,JSON-Kompressor',
+  title: 'JSON Online Minifizieren - Komprimieren & JSON-Dateigröße Schnell Reduzieren',
+  seo_title: 'JSON Online Minifizieren - Komprimieren & JSON-Dateigröße Schnell Reduzieren',
+  description: 'JSON-Dateien komprimieren und minifizieren durch Entfernen von Leerzeichen und Formatierung. JSON-Dateigröße um bis zu 50% reduzieren für schnellere Datenübertragung mit unserem kostenlosen JSON-Minifier-Tool.',
+  keywords: 'JSON-Minifier,JSON-Minifizierung,JSON-Größenoptimierung,JSON-Leerzeichenentfernung,JSON-Kompressor,JSON-Größe reduzieren,kompaktes JSON,JSON-Kompressionstool,JSON-Übertragung optimieren,JSON-Bandbreitenreduktion,JSON-Übertragungseffizienz,JSON online minifizieren,JSON-Dateigrößen-Reduzierer,JSON-Optimierer,leichtgewichtiges JSON,JSON-Payload-Reduktion',
   input: 'JSON-Eingabe',
   output: 'Minifiziertes Ergebnis',
   placeholder: 'Fügen Sie hier Ihre JSON-Daten zum Minifizieren ein',

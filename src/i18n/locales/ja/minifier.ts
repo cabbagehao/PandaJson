@@ -1,8 +1,8 @@
 export const minifier = {
-  title: 'JSON圧縮ツール',
-  seo_title: 'JSON圧縮ツール - パフォーマンス向上のためのJSONファイル圧縮と最適化',
-  description: '空白やフォーマット記号を削除してJSONファイルサイズを圧縮・最小化し、転送効率を向上させます',
-  keywords: 'JSON圧縮,JSON最小化,JSONサイズ最適化,JSON空白削除,JSONコンプレッサー',
+  title: 'JSONオンライン圧縮 - 圧縮＆JSONファイルサイズを高速削減',
+  seo_title: 'JSONオンライン圧縮 - 圧縮＆JSONファイルサイズを高速削減',
+  description: 'ホワイトスペースとフォーマットを削除してJSONファイルを圧縮・縮小。無料JSON縮小ツールで高速データ転送のためJSONファイルサイズを最大50%削減。',
+  keywords: 'JSON縮小ツール,JSON最小化,JSONサイズ最適化,JSONホワイトスペース削除,JSONコンプレッサー,JSONサイズ削減,コンパクトJSON,JSON圧縮ツール,JSON転送最適化,JSONバンド幅削減,JSON転送効率,JSONオンライン縮小,JSONファイルサイズ削減ツール,JSONオプティマイザー,軽量JSON,JSONペイロード削減',
   input: '入力JSON',
   output: '圧縮結果',
   placeholder: '圧縮するJSONデータをここに貼り付けてください',

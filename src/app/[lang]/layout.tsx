@@ -17,7 +17,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const resolvedParams = await Promise.resolve(params);
   const { lang } = resolvedParams;
-  return generateBaseMetadata({ lang });
+  return {
+    ...await generateBaseMetadata({ lang }),
+    viewport: 'width=device-width, initial-scale=1',
+  };
 }
 
 // 声明支持的语言

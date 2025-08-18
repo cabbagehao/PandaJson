@@ -1,7 +1,7 @@
 export const treeEditor = {
-  title: 'Editor de Árbol JSON',
-  seo_title: 'Editor Visual de JSON – Edita Datos JSON Complejos con una Vista de Árbol Interactiva',
-  description: 'Visualiza, edita y analiza objetos JSON complejos a través de una estructura de árbol, proporcionando operaciones visuales intuitivas',
+  title: 'Editar JSON con Editor de Árbol Visual - Navegador JSON Interactivo',
+  seo_title: 'Editar JSON con Editor de Árbol Visual - Navegador JSON Interactivo',
+  description: 'Edite datos JSON complejos con una vista de árbol interactiva. Visualice, modifique y navegue estructuras JSON anidadas fácilmente con nuestra herramienta gratuita de editor de árbol JSON visual.',
   keywords: 'Editor JSON,Edición de árbol JSON,Visualización JSON,Editor de nodos JSON,Estructura de árbol JSON,Editor JSON interactivo,Editor JSON anidado,Visor de estructura JSON,Editor de nodos JSON,Editor visual de datos,Visor de jerarquía JSON,Editor JSON complejo,Estructura de árbol JSON,Herramienta de visualización JSON,Navegador JSON',
   introduction: 'El Editor de Árbol JSON visual transforma datos JSON complejos en una estructura de árbol interactiva que puedes manipular con facilidad. Ideal para gestionar estructuras de datos profundamente anidadas sin perderse en llaves y sintaxis.\n\nNuestra interfaz intuitiva te permite expandir y colapsar nodos, añadir nuevas propiedades y arrays, modificar valores o eliminar elementos no deseados con simples clics. El diseño de vista dual muestra tanto tu árbol editable como la salida JSON formateada en tiempo real.\n\nEsta herramienta es perfecta para:\n• Desarrolladores de API que trabajan con respuestas JSON complejas\n• Analistas de datos explorando conjuntos de datos intrincados\n• Gestores de contenido actualizando configuraciones basadas en JSON\n• Cualquiera que encuentre propensa a errores la edición de JSON en bruto\n\nLos cambios se validan instantáneamente, evitando errores de sintaxis mientras trabajas. Al terminar, exporta tu JSON perfectamente formateado con un solo clic.',
   viewOptions: 'Opciones de Vista',

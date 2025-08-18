@@ -1,7 +1,9 @@
 export const schemaValidator = {
-  title: 'JSON-Schema-Validator',
-  description: 'Validieren Sie JSON-Daten gegen Schema-Spezifikationen, überprüfen Sie die Integrität und Gültigkeit von Datenstrukturen',
-  keywords: 'JSON-Schema,JSON-Validierung,Schema-Validierung,JSON-Strukturvalidierung,JSON-Formatvalidierung',
+  title: 'JSON gegen Schema Validieren - Datenstruktur-Integrität Prüfen',
+  seo_title: 'JSON gegen Schema Validieren - Datenstruktur-Integrität Prüfen',
+  description: 'JSON-Daten online gegen Schema-Spezifikationen validieren. Datenstruktur-Integrität, Feldtypen und Einschränkungen prüfen mit unserem kostenlosen JSON-Schema-Validierungstool.',
+  keywords: 'JSON-Schema,JSON-Validierung,Schema-Validierung,JSON-Strukturvalidierung,JSON-Formatvalidierung,JSON-Schema-Validator,Schema-Konformitäts-Checker,JSON-Datenintegrität,gegen Schema validieren,JSON-Constraint-Validierung,Typ-Validierung,strukturelle Validierung,Muster-Validierung,JSON-Regeln-Validierung,Pflichtfelder-Validator,JSON-Format-Checker,JSON-Vertrags-Validator,API-Schema-Validierung',
+  introduction: 'Müssen Sie sicherstellen, dass Ihre JSON-Daten einem bestimmten Schema entsprechen (z.B. API-Verträge oder Datenmodelle)? Unser **JSON-Schema-Validator** prüft, ob Ihr JSON einem definierten Schema entspricht und verifiziert Feldtypen, erforderliche Schlüssel und Datenbeschränkungen. Dies ist entscheidend für Teamzusammenarbeit, API-Dokumentation und Gewährleistung der Datenkonsistenz in Systemen.\n\nSo funktioniert es: Laden Sie Ihre JSON- und Schema-Datei hoch (oder fügen Sie das Schema direkt ein), und wir validieren gegen Eigenschaften wie `type`, `enum`, `minimum` und `pattern`. Fehlermeldungen zeigen genau, wo die Daten nicht mit dem Schema übereinstimmen, und helfen Ihnen, Probleme schnell zu beheben.\n\nOb Sie Microservices entwickeln, Benutzereingaben validieren oder Datenpipelines standardisieren – unser **JSON-Schema validieren**-Tool gewährleistet, dass Ihre Datenstrukturen zuverlässig und konform sind. Probieren Sie es heute kostenlos aus!',
   jsonData: 'JSON-Daten',
   jsonSchema: 'JSON-Schema',
   options: 'Validierungsoptionen',

@@ -1,8 +1,8 @@
 export const common = {
-  siteTitle: 'PandaJson',
+  siteTitle: 'Ferramentas JSON Online Gratuitas - Formatar, Validar e Converter JSON',
   seo: {
-    description: 'Coleção profissional gratuita de ferramentas PandaJson, fornecendo formatação JSON, compressão, validação, conversão, comparação de diferenças, editor de árvore e validação de Schema.',
-    keywords: 'PandaJson,formatador JSON,validador JSON,conversor JSON,diff JSON,editor JSON,Schema JSON,minificador JSON,embelezador JSON,analisador JSON,ferramentas online JSON'
+    description: 'Coleção profissional de ferramentas JSON gratuitas com formatador, validador, conversor, ferramenta diff, minificador e validador de esquema. Formate, valide e transforme dados JSON online instantaneamente com nosso kit de ferramentas JSON abrangente.',
+    keywords: 'PandaJson,formatador JSON,validador JSON,conversor JSON,diff JSON,editor JSON,Schema JSON,minificador JSON,embelezador JSON,analisador JSON,ferramentas online JSON,ferramentas JSON gratuitas,kit de ferramentas JSON,formatar JSON,validar JSON,converter JSON,comparar JSON'
   },
   home: {
     features: {

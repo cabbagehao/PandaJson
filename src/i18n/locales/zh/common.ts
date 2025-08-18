@@ -1,8 +1,8 @@
 export const common = {
-  siteTitle: '熊猫Json',
+  siteTitle: '免费在线JSON工具 - 格式化、校验、转换JSON数据',
   seo: {
-    description: '专业免费的熊猫Json工具集合，提供JSON格式化、压缩、校验、转换、差异对比、树形编辑器和Schema验证。',
-    keywords: '熊猫Json,JSON格式化,JSON校验,JSON转换,JSON对比,JSON编辑器,JSON Schema,JSON压缩,JSON美化,JSON解析,JSON在线工具'
+    description: '专业免费的JSON工具集合，包含格式化器、校验器、转换器、差异对比工具、压缩器和Schema验证器。在线即时格式化、验证和转换JSON数据，全面的JSON工具包。',
+    keywords: '熊猫Json,JSON格式化,JSON校验,JSON转换,JSON对比,JSON编辑器,JSON Schema,JSON压缩,JSON美化,JSON解析,JSON在线工具,免费JSON工具,JSON工具包,格式化JSON,验证JSON,转换JSON,比较JSON'
   },
   home: {
     features: {

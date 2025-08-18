@@ -12,9 +12,13 @@ export async function generateMetadata({
   const locale = resolvedParams.lang as Locale;
   const { t } = await getServerTranslation(locale);
   const treeEditor = t.treeEditor;
+  const common = t.common;
+
+  // 组合标题：工具名称 + 网站名称
+  const title = `${treeEditor.title} - ${common.siteTitle}`;
 
   return {
-    // title属性由客户端组件动态设置，这里不设置title
+    title,
     ...generateToolPageSEO('tree-editor', locale, treeEditor.description, treeEditor.keywords),
   };
 }

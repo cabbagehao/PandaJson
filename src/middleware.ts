@@ -39,7 +39,21 @@ function getLocale(request: NextRequest): Locale {
 }
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
+  const url = request.nextUrl.clone()
+  const pathname = url.pathname
+  const hostname = request.headers.get('host')
+
+  // 1. www重定向到非www版本
+  if (hostname?.startsWith('www.')) {
+    url.hostname = hostname.replace('www.', '')
+    return NextResponse.redirect(url, 301)
+  }
+
+  // 2. 移除尾部斜杠（除了首页）
+  if (pathname !== '/' && pathname.endsWith('/')) {
+    url.pathname = pathname.slice(0, -1)
+    return NextResponse.redirect(url, 301)
+  }
 
   // 检查URL是否已经包含语言代码
   const pathnameHasLocale = locales.some(

@@ -18,7 +18,7 @@ export async function generateMetadata({
   return {
     ...formatterMetadata,
     alternates: {
-      canonical: `https://jsonpanda.com`, // 多语言首页也指向主域首页
+      canonical: `https://jsonpanda.com`,
     }
   };
 }

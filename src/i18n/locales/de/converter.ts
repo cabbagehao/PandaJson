@@ -1,7 +1,9 @@
 export const converter = {
-  title: 'JSON-Konverter',
-  description: 'Konvertieren Sie einfach zwischen XML-, YAML-, CSV- und JSON-Formaten, mit bidirektionaler Konvertierung und benutzerdefinierten Optionen',
-  keywords: 'JSON-Konverter,JSON zu XML,JSON zu YAML,XML zu JSON,YAML zu JSON,CSV zu JSON,JSON zu CSV',
+  title: 'JSON zu YAML, XML, CSV Konvertieren - Kostenloser Datenformat-Konverter',
+  seo_title: 'JSON zu YAML, XML, CSV Konvertieren - Kostenloser Datenformat-Konverter',
+  description: 'JSON zu YAML, XML, CSV konvertieren und umgekehrt mit unserem kostenlosen Online-Konverter. Daten zwischen Formaten sofort transformieren unter Beibehaltung von Struktur und Datentypen.',
+  keywords: 'JSON-Konverter,JSON zu YAML,JSON zu XML,JSON zu CSV,JSON-Transformation,Datenformat-Konverter,JSON-Export,YAML zu JSON,XML zu JSON,CSV zu JSON,Datenformate konvertieren,JSON-Datentransformation,Format-Konvertierungstool,bidirektionale Konvertierung,Datenaustauschformate,JSON online konvertieren,Datenformat-Übersetzer,Dateiformatkonvertierung,JSON-Import-Export,JSON-Migrationstool',
+  introduction: 'Der JSON-Konverter ist Ihre All-in-One-Lösung für die nahtlose Transformation von Daten zwischen JSON und anderen beliebten Formaten. Ob Sie JSON zu YAML für Konfigurationsdateien konvertieren, JSON zu XML für Legacy-Systeme transformieren oder JSON zu CSV für Datenanalyse exportieren müssen – unser Tool bewältigt diese Konvertierungen mit Präzision und Leichtigkeit.\n\nUnser Konverter bewahrt die Datenintegrität während der Transformation und erhält hierarchische Beziehungen, Datentypen und strukturelle Elemente. Die intuitive Benutzeroberfläche ermöglicht es Ihnen, Ihre Quelldaten einzufügen oder hochzuladen, Ihr Zielformat auszuwählen und die konvertierte Ausgabe sofort zu betrachten.\n\nWichtige Funktionen:\n• Bidirektionale Konvertierung zwischen JSON und YAML, XML, CSV und TSV\n• Beibehaltung verschachtelter Strukturen und Datentypen wo unterstützt\n• Anpassbare Optionen für jede Formatkonvertierung\n• Echtzeit-Vorschau der konvertierten Ausgabe\n• In Zwischenablage kopieren oder Download-Funktionalität\n• Unterstützung für große Datensätze\n\nFügen Sie einfach Ihre Daten ein, wählen Sie Ihr Zielformat und lassen Sie unseren Konverter den Rest erledigen – das spart wertvolle Zeit und Aufwand in Ihrem Entwicklungsworkflow.',
   options: {
     title: 'Konvertierungsoptionen',
     conversionType: 'Konvertierungstyp',

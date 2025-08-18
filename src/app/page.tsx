@@ -11,7 +11,7 @@ export async function generateMetadata() {
   return {
     ...await generateMetadata({ params: { lang: locale } }),
     alternates: {
-      canonical: `https://jsonpanda.com`, // 首页canonical指向自己
+      canonical: `https://jsonpanda.com`,
     }
   };
 }

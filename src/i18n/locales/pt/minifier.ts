@@ -1,8 +1,8 @@
 export const minifier = {
-  title: 'Minificador JSON',
-  seo_title: 'Minificador JSON – Comprima e Reduza o Tamanho dos Arquivos JSON Removendo Espaços em Branco',
-  description: 'Comprima e minimize o tamanho dos arquivos JSON removendo espaços em branco e símbolos de formatação, melhorando a eficiência de transmissão',
-  keywords: 'Minificador JSON,Minificação JSON,Otimização de tamanho JSON,Remoção de espaços em branco JSON,Compressor JSON,redução de tamanho JSON,JSON compacto,ferramenta de compressão JSON,otimização de transferência JSON,redução de largura de banda JSON,eficiência de transmissão JSON,minificação JSON online,ferramenta de redução de tamanho JSON,otimizador JSON,JSON leve,redução de carga JSON',
+  title: 'Minificar JSON Online - Comprimir e Reduzir Tamanho de Arquivo JSON Rapidamente',
+  seo_title: 'Minificar JSON Online - Comprimir e Reduzir Tamanho de Arquivo JSON Rapidamente',
+  description: 'Comprima e minifique arquivos JSON removendo espaços em branco e formatação. Reduza o tamanho de arquivos JSON em até 50% para transmissão de dados mais rápida com nossa ferramenta gratuita de minificação JSON.',
+  keywords: 'minificador JSON,minificação JSON,otimização de tamanho JSON,remoção de espaços JSON,compressor JSON,reduzir tamanho JSON,JSON compacto,ferramenta de compressão JSON,otimizar transferência JSON,redução de largura de banda JSON,eficiência de transmissão JSON,minificar JSON online,redutor de tamanho de arquivo JSON,otimizador JSON,JSON leve,redução de payload JSON',
   introduction: 'Nosso Minificador JSON é uma ferramenta online gratuita que ajuda você a comprimir dados JSON removendo espaços em branco desnecessários e caracteres de formatação. A minificação de JSON reduz o tamanho do arquivo, otimiza o uso de largura de banda e melhora a velocidade de transferência. Isso é especialmente útil para desenvolvedores web, APIs e serviços web que desejam otimizar o desempenho. Use nosso minificador JSON para reduzir significativamente o tamanho dos dados JSON sem alterar a estrutura ou o conteúdo dos dados.',
   input: 'JSON de Entrada',
   output: 'Resultado Minificado',
