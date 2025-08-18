@@ -1,7 +1,7 @@
 export const minifier = {
   title: 'Minificateur JSON',
   seo_title: 'Minificateur JSON – Optimisez et Compressez vos Données JSON pour le Web',
-  description: 'Compressez et minimisez la taille des fichiers JSON en supprimant les espaces blancs et les symboles de formatage, améliorant l\'efficacité de transmission',
+  description: 'Compressez JSON en supprimant les espaces et le formatage pour réduire la taille jusqu’à 50%. Optimisez la vitesse de transmission pour APIs et applications mobiles efficacement.',
   keywords: 'Minificateur JSON,Minification JSON,Optimisation de taille JSON,Suppression d\'espaces blancs JSON,Compresseur JSON',
   input: 'JSON d\'Entrée',
   output: 'Résultat Minifié',

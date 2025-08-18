@@ -1,6 +1,6 @@
 export const validator = {
   title: 'Trình Xác Thực JSON',
-  description: 'Xác thực nhanh chóng lỗi cú pháp JSON, đảm bảo JSON của bạn tuân thủ các thông số kỹ thuật định dạng tiêu chuẩn',
+  description: 'Phát hiện lỗi cú pháp JSON ngay lập tức với phản hồi chính xác theo dòng. Thiết yếu cho debug phản hồi API và đảm bảo tính toàn vẹn dữ liệu trong ứng dụng.',
   keywords: 'Trình xác thực JSON,Xác thực JSON,Kiểm tra định dạng JSON,Kiểm tra cú pháp JSON,Định vị lỗi JSON,Trình xác thực JSON trực tuyến,Sửa lỗi JSON',
   input: 'JSON Đầu Vào',
   validate: 'Xác Thực JSON',
