@@ -3,6 +3,11 @@ import { getServerTranslation } from "@/i18n/server";
 import Link from "next/link";
 import { Metadata } from "next";
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export async function generateMetadata({
   params,
 }: {

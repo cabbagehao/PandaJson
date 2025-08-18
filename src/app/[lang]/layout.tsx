@@ -10,6 +10,11 @@ import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -17,10 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const resolvedParams = await Promise.resolve(params);
   const { lang } = resolvedParams;
-  return {
-    ...await generateBaseMetadata({ lang }),
-    viewport: 'width=device-width, initial-scale=1',
-  };
+  return await generateBaseMetadata({ lang });
 }
 
 // 声明支持的语言

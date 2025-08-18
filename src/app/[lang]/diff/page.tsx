@@ -11,7 +11,8 @@ export default async function JsonDiff({
 }: {
   params: { lang: string };
 }) {
-  const locale = params.lang as Locale;
+  const resolvedParams = await Promise.resolve(params);
+  const locale = resolvedParams.lang as Locale;
   const { t } = await getServerTranslation(locale);
   const diff = t.diff;
 

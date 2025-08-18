@@ -9,7 +9,8 @@ export async function generateMetadata({
 }: {
   params: { lang: string };
 }) {
-  const locale = params.lang as Locale;
+  const resolvedParams = await Promise.resolve(params);
+  const locale = resolvedParams.lang as Locale;
 
   // 导入并使用formatter元数据生成函数
   const { generateMetadata } = await import('./formatter/metadata');
@@ -28,7 +29,8 @@ export default async function Home({
 }: {
   params: { lang: string };
 }) {
-  const locale = params.lang as Locale;
+  const resolvedParams = await Promise.resolve(params);
+  const locale = resolvedParams.lang as Locale;
 
   // 获取翻译内容
   const { t } = await getServerTranslation(locale);

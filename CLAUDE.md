@@ -219,6 +219,49 @@ npx tsc --noEmit
 npm run check-translations
 ```
 
+### Next.js 15 部署问题
+
+**Viewport配置警告**
+- ❌ 错误: `Unsupported metadata viewport is configured in metadata export`
+- ✅ 解决: 使用单独的 `viewport` export
+
+```typescript
+// 错误写法
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    viewport: 'width=device-width, initial-scale=1',
+  };
+}
+
+// 正确写法
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+```
+
+**Params解析错误**
+- ❌ 错误: `Cannot read properties of undefined (reading 'lang')`
+- ✅ 解决: 在Next.js 15中params可能是Promise，需要resolve
+
+```typescript
+// 错误写法
+export default async function Page({ params }) {
+  const locale = params.lang as Locale;
+}
+
+// 正确写法
+export default async function Page({ params }) {
+  const resolvedParams = await Promise.resolve(params);
+  const locale = resolvedParams.lang as Locale;
+}
+```
+
+**静态生成失败**
+- 确保所有[lang]路由页面都正确处理params
+- 检查generateStaticParams函数配置
+- 验证所有语言配置文件存在
+
 ## 联系方式
 
 - **GitHub**: [项目仓库链接]

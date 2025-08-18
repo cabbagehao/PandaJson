@@ -5,13 +5,15 @@ import { Metadata } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   // 导入并使用英文版本的元数据生成函数
   const { generateBaseMetadata } = await import('./[lang]/generateMetadata');
-  return {
-    ...await generateBaseMetadata({ lang: locale }),
-    viewport: 'width=device-width, initial-scale=1',
-  };
+  return await generateBaseMetadata({ lang: locale });
 }
 
 export default function RootLayout({

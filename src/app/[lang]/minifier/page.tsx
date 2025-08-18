@@ -11,7 +11,8 @@ export default async function JsonMinifier({
 }: {
   params: { lang: string };
 }) {
-  const locale = params.lang as Locale;
+  const resolvedParams = await Promise.resolve(params);
+  const locale = resolvedParams.lang as Locale;
   const { t } = await getServerTranslation(locale);
   const minifier = t.minifier;
 

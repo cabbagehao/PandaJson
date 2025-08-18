@@ -11,7 +11,8 @@ export default async function TreeEditor({
 }: {
   params: { lang: string };
 }) {
-  const locale = params.lang as Locale;
+  const resolvedParams = await Promise.resolve(params);
+  const locale = resolvedParams.lang as Locale;
   const { t } = await getServerTranslation(locale);
   const treeEditor = t.treeEditor;
 
