@@ -51,5 +51,67 @@ export const treeEditor = {
   keyNameEmpty: 'Jina la ufunguo haliwezi kuwa tupu',
   addFailed: 'Kuongeza kumeshindwa',
   invalidValue: 'Thamani batili',
-  save: 'Hifadhi'
+  save: 'Hifadhi',
+
+  // How to Use Section
+  howToUse: {
+    title: 'Jinsi ya Kutumia Mhariri wa Mti wa JSON',
+    steps: [
+      {
+        title: 'Ingiza Data ya JSON',
+        description: 'Bandika JSON yako kwenye kihariri cha maandishi au upakue faili ya JSON. Chombo kitachambua data kiotomatiki na kuonyesha kama muundo wa mti.'
+      },
+      {
+        title: 'Badilisha kwenda Mwonekano wa Mti',
+        description: 'Bofya kichupo cha "Mwonekano wa Mti" kuona muundo wa mti wa kuingiliana. Hapa unaweza kujongea kwa kuona kupitia data yako ya JSON.'
+      },
+      {
+        title: 'Hariri kwa Kuingiliana',
+        description: 'Bofya nodi ili kupanua/kukunja, hariri thamani moja kwa moja, ongeza sifa mpya au futa vipengele vilivyopo kwa kutumia vitufe.'
+      },
+      {
+        title: 'Hifadhi Mabadiliko',
+        description: 'Mabadiliko yote yanabadilishana kiotomatiki na mwonekano wa maandishi. Tumia kitufe cha "Nakili" au "Pakua" kuhifadhi data iliyohaririwa.'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'Maswali Yanayoulizwa Mara Kwa Mara',
+    items: [
+      {
+        question: 'Mhariri wa mti wa JSON ni nini?',
+        answer: 'Mhariri wa mti wa JSON ni chombo cha kuona ambacho kinawakilisha data ya JSON kama muundo wa mti wa kuingiliana. Hii inakuwezesha kujongea, kuhariri na kudhibiti data ngumu ya JSON bila kuwa na wasiwasi kuhusu makosa ya sintaksia.'
+      },
+      {
+        question: 'Jinsi gani ya kuongeza vipengele vipya kwenye JSON?',
+        answer: 'Katika hali ya mti, bofya kitufe cha "+" karibu na nodi yoyote kuongeza sifa mpya au kipengele kwenye safu. Ingiza jina la ufunguo na thamani, na kipengele kipya kitaongezwa kiotomatiki.'
+      },
+      {
+        question: 'Je, naweza kuhariri faili kubwa za JSON?',
+        answer: 'Ndio, mhariri wa mti anaweza kushughulikia faili kubwa za JSON. Muundo wa mti umepangwa kwa utendaji na hukuruhusu kukunja nodi ambazo huzihitaji ili kuzingatia sehemu maalum.'
+      },
+      {
+        question: 'Je, mabadiliko yanahifadhiwa kiotomatiki?',
+        answer: 'Mabadiliko yanabadilishana kwa wakati halisi kati ya mti na mwonekano wa maandishi, lakini hayahifadhiwi kiotomatiki. Tumia vitufe vya "Nakili" au "Pakua" kuhifadhi data yako iliyohaririwa.'
+      },
+      {
+        question: 'Alama tofauti katika mti zinamaanisha nini?',
+        answer: 'Alama tofauti zinawakilisha aina tofauti za data: vitu vinaonyeshwa kama folda, safu kama orodha, minyororo kama maandishi, na thamani za msingi (nambari, boolean) zina alama zao za kipekee.'
+      },
+      {
+        question: 'Jinsi ya kufuta vipengele kutoka JSON?',
+        answer: 'Katika hali ya mti, kila nodi ina kitufe cha kufuta (kawaida kimeonyeshwa kwa X au kitembe cha takataka). Bofya kitufe hiki kuondoa kipengele kutoka muundo wa JSON.'
+      },
+      {
+        question: 'Je, data yangu ni salama wakati wa kuhariri?',
+        answer: 'Ndio, uhariri wote unafanywa ndani ya kivinjari chako. Data yako ya JSON haijawahi kutumwa kwenye seva au kuhifadhiwa nje ya kifaa chako, ikihakikisha faragha na usalama kamili.'
+      },
+      {
+        question: 'Je, naweza kutumia mhariri kwa uthibitishaji wa JSON?',
+        answer: 'Kabisa! Mhariri kiotomatiki hufanya uthibitishaji wa sintaksia ya JSON wakati anachambua data. Ikiwa kuna makosa ya sintaksia, chombo kitayaonyesha na ujumbe wa kina wa makosa ili kukusaidia kurekebisha.'
+      }
+    ]
+  }
 }; 

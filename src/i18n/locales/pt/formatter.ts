@@ -24,5 +24,67 @@ export const formatter = {
   output: 'Resultado da Formatação',
   placeholder: 'Cole seus dados JSON aqui para formatar',
   error: 'Erro de análise JSON: ',
-  unknown: 'Erro desconhecido ao analisar JSON'
+  unknown: 'Erro desconhecido ao analisar JSON',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Como Usar o Formatador JSON',
+    steps: [
+      {
+        title: 'Cole seu JSON',
+        description: 'Copie e cole seus dados JSON não formatados, minificados ou desorganizados no editor de entrada. Nossa ferramenta aceita JSON de qualquer tamanho e complexidade.'
+      },
+      {
+        title: 'Escolha as Opções de Formatação',
+        description: 'Selecione seu tamanho de indentação preferido (2, 4 ou 8 espaços), estilo de chaves e largura da linha para personalizar o formato de saída.'
+      },
+      {
+        title: 'Formate Instantaneamente',
+        description: 'Clique no botão "Formatar" ou use a formatação automática para transformar seu JSON em código limpo e legível com estrutura adequada.'
+      },
+      {
+        title: 'Copie ou Baixe',
+        description: 'Use o botão copiar para copiar rapidamente o JSON formatado para sua área de transferência ou baixe-o como um arquivo para uso posterior.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Perguntas Frequentes',
+    items: [
+      {
+        question: 'O que é formatação JSON e por que preciso dela?',
+        answer: 'A formatação JSON (também chamada de embelezamento) transforma JSON comprimido ou minificado em um formato legível com indentação, quebras de linha e espaçamento adequados. Isso facilita a depuração, compreensão da estrutura de dados, revisão de respostas de API e manutenção da qualidade do código.'
+      },
+      {
+        question: 'Posso formatar arquivos JSON grandes?',
+        answer: 'Sim, nosso formatador JSON pode lidar com arquivos JSON grandes de forma eficiente. A ferramenta é otimizada para performance e pode processar objetos aninhados complexos, arrays e estruturas de dados extensas sem problemas de performance.'
+      },
+      {
+        question: 'Quais opções de indentação estão disponíveis?',
+        answer: 'Você pode escolher entre 2, 4 ou 8 espaços para indentação. Além disso, pode selecionar diferentes estilos de chaves (colapsar, expandir ou preservar em linha) e definir limites personalizados de largura de linha para legibilidade ideal.'
+      },
+      {
+        question: 'Meus dados JSON estão seguros ao usar esta ferramenta?',
+        answer: 'Absolutamente! Toda a formatação JSON é realizada localmente no seu navegador usando JavaScript do lado do cliente. Seus dados nunca saem do seu dispositivo ou são enviados para nossos servidores, garantindo privacidade e segurança completas.'
+      },
+      {
+        question: 'O formatador pode detectar erros JSON?',
+        answer: 'Sim, nosso formatador inclui validação JSON integrada. Se sua entrada contiver erros de sintaxe, a ferramenta destacará a localização específica e fornecerá mensagens de erro detalhadas para ajudá-lo a corrigir os problemas rapidamente.'
+      },
+      {
+        question: 'Em que formatos de arquivo posso exportar JSON formatado?',
+        answer: 'Você pode copiar o JSON formatado para sua área de transferência instantaneamente ou baixá-lo como um arquivo .json. A saída formatada mantém a sintaxe JSON adequada e pode ser usada diretamente em suas aplicações, APIs ou arquivos de configuração.'
+      },
+      {
+        question: 'O formatador suporta JSON5 ou outras variantes JSON?',
+        answer: 'Nosso formatador é otimizado para JSON padrão (RFC 7159). Embora possa lidar com alguns recursos JSON5, recomendamos usar o formato JSON padrão para obter os melhores resultados e máxima compatibilidade.'
+      },
+      {
+        question: 'Posso personalizar o estilo de formatação?',
+        answer: 'Sim! Você pode personalizar o tamanho da indentação, estilo de chaves, largura da linha e preservação de quebras de linha. Essas opções permitem formatar JSON de acordo com os padrões de codificação da sua equipe ou preferências pessoais.'
+      }
+    ]
+  }
 }; 

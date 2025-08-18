@@ -51,5 +51,59 @@ export const treeEditor = {
   keyNameEmpty: 'Key name cannot be empty',
   addFailed: 'Add failed',
   invalidValue: 'Invalid value',
-  save: 'Save'
+  save: 'Save',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'How to Use the JSON Tree Editor',
+    steps: [
+      {
+        title: 'Paste or Type JSON',
+        description: 'Enter your JSON data in the text editor or paste existing JSON. The tool will automatically parse and display it as an interactive tree structure.'
+      },
+      {
+        title: 'Navigate the Tree',
+        description: 'Click on nodes to expand or collapse them. Use the tree view to visually navigate through your JSON structure without getting lost in nested data.'
+      },
+      {
+        title: 'Edit Visually',
+        description: 'Click on values to edit them directly, add new properties with the + button, or delete items using the delete button. All changes are applied in real-time.'
+      },
+      {
+        title: 'Export Changes',
+        description: 'Once finished editing, copy the updated JSON to your clipboard or download it as a file. The output maintains proper JSON formatting.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'JSON Tree Editor FAQ',
+    items: [
+      {
+        question: 'What are the advantages of tree editing over text editing?',
+        answer: 'Tree editing provides a visual representation of JSON structure, making it easier to understand nested relationships, prevent syntax errors, and navigate complex data. You can focus on content rather than worrying about brackets and commas.'
+      },
+      {
+        question: 'Can I add new properties and arrays in the tree view?',
+        answer: 'Yes! You can easily add new properties, objects, and arrays using the interface buttons. The tree editor provides intuitive controls for expanding your JSON structure without manual typing.'
+      },
+      {
+        question: 'How does the tree editor handle different data types?',
+        answer: 'The editor supports all JSON data types including strings, numbers, booleans, arrays, objects, and null values. Each type is visually distinguished and can be edited with appropriate input controls.'
+      },
+      {
+        question: 'Can I undo changes made in the tree editor?',
+        answer: 'The tree editor maintains a history of changes, and you can switch between tree view and text view to see your JSON in different formats. However, for complex undo operations, we recommend keeping backups of your original data.'
+      },
+      {
+        question: 'Is the tree editor suitable for large JSON files?',
+        answer: 'Yes, the tree editor efficiently handles large JSON structures with virtual scrolling and lazy loading for nested elements. Complex objects are rendered only when expanded, maintaining good performance.'
+      },
+      {
+        question: 'What happens if I switch between tree and text views?',
+        answer: 'You can seamlessly switch between visual tree editing and raw text editing. Changes made in either view are synchronized, allowing you to use the best editing method for different tasks.'
+      }
+    ]
+  }
 }; 

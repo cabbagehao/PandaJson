@@ -54,5 +54,67 @@ export const treeEditor = {
   keyNameEmpty: 'O nome da chave não pode estar vazio',
   addFailed: 'Falha ao adicionar',
   invalidValue: 'Valor inválido',
-  save: 'Salvar'
+  save: 'Salvar',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Como Usar o Editor de Árvore JSON',
+    steps: [
+      {
+        title: 'Cole seu JSON',
+        description: 'Insira dados JSON na área de texto. O editor aceita JSON de qualquer complexidade e automaticamente o converte em uma estrutura de árvore navegável.'
+      },
+      {
+        title: 'Navegue pela Árvore',
+        description: 'Use a visualização em árvore para expandir/recolher nós, navegar por estruturas aninhadas e encontrar rapidamente os dados que deseja editar.'
+      },
+      {
+        title: 'Edite Interativamente',
+        description: 'Clique em qualquer valor para editá-lo, adicione novas propriedades com o botão "Adicionar", ou remova itens indesejados com o botão "Excluir".'
+      },
+      {
+        title: 'Exporte o Resultado',
+        description: 'Suas edições são refletidas em tempo real no JSON de saída. Use "Copiar" ou "Baixar" para salvar o JSON editado.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Perguntas Frequentes',
+    items: [
+      {
+        question: 'Como adiciono novas propriedades ao JSON?',
+        answer: 'Clique no botão "Adicionar Propriedade" próximo a qualquer objeto. Digite o nome da chave e valor, selecione o tipo de dados e confirme. A nova propriedade aparecerá imediatamente na árvore.'
+      },
+      {
+        question: 'Posso editar arrays complexos?',
+        answer: 'Sim! Arrays são totalmente suportados. Adicione novos itens com "Adicionar Item", edite valores existentes clicando neles, ou remova itens com o botão "Excluir". Arrays aninhados e objetos dentro de arrays são suportados.'
+      },
+      {
+        question: 'Como desfazer alterações que fiz acidentalmente?',
+        answer: 'Use os botões "Desfazer" e "Refazer" para navegar pelo histórico de edições. Você também pode recarregar o JSON original para começar novamente.'
+      },
+      {
+        question: 'Que tipos de dados posso usar nos valores?',
+        answer: 'O editor suporta todos os tipos JSON padrão: string, number, boolean, null, object e array. Selecione o tipo apropriado ao adicionar ou editar valores para garantir formatação correta.'
+      },
+      {
+        question: 'O editor funciona com JSON muito grande?',
+        answer: 'Sim, mas para arquivos JSON extremamente grandes, o desempenho pode ser afetado na visualização em árvore. Para arquivos muito grandes, considere usar o formatador ou validador JSON primeiro.'
+      },
+      {
+        question: 'Como salvo meu JSON editado?',
+        answer: 'Use o botão "Copiar" para copiar o JSON para a área de transferência, ou "Baixar" para salvar como arquivo .json. O JSON de saída é automaticamente formatado e valid.'
+      },
+      {
+        question: 'Posso editar JSON inválido?',
+        answer: 'O editor requer JSON válido como entrada. Se seu JSON tem erros de sintaxe, use primeiro o Validador JSON para identificar e corrigir problemas, depois use o editor de árvore.'
+      },
+      {
+        question: 'Como navego por estruturas JSON profundamente aninhadas?',
+        answer: 'Use os botões "Expandir Tudo" e "Recolher Tudo" para controlar a visualização, ou clique em nós individuais para expandir/recolher seções específicas conforme necessário.'
+      }
+    ]
+  }
 }; 

@@ -24,5 +24,67 @@ export const formatter = {
   output: 'Formatlash natijasi',
   placeholder: 'Formatini o\'zgartirish uchun JSON ma\'lumotlaringizni bu yerga joylashtiring',
   error: 'JSON tahlil qilishda xato: ',
-  unknown: 'JSON tahlil qilishda noma\'lum xato'
+  unknown: 'JSON tahlil qilishda noma\'lum xato',
+
+  // How to Use Section
+  howToUse: {
+    title: 'JSON Formatlash vositasidan qanday foydalanish',
+    steps: [
+      {
+        title: 'JSON ma\'lumotlaringizni joylashtiring',
+        description: 'Formatlashmagan, kichiklashtirilgan yoki chalkash JSON ma\'lumotlaringizni kiritish tahrirlovchisiga nusxalang va joylashtiring. Bizning vositamiz har qanday hajm va murakkablikdagi JSON bilan ishlaydi.'
+      },
+      {
+        title: 'Formatlash parametrlarini tanlang',
+        description: 'Afzal ko\'rgan chekinish hajmini (2, 4 yoki 8 bo\'sh joy), qavs uslubini va qator kengligini tanlang, chiqish formatini sozlash uchun.'
+      },
+      {
+        title: 'Darhol formatlang',
+        description: '"Formatlash" tugmasini bosing yoki avtomatik formatini ishlatib, JSON ni toza, o\'qilishi oson va to\'g\'ri tuzilgan kodga aylantiring.'
+      },
+      {
+        title: 'Nusxalash yoki yuklab olish',
+        description: 'Nusxalash tugmasidan foydalanib, formatlangan JSON ni klipbordga tezda nusxalang yoki keyingi foydalanish uchun fayl sifatida yuklab oling.'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'Ko\'p beriladigan savollar',
+    items: [
+      {
+        question: 'JSON formatlash nima va nima uchun kerak?',
+        answer: 'JSON formatlash (go\'zallashtirish ham deyiladi) siqilgan yoki kichiklashtirilgan JSON ni to\'g\'ri chekinish, qator uzilishlari va bo\'shliqlar bilan o\'qilishi mumkin bo\'lgan formatga aylantiradi. Bu nosozliklarni tuzatish, ma\'lumotlar tuzilishini tushunish, API javoblarini ko\'rib chiqish va kod sifatini saqlashni osonlashtiradi.'
+      },
+      {
+        question: 'Katta JSON fayllarini formatlashim mumkinmi?',
+        answer: 'Ha, bizning JSON formatlash vositamiz katta JSON fayllarini samarali ishlashga qodir. Vosita ishlash uchun optimallashtirilgan va murakkab ichki o\'zgaruvchilar, massivlar va keng ma\'lumotlar tuzilmalarini ishlash muammolarisiz qayta ishlaydi.'
+      },
+      {
+        question: 'Qanday chekinish parametrlari mavjud?',
+        answer: 'Chekinish uchun 2, 4 yoki 8 bo\'sh joy o\'rtasida tanlashingiz mumkin. Bundan tashqari, turli qavs uslublarini (yig\'ish, kengaytirish yoki inlaynni saqlash) tanlashingiz va optimal o\'qilish uchun maxsus qator kengligi chegaralarini belgilashingiz mumkin.'
+      },
+      {
+        question: 'Ushbu vositani ishlatishda JSON ma\'lumotlarim xavfsizmi?',
+        answer: 'Albatta! Barcha JSON formatlash mijoz tomoni JavaScript yordamida brauzeuringizda mahalliy ravishda amalga oshiriladi. Sizning ma\'lumotlaringiz hech qachon qurilmangizni tark etmaydi yoki serverlarimizga yuklanmaydi, bu to\'liq maxfiylik va xavfsizlikni ta\'minlaydi.'
+      },
+      {
+        question: 'Formatlash vositasi JSON xatolarini aniqlay oladimi?',
+        answer: 'Ha, bizning formatlash vositasida o\'rnatilgan JSON tasdiqlash mavjud. Agar kiritishingizda sintaksis xatolari bo\'lsa, vosita aniq joylashuvni belgilaydi va muammolarni tezda hal qilishga yordam beradigan batafsil xato xabarlarini beradi.'
+      },
+      {
+        question: 'Formatlangan JSON ni qanday fayl formatlarida eksport qilishim mumkin?',
+        answer: 'Formatlangan JSON ni darhol klipbordga nusxalashingiz yoki .json fayli sifatida yuklab olishingiz mumkin. Formatlangan chiqish to\'g\'ri JSON sintaksisini saqlaydi va dasturlaringiz, API yoki sozlash fayllaringizda bevosita ishlatilishi mumkin.'
+      },
+      {
+        question: 'Formatlash vositasi JSON5 yoki boshqa JSON variantlarini qo\'llab-quvvatlaydi mi?',
+        answer: 'Bizning formatlash vositasi standart JSON (RFC 7159) uchun optimallashtirilgan. Ba\'zi JSON5 xususiyatlarini qo\'llab-quvvatlashi mumkin bo\'lsa ham, eng yaxshi natijalar va maksimal moslashuvchanlik uchun standart JSON formatidan foydalanishni tavsiya etamiz.'
+      },
+      {
+        question: 'Formatlash uslubini sozlashim mumkinmi?',
+        answer: 'Ha! Chekinish hajmi, qavs uslubi, qator kengligi va yangi qator saqlashni sozlashingiz mumkin. Bu parametrlar jamoangizning kodlash standartlari yoki shaxsiy afzalliklaringizga muvofiq JSON ni formatlashga imkon beradi.'
+      }
+    ]
+  }
 }; 

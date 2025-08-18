@@ -26,5 +26,59 @@ export const schemaValidator = {
   strictModeDescription: 'Aplicar restricciones de validación adicionales no especificadas en la especificación de Esquema JSON',
   jsonParseError: 'Error de Análisis JSON',
   schemaParseError: 'Error de Análisis de Esquema',
-  rules: 'Reglas de Validación Comunes'
+  rules: 'Reglas de Validación Comunes',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Cómo Usar el Validador de Esquema JSON',
+    steps: [
+      {
+        title: 'Preparar Datos JSON',
+        description: 'Pega tus datos JSON que quieres validar en el área de "Datos JSON". Estos son los datos que serán verificados contra las reglas del esquema especificado.'
+      },
+      {
+        title: 'Definir Esquema JSON',
+        description: 'Introduce el esquema JSON que define la estructura esperada, tipos de datos, campos requeridos y restricciones de validación en el área de "Esquema JSON".'
+      },
+      {
+        title: 'Configurar Opciones',
+        description: 'Ajusta las opciones de validación como el modo estricto según tus necesidades. El modo estricto aplica restricciones adicionales más allá del estándar JSON Schema.'
+      },
+      {
+        title: 'Ejecutar Validación',
+        description: 'Haz clic en "Validar" para verificar si tus datos JSON cumplen con las especificaciones del esquema. Los resultados mostrarán éxito o errores específicos con detalles de ubicación.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Preguntas Frecuentes del Validador de Esquema',
+    items: [
+      {
+        question: '¿Qué es un esquema JSON y por qué debería usarlo?',
+        answer: 'Un esquema JSON define la estructura esperada, tipos de datos y restricciones para datos JSON. Usarlo asegura consistencia de datos, previene errores en aplicaciones, facilita documentación de API y permite validación automática de entrada de usuarios.'
+      },
+      {
+        question: '¿Qué tipos de validaciones puedo definir en un esquema JSON?',
+        answer: 'Los esquemas JSON soportan validación de tipos (string, number, boolean, array, object), campos requeridos, restricciones de longitud, patrones de expresiones regulares, valores enum, límites numéricos, validaciones de formato y validaciones condicionales complejas.'
+      },
+      {
+        question: '¿Cómo interpreto los mensajes de error de validación?',
+        answer: 'Los mensajes de error incluyen la ruta específica al elemento problemático, el tipo de violación (ej: tipo incorrecto, campo requerido faltante), el valor esperado versus el actual, y sugerencias para corregir el problema.'
+      },
+      {
+        question: '¿Puedo validar arrays de objetos con diferentes estructuras?',
+        answer: 'Sí, puedes usar "oneOf", "anyOf" o "allOf" en tu esquema para validar elementos de array que pueden tener diferentes estructuras válidas. También puedes definir esquemas específicos para diferentes tipos de elementos.'
+      },
+      {
+        question: '¿Qué hace exactamente el modo estricto?',
+        answer: 'El modo estricto aplica validaciones adicionales como prohibir propiedades adicionales no definidas en el esquema, imponer restricciones de formato más rígidas y rechazar valores que técnicamente son válidos JSON pero no se ajustan a las mejores prácticas.'
+      },
+      {
+        question: '¿Puedo usar esta herramienta para validar respuestas de API?',
+        answer: 'Absolutamente. Esta herramienta es perfecta para validar respuestas de API, datos de formularios, archivos de configuración y cualquier dato JSON contra contratos o especificaciones predefinidas para asegurar integridad y consistencia.'
+      }
+    ]
+  }
 }; 

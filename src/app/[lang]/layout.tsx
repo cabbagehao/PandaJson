@@ -44,7 +44,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className} bg-gray-50 dark:bg-gray-900`}>
+      <body className={`${inter.className} bg-gray-50 dark:bg-gray-900`} suppressHydrationWarning>
         <div className="min-h-screen flex flex-col">
           <Navbar locale={locale} translations={t} />
           <main className="flex-grow container mx-auto px-4 py-8">{children}</main>

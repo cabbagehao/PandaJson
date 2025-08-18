@@ -24,5 +24,67 @@ export const formatter = {
   output: 'Formatting Result',
   placeholder: 'Paste your JSON data here to format',
   error: 'JSON parsing error: ',
-  unknown: 'Unknown error while parsing JSON'
+  unknown: 'Unknown error while parsing JSON',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'How to Use the JSON Formatter',
+    steps: [
+      {
+        title: 'Paste Your JSON',
+        description: 'Copy and paste your unformatted, minified, or messy JSON data into the input editor. Our tool accepts JSON of any size and complexity.'
+      },
+      {
+        title: 'Choose Formatting Options',
+        description: 'Select your preferred indentation size (2, 4, or 8 spaces), brace style, and line width to customize the output format.'
+      },
+      {
+        title: 'Format Instantly',
+        description: 'Click the "Format" button or use automatic formatting to transform your JSON into clean, readable code with proper structure.'
+      },
+      {
+        title: 'Copy or Download',
+        description: 'Use the copy button to quickly copy the formatted JSON to your clipboard, or download it as a file for later use.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Frequently Asked Questions',
+    items: [
+      {
+        question: 'What is JSON formatting and why do I need it?',
+        answer: 'JSON formatting (also called beautifying) transforms compressed or minified JSON into a readable format with proper indentation, line breaks, and spacing. This makes it easier to debug, understand data structure, review API responses, and maintain code quality.'
+      },
+      {
+        question: 'Can I format large JSON files?',
+        answer: 'Yes, our JSON formatter can handle large JSON files efficiently. The tool is optimized for performance and can process complex nested objects, arrays, and extensive data structures without performance issues.'
+      },
+      {
+        question: 'What indentation options are available?',
+        answer: 'You can choose between 2, 4, or 8 spaces for indentation. Additionally, you can select different brace styles (collapse, expand, or preserve inline) and set custom line width limits for optimal readability.'
+      },
+      {
+        question: 'Is my JSON data secure when using this tool?',
+        answer: 'Absolutely! All JSON formatting is performed locally in your browser using client-side JavaScript. Your data never leaves your device or gets uploaded to our servers, ensuring complete privacy and security.'
+      },
+      {
+        question: 'Can the formatter detect JSON errors?',
+        answer: 'Yes, our formatter includes built-in JSON validation. If your input contains syntax errors, the tool will highlight the specific location and provide detailed error messages to help you fix the issues quickly.'
+      },
+      {
+        question: 'What file formats can I export formatted JSON as?',
+        answer: 'You can copy the formatted JSON to your clipboard instantly, or download it as a .json file. The formatted output maintains proper JSON syntax and can be used directly in your applications, APIs, or configuration files.'
+      },
+      {
+        question: 'Does the formatter support JSON5 or other JSON variants?',
+        answer: 'Our formatter is optimized for standard JSON (RFC 7159). While it may handle some JSON5 features, we recommend using standard JSON format for the best results and maximum compatibility.'
+      },
+      {
+        question: 'Can I customize the formatting style?',
+        answer: 'Yes! You can customize indentation size, brace style, line width, and newline preservation. These options allow you to format JSON according to your team\'s coding standards or personal preferences.'
+      }
+    ]
+  }
 }; 

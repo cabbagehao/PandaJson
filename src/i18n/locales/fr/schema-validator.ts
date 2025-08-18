@@ -26,5 +26,59 @@ export const schemaValidator = {
   strictModeDescription: 'Appliquer des contraintes de validation supplémentaires non spécifiées dans la spécification JSON Schema',
   jsonParseError: 'Erreur d\'Analyse JSON',
   schemaParseError: 'Erreur d\'Analyse de Schéma',
-  rules: 'Règles de Validation Courantes'
+  rules: 'Règles de Validation Courantes',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Comment Utiliser le Validateur de Schéma JSON',
+    steps: [
+      {
+        title: 'Préparer les Données JSON',
+        description: 'Collez vos données JSON que vous voulez valider dans la zone "Données JSON". Ce sont les données qui seront vérifiées contre les règles du schéma spécifié.'
+      },
+      {
+        title: 'Définir le Schéma JSON',
+        description: 'Entrez le schéma JSON qui définit la structure attendue, les types de données, les champs requis et les contraintes de validation dans la zone "Schéma JSON".'
+      },
+      {
+        title: 'Configurer les Options',
+        description: 'Ajustez les options de validation comme le mode strict selon vos besoins. Le mode strict applique des contraintes supplémentaires au-delà du standard JSON Schema.'
+      },
+      {
+        title: 'Exécuter la Validation',
+        description: 'Cliquez sur "Valider" pour vérifier si vos données JSON se conforment aux spécifications du schéma. Les résultats montreront le succès ou les erreurs spécifiques avec les détails de localisation.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Questions Fréquentes du Validateur de Schéma',
+    items: [
+      {
+        question: 'Qu\'est-ce qu\'un schéma JSON et pourquoi devrais-je l\'utiliser ?',
+        answer: 'Un schéma JSON définit la structure attendue, les types de données et les contraintes pour les données JSON. L\'utiliser assure la cohérence des données, prévient les erreurs d\'application, facilite la documentation API et permet la validation automatique des entrées utilisateur.'
+      },
+      {
+        question: 'Quels types de validations puis-je définir dans un schéma JSON ?',
+        answer: 'Les schémas JSON supportent la validation des types (string, number, boolean, array, object), les champs requis, les contraintes de longueur, les motifs d\'expressions régulières, les valeurs enum, les limites numériques, les validations de format et les validations conditionnelles complexes.'
+      },
+      {
+        question: 'Comment interpréter les messages d\'erreur de validation ?',
+        answer: 'Les messages d\'erreur incluent le chemin spécifique vers l\'élément problématique, le type de violation (ex: type incorrect, champ requis manquant), la valeur attendue versus actuelle, et des suggestions pour corriger le problème.'
+      },
+      {
+        question: 'Puis-je valider des tableaux d\'objets avec différentes structures ?',
+        answer: 'Oui, vous pouvez utiliser "oneOf", "anyOf" ou "allOf" dans votre schéma pour valider des éléments de tableau qui peuvent avoir différentes structures valides. Vous pouvez aussi définir des schémas spécifiques pour différents types d\'éléments.'
+      },
+      {
+        question: 'Que fait exactement le mode strict ?',
+        answer: 'Le mode strict applique des validations supplémentaires comme interdire les propriétés additionnelles non définies dans le schéma, imposer des contraintes de format plus rigides et rejeter les valeurs qui sont techniquement du JSON valide mais ne respectent pas les meilleures pratiques.'
+      },
+      {
+        question: 'Puis-je utiliser cet outil pour valider les réponses API ?',
+        answer: 'Absolument. Cet outil est parfait pour valider les réponses API, les données de formulaires, les fichiers de configuration et toutes données JSON contre des contrats ou spécifications prédéfinies pour assurer l\'intégrité et la cohérence.'
+      }
+    ]
+  }
 }; 

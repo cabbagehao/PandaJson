@@ -18,7 +18,9 @@ export const treeEditor = {
   treeView: 'Chế độ cây',
   jsonText: 'Văn bản JSON',
   jsonTree: 'Cấu trúc cây JSON',
+  jsonLabel: 'Nhãn JSON',
   placeholder: 'Nhập hoặc dán dữ liệu JSON vào đây',
+  placeholderText: 'Nhập hoặc dán dữ liệu JSON vào đây',
   loadExample: 'Tải Ví Dụ',
   copy: 'Sao chép',
   download: 'Tải xuống',
@@ -52,5 +54,59 @@ export const treeEditor = {
   keyNameEmpty: 'Tên khóa không thể để trống',
   addFailed: 'Thêm thất bại',
   invalidValue: 'Giá trị không hợp lệ',
-  save: 'Lưu'
+  save: 'Lưu',
+
+  // How to Use Section
+  howToUse: {
+    title: 'Cách Sử Dụng Trình Chỉnh Sửa Cây JSON',
+    steps: [
+      {
+        title: 'Nhập Dữ Liệu JSON',
+        description: 'Dán dữ liệu JSON vào khu vực văn bản hoặc nhấp "Tải Ví Dụ" để bắt đầu. JSON sẽ được tự động phân tích và hiển thị dưới dạng cấu trúc cây tương tác có thể chỉnh sửa.'
+      },
+      {
+        title: 'Điều Hướng và Chỉnh Sửa Cây',
+        description: 'Sử dụng giao diện cây trực quan để mở rộng/thu gọn nút, thêm thuộc tính mới, chỉnh sửa giá trị hoặc xóa các mục. Mỗi thao tác được xác thực ngay lập tức để tránh lỗi cú pháp.'
+      },
+      {
+        title: 'Thêm và Sửa Đổi Nội Dung',
+        description: 'Nhấp các nút hành động để thêm đối tượng, mảng hoặc thuộc tính mới. Chỉnh sửa giá trị trực tiếp trong cây hoặc thay đổi kiểu dữ liệu bằng các điều khiển thả xuống.'
+      },
+      {
+        title: 'Xuất JSON Đã Chỉnh Sửa',
+        description: 'Các thay đổi được phản ánh tức thì trong chế độ xem JSON được định dạng. Sử dụng các nút sao chép hoặc tải xuống để lưu kết quả cuối cùng cho ứng dụng của bạn.'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'Câu Hỏi Thường Gặp về Trình Chỉnh Sửa Cây JSON',
+    items: [
+      {
+        question: 'Tôi có thể chỉnh sửa JSON có cấu trúc lồng nhau sâu không?',
+        answer: 'Có! Trình chỉnh sửa cây được thiết kế đặc biệt để xử lý các cấu trúc JSON phức tạp và lồng nhau sâu. Giao diện cây cho phép bạn dễ dàng điều hướng và chỉnh sửa ở bất kỳ cấp độ nào mà không bị lạc trong cú pháp.'
+      },
+      {
+        question: 'Các thay đổi có được xác thực ngay lập tức không?',
+        answer: 'Có, mọi chỉnh sửa được xác thực theo thời gian thực để đảm bảo JSON của bạn luôn hợp lệ. Công cụ ngăn chặn các hành động có thể tạo ra cú pháp không hợp lệ và cung cấp phản hồi tức thì về bất kỳ vấn đề nào.'
+      },
+      {
+        question: 'Tôi có thể hoàn tác các thay đổi nếu mắc lỗi không?',
+        answer: 'Có, trình chỉnh sửa bao gồm chức năng hoàn tác/làm lại cho phép bạn quay lại các trạng thái trước đó. Bạn có thể tự tin thử nghiệm với dữ liệu JSON của mình, biết rằng bạn có thể dễ dàng đảo ngược các thay đổi.'
+      },
+      {
+        question: 'Những kiểu dữ liệu nào được hỗ trợ trong trình chỉnh sửa?',
+        answer: 'Trình chỉnh sửa hỗ trợ tất cả các kiểu dữ liệu JSON tiêu chuẩn: chuỗi, số, boolean, null, đối tượng và mảng. Bạn có thể dễ dàng chuyển đổi giữa các kiểu và công cụ sẽ xử lý định dạng phù hợp.'
+      },
+      {
+        question: 'Trình chỉnh sửa có thể xử lý các tệp JSON lớn không?',
+        answer: 'Có, trình chỉnh sửa cây được tối ưu hóa hiệu suất và có thể xử lý các tệp JSON lớn. Giao diện cây cung cấp khả năng mở rộng/thu gọn hiệu quả để quản lý các bộ dữ liệu lớn mà không ảnh hưởng đến hiệu suất.'
+      },
+      {
+        question: 'Tôi có thể sao chép một phần cụ thể của cây JSON không?',
+        answer: 'Hiện tại, chức năng sao chép xuất toàn bộ JSON đã chỉnh sửa. Tuy nhiên, bạn có thể sử dụng chế độ xem văn bản để chọn và sao chép các phần cụ thể, hoặc tạo một JSON mới chỉ chứa dữ liệu bạn cần.'
+      }
+    ]
+  }
 }; 

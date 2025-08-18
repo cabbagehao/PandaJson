@@ -58,5 +58,67 @@ export const converter = {
   alerts: {
     copySuccess: 'Copiado para a área de transferência',
     copyFailed: 'Falha ao copiar'
+  },
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Como Usar o Conversor JSON',
+    steps: [
+      {
+        title: 'Selecione o Tipo de Conversão',
+        description: 'Escolha o formato de entrada e saída desejado nas opções de conversão. Suportamos JSON, YAML, XML e CSV em conversões bidirecionais.'
+      },
+      {
+        title: 'Cole seus Dados',
+        description: 'Insira seus dados no campo de entrada. O conversor aceita dados de qualquer tamanho e automaticamente detecta problemas de formatação.'
+      },
+      {
+        title: 'Converta Instantaneamente',
+        description: 'Clique em "Converter" para transformar seus dados. A conversão acontece instantaneamente com preservação da estrutura de dados.'
+      },
+      {
+        title: 'Copie ou Baixe',
+        description: 'Use os botões de ação para copiar o resultado para a área de transferência ou baixar como arquivo para uso em suas aplicações.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Perguntas Frequentes',
+    items: [
+      {
+        question: 'Que formatos de conversão são suportados?',
+        answer: 'Suportamos conversão bidirecional entre JSON e YAML, XML, CSV. Você pode converter de qualquer um desses formatos para qualquer outro, mantendo a estrutura e integridade dos dados sempre que possível.'
+      },
+      {
+        question: 'Como a estrutura de dados é preservada durante a conversão?',
+        answer: 'Nosso conversor mantém estruturas hierárquicas, tipos de dados e relações sempre que o formato de destino suportar. Para formatos limitados como CSV, dados complexos são achatados de forma inteligente.'
+      },
+      {
+        question: 'Posso converter arquivos grandes?',
+        answer: 'Sim, nosso conversor é otimizado para lidar com arquivos grandes e estruturas de dados complexas de forma eficiente. Processa rapidamente grandes conjuntos de dados sem problemas de performance.'
+      },
+      {
+        question: 'O que acontece com dados aninhados ao converter para CSV?',
+        answer: 'Ao converter para CSV, objetos aninhados são achatados usando notação de ponto (ex: user.address.city). Arrays complexos são serializados como strings para manter a integridade dos dados.'
+      },
+      {
+        question: 'Meus dados estão seguros durante a conversão?',
+        answer: 'Absolutamente! Todas as conversões são realizadas localmente no seu navegador. Seus dados nunca deixam seu dispositivo ou são enviados para servidores externos, garantindo total privacidade.'
+      },
+      {
+        question: 'O conversor valida os dados de entrada?',
+        answer: 'Sim, o conversor inclui validação para todos os formatos suportados. Se os dados de entrada contiverem erros de sintaxe, você receberá mensagens de erro específicas para ajudar na correção.'
+      },
+      {
+        question: 'Posso personalizar a saída da conversão?',
+        answer: 'O conversor aplica as melhores práticas para cada formato automaticamente. Isso inclui indentação adequada para YAML, estrutura XML válida e formatação CSV padrão.'
+      },
+      {
+        question: 'Como baixar os dados convertidos?',
+        answer: 'Use o botão "Baixar" para salvar os dados convertidos como arquivo com a extensão apropriada (.json, .yaml, .xml, .csv). O arquivo estará pronto para uso imediato em suas aplicações.'
+      }
+    ]
   }
 }; 

@@ -26,5 +26,59 @@ export const schemaValidator = {
   strictModeDescription: 'Enforce additional validation constraints not specified in the JSON Schema spec',
   jsonParseError: 'JSON Parse Error',
   schemaParseError: 'Schema Parse Error',
-  rules: 'Common validation rules'
+  rules: 'Common validation rules',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'How to Use the JSON Schema Validator',
+    steps: [
+      {
+        title: 'Prepare Your JSON Data',
+        description: 'Paste your JSON data that you want to validate into the JSON Data section. This is the data that will be checked against your schema rules.'
+      },
+      {
+        title: 'Define Your Schema',
+        description: 'Enter your JSON Schema in the JSON Schema section. The schema defines the structure, data types, and validation rules your JSON must follow.'
+      },
+      {
+        title: 'Run Validation',
+        description: 'Click the "Validate" button to check your JSON data against the schema. The validator will process both documents and identify any compliance issues.'
+      },
+      {
+        title: 'Review Results',
+        description: 'Examine the validation results which show either success confirmation or detailed error messages with specific locations where the data fails schema requirements.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'JSON Schema Validator FAQ',
+    items: [
+      {
+        question: 'What is JSON Schema and why should I use it?',
+        answer: 'JSON Schema is a vocabulary that allows you to annotate and validate JSON documents. It defines contracts for JSON data, ensures API consistency, validates user input, and provides clear documentation of data structure requirements.'
+      },
+      {
+        question: 'Which JSON Schema versions are supported?',
+        answer: 'Our validator supports JSON Schema Draft-07, Draft-06, Draft-04, and the latest specifications. The validator automatically detects the schema version based on the $schema property in your schema document.'
+      },
+      {
+        question: 'Can I validate nested objects and arrays with schemas?',
+        answer: 'Yes! JSON Schema fully supports nested validation with properties for objects, items for arrays, and complex validation rules including conditionals, dependencies, and recursive schema references.'
+      },
+      {
+        question: 'How detailed are the validation error messages?',
+        answer: 'Our validator provides comprehensive error messages including the exact path to the invalid data, the specific validation rule that failed, expected vs actual values, and suggestions for fixing the issues.'
+      },
+      {
+        question: 'Can I use custom validation keywords in my schema?',
+        answer: 'The validator supports all standard JSON Schema keywords including type, properties, required, pattern, minimum, maximum, enum, and many others. Custom keywords from extensions may have limited support.'
+      },
+      {
+        question: 'Is this validator suitable for API contract testing?',
+        answer: 'Absolutely! JSON Schema validation is perfect for API contract testing, ensuring request/response data matches expected formats, and maintaining consistency across different API versions and environments.'
+      }
+    ]
+  }
 }; 

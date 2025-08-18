@@ -26,5 +26,67 @@ export const schemaValidator = {
   strictModeDescription: 'Aplicar restrições de validação adicionais não especificadas na especificação JSON Schema',
   jsonParseError: 'Erro de Análise JSON',
   schemaParseError: 'Erro de Análise de Schema',
-  rules: 'Regras de Validação Comuns'
+  rules: 'Regras de Validação Comuns',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Como Usar o Validador de Schema JSON',
+    steps: [
+      {
+        title: 'Prepare seus Dados',
+        description: 'Cole seus dados JSON no campo "Dados JSON" e seu schema JSON no campo "Schema JSON". Ambos devem ser JSON válido para prosseguir com a validação.'
+      },
+      {
+        title: 'Configure as Opções',
+        description: 'Escolha suas preferências de validação, incluindo modo estrito para restrições adicionais não especificadas na especificação JSON Schema.'
+      },
+      {
+        title: 'Execute a Validação',
+        description: 'Clique em "Validar" para verificar se seus dados JSON estão em conformidade com o schema. O processo é instantâneo e fornece feedback detalhado.'
+      },
+      {
+        title: 'Revise os Resultados',
+        description: 'Se válido, você verá uma confirmação. Se inválido, erros detalhados mostrarão exatamente onde e por que a validação falhou.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Perguntas Frequentes',
+    items: [
+      {
+        question: 'O que é JSON Schema e por que devo usá-lo?',
+        answer: 'JSON Schema é um padrão para descrever e validar estruturas de dados JSON. Define regras para tipos de dados, propriedades obrigatórias, formatos e restrições, garantindo consistência e qualidade dos dados em suas aplicações.'
+      },
+      {
+        question: 'Como crio um schema JSON para meus dados?',
+        answer: 'Comece definindo o tipo raiz (object/array), depois especifique propriedades, seus tipos e restrições. Use palavras-chave como "required", "properties", "type", "format" para definir regras de validação.'
+      },
+      {
+        question: 'Quais restrições de validação são suportadas?',
+        answer: 'Suportamos todas as restrições padrão do JSON Schema: tipos de dados, valores obrigatórios, limites numéricos, comprimento de strings, padrões regex, enumerações e muito mais.'
+      },
+      {
+        question: 'O que significa "Modo Estrito" na validação?',
+        answer: 'Modo Estrito aplica restrições adicionais como proibir propriedades não especificadas no schema, aplicar validação mais rigorosa de tipos e garantir conformidade total com especificações.'
+      },
+      {
+        question: 'Posso validar arrays e objetos aninhados?',
+        answer: 'Sim! O validador suporta estruturas JSON complexas incluindo arrays aninhados, objetos profundos e schemas recursivos. Defina regras para cada nível da hierarquia de dados.'
+      },
+      {
+        question: 'Como interpreto as mensagens de erro de validação?',
+        answer: 'Mensagens de erro mostram o caminho exato dos dados que falharam na validação, a regra violada e valores esperados versus atuais. Use essas informações para corrigir seus dados ou schema.'
+      },
+      {
+        question: 'Posso usar schemas de especificações de API como OpenAPI?',
+        answer: 'Sim, schemas de OpenAPI/Swagger são compatibles com JSON Schema. Extraia a seção de schema da especificação da API e use-a diretamente para validação.'
+      },
+      {
+        question: 'Meus dados e schemas são seguros durante a validação?',
+        answer: 'Absolutamente! Toda validação é feita localmente no seu navegador. Nem seus dados nem schemas são enviados para servidores externos, garantindo total privacidade e segurança.'
+      }
+    ]
+  }
 }; 

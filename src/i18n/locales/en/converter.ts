@@ -58,5 +58,67 @@ export const converter = {
   alerts: {
     copySuccess: 'Copied to clipboard',
     copyFailed: 'Copy failed'
+  },
+  
+  // How to Use Section
+  howToUse: {
+    title: 'How to Use the JSON Converter',
+    steps: [
+      {
+        title: 'Choose Conversion Type',
+        description: 'Select your desired conversion from the dropdown menu: JSON to YAML, JSON to XML, JSON to CSV, or any reverse conversion.'
+      },
+      {
+        title: 'Paste Your Data',
+        description: 'Copy and paste your source data into the input editor. The converter accepts JSON, YAML, XML, or CSV depending on your selected conversion type.'
+      },
+      {
+        title: 'Convert Instantly',
+        description: 'Click the "Convert" button to transform your data. The conversion happens instantly with real-time error checking and validation.'
+      },
+      {
+        title: 'Copy or Download',
+        description: 'Use the copy button to copy the converted data to your clipboard, or download it as a file for later use in your projects.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'JSON Converter FAQ',
+    items: [
+      {
+        question: 'What formats can I convert to and from?',
+        answer: 'Our converter supports bidirectional conversion between JSON, YAML, XML, and CSV formats. You can convert JSON to any of these formats, or convert YAML, XML, or CSV back to JSON, giving you complete flexibility for data transformation.'
+      },
+      {
+        question: 'How does JSON to CSV conversion work?',
+        answer: 'JSON to CSV conversion works best with JSON arrays containing objects with consistent properties. Each object becomes a row, and object properties become columns. For nested objects, the converter flattens the structure to create CSV-compatible format.'
+      },
+      {
+        question: 'Are nested JSON structures preserved during conversion?',
+        answer: 'The preservation of nested structures depends on the target format. YAML and XML fully support nested data. For CSV conversion, nested structures are flattened with dot notation (e.g., user.name) to maintain data relationships.'
+      },
+      {
+        question: 'Can I convert XML with attributes and namespaces?',
+        answer: 'Yes, our XML converter handles attributes, namespaces, and complex XML structures. When converting XML to JSON, attributes are preserved with special notation, and the reverse conversion maintains proper XML structure.'
+      },
+      {
+        question: 'What happens if my data has conversion errors?',
+        answer: 'If conversion errors occur, detailed error messages are displayed showing exactly what went wrong and where. Common issues include invalid JSON syntax, unsupported XML structures, or CSV format problems.'
+      },
+      {
+        question: 'Is the converted data identical to the original?',
+        answer: 'We strive for high fidelity conversion while respecting format limitations. Some data type information may be lost (e.g., numbers vs strings in CSV), but structural and content integrity is maintained throughout the conversion process.'
+      },
+      {
+        question: 'Can I convert large datasets?',
+        answer: 'Yes, our converter is optimized for performance and can handle large datasets efficiently. The conversion process is streamlined to work with substantial amounts of data without browser performance issues.'
+      },
+      {
+        question: 'Are there any file size limits?',
+        answer: 'There are no hard file size limits, but very large files (over 10MB) may experience slower processing depending on your device\'s capabilities. For optimal performance, we recommend processing extremely large files in smaller chunks.'
+      }
+    ]
   }
 }; 

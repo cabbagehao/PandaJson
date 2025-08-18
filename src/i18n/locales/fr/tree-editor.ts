@@ -54,5 +54,59 @@ export const treeEditor = {
   keyNameEmpty: 'Le nom de la clé ne peut pas être vide',
   addFailed: 'Échec de l\'ajout',
   invalidValue: 'Valeur invalide',
-  save: 'Enregistrer'
+  save: 'Enregistrer',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Comment Utiliser l\'Éditeur d\'Arbre JSON',
+    steps: [
+      {
+        title: 'Charger le JSON',
+        description: 'Collez vos données JSON dans l\'éditeur de texte ou chargez un fichier JSON. L\'outil analysera automatiquement votre JSON et affichera sa structure comme un arbre navigable et interactif.'
+      },
+      {
+        title: 'Naviguer dans l\'Arbre',
+        description: 'Utilisez la vue arborescente pour explorer votre structure JSON. Développez ou réduisez les nœuds pour voir les objets imbriqués et les tableaux. Chaque élément est affiché avec son type et sa valeur correspondants.'
+      },
+      {
+        title: 'Éditer les Valeurs',
+        description: 'Cliquez sur n\'importe quelle valeur pour l\'éditer directement. Vous pouvez modifier les chaînes, nombres, booléens, ou changer les types de données. Ajoutez de nouvelles propriétés et éléments de tableau en utilisant les contrôles de l\'arbre.'
+      },
+      {
+        title: 'Exporter le Résultat',
+        description: 'Une fois que vous avez terminé l\'édition, copiez le JSON mis à jour dans le presse-papiers ou téléchargez-le comme fichier. Tous les changements se reflètent instantanément dans la sortie JSON.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Questions Fréquentes de l\'Éditeur',
+    items: [
+      {
+        question: 'Quels sont les avantages de l\'éditeur d\'arbre par rapport à l\'édition de texte JSON ?',
+        answer: 'L\'éditeur d\'arbre prévient les erreurs de syntaxe, fournit une navigation visuelle des structures complexes, permet l\'édition sans connaître la syntaxe JSON, et offre une vue claire des relations hiérarchiques. Il est particulièrement utile pour JSON profondément imbriqué.'
+      },
+      {
+        question: 'Puis-je ajouter de nouveaux éléments aux tableaux et objets existants ?',
+        answer: 'Oui, vous pouvez facilement ajouter de nouveaux éléments en utilisant les boutons "Ajouter un élément" et "Ajouter une propriété". Pour les tableaux, de nouveaux éléments sont ajoutés à la fin. Pour les objets, vous pouvez spécifier le nom de clé et la valeur pour les nouvelles propriétés.'
+      },
+      {
+        question: 'Comment changer le type de données d\'une valeur existante ?',
+        answer: 'Lors de l\'édition d\'une valeur, vous pouvez utiliser le sélecteur de type pour basculer entre string, number, boolean, null, array ou object. L\'éditeur validera automatiquement la nouvelle valeur selon le type sélectionné.'
+      },
+      {
+        question: 'Les changements dans l\'éditeur d\'arbre peuvent-ils être annulés ?',
+        answer: 'L\'éditeur maintient un historique des changements et supporte les opérations d\'annulation/rétablissement. Vous pouvez annuler les modifications accidentelles en utilisant les boutons d\'annulation ou revenir au JSON original à tout moment.'
+      },
+      {
+        question: 'Que se passe-t-il si mon JSON est trop volumineux pour l\'éditeur d\'arbre ?',
+        answer: 'L\'éditeur gère efficacement les gros fichiers JSON en utilisant le rendu paresseux et la virtualisation. Les très grandes structures peuvent afficher seulement les parties visibles pour maintenir les performances tout en restant entièrement éditables.'
+      },
+      {
+        question: 'Les changements dans la vue arborescente se mettent-ils à jour automatiquement dans la sortie JSON ?',
+        answer: 'Oui, l\'éditeur maintient une synchronisation bidirectionnelle entre la vue arborescente et la sortie JSON. Les changements faits dans l\'arbre se reflètent immédiatement dans le texte JSON et vice versa, fournissant un retour en temps réel.'
+      }
+    ]
+  }
 }; 

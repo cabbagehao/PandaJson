@@ -18,5 +18,67 @@ export const minifier = {
   compressionResult: '壓縮結果',
   originalSize: '原始大小',
   compressedSize: '壓縮後大小',
-  compressionRatio: '壓縮比率'
+  compressionRatio: '壓縮比率',
+  
+  // How to Use Section
+  howToUse: {
+    title: '如何使用JSON壓縮工具',
+    steps: [
+      {
+        title: '貼上您的JSON',
+        description: '在輸入欄位中插入或貼上您格式化的JSON數據。壓縮工具接受任何大小和複雜度的JSON。'
+      },
+      {
+        title: '立即壓縮',
+        description: '點擊「壓縮JSON」來移除不必要的空白、換行和縮進，建立您數據的緊密版本。'
+      },
+      {
+        title: '檢視壓縮情況',
+        description: '查看壓縮統計，包括原始大小、壓縮後大小和達到的縮減百分比。'
+      },
+      {
+        title: '複製或下載',
+        description: '使用「複製」按鈕將壓縮後JSON複製到剪貼板，或「下載」來保存為優化後的文件。'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: '常見問題',
+    items: [
+      {
+        question: '什麼是JSON壓縮，為什麼我應該使用它？',
+        answer: 'JSON壓縮移除不必要的空白、換行和縮進，而不改變數據結構。它減少文件大小、提高傳輸速度和節省頁寬，對於API和行動應用程序尤其重要。'
+      },
+      {
+        question: '我可以減少多少JSON文件大小？',
+        answer: '典型的減少範圍從20%到60%，取決於原始格式。具有大量縮進和空白的格式化JSON可以有更大的減少，而已經緊密的JSON減少較少。'
+      },
+      {
+        question: '壓縮會影響JSON數據的功能性嗎？',
+        answer: '不會！壓縮只移除視覺格式。數據結構、值和功能性保持完全相同。壓縮後JSON在所有應用程序中的功能與原始版本相同。'
+      },
+      {
+        question: '何時應使用壓縮與格式化的JSON？',
+        answer: '在生產、API、數據傳輸和儲存中使用壓縮JSON來優化性能。在開發、調試和代碼審查中使用格式化JSON以獲得更好的可讀性。'
+      },
+      {
+        question: '我可以壓縮大型JSON文件嗎？',
+        answer: '可以，我們的壓縮工具經過優化，可以高效處理大型JSON文件。它快速處理兆字節數據，同時保持性能和準確性。'
+      },
+      {
+        question: '壓縮工具會保留特殊字符和Unicode嗎？',
+        answer: '是的，所有特殊字符、Unicode、轉義和編碼都會完全按原始版本保留。只有空白和視覺格式會被移除。'
+      },
+      {
+        question: '我可以將壓縮的JSON還原為可讀格式嗎？',
+        answer: '可以！使用我們的JSON格式化工具將壓縮的JSON轉換回具有適當縮進和換行的可讀格式。'
+      },
+      {
+        question: '壓縮敏感的JSON數據安全嗎？',
+        answer: '完全安全！所有壓縮都在您的瀏覽器中本地完成。您的JSON數據永遠不會離開您的設備或發送到外部服務器，確保完全隱私。'
+      }
+    ]
+  }
 }; 

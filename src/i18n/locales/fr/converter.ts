@@ -58,5 +58,59 @@ export const converter = {
   alerts: {
     copySuccess: 'Copié dans le presse-papiers',
     copyFailed: 'Échec de la copie'
+  },
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Comment Utiliser le Convertisseur JSON',
+    steps: [
+      {
+        title: 'Sélectionner le Type de Conversion',
+        description: 'Choisissez le type de conversion dont vous avez besoin dans le menu déroulant : JSON vers YAML, JSON vers XML, JSON vers CSV, ou vice versa. Chaque format a ses propres caractéristiques spécifiques.'
+      },
+      {
+        title: 'Coller les Données Source',
+        description: 'Copiez et collez vos données dans la zone d\'entrée correspondante. L\'outil détectera automatiquement le format et validera la syntaxe avant la conversion.'
+      },
+      {
+        title: 'Convertir Instantanément',
+        description: 'Cliquez sur le bouton "Convertir" pour transformer instantanément vos données vers le format cible. La conversion préserve la structure et les types de données chaque fois que possible.'
+      },
+      {
+        title: 'Copier ou Télécharger le Résultat',
+        description: 'Une fois la conversion terminée, vous pouvez copier le résultat dans le presse-papiers pour une utilisation immédiate ou le télécharger comme fichier avec l\'extension appropriée.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Questions Fréquentes sur la Conversion',
+    items: [
+      {
+        question: 'Quels formats de conversion sont pris en charge ?',
+        answer: 'Nous prenons en charge les conversions bidirectionnelles entre JSON, YAML, XML et CSV. Cela inclut JSON vers YAML, YAML vers JSON, JSON vers XML, XML vers JSON, JSON vers CSV et CSV vers JSON. Chaque conversion maintient l\'intégrité des données chaque fois que possible.'
+      },
+      {
+        question: 'Les informations sont-elles perdues lors de la conversion entre formats ?',
+        answer: 'Dans la plupart des cas, les données sont préservées complètement. Cependant, certains formats ont des limitations : CSV ne supporte pas les objets imbriqués complexes, XML peut nécessiter des ajustements des noms d\'éléments, et certains types de données peuvent être convertis en chaînes dans certains formats.'
+      },
+      {
+        question: 'Comment l\'outil gère-t-il les structures JSON complexes lors de la conversion vers CSV ?',
+        answer: 'Pour la conversion JSON vers CSV, votre JSON doit être un tableau d\'objets avec une structure similaire. Les objets imbriqués sont aplatis en utilisant la notation par points (ex: "address.street"). Les tableaux imbriqués sont sérialisés comme des chaînes JSON.'
+      },
+      {
+        question: 'Puis-je convertir de gros fichiers entre formats ?',
+        answer: 'Oui, notre convertisseur est optimisé pour gérer efficacement de gros fichiers de données. Cependant, notez que des fichiers très volumineux peuvent prendre plus de temps à traiter et pourraient être limités par la mémoire disponible du navigateur.'
+      },
+      {
+        question: 'Les conversions XML préservent-elles les attributs et espaces de noms ?',
+        answer: 'Oui, notre convertisseur gère les attributs XML en les convertissant en propriétés spéciales dans JSON (préfixées avec @). Les espaces de noms sont préservés lorsque possible. La conversion inverse (JSON vers XML) respecte ces conventions.'
+      },
+      {
+        question: 'Que se passe-t-il si mes données source ont des erreurs de format ?',
+        answer: 'L\'outil validera vos données d\'entrée avant la conversion et affichera des messages d\'erreur spécifiques si la syntaxe est invalide. Vous devez corriger ces erreurs avant que la conversion puisse procéder.'
+      }
+    ]
   }
 }; 

@@ -103,9 +103,9 @@ export default function Navbar({ locale, translations }: NavbarProps) {
               >
                 <span className="sr-only">打开菜单</span>
                 {mobileMenuOpen ? (
-                  <FiX className="block h-6 w-6" aria-hidden="true" />
+                  <FiX className="block h-6 w-6" aria-hidden="true" suppressHydrationWarning />
                 ) : (
-                  <FiMenu className="block h-6 w-6" aria-hidden="true" />
+                  <FiMenu className="block h-6 w-6" aria-hidden="true" suppressHydrationWarning />
                 )}
               </button>
             </div>
@@ -132,7 +132,7 @@ export default function Navbar({ locale, translations }: NavbarProps) {
             className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <FiX className="block h-6 w-6" aria-hidden="true" />
+            <FiX className="block h-6 w-6" aria-hidden="true" suppressHydrationWarning />
           </button>
         </div>
         <div className="py-2">

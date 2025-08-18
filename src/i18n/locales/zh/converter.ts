@@ -58,5 +58,59 @@ export const converter = {
   alerts: {
     copySuccess: '已复制到剪贴板',
     copyFailed: '复制失败'
+  },
+
+  // How to Use Section
+  howToUse: {
+    title: '如何使用JSON转换工具',
+    steps: [
+      {
+        title: '选择转换类型',
+        description: '从下拉菜单中选择您需要的转换类型，如JSON到YAML、JSON到XML、JSON到CSV等。支持双向转换。'
+      },
+      {
+        title: '输入源数据',
+        description: '在左侧输入框中粘贴或输入要转换的数据。工具会自动检测数据格式并进行语法验证。'
+      },
+      {
+        title: '执行转换',
+        description: '点击"转换"按钮，系统会立即处理您的数据并将结果显示在右侧输出框中。'
+      },
+      {
+        title: '复制或下载',
+        description: '转换完成后，您可以复制结果到剪贴板，或点击下载按钮将转换后的文件保存到本地。'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'JSON转换常见问题',
+    items: [
+      {
+        question: '哪些数据格式之间可以互相转换？',
+        answer: '我们支持JSON、YAML、XML、CSV之间的双向转换。每种格式都有其特点：YAML适合配置文件，XML适合传统系统集成，CSV适合表格数据分析。'
+      },
+      {
+        question: '转换时数据会丢失吗？',
+        answer: '我们在转换过程中尽可能保持数据完整性。但由于格式特性不同，某些复杂嵌套结构在转换为CSV时可能会被扁平化，转换前请确认目标格式支持您的数据结构。'
+      },
+      {
+        question: 'JSON到CSV转换有什么限制？',
+        answer: 'JSON转CSV要求JSON必须是对象数组格式，且每个对象应有相同的字段结构。嵌套对象会被展平，复杂数组可能无法完美转换。'
+      },
+      {
+        question: 'YAML和JSON的主要区别是什么？',
+        answer: 'YAML语法更简洁易读，支持注释，常用于配置文件。JSON更严格紧凑，不支持注释，更适合API数据交换。两者在数据表达能力上基本相同。'
+      },
+      {
+        question: 'XML转换时如何处理属性和命名空间？',
+        answer: '我们的XML转换器能识别元素属性和文本内容，并将其合理映射到JSON结构中。属性通常转换为特殊的键名，命名空间信息会尽可能保留。'
+      },
+      {
+        question: '大文件转换会影响性能吗？',
+        answer: '我们的转换器经过优化，支持较大文件的处理。但对于特大文件，建议先进行格式验证，确保数据结构适合目标格式，以避免转换失败或性能问题。'
+      }
+    ]
   }
 }; 

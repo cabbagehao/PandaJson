@@ -21,5 +21,59 @@ export const diff = {
   removedContent: 'Olib Tashlangan Kontent',
   modifiedContent: 'O\'zgartirilgan Kontent',
   originalJson: 'Asl JSON',
-  updatedJson: 'Yangilangan JSON'
+  updatedJson: 'Yangilangan JSON',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'JSON Diff vositasi qanday ishlatiladi',
+    steps: [
+      {
+        title: 'Birinchi JSON ni joylashtiring',
+        description: 'Asl JSON ma\'lumotlaringizni chap kirish paneliga nusxalaing va joylashtiring. Bu taqqoslash uchun asos sifatida ishlatiladi.'
+      },
+      {
+        title: 'Ikkinchi JSON ni joylashtiring',
+        description: 'Yangilangan yoki o\'zgartirilgan JSON ma\'lumotlaringizni asl bilan taqqoslash uchun o\'ng kirish paneliga nusxalaing va joylashtiring.'
+      },
+      {
+        title: 'Avtomatik taqqoslang',
+        description: 'Vosita avtomatik ravishda farqlarni aniqlaydi va o\'zgarishlarni rang kodlashi bilan ta\'kidlaydi - qo\'shimchalar uchun yashil, o\'chirishlar uchun qizil va o\'zgartirishlar uchun sariq.'
+      },
+      {
+        title: 'O\'zgarishlarni ko\'rib chiqing',
+        description: 'Taqqoslash ko\'rinishidagi ta\'kidlangan farqlarni tekshiring. Nima qo\'shilgan, olib tashlangan yoki o\'zgartirilganini tushunish uchun o\'zgarishlar bo\'ylab navigatsiya qiling.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'JSON Diff vositasi tez-tez so\'raladigan savollar',
+    items: [
+      {
+        question: 'JSON diff vositasi qanday turdagi o\'zgarishlarni aniqlay oladi?',
+        answer: 'Bizning JSON diff vositamiz barcha turdagi o\'zgarishlarni aniqlaydi, jumladan qo\'shilgan xususiyatlar, o\'chirilgan xususiyatlar, o\'zgartirilgan qiymatlar, massiv o\'zgarishlari, ichki obyekt farqlari va tuzilmaviy o\'zgarishlar. O\'zgarishlar oson aniqlash uchun rang kodlanadi.'
+      },
+      {
+        question: 'Katta JSON fayllarini taqqoslay olamanmi?',
+        answer: 'Ha, bizning diff vositamiz katta JSON fayllarini va murakkab ichki tuzilmalarni samarali boshqaradi. Taqqoslash algoritmi unumdorlik uchun optimallashtirilgan va katta JSON hujjatlarini tezda qayta ishlay oladi.'
+      },
+      {
+        question: 'Ichki obyekt farqlari qanday ko\'rsatiladi?',
+        description: 'Ichki farqlar to\'g\'ri chegaralash va ierarxiya saqlanishi bilan aniq ta\'kidlanadi. Ichki JSON tuzilmalarida o\'zgarishlarni kuzatishni osonlashtiruvchi har bir darajadagi ichki joylashish to\'g\'ri vizuallashtiradi.'
+      },
+      {
+        question: 'Bu vositani API javob taqqoslash uchun ishlatishim mumkinmi?',
+        answer: 'Albatta! Bu vosita turli versiyalar, muhitlar yoki vaqt davrlari o\'rtasida API javoblarini taqqoslash uchun mukammaldir. Bu ishlab chiquvchilarga API xatti-harakatlari yoki ma\'lumot tuzilmasidagi o\'zgarishlarni tezda aniqlashga yordam beradi.'
+      },
+      {
+        question: 'Agar bir JSON noto\'g\'ri bo\'lsa nima bo\'ladi?',
+        answer: 'Agar JSON sintaksis xatolari bo\'lsa, vosita aniq masalalarni ko\'rsatuvchi xato xabarlarini ko\'rsatadi. Aniq taqqoslash natijalari uchun har ikkala JSON ham to\'g\'ri bo\'lishi kerak.'
+      },
+      {
+        question: 'Vosita o\'zgarishlarning aniq joyini ko\'rsatadimi?',
+        answer: 'Ha, o\'zgarishlar obyekt yo\'li va xususiyat nomlarini o\'z ichiga olgan aniq joylashuv ma\'lumotlari bilan ko\'rsatiladi, bu esa nima o\'zgarganini aniq topish va tushunishni osonlashtiradi.'
+      }
+    ]
+  }
 }; 

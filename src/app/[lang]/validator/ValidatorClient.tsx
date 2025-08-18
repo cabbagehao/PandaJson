@@ -310,7 +310,7 @@ export default function ValidatorClient({
       description={pageDescription}
       keywords={pageKeywords}
       introduction={pageIntroduction}
-      iconComponent={<FiCheck className="w-6 h-6 text-green-500" />}
+      iconComponent={<FiCheck className="w-6 h-6 text-green-500" suppressHydrationWarning />}
     >
       <div className="space-y-6">
         {/* 验证操作按钮 */}
@@ -327,7 +327,7 @@ export default function ValidatorClient({
             onClick={clearAll}
             className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            <FiRefreshCw className="mr-1.5 h-4 w-4" />
+            <FiRefreshCw className="mr-1.5 h-4 w-4" suppressHydrationWarning />
             {ui.clear}
           </button>
         </div>
@@ -342,9 +342,9 @@ export default function ValidatorClient({
             <div className="flex">
               <div className="flex-shrink-0">
                 {validationResults.isValid ? (
-                  <FiCheckCircle className="h-5 w-5 text-green-400" aria-hidden="true" />
+                  <FiCheckCircle className="h-5 w-5 text-green-400" aria-hidden="true" suppressHydrationWarning />
                 ) : (
-                  <FiXCircle className="h-5 w-5 text-red-400" aria-hidden="true" />
+                  <FiXCircle className="h-5 w-5 text-red-400" aria-hidden="true" suppressHydrationWarning />
                 )}
               </div>
               <div className="ml-3">

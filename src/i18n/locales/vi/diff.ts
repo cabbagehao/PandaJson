@@ -21,5 +21,59 @@ export const diff = {
   removedContent: 'Nội Dung Đã Xóa',
   modifiedContent: 'Nội Dung Đã Sửa Đổi',
   originalJson: 'JSON Gốc',
-  updatedJson: 'JSON Đã Cập Nhật'
+  updatedJson: 'JSON Đã Cập Nhật',
+
+  // How to Use Section
+  howToUse: {
+    title: 'Cách Sử Dụng Trình So Sánh JSON',
+    steps: [
+      {
+        title: 'Dán JSON Đầu Tiên',
+        description: 'Sao chép và dán JSON gốc hoặc phiên bản cũ vào khu vực bên trái. Đây sẽ là cơ sở để so sánh với phiên bản thứ hai.'
+      },
+      {
+        title: 'Dán JSON Thứ Hai',
+        description: 'Dán JSON đã cập nhật hoặc phiên bản mới vào khu vực bên phải. Công cụ sẽ tự động phát hiện và làm nổi bật tất cả các thay đổi giữa hai phiên bản.'
+      },
+      {
+        title: 'Thực Hiện So Sánh',
+        description: 'Nhấp nút "So Sánh" để xem phân tích chi tiết về sự khác biệt. Kết quả hiển thị các thay đổi được mã hóa màu với chú thích rõ ràng.'
+      },
+      {
+        title: 'Phân Tích Kết Quả',
+        description: 'Xem xét các thay đổi được làm nổi bật: xanh lá cho nội dung mới được thêm, đỏ cho nội dung đã xóa, và vàng cho các sửa đổi. Mỗi thay đổi hiển thị đường dẫn chính xác.'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'Câu Hỏi Thường Gặp về Trình So Sánh JSON',
+    items: [
+      {
+        question: 'Trình so sánh có thể xử lý các tệp JSON lớn không?',
+        answer: 'Có, công cụ so sánh JSON của chúng tôi được tối ưu hóa để xử lý hiệu quả các tệp JSON lớn và cấu trúc phức tạp. Thuật toán so sánh được thiết kế để duy trì hiệu suất ngay cả với các tài liệu JSON có cấu trúc lồng nhau sâu.'
+      },
+      {
+        question: 'Các loại thay đổi nào được phát hiện và hiển thị?',
+        answer: 'Công cụ phát hiện tất cả các loại thay đổi: thuộc tính được thêm (màu xanh lá), thuộc tính bị xóa (màu đỏ), giá trị đã sửa đổi (màu vàng), thay đổi kiểu dữ liệu, và thay đổi cấu trúc mảng. Mỗi thay đổi hiển thị đường dẫn JSON chính xác.'
+      },
+      {
+        question: 'Tôi có thể so sánh JSON với thứ tự thuộc tính khác nhau không?',
+        answer: 'Có! Trình so sánh của chúng tôi tập trung vào nội dung và cấu trúc thực tế, không phải thứ tự thuộc tính. Các đối tượng với cùng thuộc tính nhưng thứ tự khác nhau sẽ được coi là giống nhau, trừ khi có thay đổi giá trị thực sự.'
+      },
+      {
+        question: 'Làm thế nào để hiểu các đường dẫn thay đổi được hiển thị?',
+        answer: 'Đường dẫn sử dụng ký hiệu dot để chỉ ra vị trí chính xác của thay đổi. Ví dụ: "user.address.city" có nghĩa là thay đổi xảy ra trong thuộc tính city, nằm trong address, thuộc về user. Chỉ số mảng được hiển thị trong ngoặc vuông.'
+      },
+      {
+        question: 'Tôi có thể xuất kết quả so sánh không?',
+        answer: 'Hiện tại, công cụ hiển thị kết quả so sánh trực quan trong trình duyệt. Bạn có thể sao chép kết quả hoặc chụp màn hình để tài liệu. Chúng tôi đang phát triển tính năng xuất báo cáo chi tiết.'
+      },
+      {
+        question: 'Dữ liệu JSON của tôi có được lưu trữ hoặc gửi đi đâu không?',
+        answer: 'Không! Tất cả so sánh được thực hiện hoàn toàn trong trình duyệt của bạn. Dữ liệu JSON không bao giờ được gửi đến máy chủ hoặc lưu trữ ở bất kỳ đâu, đảm bảo bảo mật và quyền riêng tư hoàn toàn cho thông tin nhạy cảm của bạn.'
+      }
+    ]
+  }
 }; 

@@ -6,7 +6,8 @@ export async function resolveParams(params: Promise<{ lang: string }> | { lang: 
     const resolved = await Promise.resolve(params);
     // 确保resolved不为null或undefined且包含lang属性
     if (!resolved || typeof resolved !== 'object' || !resolved.lang) {
-      throw new Error('Invalid params: missing lang property');
+      console.warn('Invalid params: missing lang property, using default "en"');
+      return { lang: 'en' };
     }
     return resolved;
   } catch (error) {

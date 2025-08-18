@@ -18,5 +18,63 @@ export const minifier = {
   compressionResult: 'Matokeo ya Ufinyazi',
   originalSize: 'Ukubwa Asili: {size}',
   compressedSize: 'Ukubwa Uliofinyazwa: {size}',
-  compressionRatio: 'Kiwango cha Ufinyazi: {ratio}%'
+  compressionRatio: 'Kiwango cha Ufinyazi: {ratio}%',
+
+  // How to Use Section
+  howToUse: {
+    title: 'Jinsi ya Kutumia Mfinyazi wa JSON',
+    steps: [
+      {
+        title: 'Ingiza JSON Yako',
+        description: 'Nakili na ubandike msimbo wa JSON unaotaka kufinyaza kwenye kihariri cha pembejeo. Chombo kinafanya kazi na JSON ya ukubwa wowote na utata.'
+      },
+      {
+        title: 'Finyaza',
+        description: 'Bofya kitufe cha "Punguza Ukubwa" kuondoa nafasi zote zisizo za lazima, mistari mpya na alama za tabs kutoka kwenye JSON yako.'
+      },
+      {
+        title: 'Kagua Matokeo',
+        description: 'JSON iliyofinyazwa itaonyeshwa kwenye kihariri cha matokeo pamoja na takwimu za ufinyazi zinazokuonyesha kiasi cha nafasi umehifadhi.'
+      },
+      {
+        title: 'Nakili au Pakua',
+        description: 'Tumia vitufe vya "Nakili" au "Pakua" kuhifadhi JSON iliyofinyazwa kwa matumizi katika miradi yako au programu.'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'Maswali Yanayoulizwa Mara Kwa Mara',
+    items: [
+      {
+        question: 'Ufinyazi wa JSON ni nini na kwa nini ninahitaji?',
+        answer: 'Ufinyazi wa JSON ni mchakato wa kuondoa nafasi zisizo za lazima, mistari mpya na alama za tabs ili kupunguza ukubwa wa faili. Hii ni muhimu kwa kuboresha utendaji wa programu za wavuti, kupunguza matumizi ya upana na kupunguza muda wa upakiaji wa API.'
+      },
+      {
+        question: 'Kiasi gani cha nafasi ninaweza kuhifadhi kwa ufinyazi?',
+        answer: 'Nafasi inayohifadhiwa inategemea muundo wa JSON yako ya asili. Kwa kawaida ufinyazi unaweza kuhifadhi 20-50% ya ukubwa wa faili, hasa ikiwa JSON ya asili imeumbizwa vizuri na nafasi nyingi na mistari mpya.'
+      },
+      {
+        question: 'Je, ufinyazi hubadilisha kazi ya JSON?',
+        answer: 'Hapana, ufinyazi huondoa tu vipengele vya kuona vya muundo. Muundo, funguo, thamani na maudhui ya kimantiki ya JSON hubaki hayajabadilika kabisa na ya kufanya kazi.'
+      },
+      {
+        question: 'Ni wakati gani ninapaswa kutumia JSON iliyofinyazwa?',
+        answer: 'JSON iliyofinyazwa ni bora kwa programu za uzalishaji, majibu ya API, uhamisho wa wavuti, programu za simu, na popote ambapo ukubwa wa faili na kasi ya uhamisho ni muhimu. Kwa maendeleo na utatuzi, tunapendekeza JSON iliyoumbizwa.'
+      },
+      {
+        question: 'Je, naweza kurudisha nafasi baada ya ufinyazi?',
+        answer: 'Ndio, unaweza kufomatisha JSON iliyofinyazwa tena kwa kutumia chombo chetu cha kufomatisha JSON. Hii itarudisha nafasi na mistari mpya kwa usomaji bora.'
+      },
+      {
+        question: 'Je, chombo kinafanya kazi na faili kubwa za JSON?',
+        answer: 'Ndio, mfinyazi wetu umepangwa kwa utendaji na unaweza kushughulikia faili kubwa za JSON kwa ufanisi. Hata hivyo, faili kubwa sana zinaweza kusababisha mipaka ya kivinjari.'
+      },
+      {
+        question: 'Je, data yangu ya JSON inahifadhiwa?',
+        answer: 'Hapana, ufinyazi wote unafanywa ndani ya kivinjari chako. Data yako ya JSON haijawahi kutumwa kwenye seva au kuhifadhiwa nje ya kifaa chako, ikihakikisha faragha na usalama kamili.'
+      }
+    ]
+  }
 }; 

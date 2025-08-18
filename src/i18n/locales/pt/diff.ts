@@ -21,5 +21,67 @@ export const diff = {
   removedContent: 'Conteúdo Removido',
   modifiedContent: 'Conteúdo Modificado',
   originalJson: 'JSON Original',
-  updatedJson: 'JSON Atualizado'
+  updatedJson: 'JSON Atualizado',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Como Usar o Comparador JSON',
+    steps: [
+      {
+        title: 'Cole os JSONs',
+        description: 'Insira seus dois arquivos JSON nos campos "Primeiro JSON" e "Segundo JSON". Podem ser dados de qualquer tamanho e complexidade.'
+      },
+      {
+        title: 'Execute a Comparação',
+        description: 'Clique em "Comparar" para analisar as diferenças entre os dois JSONs. O processamento é instantâneo mesmo para arquivos grandes.'
+      },
+      {
+        title: 'Revise as Diferenças',
+        description: 'Visualize diferenças destacadas por cores: verde para adições, vermelho para remoções e amarelo para modificações.'
+      },
+      {
+        title: 'Analise os Resultados',
+        description: 'Use o guia de diferenças para entender cada mudança e identificar rapidamente o que foi alterado entre as versões.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Perguntas Frequentes',
+    items: [
+      {
+        question: 'Como o comparador detecta diferenças em JSON?',
+        answer: 'Nossa ferramenta analisa estruturalmente ambos os JSONs, comparando chaves, valores e tipos de dados. Detecta adições, remoções e modificações em todos os níveis de aninhamento, preservando o contexto hierárquico.'
+      },
+      {
+        question: 'Posso comparar arquivos JSON muito grandes?',
+        answer: 'Sim, nosso comparador é otimizado para lidar com arquivos JSON grandes de forma eficiente. Pode processar megabytes de dados rapidamente mantendo precisão na detecção de diferenças.'
+      },
+      {
+        question: 'Como interpreto as cores nas diferenças?',
+        answer: 'Verde indica conteúdo adicionado no segundo JSON, vermelho mostra conteúdo removido, e amarelo destaca valores modificados. Esta codificação visual facilita a identificação rápida de mudanças.'
+      },
+      {
+        question: 'O comparador funciona com arrays e objetos aninhados?',
+        answer: 'Absolutamente! Nossa ferramenta navega por estruturas JSON complexas, incluindo arrays aninhados, objetos profundos e tipos de dados mistos, mantendo precisão em todos os níveis.'
+      },
+      {
+        question: 'Meus dados estão seguros durante a comparação?',
+        answer: 'Sim, toda comparação é feita localmente no seu navegador. Seus dados JSON nunca são enviados para servidores externos, garantindo privacidade e segurança completas.'
+      },
+      {
+        question: 'Posso exportar ou salvar os resultados da comparação?',
+        answer: 'Atualmente você pode visualizar e analisar diferenças na interface. Para documentação, recomendamos capturar screenshots dos resultados destacados ou copiar seções específicas.'
+      },
+      {
+        question: 'O que acontece se um dos JSONs for inválido?',
+        answer: 'Se algum JSON contiver erros de sintaxe, a ferramenta exibirá mensagens de erro específicas indicando o problema e sua localização para facilitar a correção.'
+      },
+      {
+        question: 'Posso comparar JSONs com estruturas completamente diferentes?',
+        answer: 'Sim, nossa ferramenta pode comparar JSONs com estruturas totalmente diferentes. Mostrará todas as diferenças estruturais e de conteúdo de forma clara e organizada.'
+      }
+    ]
+  }
 }; 

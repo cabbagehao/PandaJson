@@ -32,5 +32,67 @@ export const validator = {
   jsonStructure: 'JSON Structure',
   jsonSyntaxError: 'JSON Syntax Error',
   parseSuccess: 'Successfully parsed, containing {count} data nodes.',
-  unknownError: 'Unknown error'
+  unknownError: 'Unknown error',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'How to Use the JSON Validator',
+    steps: [
+      {
+        title: 'Paste Your JSON',
+        description: 'Copy and paste your JSON data into the validation editor. The tool accepts JSON from any source - API responses, configuration files, or data exports.'
+      },
+      {
+        title: 'Instant Validation',
+        description: 'Our validator automatically checks your JSON syntax as you type or paste. Errors are highlighted immediately with precise location information.'
+      },
+      {
+        title: 'Review Error Details',
+        description: 'If errors are found, detailed error messages show exact line numbers, character positions, and specific problems with helpful repair suggestions.'
+      },
+      {
+        title: 'Fix and Revalidate',
+        description: 'Make corrections based on the error guidance and see validation results update in real-time. Continue until your JSON passes validation.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'JSON Validator FAQ',
+    items: [
+      {
+        question: 'What types of JSON errors can this validator detect?',
+        answer: 'Our validator detects all common JSON syntax errors including missing commas, unclosed strings, mismatched brackets, duplicate keys, invalid property names, extra trailing commas, and structural issues. It provides specific error messages for quick identification and resolution.'
+      },
+      {
+        question: 'How accurate is the error location reporting?',
+        answer: 'Very accurate! Our validator pinpoints errors to the exact line number and character position, showing you precisely where the problem occurs. This eliminates guesswork and speeds up debugging significantly.'
+      },
+      {
+        question: 'Can I validate large JSON files?',
+        answer: 'Yes, our JSON validator efficiently handles large files and complex nested structures. The validation engine is optimized for performance and can process extensive JSON documents without slowdown.'
+      },
+      {
+        question: 'What happens after validation passes?',
+        answer: 'When your JSON is valid, you\'ll see a success message with statistics about your data structure, including the number of objects, arrays, and total data nodes. You can then safely use the JSON in your applications.'
+      },
+      {
+        question: 'Is my JSON data safe when using this validator?',
+        answer: 'Absolutely! All validation occurs locally in your browser using client-side processing. Your JSON data never leaves your device or gets sent to our servers, ensuring complete privacy and security.'
+      },
+      {
+        question: 'Can the validator fix JSON errors automatically?',
+        answer: 'While our validator doesn\'t automatically fix errors, it provides detailed suggestions for each error type. These suggestions guide you on exactly what to change, making manual corrections quick and straightforward.'
+      },
+      {
+        question: 'What JSON standards does the validator follow?',
+        answer: 'Our validator strictly follows the JSON specification (RFC 7159/ECMA-404). This ensures compatibility with all standard JSON parsers and applications across different programming languages and platforms.'
+      },
+      {
+        question: 'Can I validate JSON with comments or trailing commas?',
+        answer: 'Our validator follows strict JSON standards, which don\'t allow comments or trailing commas. For JSON with these features (JSON5), some errors will be flagged. We recommend removing comments and trailing commas for standard JSON compliance.'
+      }
+    ]
+  }
 }; 

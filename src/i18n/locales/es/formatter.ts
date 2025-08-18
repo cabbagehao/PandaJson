@@ -24,5 +24,59 @@ export const formatter = {
   output: 'Resultado del Formato',
   placeholder: 'Pega tus datos JSON aquí para formatear',
   error: 'Error de análisis JSON: ',
-  unknown: 'Error desconocido al analizar JSON'
+  unknown: 'Error desconocido al analizar JSON',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Cómo Usar el Formateador JSON',
+    steps: [
+      {
+        title: 'Pega tu JSON',
+        description: 'Copia y pega tus datos JSON sin formato, minificados o desordenados en el editor de entrada. Nuestra herramienta acepta JSON de cualquier tamaño y complejidad.'
+      },
+      {
+        title: 'Elige Opciones de Formato',
+        description: 'Selecciona tu tamaño de indentación preferido (2, 4 u 8 espacios), estilo de llaves y ancho de línea para personalizar el formato de salida.'
+      },
+      {
+        title: 'Formatear Instantáneamente',
+        description: 'Haz clic en el botón "Formatear" o usa el formateo automático para transformar tu JSON en código limpio y legible con estructura adecuada.'
+      },
+      {
+        title: 'Copiar o Descargar',
+        description: 'Usa el botón de copiar para copiar rápidamente el JSON formateado al portapapeles, o descárgalo como archivo para uso posterior.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Preguntas Frecuentes',
+    items: [
+      {
+        question: '¿Qué es el formateo JSON y por qué lo necesito?',
+        answer: 'El formateo JSON (también llamado embellecimiento) transforma JSON comprimido o minificado en un formato legible con indentación, saltos de línea y espaciado adecuados. Esto hace que sea más fácil depurar, entender la estructura de datos, revisar respuestas de API y mantener la calidad del código.'
+      },
+      {
+        question: '¿Puedo formatear archivos JSON grandes?',
+        answer: 'Sí, nuestro formateador JSON puede manejar archivos JSON grandes eficientemente. La herramienta está optimizada para rendimiento y puede procesar objetos anidados complejos, arrays y estructuras de datos extensas sin problemas de rendimiento.'
+      },
+      {
+        question: '¿Qué opciones de indentación están disponibles?',
+        answer: 'Puedes elegir entre 2, 4 u 8 espacios para la indentación. Además, puedes seleccionar diferentes estilos de llaves (colapsar, expandir o preservar en línea) y establecer límites de ancho de línea personalizados para una legibilidad óptima.'
+      },
+      {
+        question: '¿Están seguros mis datos JSON al usar esta herramienta?',
+        answer: '¡Absolutamente! Todo el formateo JSON se realiza localmente en tu navegador usando JavaScript del lado del cliente. Tus datos nunca salen de tu dispositivo ni se suben a nuestros servidores, garantizando privacidad y seguridad completas.'
+      },
+      {
+        question: '¿Puede el formateador detectar errores JSON?',
+        answer: 'Sí, nuestro formateador incluye validación JSON integrada. Si tu entrada contiene errores de sintaxis, la herramienta resaltará la ubicación específica y proporcionará mensajes de error detallados para ayudarte a corregir los problemas rápidamente.'
+      },
+      {
+        question: '¿En qué formatos de archivo puedo exportar el JSON formateado?',
+        answer: 'Puedes copiar el JSON formateado a tu portapapeles instantáneamente, o descargarlo como archivo .json. La salida formateada mantiene la sintaxis JSON adecuada y puede usarse directamente en tus aplicaciones, APIs o archivos de configuración.'
+      }
+    ]
+  }
 }; 

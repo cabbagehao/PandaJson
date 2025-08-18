@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, ReactNode } from 'react';
-import { FiInfo, FiCopy } from 'react-icons/fi';
+import { useState, ReactNode, useEffect } from 'react';
+import { FiInfo, FiCopy, FiHelpCircle, FiBook } from 'react-icons/fi';
 import { useParams } from 'next/navigation';
 import { useTranslation } from '@/i18n/hooks';
 
@@ -25,9 +25,34 @@ export default function ToolLayout({
   iconComponent
 }: ToolLayoutProps) {
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
+  const params = useParams();
   const { t } = useTranslation();
   const common = t('common');
   const home = common.home;
+  
+  // Get the tool-specific translations based on current path
+  const getCurrentTool = (pathname?: string) => {
+    // Use provided pathname or get from window (client-side only)
+    const path = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
+    if (path.includes('/formatter')) return t('formatter');
+    if (path.includes('/validator')) return t('validator');
+    if (path.includes('/converter')) return t('converter');
+    if (path.includes('/diff')) return t('diff');
+    if (path.includes('/tree-editor')) return t('treeEditor');
+    if (path.includes('/schema-validator')) return t('schemaValidator');
+    if (path.includes('/minifier')) return t('minifier');
+    return null;
+  };
+  
+  const [toolTranslations, setToolTranslations] = useState(null);
+  const [isClient, setIsClient] = useState(false);
+
+  // Set tool translations on client side
+  useEffect(() => {
+    setIsClient(true);
+    const tool = getCurrentTool();
+    setToolTranslations(tool);
+  }, []);
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -78,7 +103,7 @@ export default function ToolLayout({
       <div className="mt-8 sm:mt-10 border-t border-gray-200 dark:border-gray-700 pt-4 sm:pt-6">
         <div className="flex flex-col sm:flex-row sm:items-start">
           <div className="flex-shrink-0 mb-3 sm:mb-0 sm:mt-1">
-            <FiInfo className="h-5 w-5 text-blue-500" />
+            <FiInfo className="h-5 w-5 text-blue-500" suppressHydrationWarning />
           </div>
           <div className="sm:ml-3">
             <h3 className="text-lg font-medium text-gray-900 dark:text-white">{common.ui.usageGuide || 'Usage Guide'}</h3>
@@ -185,6 +210,65 @@ export default function ToolLayout({
           </div>
         </div>
       </div>
+
+      {/* How to Use Section - Show for all languages if tool translations available */}
+      {isClient && toolTranslations?.howToUse && (
+        <div className="mt-12 sm:mt-16 border-t border-gray-200 dark:border-gray-700 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row sm:items-start mb-6">
+            <div className="flex-shrink-0 mb-3 sm:mb-0 sm:mt-1">
+              <FiBook className="h-6 w-6 text-green-500" suppressHydrationWarning />
+            </div>
+            <div className="sm:ml-3 w-full">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {toolTranslations.howToUse.title}
+              </h2>
+              <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
+                {toolTranslations.howToUse.steps?.map((step: any, index: number) => (
+                  <div key={index} className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center text-sm font-semibold mr-3">
+                        {index + 1}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{step.title}</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{step.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* FAQ Section - Show for all languages if tool translations available */}
+      {isClient && toolTranslations?.faq && (
+        <div className="mt-12 sm:mt-16 border-t border-gray-200 dark:border-gray-700 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row sm:items-start">
+            <div className="flex-shrink-0 mb-3 sm:mb-0 sm:mt-1">
+              <FiHelpCircle className="h-6 w-6 text-purple-500" suppressHydrationWarning />
+            </div>
+            <div className="sm:ml-3 w-full">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                {toolTranslations.faq.title}
+              </h2>
+              <div className="space-y-4">
+                {toolTranslations.faq.items?.map((item: any, index: number) => (
+                  <details key={index} className="bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <summary className="px-6 py-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors">
+                      <span className="font-medium text-gray-900 dark:text-white">{item.question}</span>
+                    </summary>
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{item.answer}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showCopiedMessage && (
         <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-lg z-50">

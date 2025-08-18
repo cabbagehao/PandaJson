@@ -32,5 +32,67 @@ export const validator = {
   jsonStructure: 'JSON結構',
   jsonSyntaxError: 'JSON語法錯誤',
   parseSuccess: '解析成功，包含{count}個數據節點。',
-  unknownError: '未知錯誤'
+  unknownError: '未知錯誤',
+  
+  // How to Use Section
+  howToUse: {
+    title: '如何使用JSON驗證器',
+    steps: [
+      {
+        title: '貼上您的JSON',
+        description: '在輸入欄位中插入或貼上您的JSON數據。驗證器接受任何大小和複雜度的JSON進行分析。'
+      },
+      {
+        title: '自動驗證',
+        description: '驗證會在您輸入時自動進行，或點擊"驗證JSON"按鈕進行手動語法檢查。'
+      },
+      {
+        title: '查看結果',
+        description: '如果有效，您將看到確認信息和樹狀結構。如果無效，詳細錯誤將顯示位置和問題類型。'
+      },
+      {
+        title: '修復錯誤',
+        description: '使用詳細的錯誤消息和修復建議來糾正語法問題，確保JSON有效。'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: '常見問題',
+    items: [
+      {
+        question: '什麼是JSON驗證，為什麼重要？',
+        answer: 'JSON驗證檢查您的數據是否遵循正確的JSON語法。這對於防止應用程序錯誤、確保適當的數據交換以及在生產部署之前識別問題至關重要。'
+      },
+      {
+        question: '此驗證器可以檢測哪些類型的JSON錯誤？',
+        answer: '我們的驗證器檢測常見錯誤，如未關閉的括號/大括號、缺少或多餘的逗號、未關閉的字符串、重複鍵、缺少冒號和無效字符。提供精確的位置和每個錯誤的描述。'
+      },
+      {
+        question: '驗證器能處理大型JSON文件嗎？',
+        answer: '是的，我們的驗證器經過優化，可以高效處理大型JSON文件和複雜結構。它快速處理嵌套對象、廣泛數組和複雜數據集。'
+      },
+      {
+        question: '驗證期間我的數據安全嗎？',
+        answer: '完全安全！所有驗證都在您的瀏覽器中使用客戶端JavaScript本地完成。您的JSON數據永遠不會離開您的設備或發送到外部服務器。'
+      },
+      {
+        question: '我可以驗證來自API或外部服務的JSON嗎？',
+        answer: '是的！將任何來自API、網絡服務或配置文件的JSON響應直接粘貼到驗證器中。它非常適合調試API響應和驗證接收到的數據完整性。'
+      },
+      {
+        question: '驗證器支持註釋或JSON5嗎？',
+        answer: '此驗證器針對標準JSON（RFC 7159）進行了優化。為了更好的兼容性和準確結果，我們建議刪除註釋並使用標準JSON語法。'
+      },
+      {
+        question: '如何解釋錯誤消息？',
+        answer: '每個錯誤顯示確切的行和列、錯誤類型和詳細描述。使用行號快速定位問題，並遵循提供的修復建議進行糾正。'
+      },
+      {
+        question: '如果JSON看起來正確但仍顯示錯誤該怎麼辦？',
+        answer: '檢查不可見字符、文件編碼和特殊引號。有時從文檔或網頁複製可能會引入不可見但會導致解析錯誤的無效字符。'
+      }
+    ]
+  }
 }; 

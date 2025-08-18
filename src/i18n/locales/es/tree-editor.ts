@@ -53,5 +53,59 @@ export const treeEditor = {
   keyNameEmpty: 'El nombre de la clave no puede estar vacío',
   addFailed: 'Error al añadir',
   invalidValue: 'Valor inválido',
-  save: 'Guardar'
+  save: 'Guardar',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Cómo Usar el Editor de Árbol JSON',
+    steps: [
+      {
+        title: 'Cargar JSON',
+        description: 'Pega tus datos JSON en el editor de texto o carga un archivo JSON. La herramienta parseará automáticamente tu JSON y mostrará su estructura como un árbol navegable e interactivo.'
+      },
+      {
+        title: 'Navegar el Árbol',
+        description: 'Usa la vista de árbol para explorar tu estructura JSON. Expande o colapsa nodos para ver objetos anidados y arrays. Cada elemento se muestra con su tipo y valor correspondiente.'
+      },
+      {
+        title: 'Editar Valores',
+        description: 'Haz clic en cualquier valor para editarlo directamente. Puedes modificar strings, números, booleanos, o cambiar tipos de datos. Añade nuevas propiedades y elementos de array usando los controles del árbol.'
+      },
+      {
+        title: 'Exportar Resultado',
+        description: 'Una vez que hayas terminado de editar, copia el JSON actualizado al portapapeles o descárgalo como archivo. Todos los cambios se reflejan instantáneamente en el JSON de salida.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Preguntas Frecuentes del Editor',
+    items: [
+      {
+        question: '¿Qué ventajas tiene el editor de árbol sobre la edición de texto JSON?',
+        answer: 'El editor de árbol previene errores de sintaxis, proporciona navegación visual de estructuras complejas, permite edición sin conocer la sintaxis JSON, y ofrece una vista clara de relaciones jerárquicas. Es especialmente útil para JSON profundamente anidado.'
+      },
+      {
+        question: '¿Puedo añadir nuevos elementos a arrays y objetos existentes?',
+        answer: 'Sí, puedes añadir fácilmente nuevos elementos usando los botones "Añadir Item" y "Añadir Propiedad". Para arrays, nuevos elementos se añaden al final. Para objetos, puedes especificar el nombre de la clave y valor para nuevas propiedades.'
+      },
+      {
+        question: '¿Cómo cambio el tipo de datos de un valor existente?',
+        answer: 'Al editar un valor, puedes usar el selector de tipo para cambiar entre string, number, boolean, null, array u object. El editor validará automáticamente el nuevo valor según el tipo seleccionado.'
+      },
+      {
+        question: '¿Se pueden deshacer cambios en el editor de árbol?',
+        answer: 'El editor mantiene un historial de cambios y soporta operaciones de deshacer/rehacer. Puedes revertir modificaciones accidentales usando los botones de deshacer o volver al JSON original en cualquier momento.'
+      },
+      {
+        question: '¿Qué pasa si mi JSON es demasiado grande para el editor de árbol?',
+        answer: 'El editor maneja eficientemente archivos JSON grandes usando renderizado perezoso y virtualización. Muy estructuras grandes pueden mostrar solo partes visibles para mantener el rendimiento mientras siguen siendo completamente editables.'
+      },
+      {
+        question: '¿Los cambios en la vista de árbol se actualizan automáticamente en la salida JSON?',
+        answer: 'Sí, el editor mantiene sincronización bidireccional entre la vista de árbol y la salida JSON. Cambios hechos en el árbol se reflejan inmediatamente en el texto JSON y viceversa, proporcionando retroalimentación en tiempo real.'
+      }
+    ]
+  }
 }; 

@@ -54,5 +54,67 @@ export const treeEditor = {
   keyNameEmpty: '鍵名不能為空',
   addFailed: '添加失敗',
   invalidValue: '無效的值',
-  save: '保存'
+  save: '保存',
+  
+  // How to Use Section
+  howToUse: {
+    title: '如何使用JSON樹形編輯器',
+    steps: [
+      {
+        title: '貼上您的JSON',
+        description: '在文本區域中輸入JSON數據。編輯器接受任何複雜度的JSON，並自動將其轉換為可導航的樹狀結構。'
+      },
+      {
+        title: '導航樹狀結構',
+        description: '使用樹狀視圖展開/折疊節點，導航嵌套結構，並快速找到您要編輯的數據。'
+      },
+      {
+        title: '互動編輯',
+        description: '點擊任何值來編輯，使用「新增」按鈕新增屬性，或使用「刪除」按鈕移除不需要的項目。'
+      },
+      {
+        title: '導出結果',
+        description: '您的編輯會即時反映在JSON輸出中。使用「複製」或「下載」來保存編輯後的JSON。'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: '常見問題',
+    items: [
+      {
+        question: '如何在JSON中新增屬性？',
+        answer: '點擊任何對象旁邊的「新增屬性」按鈕。輸入鍵名和值，選擇數據類型並確認。新屬性將立即顯示在樹狀結構中。'
+      },
+      {
+        question: '我可以編輯複雜數組嗎？',
+        answer: '可以！數組完全受支持。使用「新增項目」新增項目，點擊現有值來編輯，或使用「刪除」按鈕移除項目。支持嵌套數組和數組內的對象。'
+      },
+      {
+        question: '如何撤銷意外的更改？',
+        answer: '使用「撤銷」和「重做」按鈕在編輯歷史中導航。您也可以重新載入原始JSON來重新開始。'
+      },
+      {
+        question: '我可以在值中使用哪些數據類型？',
+        answer: '編輯器支持所有標準JSON類型：string、number、boolean、null、object和array。在新增或編輯值時選擇適當的類型以確保正確格式。'
+      },
+      {
+        question: '編輯器能處理非常大的JSON嗎？',
+        answer: '可以，但對於極大的JSON文件，樹狀視圖的性能可能會受到影響。對於非常大的文件，請考慮先使用JSON格式化器或驗證器。'
+      },
+      {
+        question: '如何保存編輯後的JSON？',
+        answer: '使用「複製」按鈕將JSON複製到剪貼板，或「下載」以.json文件形式保存。JSON輸出會自動格式化並有效。'
+      },
+      {
+        question: '我可以編輯無效的JSON嗎？',
+        answer: '編輯器需要有效的JSON作為輸入。如果您的JSON有語法錯誤，請先使用JSON驗證器識別並修正問題，然後使用樹形編輯器。'
+      },
+      {
+        question: '如何在深層嵌套的JSON結構中導航？',
+        answer: '使用「全部展開」和「全部折疊」按鈕來控制視圖，或點擊個別節點來按需展開/折疊特定部分。'
+      }
+    ]
+  }
 }; 

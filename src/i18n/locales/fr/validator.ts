@@ -32,5 +32,59 @@ export const validator = {
   jsonStructure: 'Structure JSON',
   jsonSyntaxError: 'Erreur de Syntaxe JSON',
   parseSuccess: 'Analysé avec succès, contenant {count} nœuds de données.',
-  unknownError: 'Erreur inconnue'
+  unknownError: 'Erreur inconnue',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Comment Utiliser le Validateur JSON',
+    steps: [
+      {
+        title: 'Entrez Votre JSON',
+        description: 'Collez ou tapez vos données JSON dans la zone d\'entrée. L\'outil accepte toute structure JSON, des objets simples aux tableaux complexes imbriqués.'
+      },
+      {
+        title: 'Validation Automatique',
+        description: 'Le validateur analyse votre JSON instantanément pendant que vous tapez ou après avoir collé. Il détecte les erreurs de syntaxe en temps réel pour un retour immédiat.'
+      },
+      {
+        title: 'Examinez les Erreurs',
+        description: 'Si des erreurs sont détectées, l\'outil montre l\'emplacement exact (ligne et colonne) avec une description détaillée du problème pour faciliter la correction.'
+      },
+      {
+        title: 'Confirmez la Validité',
+        description: 'Une fois que votre JSON est valide, vous verrez une confirmation de succès. Vous pouvez maintenant utiliser vos données JSON validées avec confiance dans vos projets.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Questions Fréquentes sur la Validation',
+    items: [
+      {
+        question: 'Quels types d\'erreurs JSON cet outil peut-il détecter ?',
+        answer: 'Notre validateur détecte toutes les erreurs de syntaxe JSON courantes incluant : virgules manquantes ou supplémentaires, accolades/crochets non fermés, guillemets manquants, noms de propriétés invalides, clés dupliquées, caractères d\'échappement incorrects et structures de données malformées.'
+      },
+      {
+        question: 'Pourquoi est-il important de valider le JSON avant de l\'utiliser ?',
+        answer: 'La validation JSON prévient les erreurs d\'exécution, les pannes d\'application et les problèmes de transmission de données. Les données JSON invalides peuvent casser les APIs, causer des erreurs d\'analyse dans les applications et conduire à des comportements inattendus dans les systèmes qui dépendent de structures de données correctes.'
+      },
+      {
+        question: 'Peut-il gérer de très gros fichiers JSON ?',
+        answer: 'Oui, notre validateur est optimisé pour gérer efficacement de gros documents JSON. Il peut traiter des structures complexes profondément imbriquées et des tableaux étendus tout en maintenant une performance de validation rapide.'
+      },
+      {
+        question: 'Que signifie le décompte des nœuds de données dans les résultats de validation ?',
+        answer: 'Le décompte des nœuds représente le nombre total d\'éléments de données dans votre JSON, incluant les objets, tableaux, chaînes, nombres, booléens et valeurs null. Cela vous donne une idée de la complexité et de la taille de votre structure de données.'
+      },
+      {
+        question: 'Les messages d\'erreur aident-ils à localiser des problèmes spécifiques ?',
+        answer: 'Absolument. Nos messages d\'erreur incluent des numéros de ligne et de colonne spécifiques, le type d\'erreur et des descriptions claires. Cela vous permet de naviguer directement vers le problème et de comprendre exactement ce qui doit être corrigé.'
+      },
+      {
+        question: 'Mon JSON est-il sauvegardé sur vos serveurs pendant la validation ?',
+        answer: 'Non, toute la validation JSON se produit localement dans votre navigateur. Vos données restent complètement privées et ne sont jamais envoyées à nos serveurs, garantissant une sécurité totale des données sensibles ou propriétaires.'
+      }
+    ]
+  }
 }; 

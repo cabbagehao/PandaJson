@@ -24,5 +24,67 @@ export const formatter = {
   output: 'Matokeo ya Formatisha',
   placeholder: 'Bandika data zako za JSON hapa kufomatisha',
   error: 'Hitilafu ya uchambuzi wa JSON: ',
-  unknown: 'Hitilafu isiyojulikana wakati wa kuchambua JSON'
+  unknown: 'Hitilafu isiyojulikana wakati wa kuchambua JSON',
+
+  // How to Use Section
+  howToUse: {
+    title: 'Jinsi ya Kutumia Mfanyaji wa JSON',
+    steps: [
+      {
+        title: 'Bandika JSON Yako',
+        description: 'Nakili na ubandike data zako za JSON ambazo hazijapangwa, zilizofinywa, au zenye msongamano kwenye kihariri cha pembejeo. Chombo chetu kinakubali JSON ya ukubwa wowote na utata.'
+      },
+      {
+        title: 'Chagua Chaguo za Ufanyaji',
+        description: 'Chagua ukubwa wa kuingia unaopendelewa (nafasi 2, 4, au 8), mtindo wa mabano, na upana wa mstari ili kubadilisha muundo wa pato.'
+      },
+      {
+        title: 'Formatisha Mara Moja',
+        description: 'Bofya kitufe cha "Formatisha" au tumia ufanyaji wa kiotomatiki kubadilisha JSON yako kuwa msimbo safi, unaosomeka na muundo sahihi.'
+      },
+      {
+        title: 'Nakili au Pakua',
+        description: 'Tumia kitufe cha kunakili ili kunakili haraka JSON iliyofanyiwa upya kwenye ubao wako wa kunakili, au uipakue kama faili kwa matumizi ya baadaye.'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'Maswali Yanayoulizwa Mara Kwa Mara',
+    items: [
+      {
+        question: 'Ufanyaji wa JSON ni nini na kwa nini ninahitaji?',
+        answer: 'Ufanyaji wa JSON (pia huitwa uzuriaji) hubadilisha JSON iliyofinywa au iliyofupishwa kuwa muundo unaosomeka na kuingia sahihi, mivunjiko ya mistari, na nafasi. Hii inafanya iwe rahisi kutatua, kuelewa muundo wa data, kukagua majibu ya API, na kudumisha ubora wa msimbo.'
+      },
+      {
+        question: 'Je, naweza kufomatisha faili kubwa za JSON?',
+        answer: 'Ndio, mfanyaji wetu wa JSON anaweza kushughulikia faili kubwa za JSON kwa ufanisi. Chombo kimepangwa kwa utendaji na kinaweza kusindika vitu vya ndani vilivyosongeka, safu, na miundo tata ya data bila matatizo ya utendaji.'
+      },
+      {
+        question: 'Ni chaguo gani za kuingia zinazopatikana?',
+        answer: 'Unaweza kuchagua kati ya nafasi 2, 4, au 8 kwa ajili ya kuingia. Zaidi ya hayo, unaweza kuchagua mitindo tofauti ya mabano (kunja, kupanua, au kuhifadhi kwenye mstari) na kuweka mikomo ya upana wa mstari kwa usomekaji bora.'
+      },
+      {
+        question: 'Je, data yangu ya JSON ni salama wakati wa kutumia chombo hiki?',
+        answer: 'Kabisa! Ufanyaji wote wa JSON unafanywa ndani ya kivinjari chako kwa kutumia JavaScript ya upande wa mteja. Data yako haiondoki kamwe kwenye kifaa chako au kupakiwa kwenye seva zetu, inayohakikisha faragha na usalama kamili.'
+      },
+      {
+        question: 'Je, mfanyaji anaweza kutambua makosa ya JSON?',
+        answer: 'Ndio, mfanyaji wetu una uthibitishaji wa JSON uliojengwa ndani. Ikiwa pembejeo lako lina makosa ya sintaksia, chombo kitaalamisisha mahali mahususi na kutoa ujumbe wa makosa wa kina kukusaidia kurekebisha masuala haraka.'
+      },
+      {
+        question: 'Ni fomati gani za faili ninazoweza kuhamishia JSON iliyofanyiwa upya?',
+        answer: 'Unaweza kunakili JSON iliyofanyiwa upya kwenye ubao wa kunakili mara moja, au kuipakua kama faili ya .json. Pato lililoformatishwa linadumisha sintaksia sahihi ya JSON na linaweza kutumiwa moja kwa moja kwenye programu zako, API, au faili za usanidi.'
+      },
+      {
+        question: 'Je, mfanyaji unasaidia JSON5 au aina nyingine za JSON?',
+        answer: 'Mfanyaji wetu umepangwa kwa JSON ya kawaida (RFC 7159). Ingawa inaweza kushughulikia baadhi ya vipengele vya JSON5, tunapendekeza kutumia muundo wa JSON wa kawaida kwa matokeo bora na ulinganifu wa juu.'
+      },
+      {
+        question: 'Je, naweza kubadilisha mtindo wa ufanyaji?',
+        answer: 'Ndio! Unaweza kubadilisha ukubwa wa kuingia, mtindo wa mabano, upana wa mstari, na kuhifadhi mstari mpya. Chaguo hizi zinakuwezesha kufomatisha JSON kulingana na viwango vya msimbo wa timu yako au mapendeleo yako binafsi.'
+      }
+    ]
+  }
 }; 

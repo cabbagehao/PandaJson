@@ -58,5 +58,67 @@ export const converter = {
   alerts: {
     copySuccess: 'Imenakiliwa kwenye ubao wa kunakili',
     copyFailed: 'Kunakili kumeshindikana'
+  },
+
+  // How to Use Section
+  howToUse: {
+    title: 'Jinsi ya Kutumia Mbadilishaji wa JSON',
+    steps: [
+      {
+        title: 'Chagua Aina ya Ubadilishaji',
+        description: 'Chagua aina ya ubadilishaji unayotaka kutoka kwenye menyu kunjuzi: JSON kwenda YAML/XML/CSV au kinyume chake. Chombo kinasaidia ubadilishaji wa pande mbili kati ya fomati zote.'
+      },
+      {
+        title: 'Bandika Data Yako',
+        description: 'Nakili na ubandike data ya chanzo kwenye kihariri cha kushoto. Chombo kitakagua fomati kiotomatiki na kufanya uthibitishaji unaofaa.'
+      },
+      {
+        title: 'Geuza',
+        description: 'Bofya kitufe cha "Geuza" kuanza ubadilishaji. Matokeo yataonekana mara moja kwenye kihariri cha kulia na ufanyaji unaofaa.'
+      },
+      {
+        title: 'Nakili au Pakua',
+        description: 'Tumia vitufe vya "Nakili" au "Pakua" kuhifadhi matokeo yaliyobadilishwa. Faili itapakuliwa na kiendelezi kinachofaa kwa fomati.'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'Maswali Yanayoulizwa Mara Kwa Mara',
+    items: [
+      {
+        question: 'Ni fomati gani mbadilishaji unazisaidia?',
+        answer: 'Mbadilishaji wetu unasaidia ubadilishaji wa pande mbili kati ya JSON, YAML, XML, na CSV. Unaweza kubadilisha kutoka kwa mojawapo ya fomati hizi kwenda nyingine yoyote, kulingana na mahitaji yako.'
+      },
+      {
+        question: 'Je, miundo ngumu iliyofungwa ndani inasalimishwa wakati wa ubadilishaji?',
+        answer: 'Ndio, mbadilishaji wetu umeundwa kuhifadhi miundo ngumu ya data, ikiwemo vitu vilivyofungwa ndani, safu, na aina mbalimbali za data. Chombo kinaramsha miundo kwa uangalifu ili kuhakikisha usahihi.'
+      },
+      {
+        question: 'Kwa nini siwezi kubadilisha JSON kwenda CSV?',
+        answer: 'Ili kubadilisha JSON kwenda CSV, JSON yako lazima iwe safu ya vitu ambapo kila kitu kina sifa zinazofanana. Fomati ya CSV ni ya jedwali na haiwezi kuwakilisha miundo ya JSON isiyoaminika moja kwa moja.'
+      },
+      {
+        question: 'Vigeu vya kipekee vinashughulikiwa vipi wakati wa ubadilishaji?',
+        answer: 'Mbadilishaji unashughulikia vigeu vya kipekee, maandishi ya Unicode, na mfuatano wa kukimbia kwa usahihi kwa fomati zote zinazotumika. Msimbo unahifadhiwa ili kuhakikisha uthabiti wa data.'
+      },
+      {
+        question: 'Je, data yangu ni salama wakati wa kutumia mbadilishaji?',
+        answer: 'Kabisa! Ubadilishaji wote unafanywa ndani ya kivinjari chako. Data yako haijawahi kutumwa kwenye seva au kuhifadhiwa nje ya kifaa chako, ikihakikisha faragha kamili.'
+      },
+      {
+        question: 'Je, naweza kubadilisha faili kubwa?',
+        answer: 'Ndio, mbadilishaji unaweza kushughulikia faili za ukubwa wa kiwasani. Hata hivyo, faili kubwa sana zinaweza kusababisha matatizo ya utendaji katika kivinjari, kwa hiyo tunapendekeza kujaribu na sampuli ndogo kwanza.'
+      },
+      {
+        question: 'Nifanye nini ikiwa nitapata kosa wakati wa ubadilishaji?',
+        answer: 'Ikiwa utapata kosa, kwanza kagua ikiwa chanzo chako cha data ni halali kwa fomati uliyochagua. Mbadilishaji hutoa ujumbe wa kina wa makosa ili kukusaidia kutambua na kurekebisha tatizo.'
+      },
+      {
+        question: 'Je, mbadilishaji unasaidia XML na sifa?',
+        answer: 'Ndio, mbadilishaji unaweza kushughulikia XML iliyo na sifa. Wakati wa kubadilisha kutoka XML kwenda JSON, sifa zinawakiliwa kama sifa za kipekee na kiambishi cha @, ikifuata miongozo ya kawaida.'
+      }
+    ]
   }
 }; 

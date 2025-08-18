@@ -32,5 +32,59 @@ export const validator = {
   jsonStructure: 'Estructura JSON',
   jsonSyntaxError: 'Error de Sintaxis JSON',
   parseSuccess: 'Analizado con éxito, contiene {count} nodos de datos.',
-  unknownError: 'Error desconocido'
+  unknownError: 'Error desconocido',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'Cómo Usar el Validador JSON',
+    steps: [
+      {
+        title: 'Introduce tu JSON',
+        description: 'Pega o escribe tus datos JSON en el área de entrada. La herramienta acepta cualquier estructura JSON, desde objetos simples hasta arrays complejos anidados.'
+      },
+      {
+        title: 'Validación Automática',
+        description: 'El validador analiza tu JSON instantáneamente mientras escribes o después de pegar. Detecta errores de sintaxis en tiempo real para una retroalimentación inmediata.'
+      },
+      {
+        title: 'Revisar Errores',
+        description: 'Si se detectan errores, la herramienta muestra la ubicación exacta (línea y columna) junto con una descripción detallada del problema para facilitar la corrección.'
+      },
+      {
+        title: 'Confirmar Validez',
+        description: 'Una vez que tu JSON es válido, verás una confirmación de éxito. Ahora puedes usar tus datos JSON validados con confianza en tus proyectos.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Preguntas Frecuentes sobre Validación',
+    items: [
+      {
+        question: '¿Qué tipos de errores JSON puede detectar esta herramienta?',
+        answer: 'Nuestro validador detecta todos los errores de sintaxis JSON comunes incluyendo: comas faltantes o extra, llaves/corchetes no cerrados, comillas faltantes, nombres de propiedades inválidos, claves duplicadas, caracteres escapados incorrectos y estructuras de datos malformadas.'
+      },
+      {
+        question: '¿Por qué es importante validar JSON antes de usarlo?',
+        answer: 'La validación JSON previene errores de tiempo de ejecución, fallos de aplicación y problemas de transmisión de datos. Los datos JSON inválidos pueden romper APIs, causar errores de análisis en aplicaciones y llevar a comportamientos inesperados en sistemas que dependen de estructuras de datos correctas.'
+      },
+      {
+        question: '¿Puede manejar archivos JSON muy grandes?',
+        answer: 'Sí, nuestro validador está optimizado para manejar eficientemente documentos JSON grandes. Puede procesar estructuras complejas profundamente anidadas y arrays extensos manteniendo un rendimiento rápido de validación.'
+      },
+      {
+        question: '¿Qué significa el conteo de nodos de datos en los resultados de validación?',
+        answer: 'El conteo de nodos representa el número total de elementos de datos en tu JSON, incluyendo objetos, arrays, strings, números, booleanos y valores null. Esto te da una idea de la complejidad y tamaño de tu estructura de datos.'
+      },
+      {
+        question: '¿Los mensajes de error ayudan a localizar problemas específicos?',
+        answer: 'Absolutamente. Nuestros mensajes de error incluyen números de línea y columna específicos, tipo de error y descripciones claras. Esto te permite navegar directamente al problema y entender exactamente qué necesita ser corregido.'
+      },
+      {
+        question: '¿Se guarda mi JSON en sus servidores durante la validación?',
+        answer: 'No, toda la validación JSON ocurre localmente en tu navegador. Tus datos permanecen completamente privados y nunca se envían a nuestros servidores, garantizando seguridad total de datos sensibles o propietarios.'
+      }
+    ]
+  }
 }; 

@@ -26,5 +26,67 @@ export const schemaValidator = {
   strictModeDescription: '強制執行JSON Schema規範中未指定的額外驗證約束',
   jsonParseError: 'JSON解析錯誤',
   schemaParseError: 'Schema解析錯誤',
-  rules: '常見驗證規則'
+  rules: '常見驗證規則',
+  
+  // How to Use Section
+  howToUse: {
+    title: '如何使用JSON Schema驗證器',
+    steps: [
+      {
+        title: '準備您的數據',
+        description: '在「JSON數據」欄位中貼上您的JSON數據，在「JSON Schema」欄位中貼上您的schema JSON。兩者都必須是有效的JSON才能進行驗證。'
+      },
+      {
+        title: '配置選項',
+        description: '選擇您的驗證偏好設定，包括嚴格模式，以便對未JSON Schema規範中指定的額外約束進行限制。'
+      },
+      {
+        title: '執行驗證',
+        description: '點擊「驗證」來檢查您的JSON數據是否符合schema。這個過程是即時的，並提供詳細的反駈。'
+      },
+      {
+        title: '檢視結果',
+        description: '如果有效，您將看到確認。如果無效，詳細錯誤將顯示確切的失敗位置和原因。'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: '常見問題',
+    items: [
+      {
+        question: '什麼是JSON Schema，為什麼我應該使用它？',
+        answer: 'JSON Schema是一個用於描述和驗證JSON數據結構的標準。它定義數據類型、必須屬性、格式和約束的規則，確保您應用程序中數據的一致性和品質。'
+      },
+      {
+        question: '如何為我的數據建立JSON schema？',
+        answer: '從定義根類型（object/array）開始，然後指定屬性、它們的類型和約束。使用關鍵字如"required"、"properties"、"type"、"format"來定義驗證規則。'
+      },
+      {
+        question: '支持哪些驗證約束？',
+        answer: '我們支持所有標準JSON Schema約束：數據類型、必需值、數字限制、字符串長度、正則表達式模式、枚舉等等。'
+      },
+      {
+        question: '驗證中的「嚴格模式」是什麼意思？',
+        answer: '嚴格模式應用額外約束，如禁止schema中未指定的屬性、應用更嚴格的類型驗證和確保完全符合規範。'
+      },
+      {
+        question: '我可以驗證數組和嵌套對象嗎？',
+        answer: '可以！驗證器支持複雜的JSON結構，包括嵌套數組、深層對象和遞迴schema。為數據層次結構的每個層級定義規則。'
+      },
+      {
+        question: '如何解釋驗證錯誤消息？',
+        answer: '錯誤消息顯示失敗驗證數據的確切路徑、違反的規則以及預期與實際值。使用這些信息來糾正您的數據或schema。'
+      },
+      {
+        question: '我可以使用來自API規範（如OpenAPI）的schema嗎？',
+        answer: '可以，OpenAPI/Swagger schema與JSON Schema兼容。從API規範中提取schema部分，直接用於驗證。'
+      },
+      {
+        question: '驗證期間我的數據和schema安全嗎？',
+        answer: '絕對安全！所有驗證都在您的瀏覽器中本地完成。您的數據和schema都不會發送到外部服務器，確保完全的隱私和安全。'
+      }
+    ]
+  }
 }; 

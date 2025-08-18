@@ -26,5 +26,59 @@ export const schemaValidator = {
   strictModeDescription: 'Erzwingt zusätzliche Validierungsbeschränkungen, die nicht in der JSON-Schema-Spezifikation angegeben sind',
   jsonParseError: 'JSON-Analysefehler',
   schemaParseError: 'Schema-Analysefehler',
-  rules: 'Häufige Validierungsregeln'
+  rules: 'Häufige Validierungsregeln',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'So verwenden Sie den JSON-Schema-Validator',
+    steps: [
+      {
+        title: 'JSON-Daten vorbereiten',
+        description: 'Fügen Sie Ihre JSON-Daten ein, die Sie validieren möchten, in den Bereich JSON-Daten. Dies sind die Daten, die gegen Ihre Schema-Regeln überprüft werden.'
+      },
+      {
+        title: 'Schema definieren',
+        description: 'Geben Sie Ihr JSON-Schema in den Bereich JSON-Schema ein. Das Schema definiert die Struktur, Datentypen und Validierungsregeln, denen Ihr JSON folgen muss.'
+      },
+      {
+        title: 'Validierung ausführen',
+        description: 'Klicken Sie auf die Schaltfläche "Validieren", um Ihre JSON-Daten gegen das Schema zu überprüfen. Der Validator verarbeitet beide Dokumente und identifiziert Compliance-Probleme.'
+      },
+      {
+        title: 'Ergebnisse überprüfen',
+        description: 'Prüfen Sie die Validierungsergebnisse, die entweder eine Erfolgsbestätigung oder detaillierte Fehlermeldungen mit spezifischen Standorten anzeigen, wo die Daten die Schema-Anforderungen nicht erfüllen.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'JSON-Schema-Validator FAQ',
+    items: [
+      {
+        question: 'Was ist JSON-Schema und warum sollte ich es verwenden?',
+        answer: 'JSON-Schema ist ein Vokabular, mit dem Sie JSON-Dokumente kommentieren und validieren können. Es definiert Verträge für JSON-Daten, gewährleistet API-Konsistenz, validiert Benutzereingaben und bietet eine klare Dokumentation der Datenstrukturanforderungen.'
+      },
+      {
+        question: 'Welche JSON-Schema-Versionen werden unterstützt?',
+        answer: 'Unser Validator unterstützt JSON-Schema Draft-07, Draft-06, Draft-04 und die neuesten Spezifikationen. Der Validator erkennt automatisch die Schema-Version basierend auf der $schema-Eigenschaft in Ihrem Schema-Dokument.'
+      },
+      {
+        question: 'Kann ich verschachtelte Objekte und Arrays mit Schemas validieren?',
+        answer: 'Ja! JSON-Schema unterstützt vollständig verschachtelte Validierung mit Eigenschaften für Objekte, Elemente für Arrays und komplexe Validierungsregeln einschließlich Bedingungen, Abhängigkeiten und rekursiver Schema-Referenzen.'
+      },
+      {
+        question: 'Wie detailliert sind die Validierungsfehlermeldungen?',
+        answer: 'Unser Validator bietet umfassende Fehlermeldungen einschließlich des genauen Pfads zu den ungültigen Daten, der spezifischen Validierungsregel, die fehlgeschlagen ist, erwarteten vs. tatsächlichen Werten und Vorschlägen zur Behebung der Probleme.'
+      },
+      {
+        question: 'Kann ich benutzerdefinierte Validierungsschlüsselwörter in meinem Schema verwenden?',
+        answer: 'Der Validator unterstützt alle Standard-JSON-Schema-Schlüsselwörter einschließlich type, properties, required, pattern, minimum, maximum, enum und viele andere. Benutzerdefinierte Schlüsselwörter aus Erweiterungen können begrenzt unterstützt werden.'
+      },
+      {
+        question: 'Ist dieser Validator für API-Vertragstests geeignet?',
+        answer: 'Absolut! JSON-Schema-Validierung ist perfekt für API-Vertragstests, um sicherzustellen, dass Request-/Response-Daten erwarteten Formaten entsprechen und Konsistenz zwischen verschiedenen API-Versionen und Umgebungen zu wahren.'
+      }
+    ]
+  }
 }; 

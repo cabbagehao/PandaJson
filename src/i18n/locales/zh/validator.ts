@@ -32,5 +32,59 @@ export const validator = {
   jsonStructure: 'JSON结构',
   jsonSyntaxError: 'JSON语法错误',
   parseSuccess: '解析成功，包含 {count} 个数据节点。',
-  unknownError: '未知错误'
+  unknownError: '未知错误',
+
+  // How to Use Section
+  howToUse: {
+    title: '如何使用JSON校验工具',
+    steps: [
+      {
+        title: '输入JSON数据',
+        description: '将需要验证的JSON代码粘贴到输入框中。可以是来自API响应、配置文件或任何JSON格式的数据。'
+      },
+      {
+        title: '点击验证按钮',
+        description: '点击"验证JSON"按钮，系统将立即检查您的JSON语法和结构是否符合标准规范。'
+      },
+      {
+        title: '查看验证结果',
+        description: '工具会显示"有效JSON"或"无效JSON"状态，如果有错误，会精确标出错误位置和具体问题。'
+      },
+      {
+        title: '修复发现的错误',
+        description: '根据错误提示和修复建议，修正JSON中的语法问题，确保数据格式正确无误。'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'JSON校验常见问题',
+    items: [
+      {
+        question: 'JSON校验工具能检测哪些类型的错误？',
+        answer: '我们的校验工具能够检测各种JSON语法错误，包括缺少逗号或冒号、括号不匹配、未关闭的字符串、重复键名、意外的令牌、以及不符合JSON标准的数据格式。'
+      },
+      {
+        question: '为什么有效的JSON在我的应用中还是出错？',
+        answer: '虽然JSON语法可能正确，但您的应用可能需要特定的数据结构或字段。建议使用我们的Schema验证器来检查数据是否符合应用的具体要求和约束。'
+      },
+      {
+        question: '如何快速定位大型JSON文件中的错误？',
+        answer: '我们的校验工具提供精确的行号和列号定位，直接指向错误所在位置。您可以使用文本编辑器的"跳转到行"功能快速导航到问题区域。'
+      },
+      {
+        question: '常见的"意外令牌"错误如何解决？',
+        answer: '"意外令牌"通常由多余的逗号、缺少引号、或使用了JavaScript而非JSON语法引起。检查是否有尾随逗号、确保所有字符串都有双引号、避免使用注释或函数。'
+      },
+      {
+        question: 'JSON中的中文或特殊字符会影响验证吗？',
+        answer: 'JSON原生支持Unicode字符，包括中文、表情符号等。只要这些字符被正确转义或编码，就不会影响JSON的有效性。我们的工具完全支持国际化字符。'
+      },
+      {
+        question: '大文件JSON验证会很慢吗？',
+        answer: '我们的校验工具经过优化，即使是较大的JSON文件也能快速处理。对于超大文件，建议分段验证或检查是否真的需要如此庞大的JSON结构。'
+      }
+    ]
+  }
 }; 

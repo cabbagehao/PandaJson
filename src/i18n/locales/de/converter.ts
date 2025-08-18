@@ -58,5 +58,59 @@ export const converter = {
   alerts: {
     copySuccess: 'In die Zwischenablage kopiert',
     copyFailed: 'Kopieren fehlgeschlagen'
+  },
+  
+  // How to Use Section
+  howToUse: {
+    title: 'So verwenden Sie den JSON-Konverter',
+    steps: [
+      {
+        title: 'Konvertierungstyp auswählen',
+        description: 'Wählen Sie den benötigten Konvertierungstyp aus dem Dropdown-Menü: JSON zu YAML, JSON zu XML, JSON zu CSV oder umgekehrt. Jedes Format hat seine eigenen spezifischen Eigenschaften.'
+      },
+      {
+        title: 'Quelldaten einfügen',
+        description: 'Kopieren und fügen Sie Ihre Daten in das entsprechende Eingabefeld ein. Das Tool erkennt automatisch das Format und validiert die Syntax vor der Konvertierung.'
+      },
+      {
+        title: 'Sofort konvertieren',
+        description: 'Klicken Sie auf die Schaltfläche "Konvertieren", um Ihre Daten sofort in das Zielformat umzuwandeln. Die Konvertierung bewahrt Struktur und Datentypen, wann immer möglich.'
+      },
+      {
+        title: 'Ergebnis kopieren oder herunterladen',
+        description: 'Nach Abschluss der Konvertierung können Sie das Ergebnis für sofortige Verwendung in die Zwischenablage kopieren oder als Datei mit der entsprechenden Erweiterung herunterladen.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'Häufige Fragen zur Konvertierung',
+    items: [
+      {
+        question: 'Welche Konvertierungsformate werden unterstützt?',
+        answer: 'Wir unterstützen bidirektionale Konvertierungen zwischen JSON, YAML, XML und CSV. Dazu gehören JSON zu YAML, YAML zu JSON, JSON zu XML, XML zu JSON, JSON zu CSV und CSV zu JSON. Jede Konvertierung bewahrt die Datenintegrität, wann immer möglich.'
+      },
+      {
+        question: 'Gehen Informationen bei der Konvertierung zwischen Formaten verloren?',
+        answer: 'In den meisten Fällen werden Daten vollständig bewahrt. Allerdings haben einige Formate Einschränkungen: CSV unterstützt keine komplexen verschachtelten Objekte, XML kann Anpassungen bei Elementnamen erfordern, und bestimmte Datentypen können in manchen Formaten zu Strings werden.'
+      },
+      {
+        question: 'Wie behandelt das Tool komplexe JSON-Strukturen bei der Konvertierung zu CSV?',
+        answer: 'Für JSON-zu-CSV-Konvertierung muss Ihr JSON ein Array von Objekten mit ähnlicher Struktur sein. Verschachtelte Objekte werden mit Punktnotation abgeflacht (z.B. "address.street"). Verschachtelte Arrays werden als JSON-Strings serialisiert.'
+      },
+      {
+        question: 'Kann ich große Dateien zwischen Formaten konvertieren?',
+        answer: 'Ja, unser Konverter ist optimiert, um große Datendateien effizient zu handhaben. Beachten Sie jedoch, dass sehr große Dateien länger zum Verarbeiten brauchen können und durch den verfügbaren Browser-Speicher begrenzt sein könnten.'
+      },
+      {
+        question: 'Bewahren XML-Konvertierungen Attribute und Namespaces?',
+        answer: 'Ja, unser Konverter behandelt XML-Attribute, indem er sie zu speziellen Eigenschaften in JSON konvertiert (mit @ vorangestellt). Namespaces werden bewahrt, wenn möglich. Die umgekehrte Konvertierung (JSON zu XML) respektiert diese Konventionen.'
+      },
+      {
+        question: 'Was passiert, wenn meine Quelldaten Formatfehler haben?',
+        answer: 'Das Tool validiert Ihre Eingabedaten vor der Konvertierung und zeigt spezifische Fehlermeldungen an, wenn die Syntax ungültig ist. Sie müssen diese Fehler korrigieren, bevor die Konvertierung fortfahren kann.'
+      }
+    ]
   }
 }; 

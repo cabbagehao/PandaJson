@@ -54,5 +54,59 @@ export const treeEditor = {
   keyNameEmpty: 'Schlüsselname darf nicht leer sein',
   addFailed: 'Hinzufügen fehlgeschlagen',
   invalidValue: 'Ungültiger Wert',
-  save: 'Speichern'
+  save: 'Speichern',
+  
+  // How to Use Section
+  howToUse: {
+    title: 'So verwenden Sie den JSON-Baumeditor',
+    steps: [
+      {
+        title: 'JSON eingeben oder einfügen',
+        description: 'Geben Sie Ihre JSON-Daten in den Texteditor ein oder fügen Sie vorhandenes JSON ein. Das Tool parst automatisch und zeigt es als interaktive Baumstruktur an.'
+      },
+      {
+        title: 'Navigieren Sie durch den Baum',
+        description: 'Klicken Sie auf Knoten, um sie zu erweitern oder zu reduzieren. Verwenden Sie die Baumansicht, um visuell durch Ihre JSON-Struktur zu navigieren, ohne sich in verschachtelten Daten zu verlieren.'
+      },
+      {
+        title: 'Visuell bearbeiten',
+        description: 'Klicken Sie auf Werte, um sie direkt zu bearbeiten, fügen Sie neue Eigenschaften mit der +-Taste hinzu oder löschen Sie Elemente mit der Löschen-Taste. Alle Änderungen werden in Echtzeit angewendet.'
+      },
+      {
+        title: 'Änderungen exportieren',
+        description: 'Nach Abschluss der Bearbeitung kopieren Sie das aktualisierte JSON in die Zwischenablage oder laden es als Datei herunter. Die Ausgabe behält die ordnungsgemäße JSON-Formatierung bei.'
+      }
+    ]
+  },
+  
+  // FAQ Section
+  faq: {
+    title: 'JSON-Baumeditor FAQ',
+    items: [
+      {
+        question: 'Was sind die Vorteile der Baumbearbeitung gegenüber der Textbearbeitung?',
+        answer: 'Die Baumbearbeitung bietet eine visuelle Darstellung der JSON-Struktur, wodurch verschachtelte Beziehungen leichter zu verstehen sind, Syntaxfehler verhindert werden und die Navigation in komplexen Daten erleichtert wird. Sie können sich auf den Inhalt konzentrieren, anstatt sich um Klammern und Kommas zu sorgen.'
+      },
+      {
+        question: 'Kann ich neue Eigenschaften und Arrays in der Baumansicht hinzufügen?',
+        answer: 'Ja! Sie können problemlos neue Eigenschaften, Objekte und Arrays mit den Schnittstellen-Buttons hinzufügen. Der Baumeditor bietet intuitive Steuerelemente zum Erweitern Ihrer JSON-Struktur ohne manuelles Tippen.'
+      },
+      {
+        question: 'Wie behandelt der Baumeditor verschiedene Datentypen?',
+        answer: 'Der Editor unterstützt alle JSON-Datentypen einschließlich Strings, Zahlen, Booleans, Arrays, Objekte und Null-Werte. Jeder Typ ist visuell unterschiedlich und kann mit entsprechenden Eingabesteuerelementen bearbeitet werden.'
+      },
+      {
+        question: 'Kann ich Änderungen im Baumeditor rückgängig machen?',
+        answer: 'Der Baumeditor führt eine Änderungshistorie und Sie können zwischen Baum- und Textansicht wechseln, um Ihr JSON in verschiedenen Formaten zu sehen. Für komplexe Rückgängig-Operationen empfehlen wir jedoch, Backups Ihrer ursprünglichen Daten zu behalten.'
+      },
+      {
+        question: 'Ist der Baumeditor für große JSON-Dateien geeignet?',
+        answer: 'Ja, der Baumeditor behandelt große JSON-Strukturen effizient mit virtuellem Scrollen und Lazy Loading für verschachtelte Elemente. Komplexe Objekte werden nur beim Erweitern gerendert, wodurch eine gute Performance beibehalten wird.'
+      },
+      {
+        question: 'Was passiert, wenn ich zwischen Baum- und Textansicht wechsle?',
+        answer: 'Sie können nahtlos zwischen visueller Baumbearbeitung und Rohtext-Bearbeitung wechseln. Änderungen in beiden Ansichten werden synchronisiert, sodass Sie die beste Bearbeitungsmethode für verschiedene Aufgaben verwenden können.'
+      }
+    ]
+  }
 }; 

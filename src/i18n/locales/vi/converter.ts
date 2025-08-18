@@ -58,5 +58,59 @@ export const converter = {
   alerts: {
     copySuccess: 'Đã sao chép vào bộ nhớ tạm',
     copyFailed: 'Sao chép thất bại'
+  },
+
+  // How to Use Section
+  howToUse: {
+    title: 'Cách Sử Dụng Trình Chuyển Đổi JSON',
+    steps: [
+      {
+        title: 'Chọn Loại Chuyển Đổi',
+        description: 'Chọn loại chuyển đổi bạn cần từ menu thả xuống - JSON sang YAML, XML, CSV hoặc ngược lại. Mỗi loại chuyển đổi được tối ưu hóa cho định dạng cụ thể.'
+      },
+      {
+        title: 'Dán Dữ Liệu Nguồn',
+        description: 'Sao chép và dán dữ liệu của bạn vào khu vực đầu vào. Trình chuyển đổi hỗ trợ cả dữ liệu đơn giản và cấu trúc phức tạp lồng nhau với xác thực tức thì.'
+      },
+      {
+        title: 'Thực Hiện Chuyển Đổi',
+        description: 'Nhấp vào nút "Chuyển Đổi" để chuyển đổi dữ liệu của bạn. Kết quả sẽ xuất hiện trong khu vực đầu ra với định dạng được tối ưu hóa và cấu trúc được bảo toàn.'
+      },
+      {
+        title: 'Sao Chép hoặc Tải Xuống',
+        description: 'Sử dụng nút sao chép để lưu kết quả vào clipboard hoặc tải xuống dưới dạng tệp. Dữ liệu đã chuyển đổi sẵn sàng sử dụng trong các ứng dụng của bạn.'
+      }
+    ]
+  },
+
+  // FAQ Section
+  faq: {
+    title: 'Câu Hỏi Thường Gặp về Trình Chuyển Đổi JSON',
+    items: [
+      {
+        question: 'Những định dạng nào được hỗ trợ chuyển đổi?',
+        answer: 'Trình chuyển đổi của chúng tôi hỗ trợ chuyển đổi hai chiều giữa JSON và YAML, XML, CSV, TSV. Bạn có thể chuyển đổi từ JSON sang bất kỳ định dạng nào và ngược lại, với xử lý chuyên biệt cho từng loại dữ liệu.'
+      },
+      {
+        question: 'Dữ liệu lồng nhau có được bảo toàn trong quá trình chuyển đổi không?',
+        answer: 'Có! Trình chuyển đổi của chúng tôi duy trì cấu trúc phân cấp và các mối quan hệ lồng nhau khi định dạng đích hỗ trợ. Đối với CSV, dữ liệu lồng nhau được làm phẳng một cách thông minh để phù hợp với cấu trúc bảng.'
+      },
+      {
+        question: 'Tôi có thể chuyển đổi các tệp JSON lớn không?',
+        answer: 'Có, trình chuyển đổi của chúng tôi được tối ưu hóa để xử lý các tệp dữ liệu lớn một cách hiệu quả. Tuy nhiên, đối với các tệp cực lớn, quá trình chuyển đổi có thể mất một chút thời gian để đảm bảo độ chính xác.'
+      },
+      {
+        question: 'Điều gì xảy ra với kiểu dữ liệu trong quá trình chuyển đổi?',
+        answer: 'Trình chuyển đổi của chúng tôi cố gắng bảo toàn các kiểu dữ liệu khi có thể. Số, boolean và chuỗi được xử lý phù hợp cho từng định dạng đích, với logic chuyển đổi thông minh để tối thiểu hóa mất dữ liệu.'
+      },
+      {
+        question: 'Làm thế nào để xử lý các ký tự đặc biệt trong chuyển đổi?',
+        answer: 'Các ký tự đặc biệt, dấu phẩy, dấu ngoặc kép và ký tự Unicode được xử lý tự động với mã hóa và thoát ký tự phù hợp cho từng định dạng đích. Điều này đảm bảo tính toàn vẹn dữ liệu.'
+      },
+      {
+        question: 'Tôi có thể hoàn tác chuyển đổi để quay lại định dạng gốc không?',
+        answer: 'Có! Hầu hết các chuyển đổi là có thể đảo ngược. Bạn có thể lấy đầu ra đã chuyển đổi và chuyển đổi ngược lại định dạng gốc. Tuy nhiên, một số thông tin định dạng nhỏ có thể bị mất trong quá trình này.'
+      }
+    ]
   }
 }; 
