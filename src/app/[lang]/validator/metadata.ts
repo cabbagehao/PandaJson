@@ -15,8 +15,8 @@ export async function generateMetadata({
   const validator = t.validator;
   const common = t.common;
 
-  // 组合标题：工具名称 + 网站名称
-  const title = `${validator.title} - ${common.siteTitle}`;
+  // 使用工具的完整SEO标题
+  const title = validator.title;
 
   return {
     title,

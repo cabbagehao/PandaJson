@@ -1,5 +1,6 @@
 export const diff = {
   title: '在线JSON文件对比 - 可视化JSON差异检测器',
+  h1Title: '比较并高亮JSON变化',
   seo_title: '在线JSON文件对比 - 可视化JSON差异检测器',
   description: '使用视觉化并排显示对比JSON文件的变更。适用于代码审查、版本跟踪和快速识别API响应差异。',
   keywords: 'JSON对比,JSON比较,JSON差异,JSON比对,JSON比较器,查找JSON差异,JSON变更跟踪,JSON版本比较,JSON数据对比,JSON文件对比,并排JSON比较,JSON结构比较,JSON对比工具,识别JSON变化,追踪JSON修改,JSON增量对比,可视化JSON差异,JSON冲突解决',

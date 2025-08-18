@@ -1,5 +1,6 @@
 export const diff = {
   title: 'مقارنة JSON',
+  h1Title: 'Compare JSON Files',
   seo_title: 'مقارنة JSON - أداة سهلة لمقارنة وتحليل ملفات JSON',
   description: 'مقارنة ملفات JSON مع إبراز التغييرات بصرياً جنباً إلى جنب. مثالي لمراجعة الكود وتتبع الإصدارات وتحديد اختلافات API بسرعة.',
   keywords: 'مقارنة JSON، مقارنة JSON، اختلاف JSON، مقارنة JSON، مقارن JSON',

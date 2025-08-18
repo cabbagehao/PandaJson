@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'JSONオンラインフォーマット - 無料JSONビューティファイア＆コードフォーマッタ',
+  h1Title: 'JSONデータを美しく整形する',
   seo_title: 'JSONオンラインフォーマット - 無料JSONビューティファイア＆コードフォーマッタ',
   description: '縮小されたJSONを適切なインデントと構文ハイライトで読みやすいコードに変換。APIデバッグと複雑なデータ構造の分析に不可欠。',
   keywords: 'JSONフォーマッタ,JSON美化ツール,JSONオンラインフォーマット,JSONインデント,JSON構造,クリーンJSONコード,JSON整形ツール,JSON読みやすさツール,JSON美化,JSONコードフォーマッタ,JSON構文ハイライト,オンラインJSONフォーマッタ,圧縮JSONフォーマッタ,JSON改行,JSONスペース,JSON整理,JSONレイアウト,JSONコード構造',

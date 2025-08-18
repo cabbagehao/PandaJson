@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: 'JSON Daraxt tahrirlovchisi',
+  h1Title: 'Edit JSON Tree',
   seo_title: 'Vizual JSON Tahrirlovchisi – Murakkab JSON ma\'lumotlarini interaktiv daraxt ko\'rinishi bilan tahrirlang',
   description: 'Murakkab JSON ob\'ektlarini daraxt tuzilishi orqali vizuallashtiring, tahrirlang va tahlil qiling, intuitiv vizual operatsiyalarni ta\'minlang',
   keywords: 'JSON muharriri, JSON daraxtini tahrirlash, JSON vizualizatsiyasi, JSON tuguni muharriri, JSON daraxt tuzilishi,JSON daraxt tahrirlovchisi,JSON vizual tahrirlovchisi,JSON tahrirlovchisi,JSON daraxt ko\'rinishi,JSON tahlilchisi,JSON o\'zgartirish,JSON tahrirlash,interaktiv JSON tahrirlovchisi,ichki JSON tahrirlovchisi,JSON tuzilishi ko\'ruvchisi,JSON tugun tahrirlovchisi,vizual ma\'lumot tahrirlovchisi,JSON ierarhiyasi ko\'ruvchisi,murakkab JSON tahrirlovchisi,JSON daraxt tuzilishi,JSON vizualizatsiya vositasi,JSON navigatori',

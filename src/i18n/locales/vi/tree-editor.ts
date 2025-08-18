@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: 'Trình Chỉnh Sửa Cây JSON',
+  h1Title: 'Edit JSON Tree',
   seo_title: 'Trình Chỉnh Sửa JSON Trực Quan – Chỉnh Sửa Dữ Liệu JSON Phức Tạp Với Cấu Trúc Cây Tương Tác',
   description: 'Trực quan hóa, chỉnh sửa và phân tích các đối tượng JSON phức tạp thông qua cấu trúc cây, cung cấp các thao tác trực quan trực quan',
   keywords: 'Trình chỉnh sửa JSON,Chỉnh sửa cây JSON,Trực quan hóa JSON,Trình chỉnh sửa nút JSON,Cấu trúc cây JSON,Trình chỉnh sửa JSON tương tác,Trình chỉnh sửa JSON lồng nhau,Công cụ xem cấu trúc JSON,Trình soạn thảo dữ liệu trực quan,Công cụ xem phân cấp JSON,Trình chỉnh sửa JSON phức tạp,Công cụ trực quan hóa JSON,Trình duyệt JSON',

@@ -15,11 +15,11 @@ export async function generateMetadata({
   const minifier = t.minifier;
   const common = t.common;
 
-  // 组合标题：工具名称 + 网站名称
-  const combinedTitle = `${minifier.title} - ${common.siteTitle}`;
+  // 使用工具的完整SEO标题
+  const title = minifier.title;
 
   return {
-    title: combinedTitle,
+    title,
     ...generateToolPageSEO('minifier', locale, minifier.description, minifier.keywords),
   };
 }

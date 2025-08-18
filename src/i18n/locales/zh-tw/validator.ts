@@ -1,5 +1,6 @@
 export const validator = {
   title: 'JSON校驗',
+  h1Title: 'Validate JSON Syntax',
   seo_title: 'JSON驗證器 – 快速檢查JSON語法和查找錯誤',
   description: '立即偵測JSON語法錯誤，提供精確的逐行回饋。用於調試API回應和確保應用程式中的數據完整性的必要工具。',
   keywords: 'JSON驗證器,JSON驗證,JSON格式檢查,JSON語法檢查,JSON錯誤定位器,在線JSON驗證器,JSON錯誤修復,JSON語法驗證,檢查JSON,JSON格式驗證,JSON錯誤查找器,JSON驗證工具,JSON調試工具,JSON結構驗證,錯誤位置查找器,JSON錯誤訊息,修復JSON語法,JSON代碼驗證器',

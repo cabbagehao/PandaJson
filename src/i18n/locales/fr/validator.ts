@@ -1,5 +1,6 @@
 export const validator = {
   title: 'Validateur JSON',
+  h1Title: 'Vérifiez la Syntaxe JSON et Trouvez les Erreurs',
   seo_title: 'Validateur JSON – Vérifiez la Syntaxe JSON et Trouvez les Erreurs Instantanément',
   description: 'Détectez instantanément les erreurs de syntaxe JSON avec un retour précis ligne par ligne. Essentiel pour déboguer les réponses API et assurer l’intégrité des données.',
   keywords: 'Validateur JSON,Validation JSON,Vérification de format JSON,Vérification de syntaxe JSON,Localisateur d\'erreurs JSON,Validateur JSON en ligne,Correction d\'erreurs JSON,Erreur d\'analyse JSON,Détection d\'erreurs de syntaxe,Outil de débogage JSON,Validation de structure JSON,Localisateur de position d\'erreur,Messages d\'erreur JSON,Correction de syntaxe JSON,Validateur de code JSON',

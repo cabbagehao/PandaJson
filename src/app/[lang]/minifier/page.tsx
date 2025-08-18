@@ -20,7 +20,7 @@ export default async function JsonMinifier({
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <MinifierClient 
-        pageTitle={minifier.title}
+        pageTitle={minifier.h1Title}
         pageDescription={minifier.description}
         pageKeywords={minifier.keywords}
       />

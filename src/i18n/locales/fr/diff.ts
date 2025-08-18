@@ -1,5 +1,6 @@
 export const diff = {
   title: 'Comparateur JSON',
+  h1Title: 'Comparez et Mettez en Évidence les Changements JSON',
   seo_title: 'Comparer des Ensembles de Données JSON en Ligne – Mettre en Évidence Ajouts, Suppressions et Modifications',
   description: 'Comparez les fichiers JSON avec surbrillance visuelle côte à côte. Idéal pour les revues de code, suivi de versions et identifier rapidement les différences API.',
   keywords: 'différence JSON,comparer JSON,différence JSON,comparaison JSON,comparateur JSON,trouver différences JSON,suivi changements JSON,comparaison versions JSON,différence données JSON,comparaison fichiers JSON,comparaison JSON côte à côte,comparaison structure JSON,outil comparaison JSON,identifier changements JSON,suivre modifications JSON,delta JSON,différence visuelle JSON,résolution conflits JSON',

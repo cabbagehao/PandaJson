@@ -1,5 +1,6 @@
 export const minifier = {
   title: 'Mfinyazi wa JSON',
+  h1Title: 'Minify JSON Data',
   seo_title: 'Mfinyazi wa JSON – Finyo na Punguza Ukubwa wa Faili za JSON kwa Kuondoa Nafasi Tupu',
   description: 'Finyo JSON kwa kuondoa nafasi na umbizaji ili kupunguza ukubwa wa faili hadi 50%. Boresha kasi ya uhamishaji wa data kwa API na programu za simu kwa ufanisi.',
   keywords: 'Kidogesha cha JSON,Punguza ukubwa wa JSON,Finyo la JSON,Chombo cha finyo la JSON,Chombo cha kupunguza ukubwa cha JSON,Chombo cha JSON mtandaoni,Kidogesha cha JSON mtandaoni,Finyo la JSON,Finyo la data ya JSON,Kupunguza ukubwa wa JSON,Kuondoa nafasi kwenye JSON,Mfinyazi wa JSON,JSON yenye nafasi ndogo,JSON finyu,Chombo cha kufinyaza JSON,Kuboresha uhamishaji wa JSON,Kupunguza upana wa JSON,Ufanisi wa uhamishaji wa JSON,Finyo la JSON mtandaoni,Chombokupunguza ukubwa wa faili za JSON,Kiwezeshi cha JSON,JSON rahisi,Kupunguza malipo ya JSON',

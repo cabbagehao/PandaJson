@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: 'Mhariri wa Mti wa JSON',
+  h1Title: 'Edit JSON Tree',
   seo_title: 'Mhariri wa Kuona wa JSON – Hariri Data ya JSON Ngumu kwa Mwonekano wa Mti wa Kuingiliana',
   description: 'Hariri JSON ngumu iliyofungwa ndani kupitia kiolesura cha mti kinachoeleweka. Jongea na urekebishe miundo kuu ya data bila makosa ya sintaksia. Bora kwa mipangilio.',
   keywords: 'Mhariri wa JSON,Uhariri wa mti wa JSON,Uoneshaji wa JSON,Mhariri wa nodi wa JSON,Muundo wa mti wa JSON,Mhariri wa mti wa JSON,Mhariri wa kuona wa JSON,Mhariri wa JSON,Mwonekano wa mti wa JSON,Kitambua cha JSON,badilisha JSON,hariri JSON,mhariri wa JSON wa kuingiliana,mhariri wa JSON iliyofungwa ndani,mwoneshaji wa muundo wa JSON,Mhariri wa nodi wa JSON,mhariri wa data ya kuona,mwoneshaji wa utaratibu wa JSON,mhariri wa JSON ngumu,muundo wa mti wa JSON,zana ya kuonyesha JSON,mnavigata wa JSON',

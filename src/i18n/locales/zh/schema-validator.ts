@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'JSON Schema验证 - 检查数据结构完整性',
+  h1Title: '根据Schema验证JSON',
   seo_title: 'JSON Schema验证 - 检查数据结构完整性',
   description: '验证JSON数据符合Schema规范。确保API契约、数据类型和字段约束完全匹配您的应用程序需求。',
   keywords: 'JSON Schema,JSON验证,Schema验证,JSON结构验证,JSON格式验证,JSON schema验证器,schema一致性检查,JSON数据完整性,根据schema验证,JSON约束验证,类型验证,结构验证,模式验证,JSON规则验证,必填字段验证器,JSON格式检查器,JSON合约验证器,API schema验证',

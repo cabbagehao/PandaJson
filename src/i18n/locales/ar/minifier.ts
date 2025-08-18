@@ -1,5 +1,6 @@
 export const minifier = {
   title: 'مصغر JSON',
+  h1Title: 'Minify JSON Data',
   seo_title: 'مصغر JSON - ضغط وتحسين ملفات JSON لأداء أفضل',
   description: 'ضغط JSON بإزالة المسافات والتنسيق لتقليل حجم الملف حتى 50%. تحسين سرعة نقل البيانات لـ API وتطبيقات الهاتف بكفاءة.',
   keywords: 'مصغر JSON، تصغير JSON، تحسين حجم JSON، إزالة المسافات البيضاء من JSON، ضاغط JSON',

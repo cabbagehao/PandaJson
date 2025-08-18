@@ -1,5 +1,6 @@
 export const diff = {
   title: 'Comparador JSON',
+  h1Title: 'Compare JSON Files',
   seo_title: 'Compare Conjuntos de Dados JSON Online – Destaque Adições, Exclusões e Alterações',
   description: 'Compare arquivos JSON com destaque visual de mudanças lado a lado. Ideal para revisões de código, rastreamento de versões e identificar diferenças de respostas API rapidamente.',
   keywords: 'diferença JSON,comparar JSON,diferença JSON,comparação JSON,comparador JSON,encontrar diferenças JSON,rastreador de alterações JSON,comparação de versões JSON,diferença de dados JSON,comparação de arquivos JSON,comparação lado a lado JSON,comparação de estrutura JSON,ferramenta de diferença JSON,identificar alterações JSON,rastrear modificações JSON,delta JSON,diferença visual JSON,resolução de conflitos JSON',

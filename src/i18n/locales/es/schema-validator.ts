@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'Validar JSON Contra Esquema - Verificar Integridad de Estructura de Datos',
+  h1Title: 'Valida JSON Contra Reglas de Esquema',
   seo_title: 'Validar JSON Contra Esquema - Verificar Integridad de Estructura de Datos',
   description: 'Verifique el cumplimiento de datos JSON contra especificaciones de esquema. Asegure contratos API, tipos de datos y restricciones de campo perfectamente.',
   keywords: 'Esquema JSON,Validación JSON,Validación de esquema,Validación de estructura JSON,Validación de formato JSON,Validador de esquema JSON,Verificador de conformidad de esquema,Integridad de datos JSON,Validar contra esquema,Validación de restricciones JSON,Validación de tipos,Validación estructural,Validación de patrones,Validación de reglas JSON,Validador de campos requeridos,Verificador de formato JSON,Validador de contrato JSON,Validación de esquema API',

@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: '可视化JSON树形编辑器 - 交互式JSON导航器',
+  h1Title: '可视化树形编辑JSON',
   seo_title: '可视化JSON树形编辑器 - 交互式JSON导航器',
   description: '通过直观的树形界面编辑复杂嵌套JSON。导航和修改深层数据结构，避免语法错误。适用于配置管理。',
   keywords: 'JSON树编辑器,JSON可视化,JSON节点编辑,JSON树结构,JSON树状视图',

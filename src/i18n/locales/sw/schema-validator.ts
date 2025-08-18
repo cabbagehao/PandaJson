@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'Mthibitishaji wa Muundo wa JSON',
+  h1Title: 'Validate JSON Schema',
   seo_title: 'Thibitisha JSON Dhidi ya Muundo – Hakikisha Uthabiti wa Muundo wa Data',
   description: 'Hakiki kufuata data ya JSON kwa maparagrafu ya muundo. Hakikisha mikataba ya API, aina za data na vikwazo vya uwanda vinapatana kikamilifu na mahitaji ya programu yako.',
   keywords: 'Mfumo wa JSON,Uthibitishaji wa JSON,Uthibitishaji wa mfumo,Uthibitishaji wa muundo wa JSON,Uthibitishaji wa fomati ya JSON,Mthibitishaji wa muundo wa JSON,Mchunguzi wa kufuata muundo,Uthabiti wa data ya JSON,thibitisha dhidi ya muundo,uthibitishaji wa vizuizi vya JSON,uthibitishaji wa aina,uthibitishaji wa muundo,uthibitishaji wa mfumo,uthibitishaji wa sheria za JSON,mthibitishaji wa sehemu zinazohitajika,mkaguzi wa fomati ya JSON,mthibitishaji wa mkataba wa JSON,uthibitishaji wa muundo wa API',

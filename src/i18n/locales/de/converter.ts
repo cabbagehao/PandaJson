@@ -1,5 +1,6 @@
 export const converter = {
   title: 'JSON zu YAML, XML, CSV Konvertieren - Kostenloser Datenformat-Konverter',
+  h1Title: 'Transformieren Sie JSON in Jedes Format',
   seo_title: 'JSON zu YAML, XML, CSV Konvertieren - Kostenloser Datenformat-Konverter',
   description: 'Konvertieren Sie JSON nahtlos zu YAML, XML, CSV-Formaten und zurück. Perfekt für Datenmigration, Konfigurationsverwaltung und plattformübergreifende Datenaustauschabwörter.',
   keywords: 'JSON-Konverter,JSON zu YAML,JSON zu XML,JSON zu CSV,JSON-Transformation,Datenformat-Konverter,JSON-Export,YAML zu JSON,XML zu JSON,CSV zu JSON,Datenformate konvertieren,JSON-Datentransformation,Format-Konvertierungstool,bidirektionale Konvertierung,Datenaustauschformate,JSON online konvertieren,Datenformat-Übersetzer,Dateiformatkonvertierung,JSON-Import-Export,JSON-Migrationstool',

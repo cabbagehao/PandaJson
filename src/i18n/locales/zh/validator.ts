@@ -1,5 +1,6 @@
 export const validator = {
   title: '在线JSON校验 - 检查语法错误修复JSON代码',
+  h1Title: '检查JSON语法和错误',
   seo_title: '在线JSON校验 - 检查语法错误修复JSON代码',
   description: '即时检测JSON语法错误，提供精确的逐行反馈。是调试API响应和确保应用程序数据完整性的必备工具。',
   keywords: 'JSON验证器,JSON校验,JSON格式检查,JSON语法检查,JSON错误定位,在线JSON验证,JSON错误修复,JSON解析错误,语法错误检测,JSON调试工具,JSON结构验证,错误位置查找器,JSON错误信息,修复JSON语法,JSON代码验证器',

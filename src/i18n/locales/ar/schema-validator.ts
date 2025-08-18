@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'مدقق مخطط JSON',
+  h1Title: 'Validate JSON Schema',
   seo_title: 'مدقق مخطط JSON - التحقق من صحة بيانات JSON وفقًا للمعايير',
   description: 'تحقق من امتثال بيانات JSON لمواصفات المخطط. ضمان عقود API وأنواع البيانات وقيود الحقول تطابق متطلبات تطبيقك تماماً.',
   keywords: 'مخطط JSON، التحقق من صحة JSON، التحقق من صحة المخطط، التحقق من صحة هيكل JSON، التحقق من صحة تنسيق JSON',

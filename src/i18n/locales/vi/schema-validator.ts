@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'Trình Xác Thực Lược Đồ JSON',
+  h1Title: 'Validate JSON Schema',
   description: 'Xác thực dữ liệu JSON dựa trên đặc điểm kỹ thuật Schema, kiểm tra tính toàn vẹn và hợp lệ của cấu trúc dữ liệu',
   keywords: 'JSON Schema,Xác thực JSON,Xác thực lược đồ,Xác thực cấu trúc JSON,Xác thực định dạng JSON',
   jsonData: 'Dữ Liệu JSON',

@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'JSON Formatlash',
+  h1Title: 'Format JSON Data',
   seo_title: 'JSON Formatlash & Go\'zallashtirish – JSON kodini chiroyli, chekingan va tuzilishli qiling',
   description: 'Tartibsiz JSON ma\'lumotlarini formatlangan, to\'g\'ri chekingan shaklga o\'zgartiradigan, JSON o\'qilishini yaxshilaydigan professional onlayn JSON formatlash vositasi. Dasturchilar JSON ma\'lumotlarini nosozliklarni tuzatish va tekshirish uchun chekinish hajmi, qavs uslubi va qator kengligi chegarasini sozlashni qo\'llab-quvvatlaydi.',
   keywords: 'JSON formatlash,JSON go\'zallashtirish,JSON onlayn formatlash,JSON formatlash vositasi,JSON tahrirlash,JSON chekinish,JSON formatlash vositasi,JSON formatlash,JSON go\'zallashtirish,JSON tuzilish vositasi,JSON chiroyli bosib chiqarish,JSON chiroyli qilish,onlayn JSON formatlash,JSON chekinish,JSON tuzilishi,toza JSON kodi,JSON go\'zallashtiruvchi,JSON o\'qilishini yaxshilash vositasi,JSON kod formatlash,JSON sintaksis ajratish,kichiklashtirilgan JSON formatlash,JSON qator uzilishlari,JSON bo\'shliqlar,JSON tashkil etish,JSON tartibga solish,JSON kod tuzilishi',

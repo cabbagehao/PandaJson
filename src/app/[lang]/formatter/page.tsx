@@ -20,7 +20,7 @@ export default async function JsonFormatter({
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <FormatterClient 
-        pageTitle={formatter.title}
+        pageTitle={formatter.h1Title}
         pageDescription={formatter.description}
         pageKeywords={formatter.keywords}
         pageIntroduction={formatter.introduction}

@@ -1,5 +1,6 @@
 export const validator = {
   title: 'JSONオンライン検証 - 構文エラーチェック＆JSONコード修正',
+  h1Title: 'JSON構文をチェックしてエラーを発見',
   seo_title: 'JSONオンライン検証 - 構文エラーチェック＆JSONコード修正',
   description: 'JSON構文エラーを精密な行単位フィードバックで即座に検出。APIレスポンスのデバッグとアプリケーションのデータ整合性保証に不可欠。',
   keywords: 'JSON検証ツール,JSON構文チェッカー,JSON検証,JSONエラーファインダー,JSONフォーマット検証ツール,JSON検証ツール,JSON解析エラー,構文エラー検出,JSONデバッグツール,JSON構造検証,エラー位置ファインダー,JSONエラーメッセージ,JSON構文修正,JSONコード検証ツール',

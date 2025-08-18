@@ -1,5 +1,6 @@
 export const diff = {
   title: 'Mlinganishaji wa JSON',
+  h1Title: 'Compare JSON Files',
   seo_title: 'Linganisha Datasets za JSON Mtandaoni – Angazia Nyongeza, Ufutaji, na Mabadiliko',
   description: 'Linganisha faili za JSON na kuangazia mabadiliko kando-kwa-kando kwa kuona. Bora kwa ukaguzi wa msimbo, ufuatiliaji wa toleo na kutambua tofauti za majibu ya API kwa haraka.',
   keywords: 'Tofauti ya JSON,Linganisha JSON,Tofauti ya JSON,Ulinganishaji wa JSON,Kilinganishi cha JSON,tafuta tofauti za JSON,kifuatiliaji cha mabadiliko ya JSON,Ulinganishaji wa toleo la JSON,tofauti ya data za JSON,ulinganishaji wa faili za JSON,ulinganishaji wa JSON upande kwa upande,ulinganishaji wa muundo wa JSON,zana ya tofauti ya JSON,tambua mabadiliko ya JSON,fuatilia marekebisho ya JSON,delta ya JSON,tofauti ya kuona ya JSON,ufumbuzi wa migogoro ya JSON',

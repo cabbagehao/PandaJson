@@ -1,5 +1,6 @@
 export const validator = {
   title: 'مدقق JSON',
+  h1Title: 'Validate JSON Syntax',
   seo_title: 'مدقق JSON - تحقق من صحة وتنسيق بيانات JSON الخاصة بك',
   description: 'اكتشاف فوري لأخطاء بناء جملة JSON مع تغذية راجعة دقيقة سطر بعد سطر. ضروري لتصحيح استجابات API وضمان سلامة البيانات في تطبيقاتك.',
   keywords: 'مدقق JSON، التحقق من صحة JSON، فحص تنسيق JSON، فحص بناء جملة JSON، محدد أخطاء JSON، مدقق JSON عبر الإنترنت، إصلاح أخطاء JSON',

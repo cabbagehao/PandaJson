@@ -1,5 +1,6 @@
 export const converter = {
   title: 'Convertisseur JSON',
+  h1Title: 'Transformez JSON vers Tout Format',
   seo_title: 'Convertisseur JSON Polyvalent - Conversion entre XML, YAML, CSV et JSON',
   description: 'Convertissez facilement JSON vers YAML, XML, CSV et inversement. Parfait pour migration de données, gestion de configuration et flux d’échange multiplateformes.',
   keywords: 'Convertisseur JSON,JSON vers XML,JSON vers YAML,XML vers JSON,YAML vers JSON,CSV vers JSON,JSON vers CSV',

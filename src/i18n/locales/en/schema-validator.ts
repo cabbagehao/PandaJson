@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'Validate JSON Against Schema - Check Data Structure Integrity',
+  h1Title: 'Validate JSON Against Schema Rules',
   seo_title: 'Validate JSON Against Schema - Check Data Structure Integrity',
   description: 'Verify JSON data compliance against schema specifications. Ensure API contracts, data types, and field constraints match your application requirements perfectly.',
   keywords: 'JSON Schema,JSON validation,Schema validation,JSON structure validation,JSON format validation,JSON schema validator,schema conformance checker,JSON data integrity,validate against schema,JSON constraint validation,type validation,structural validation,pattern validation,JSON rules validation,required fields validator,JSON format checker,JSON contract validator,API schema validation',

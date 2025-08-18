@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'Formatar JSON Online - Embelezador JSON Gratuito e Formatador de Código',
+  h1Title: 'Format JSON Data',
   seo_title: 'Formatar JSON Online - Embelezador JSON Gratuito e Formatador de Código',
   description: 'Transforme JSON minificado em código legível com indentação adequada e destaque de sintaxe. Essencial para depurar APIs e analisar estruturas de dados complexas.',
   keywords: 'formatador JSON,embelezador JSON,formatar JSON online,indentação JSON,estrutura JSON,código JSON limpo,embelezador JSON,ferramenta de legibilidade JSON,embelezar JSON,formatador de código JSON,destaque de sintaxe JSON,formatador JSON online,formatador JSON minificado,quebras de linha JSON,espaçamento JSON,organização JSON,layout JSON,estrutura de código JSON',

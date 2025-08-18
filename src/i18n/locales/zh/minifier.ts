@@ -1,5 +1,6 @@
 export const minifier = {
   title: '在线JSON压缩 - 压缩减小JSON文件大小',
+  h1Title: '压缩优化您的JSON',
   seo_title: '在线JSON压缩 - 压缩减小JSON文件大小',
   description: '通过移除空白和格式化压缩JSON，将文件大小减小高达50%。为API和移动应用高效优化数据传输速度。',
   keywords: 'JSON压缩,JSON最小化,JSON体积优化,JSON去空格,JSON压缩器,减小JSON大小,紧凑JSON,JSON压缩工具,优化JSON传输,JSON带宽减少,JSON传输效率,在线压缩JSON,JSON文件大小减少器,JSON优化器,轻量级JSON,JSON载荷减少',

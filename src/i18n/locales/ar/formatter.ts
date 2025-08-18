@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'منسق JSON',
+  h1Title: 'Format JSON Data',
   seo_title: 'منسق ومجمل JSON - تجميل وترتيب وهيكلة رمز JSON',
   description: 'تحويل JSON المضغوط إلى رمز واضح مع المسافات البادئة وإبراز بناء الجملة المناسب. ضروري لتصحيح واجهات برمجة التطبيقات وتحليل هياكل البيانات المعقدة.',
   keywords: 'منسق JSON,مجمل JSON,مرتب JSON,محرر JSON,تحويل تنسيق JSON,مسافة بادئة JSON,هيكلة JSON,أداة تنسيق JSON مجانية',

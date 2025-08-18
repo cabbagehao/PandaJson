@@ -1,5 +1,6 @@
 export const minifier = {
   title: 'JSON Kichiklashtirish',
+  h1Title: 'Minify JSON Data',
   seo_title: 'JSON Kichiklashtiruvchi – Bo\'sh joylarni olib tashlash orqali JSON fayl hajmini siqish va kamaytirish',
   description: 'JSON fayllarining hajmini ortiqcha bo\'sh joylar, yangi qatorlar va kalit qo\'shtirnoqlarini olib tashlash orqali kichiklashtiring, samaradorlik va kichikroq yetkazib berish uchun JSON fayllarning ixcham versiyalarini yarating.',
   keywords: 'JSON minimizator,JSON o\'lchamini kichiklashtirish,JSON zichlagich,JSON siqish vositasi,JSON o\'lchamini kamaytirish vositasi,Onlayn JSON vositasi,Onlayn JSON minimizator,JSON siqish,JSON ma\'lumotlarini siqish,JSON o\'lchamini kamaytirish,JSON bo\'sh joylarini olib tashlash,JSON kompressor,ixcham JSON,JSON siqish vositasi,JSON uzatishni optimallashtirish,JSON bandvitini kamaytirish,JSON uzatish samaradorligi,onlayn JSON kichiklashtirish,JSON fayl hajmini kamaytirish,JSON optimizatori,engil JSON,JSON ma\'lumotlarini kamaytirish',

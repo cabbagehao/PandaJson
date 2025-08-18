@@ -1,5 +1,6 @@
 export const diff = {
   title: 'JSONファイルオンライン比較 - ビジュアルJSON差分＆変更検出ツール',
+  h1Title: 'JSONの変更を比較しハイライト表示',
   seo_title: 'JSONファイルオンライン比較 - ビジュアルJSON差分＆変更検出ツール',
   description: 'JSONファイルをビジュアルサイドバイサイド変更ハイライトで比較。コードレビュー、バージョン追跡、APIレスポンスの違いを迅速に特定するのに理想的。',
   keywords: 'JSON差分,JSON比較,JSONの違い,JSON比較,JSONコンパレータ,JSON差分を見つける,JSON変更トラッカー,JSONバージョン比較,JSONデータ差分,JSONファイル比較,サイドバイサイドJSON比較,JSON構造比較,JSON差分ツール,JSON変更識別,JSON変更追跡,JSONデルタ,ビジュアルJSON差分,JSON競合解決',

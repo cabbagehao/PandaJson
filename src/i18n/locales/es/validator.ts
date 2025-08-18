@@ -1,5 +1,6 @@
 export const validator = {
   title: 'Validar JSON en Línea - Verificar Errores de Sintaxis y Corregir Código JSON',
+  h1Title: 'Verifica la Sintaxis JSON y Encuentra Errores',
   seo_title: 'Validar JSON en Línea - Verificar Errores de Sintaxis y Corregir Código JSON',
   description: 'Detecte errores de sintaxis JSON al instante con retroalimentación precisa línea por línea. Esencial para depurar respuestas de API y garantizar la integridad de datos en aplicaciones.',
   keywords: 'Validador JSON,Validación JSON,Comprobación de formato JSON,Comprobación de sintaxis JSON,Localizador de errores JSON,Validador JSON en línea,Corrección de errores JSON,Error de análisis JSON,Detección de errores de sintaxis,Herramienta de depuración JSON,Validación de estructura JSON,Buscador de ubicación de errores,Mensajes de error JSON,Corregir sintaxis JSON,Validador de código JSON',

@@ -20,7 +20,7 @@ export default async function JsonDiff({
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <DiffClient 
-        pageTitle={diff.title}
+        pageTitle={diff.h1Title}
         pageDescription={diff.description}
         pageKeywords={diff.keywords}
         pageIntroduction={diff.introduction}

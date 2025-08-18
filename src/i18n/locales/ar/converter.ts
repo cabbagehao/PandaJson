@@ -1,5 +1,6 @@
 export const converter = {
   title: 'محول JSON',
+  h1Title: 'Convert JSON Format',
   seo_title: 'محول JSON متعدد الاستخدامات - تحويل بين XML و YAML و CSV و JSON',
   description: 'تحويل سلس لـ JSON إلى YAML وXML وCSV وبالعكس. مثالي لنقل البيانات وإدارة التكوين وسير عمل تبادل البيانات عبر المنصات.',
   keywords: 'محول JSON، تحويل JSON إلى XML، تحويل JSON إلى YAML، تحويل XML إلى JSON، تحويل YAML إلى JSON، تحويل CSV إلى JSON، تحويل JSON إلى CSV',

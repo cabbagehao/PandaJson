@@ -20,7 +20,7 @@ export default async function JsonValidator({
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <ValidatorClient 
-        pageTitle={validator.title}
+        pageTitle={validator.h1Title}
         pageDescription={validator.description}
         pageKeywords={validator.keywords}
         pageIntroduction={validator.introduction}

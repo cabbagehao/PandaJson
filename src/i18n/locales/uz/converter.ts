@@ -1,5 +1,6 @@
 export const converter = {
   title: 'JSON Aylantirish',
+  h1Title: 'Convert JSON Format',
   seo_title: 'JSON Konverter – JSON ni YAML, XML, CSV va boshqalarga o\'zgartiring',
   description: 'JSON ma\'lumotlarini boshqa formatlarga (YAML, XML, CSV) o\'zgartiring, yoki boshqa formatlarni JSON ga o\'zgartiring.',
   keywords: 'JSON konverter,JSON dan XML ga,JSON dan YAML ga,XML dan JSON ga,YAML dan JSON ga,CSV dan JSON ga,JSON dan CSV ga,JSON transformatsiyasi,ma\'lumotlar formati konverteri,JSON eksport,ma\'lumotlar formati konversiyasi,JSON ma\'lumotlar transformatsiyasi,format konversiya vositasi,ikki tomonlama konversiya,ma\'lumotlar almashinuvi formatlari,JSON ni onlayn konverterlash,ma\'lumotlar formati tarjimoni,fayl formati konversiyasi,JSON import-eksport,JSON migratsiya vositasi',

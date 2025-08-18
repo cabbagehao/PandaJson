@@ -1,5 +1,6 @@
 export const diff = {
   title: 'JSON-Dateien Online Vergleichen - Visueller JSON-Diff & Änderungs-Detektor',
+  h1Title: 'Vergleichen und Hervorheben von JSON-Änderungen',
   seo_title: 'JSON-Dateien Online Vergleichen - Visueller JSON-Diff & Änderungs-Detektor',
   description: 'Vergleichen Sie JSON-Dateien mit visueller Side-by-Side-Änderungshervorhebung. Ideal für Code-Reviews, Versionsverfolgung und schnelle Identifikation von API-Response-Unterschieden.',
   keywords: 'JSON-Diff,JSON vergleichen,JSON-Unterschied,JSON-Vergleich,JSON-Komparator,JSON-Unterschiede finden,JSON-Änderungs-Tracker,JSON-Versionenvergleich,JSON-Daten-Diff,JSON-Datei vergleichen,nebeneinander JSON-Vergleich,JSON-Struktur-Vergleich,JSON-Diff-Tool,JSON-Änderungen identifizieren,JSON-Änderungen verfolgen,JSON-Delta,visueller JSON-Diff,JSON-Konfliktlösung',

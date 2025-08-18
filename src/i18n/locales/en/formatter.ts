@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'Format JSON Online - Free JSON Beautifier & Code Formatter',
+  h1Title: 'Beautify Your JSON Data',
   seo_title: 'Format JSON Online - Free JSON Beautifier & Code Formatter',
   description: 'Transform minified JSON into readable code with proper indentation and syntax highlighting. Essential for debugging APIs and analyzing complex data structures.',
   keywords: 'JSON formatter,JSON beautifier,pretty print JSON,format JSON online,JSON indentation,JSON structure,clean JSON code,JSON prettifier,JSON readability tool,beautify JSON,JSON code formatter,JSON syntax highlighting,online JSON formatter,minified JSON formatter,JSON line breaks,JSON spacing,JSON organization,JSON layout,JSON code structure',

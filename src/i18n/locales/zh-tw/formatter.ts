@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'JSON格式化',
+  h1Title: 'Format JSON Data',
   seo_title: 'JSON格式化與美化工具 – 美化、縮進與結構化JSON代碼',
   description: '將壓縮的JSON轉換為具有適當縮排和語法醒目的可讀代碼。用於調試API和分析複雜數據結構的必要工具。',
   keywords: 'JSON格式化,JSON美化,JSON整理,JSON編輯器,JSON格式轉換,JSON縮進,JSON結構化,免費JSON格式化工具,JSON語法高亮,在線美化JSON,JSON結構可視化,JSON自動縮進,JSON文件格式化,JSON漂亮打印,JSON可讀性工具,美化JSON代碼,JSON格式化器,JSON縮進工具,JSON程式碼美化,JSON程式碼格式',

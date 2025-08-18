@@ -148,7 +148,7 @@ export default function DiffClient({
 
         {/* 差异查看器 */}
         {showDiff ? (
-          <div className="h-[500px]">
+          <div className="h-[250px] max-h-[500px]">
             <JsonDiffViewer
               leftValue={json1}
               rightValue={json2}

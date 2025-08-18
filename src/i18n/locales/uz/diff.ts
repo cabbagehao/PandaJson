@@ -1,5 +1,6 @@
 export const diff = {
   title: 'JSON Taqqoslash',
+  h1Title: 'Compare JSON Files',
   seo_title: 'JSON Ma\'lumotlar to\'plamini onlayn taqqoslash – Qo\'shimchalar, O\'chirishlar va O\'zgartirishlarni ajratib ko\'rsating',
   description: 'Ikkita JSON ob\'ektini solishtiring va qo\'shimchalar, o\'chirishlar va o\'zgartirishlarni ko\'ring.',
   keywords: 'JSON farq,JSON solishtirish,JSON farqi,JSON taqqoslash,JSON taqqoslovchi,JSON farqlarini topish,JSON o\'zgarishlarini kuzatuvchi,JSON versiyasi taqqoslash,JSON ma\'lumotlar farqi,JSON fayl solishtirish,JSON yonma-yon solishtirish,JSON tuzilishi taqqoslash,JSON farq vositasi,JSON o\'zgarishlarini aniqlash,JSON o\'zgartirishlarini kuzatish,JSON delta,vizual JSON farq,JSON ziddiyatlarini hal qilish',

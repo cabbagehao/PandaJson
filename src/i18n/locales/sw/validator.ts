@@ -1,5 +1,6 @@
 export const validator = {
   title: 'Mthibitishaji wa JSON',
+  h1Title: 'Validate JSON Syntax',
   seo_title: 'Mthibitishaji wa JSON – Kagua Sintaksia ya JSON na Pata Makosa Haraka',
   description: 'Gundua makosa ya sintaksia ya JSON mara moja na maoni sahihi ya mstari-kwa-mstari. Muhimu kwa kutatua majibu ya API na kuhakikisha uthabiti wa data katika programu zako.',
   keywords: 'Mthibitishaji wa JSON,Uthibitishaji wa JSON,Ukaguzi wa muundo wa JSON,Ukaguzi wa sintaksia ya JSON,Kitambuaji cha hitilafu za JSON,Mthibitishaji wa JSON mtandaoni,Urekebishaji wa hitilafu za JSON,mchunguzi wa sintaksia ya JSON,mtafutaji wa hitilafu za JSON,mthibitishaji wa muundo wa JSON,chombo cha uthibitishaji wa JSON,kosa la uchambuzi wa JSON,ugunduzi wa makosa ya sintaksia,chombo cha utatuzi wa JSON,uthibitishaji wa muundo wa JSON,kitafutaji cha mahali pa hitilafu,ujumbe wa hitilafu za JSON,rekebisha sintaksia ya JSON,mthibitishaji wa msimbo wa JSON',

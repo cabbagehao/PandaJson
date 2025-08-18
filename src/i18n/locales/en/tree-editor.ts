@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: 'Edit JSON with Visual Tree Editor - Interactive JSON Navigator',
+  h1Title: 'Edit JSON with Visual Tree Interface',
   seo_title: 'Edit JSON with Visual Tree Editor - Interactive JSON Navigator',
   description: 'Edit complex nested JSON through an intuitive tree interface. Navigate and modify deep data structures without syntax errors. Perfect for configurations.',
   keywords: 'JSON tree editor,JSON visual editor,JSON editor,JSON tree view,JSON parser,modify JSON,edit JSON,interactive JSON editor,nested JSON editor,JSON structure viewer,JSON node editor,visual data editor,JSON hierarchy viewer,complex JSON editor,JSON tree structure,JSON visualization tool,JSON navigator',

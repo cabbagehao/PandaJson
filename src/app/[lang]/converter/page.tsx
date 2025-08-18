@@ -20,7 +20,7 @@ export default async function ConverterPage({
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <ConverterClient 
-        pageTitle={converter.title}
+        pageTitle={converter.h1Title}
         pageDescription={converter.description}
         pageKeywords={converter.keywords}
         pageIntroduction={converter.introduction}

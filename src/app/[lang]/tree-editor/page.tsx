@@ -20,7 +20,7 @@ export default async function TreeEditor({
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <TreeEditorClient 
-        pageTitle={treeEditor.title}
+        pageTitle={treeEditor.h1Title}
         pageDescription={treeEditor.description}
         pageKeywords={treeEditor.keywords}
         pageIntroduction={treeEditor.introduction}

@@ -1,5 +1,6 @@
 export const diff = {
   title: 'Compare JSON Files Online - Visual JSON Diff & Change Detector',
+  h1Title: 'Compare & Highlight JSON Changes',
   seo_title: 'Compare JSON Files Online - Visual JSON Diff & Change Detector',
   description: 'Compare JSON files with visual side-by-side change highlighting. Ideal for code reviews, version tracking, and identifying API response differences quickly.',
   keywords: 'JSON diff,JSON compare,JSON difference,JSON comparison,JSON comparator,find JSON differences,JSON change tracker,JSON version comparison,JSON data diff,JSON file compare,side by side JSON comparison,JSON structure comparison,JSON diff tool,identify JSON changes,track JSON modifications,JSON delta,visual JSON diff,JSON conflict resolution',

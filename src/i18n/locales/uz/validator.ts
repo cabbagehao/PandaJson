@@ -1,5 +1,6 @@
 export const validator = {
   title: 'JSON Tekshirish',
+  h1Title: 'Validate JSON Syntax',
   seo_title: 'JSON Tekshiruvchi – JSON sintaksisini tekshiring va xatolarni tezda toping',
   description: 'JSON ma\'lumotlari to\'g\'ri formatlanganligini tezda tekshiradigan onlayn JSON tekshirish vositasi, muammolarni tezda aniqlash va tuzatishga yordam berish uchun batafsil xato xabarlarini va joylashuv ko\'rsatmalarini taqdim etadi.',
   keywords: 'JSON tekshirish,JSON tasdiqlash,JSON sintaksis tekshirish,JSON sintaksis tekshirish,JSON xatolarini aniqlash,Onlayn JSON tekshirish,JSON xatolarini tuzatish,JSON sintaksis tekshiruvchi,JSON xatolik topuvchi,JSON format tekshiruvchi,JSON tasdiqlash vositasi,JSON tahlil xatosi,sintaksis xatolarini aniqlash,JSON xatoliklarini tuzatish vositasi,JSON tuzilishini tekshirish,xato joylashuvini topuvchi,JSON xato xabarlari,JSON sintaksisini tuzatish,JSON kod tekshiruvchi',

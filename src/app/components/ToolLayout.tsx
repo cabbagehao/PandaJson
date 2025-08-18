@@ -42,13 +42,13 @@ export default function ToolLayout({
   return (
     <div className="max-w-6xl mx-auto">
       <div>
-        <div className="flex items-center mb-2 sm:mb-3">
+        <div className="flex items-center justify-center mb-2 sm:mb-3">
           {iconComponent && (
             <div className="mr-2">
               {iconComponent}
             </div>
           )}
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">{title}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white text-center">{title}</h1>
         </div>
         <div className="prose dark:prose-invert max-w-none text-base sm:text-lg text-gray-600 dark:text-gray-300">
           {description.split('\n').map((paragraph, index) => (

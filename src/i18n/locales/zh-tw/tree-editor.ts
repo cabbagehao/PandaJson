@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: 'JSON樹形編輯器',
+  h1Title: 'Edit JSON Tree',
   seo_title: '視覺化JSON編輯器 – 使用互動式樹狀視圖編輯複雜JSON數據',
   description: '透過直觀的樹狀介面編輯複雜的嵌套JSON。在沒有語法錯誤的情況下瀏覽和修改深層數據結構。完美適用於配置。',
   keywords: 'JSON樹編輯器,JSON可視化,JSON節點編輯,JSON樹結構,JSON樹狀視圖,互動式JSON編輯器,嵌套JSON編輯器,JSON結構查看器,視覺化數據編輯器,JSON層次查看器,複雜JSON編輯器,JSON可視化工具,JSON導航器,JSON數據操作,JSON層次結構編輯,JSON節點操作,拖放JSON編輯,JSON數據瀏覽器,交互式JSON數據操作,可視化JSON工具',

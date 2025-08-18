@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'Mfanyaji wa JSON',
+  h1Title: 'Format JSON Data',
   seo_title: 'Mfanyaji na Mrembeshaji wa JSON – Pangilia, Weka Nafasi na Panga Muundo wa Msimbo wa JSON',
   description: 'Badilisha JSON iliyofinywa kuwa msimbo unaosomeka na kuingia sahihi na kuangaza sintaksia. Muhimu kwa kutatua API na kuchambua miundo ngumu ya data.',
   keywords: 'Mfanyaji wa JSON,Mrembeshaji wa JSON,Mfanyaji wa JSON mtandaoni,Chombo cha kufanyaji JSON,Mhariri wa JSON,Kuingia kwa JSON,Chombo cha kufanyaji JSON,umbiza JSON,rembesha JSON,Chombo cha upangaji JSON,JSON pretty print,fanya JSON zuri,fanyaji wa JSON mtandaoni,kuingia kwa JSON,muundo wa JSON,msimbo safi wa JSON,Mrembeshaji wa JSON,chombo cha usomakaji wa JSON,pembeza JSON,mfanyaji wa msimbo wa JSON,kuangazia sintaksia ya JSON,mfanyaji wa JSON iliyofinywa,mipasuko ya mistari ya JSON,nafasi za JSON,mpangilio wa JSON,mpangilio wa JSON,muundo wa msimbo wa JSON',

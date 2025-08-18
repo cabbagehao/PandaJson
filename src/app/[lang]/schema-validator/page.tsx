@@ -20,7 +20,7 @@ export default async function SchemaValidator({
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <SchemaValidatorClient 
-        pageTitle={schemaValidator.title}
+        pageTitle={schemaValidator.h1Title}
         pageDescription={schemaValidator.description}
         pageKeywords={schemaValidator.keywords}
         pageIntroduction={schemaValidator.introduction}

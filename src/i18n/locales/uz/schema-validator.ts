@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'JSON Sxema tekshirish',
+  h1Title: 'Validate JSON Schema',
   seo_title: 'JSON ni Sxema bo\'yicha tekshirish – Ma\'lumotlar tuzilishi yaxlitligini ta\'minlash',
   description: 'JSON ma\'lumotlarini JSON Sxema bilan tekshiring, boy tekshirish qoidalari va batafsil xato xabarlarini qo\'llab-quvvatlaydi.',
   keywords: 'JSON Sxema,JSON tekshirish,Sxema tekshirish,JSON tuzilishini tekshirish,JSON formatini tekshirish,JSON sxema tekshiruvchi,sxema muvofiqlik tekshiruvchi,JSON ma\'lumotlar yaxlitligi,sxemaga qarshi tekshirish,JSON cheklov tekshirish,tur tekshirish,tuzilish tekshirish,naqsh tekshirish,JSON qoidalari tekshirish,majburiy maydonlar tekshiruvchi,JSON format tekshiruvchi,JSON shartnoma tekshiruvchi,API sxema tekshirish',

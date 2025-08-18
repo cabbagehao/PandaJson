@@ -1,5 +1,6 @@
 export const converter = {
   title: 'JSONをYAML、XML、CSVに変換 - 無料データフォーマット変換ツール',
+  h1Title: 'JSONをあらゆる形式に変換',
   seo_title: 'JSONをYAML、XML、CSVに変換 - 無料データフォーマット変換ツール',
   description: 'JSONをYAML、XML、CSV形式にシームレスに変換。データ移行、設定管理、クロスプラットフォームデータ交換ワークフローに最適。',
   keywords: 'JSON変換ツール,JSONをYAMLに,JSONをXMLに,JSONをCSVに,JSONトランスフォーメーション,データフォーマット変換ツール,JSONエクスポート,YAMLをJSONに,XMLをJSONに,CSVをJSONに,データフォーマット変換,JSONデータ変換,フォーマット変換ツール,双方向変換,データ交換フォーマット,JSONオンライン変換,データフォーマット翻訳,ファイルフォーマット変換,JSONインポートエクスポート,JSONマイグレーションツール',

@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: 'ビジュアルツリーエディタでJSON編集 - インタラクティブJSONナビゲータ',
+  h1Title: 'ビジュアルツリーインターフェースでJSONを編集',
   seo_title: 'ビジュアルツリーエディタでJSON編集 - インタラクティブJSONナビゲータ',
   description: '直感的なツリーインターフェースで複雑なネストJSONを編集。構文エラーなしで深いデータ構造をナビゲート・修正。設定に最適。',
   keywords: 'JSONツリーエディタ,JSONビジュアルエディタ,JSONエディタ,JSONツリービュー,JSONパーサー,JSON修正,JSON編集,インタラクティブJSONエディタ,ネストJSONエディタ,JSON構造ビューア,JSONノードエディタ,ビジュアルデータエディタ,JSON階層ビューア,複雑JSONエディタ,JSONツリー構造,JSON可視化ツール,JSONナビゲータ',

@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'JSON Online Formatieren - Kostenloser JSON-Beautifier & Code-Formatter',
+  h1Title: 'Verschönern Sie Ihre JSON-Daten',
   seo_title: 'JSON Online Formatieren - Kostenloser JSON-Beautifier & Code-Formatter',
   description: 'Verwandeln Sie minifizierten JSON in lesbaren Code mit korrekter Einrückung und Syntax-Hervorhebung. Essentiell für API-Debugging und Analyse komplexer Datenstrukturen.',
   keywords: 'JSON-Formatierer,JSON-Beautifier,JSON formatieren online,JSON-Einrückung,JSON-Struktur,sauberer JSON-Code,JSON-Verschönerer,JSON-Lesbarkeits-Tool,JSON verschönern,JSON-Code-Formatter,JSON-Syntax-Hervorhebung,Online-JSON-Formatierer,minifizierter JSON-Formatierer,JSON-Zeilenumbrüche,JSON-Abstände,JSON-Organisation,JSON-Layout,JSON-Code-Struktur',

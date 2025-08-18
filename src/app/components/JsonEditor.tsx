@@ -79,7 +79,7 @@ export default function JsonEditor({ value, onChange, readOnly = false, label, p
       )}
       <div
         ref={editorRef}
-        className="w-full h-[500px] sm:h-[600px] lg:h-[700px] border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden shadow-sm"
+        className="w-full min-h-[250px] h-[250px] sm:h-[300px] lg:h-[350px] max-h-[500px] sm:max-h-[600px] lg:max-h-[700px] border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden shadow-sm resize-y"
       ></div>
       {error && (
         <div className="mt-2 text-sm text-red-600">{error}</div>

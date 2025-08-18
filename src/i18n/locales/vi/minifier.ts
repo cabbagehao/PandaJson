@@ -1,5 +1,6 @@
 export const minifier = {
   title: 'Trình Thu Nhỏ JSON',
+  h1Title: 'Minify JSON Data',
   seo_title: 'Trình Thu Nhỏ JSON – Nén & Giảm Kích Thước Tệp JSON Bằng Cách Loại Bỏ Khoảng Trắng',
   description: 'Nén và thu nhỏ kích thước tệp JSON bằng cách loại bỏ khoảng trắng và ký hiệu định dạng, cải thiện hiệu quả truyền tải',
   keywords: 'Trình thu nhỏ JSON,Thu nhỏ JSON,Tối ưu hóa kích thước JSON,Loại bỏ khoảng trắng JSON,Trình nén JSON,giảm kích thước JSON,JSON nhỏ gọn,công cụ nén JSON,tối ưu hóa chuyển JSON,giảm băng thông JSON,hiệu quả truyền JSON,thu nhỏ JSON trực tuyến,công cụ giảm kích thước JSON,trình tối ưu hóa JSON,JSON nhẹ,giảm tải JSON',

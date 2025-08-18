@@ -1,5 +1,6 @@
 export const formatter = {
   title: 'Trình Định Dạng JSON',
+  h1Title: 'Format JSON Data',
   seo_title: 'Trình Định Dạng & Làm Đẹp JSON – Làm Đẹp, Thụt Lề & Cấu Trúc Mã JSON',
   description: 'Chuyển đổi JSON đã nén thành mã dễ đọc với thụt lề và làm nổi bật cú pháp phù hợp. Cần thiết cho việc debug API và phân tích cấu trúc dữ liệu phức tạp.',
   keywords: 'Trình định dạng JSON,Trình làm đẹp JSON,Trình định dạng JSON trực tuyến,Công cụ định dạng JSON,Trình chỉnh sửa JSON,Thụt lề JSON,Công cụ định dạng JSON,định dạng JSON,làm đẹp JSON,Công cụ bố cục JSON,JSON pretty print,mã hóa màu JSON,làm đẹp JSON trực tuyến,trực quan hóa cấu trúc JSON,thụt lề tự động JSON,định dạng tệp JSON,bố cục JSON đẹp,JSON dễ đọc,lỗi cú pháp JSON,phát hiện lỗi JSON',

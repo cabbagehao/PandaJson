@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'JSONをスキーマと照合検証 - データ構造の整合性をチェック',
+  h1Title: 'JSONをスキーマルールと照合検証',
   seo_title: 'JSONをスキーマと照合検証 - データ構造の整合性をチェック',
   description: 'JSONデータのスキーマ仕様への適合性を検証。APIコントラクト、データ型、フィールド制約を完璧に保証。',
   keywords: 'JSONスキーマ,JSON検証,スキーマ検証,JSON構造検証,JSONフォーマット検証,JSONスキーマ検証ツール,スキーマ適合性チェッカー,JSONデータ整合性,スキーマと照合検証,JSON制約検証,タイプ検証,構造検証,パターン検証,JSONルール検証,必須フィールド検証ツール,JSONフォーマットチェッカー,JSON契約検証ツール,APIスキーマ検証',

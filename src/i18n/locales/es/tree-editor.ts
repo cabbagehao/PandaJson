@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: 'Editar JSON con Editor de Árbol Visual - Navegador JSON Interactivo',
+  h1Title: 'Edita JSON con Interfaz de Árbol Visual',
   seo_title: 'Editar JSON con Editor de Árbol Visual - Navegador JSON Interactivo',
   description: 'Edite JSON complejo y anidado a través de una interfaz de árbol intuitiva. Navegue y modifique estructuras profundas sin errores de sintaxis. Perfecto para configuraciones.',
   keywords: 'Editor JSON,Edición de árbol JSON,Visualización JSON,Editor de nodos JSON,Estructura de árbol JSON,Editor JSON interactivo,Editor JSON anidado,Visor de estructura JSON,Editor de nodos JSON,Editor visual de datos,Visor de jerarquía JSON,Editor JSON complejo,Estructura de árbol JSON,Herramienta de visualización JSON,Navegador JSON',

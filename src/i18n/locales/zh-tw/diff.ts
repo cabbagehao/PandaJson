@@ -1,5 +1,6 @@
 export const diff = {
   title: 'JSON對比',
+  h1Title: 'Compare JSON Files',
   seo_title: '在線對比JSON數據集 – 突出顯示添加、刪除和變更的內容',
   description: '併排比較JSON檔案，具有視覺化的更改高亮顯示。非常適用於程式碼審查、版本追蹤和快速識別API回應差異。',
   keywords: 'JSON對比,JSON比較,JSON差異,JSON比對,JSON比較器,查找JSON差異,JSON變更追蹤器,JSON版本比較,JSON數據對比,JSON文件比較,JSON並排比較,JSON結構比較,JSON差異工具,識別JSON變更,跟蹤JSON修改,JSON差異可視化,JSON衝突解決',

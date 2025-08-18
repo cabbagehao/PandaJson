@@ -197,7 +197,7 @@ export default function TreeEditorClient({
               />
             </div>
           ) : (
-            <div className="bg-white dark:bg-gray-800 rounded-md shadow-sm border border-gray-300 dark:border-gray-700 p-4 h-[400px] overflow-auto">
+            <div className="bg-white dark:bg-gray-800 rounded-md shadow-sm border border-gray-300 dark:border-gray-700 p-4 h-[200px] max-h-[400px] overflow-auto">
               <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 {treeEditor.jsonTree}
               </h3>

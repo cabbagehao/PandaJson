@@ -1,5 +1,6 @@
 export const schemaValidator = {
   title: 'Validateur de Schéma JSON',
+  h1Title: 'Validez JSON Contre les Règles de Schéma',
   seo_title: 'Validateur de Schéma JSON - Vérifiez vos Données JSON Selon les Normes',
   description: 'Vérifiez la conformité des données JSON aux spécifications de schéma. Assurez les contrats API, types de données et contraintes de champs parfaitement.',
   keywords: 'Schéma JSON,Validation JSON,Validation de schéma,Validation de structure JSON,Validation de format JSON',

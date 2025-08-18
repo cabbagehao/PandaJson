@@ -1,5 +1,6 @@
 export const formatter = {
   title: '在线JSON格式化 - 免费JSON美化器与代码格式化工具',
+  h1Title: '美化您的JSON数据',
   seo_title: '在线JSON格式化 - 免费JSON美化器与代码格式化工具',
   description: '将压缩的JSON转换为具有正确缩进和语法高亮的可读代码。是开发者调试API和分析数据结构的必备工具。',
   keywords: 'JSON格式化,JSON美化,JSON在线格式化,JSON格式工具,JSON编辑器,JSON缩进,JSON格式化工具,格式化JSON,美化JSON,JSON排版工具,JSON语法高亮,JSON可读性工具,在线JSON格式化器,压缩JSON格式化,JSON换行,JSON间距,JSON组织结构,JSON布局,JSON代码结构',

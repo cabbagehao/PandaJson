@@ -1,5 +1,6 @@
 export const treeEditor = {
   title: 'JSON mit Visuellem Baumeditor Bearbeiten - Interaktiver JSON-Navigator',
+  h1Title: 'Bearbeiten Sie JSON mit Visueller Baum-Oberfläche',
   seo_title: 'JSON mit Visuellem Baumeditor Bearbeiten - Interaktiver JSON-Navigator',
   description: 'Bearbeiten Sie komplexe verschachtelte JSON über eine intuitive Baumschnittstelle. Navigieren und modifizieren Sie tiefe Datenstrukturen ohne Syntaxfehler. Perfekt für Konfigurationen.',
   keywords: 'JSON-Baumeditor,JSON-visueller Editor,JSON-Editor,JSON-Baumansicht,JSON-Parser,JSON modifizieren,JSON bearbeiten,interaktiver JSON-Editor,verschachtelter JSON-Editor,JSON-Strukturbetrachter,JSON-Knoten-Editor,visueller Dateneditor,JSON-Hierarchiebetrachter,komplexer JSON-Editor,JSON-Baumstruktur,JSON-Visualisierungstool,JSON-Navigator',

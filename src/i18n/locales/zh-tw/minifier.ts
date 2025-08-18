@@ -1,5 +1,6 @@
 export const minifier = {
   title: 'JSON壓縮',
+  h1Title: 'Minify JSON Data',
   seo_title: 'JSON壓縮工具 – 通過移除空白來壓縮與減小JSON文件大小',
   description: '通過移除空白和格式化來壓縮JSON，減少文件大小高達50%。高效優化API和行動應用的數據傳輸速度。',
   keywords: 'JSON壓縮工具,JSON壓縮,JSON大小優化,JSON空白移除,JSON壓縮器,縮小JSON大小,緊湊JSON,JSON壓縮工具,優化JSON傳輸,JSON頻寬減少,JSON傳輸效率,在線壓縮JSON,JSON文件大小縮減器,JSON優化器,輕量級JSON,JSON負載縮減',

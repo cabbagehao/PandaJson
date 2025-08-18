@@ -1,5 +1,6 @@
 export const diff = {
   title: 'Trình So Sánh JSON',
+  h1Title: 'Compare JSON Files',
   seo_title: 'So Sánh Tập Dữ Liệu JSON Trực Tuyến – Làm Nổi Bật Phần Thêm, Xóa và Thay Đổi',
   description: 'So sánh hai tập dữ liệu JSON, làm nổi bật các phần bổ sung, xóa và sửa đổi',
   keywords: 'so sánh JSON,đối chiếu JSON,khác biệt JSON,so sánh JSON,bộ so sánh JSON,tìm khác biệt JSON,theo dõi thay đổi JSON,so sánh phiên bản JSON,khác biệt dữ liệu JSON,so sánh tệp JSON,so sánh JSON cạnh nhau,so sánh cấu trúc JSON,công cụ so sánh JSON,xác định thay đổi JSON,theo dõi sửa đổi JSON,delta JSON,khác biệt trực quan JSON,giải quyết xung đột JSON',

@@ -1,5 +1,6 @@
 export const converter = {
   title: 'Mbadilishaji wa JSON',
+  h1Title: 'Convert JSON Format',
   seo_title: 'Mbadilishaji wa JSON – Badilisha JSON kwenda/kutoka YAML, XML, CSV na Zaidi',
   description: 'Badilisha JSON kwa YAML, XML, CSV na kinyume chake kwa ulaini. Bora kwa uhamishaji wa data, usimamizi wa mpangilio na mtiririko wa kazi za kubadilishana data katika majukwaa tofauti.',
   keywords: 'Kigeuzaji cha JSON,JSON kwenda XML,JSON kwenda YAML,XML kwenda JSON,YAML kwenda JSON,CSV kwenda JSON,JSON kwenda CSV,Ubadilishaji wa JSON,kigeuzaji cha fomati ya data,kuhamisha JSON,ubadilishaji wa fomati za data,ubadilishaji wa data ya JSON,zana ya ubadilishaji wa fomati,ubadilishaji wa pande mbili,fomati za kubadilishana data,badilisha JSON mtandaoni,mtafsiri wa fomati ya data,ubadilishaji wa fomati ya faili,kuagiza na kutoa JSON,zana ya uhamishaji wa JSON',
