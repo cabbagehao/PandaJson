@@ -2,7 +2,7 @@ export const schemaValidator = {
   title: 'Validador de Schema JSON',
   h1Title: 'Validate JSON Schema',
   seo_title: 'Validador de Schema JSON – Verifique a Conformidade dos Dados JSON com Especificações de Schema',
-  description: 'Verifique conformidade de dados JSON contra especificações de schema. Garanta contratos de API, tipos de dados e restrições de campos perfeitamente.',
+  description: 'Valide JSON contra regras de schema para integridade de dados e conformidade de contratos API.',
   keywords: 'Schema JSON,Validação JSON,Validação de Schema,Validação de estrutura JSON,Validação de formato JSON,verificador de Schema JSON,conformidade de dados JSON,validador online de Schema JSON,ferramenta de validação de Schema,verificação de integridade JSON,validação de estrutura de dados,verificador de formato JSON,teste de Schema JSON,compatibilidade JSON Schema,verificação de dados estruturados,validação de API JSON',
   introduction: 'Nosso Validador de Schema JSON é uma ferramenta online gratuita que permite verificar se seus dados JSON estão em conformidade com um schema JSON predefinido. Esta ferramenta é essencial para desenvolvedores que trabalham com APIs, contratos de dados ou qualquer aplicação que exija validação estrutural de dados. O validador verifica se seus dados JSON seguem as regras e restrições definidas em seu schema, ajudando a identificar problemas como tipos de dados incorretos, valores ausentes ou propriedades não permitidas. Use nosso validador para garantir a integridade dos seus dados JSON antes de implementá-los em produção.',
   jsonData: 'Dados JSON',

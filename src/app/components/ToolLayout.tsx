@@ -75,7 +75,7 @@ export default function ToolLayout({
           )}
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white text-center">{title}</h1>
         </div>
-        <div className="prose dark:prose-invert max-w-none text-base sm:text-lg text-gray-600 dark:text-gray-300">
+        <div className="prose dark:prose-invert max-w-none text-base sm:text-lg text-gray-600 dark:text-gray-300 text-center">
           {description.split('\n').map((paragraph, index) => (
             <p key={index} dangerouslySetInnerHTML={{
               __html: paragraph

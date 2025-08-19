@@ -2,7 +2,7 @@ export const minifier = {
   title: 'Minificar JSON en Línea - Comprimir y Reducir Tamaño de Archivo JSON Rápido',
   h1Title: 'Comprime y Optimiza Tu JSON',
   seo_title: 'Minificar JSON en Línea - Comprimir y Reducir Tamaño de Archivo JSON Rápido',
-  description: 'Comprima JSON eliminando espacios y formato para reducir el tamaño hasta 50%. Optimice la velocidad de transmisión para APIs y aplicaciones móviles eficientemente.',
+  description: 'Comprima JSON eliminando espacios en blanco para reducir el tamaño de archivo y optimizar la transmisión.',
   keywords: 'Minificador JSON,Minificación JSON,Optimización de tamaño JSON,Eliminación de espacios en blanco JSON,Compresor JSON,Reducir tamaño JSON,JSON compacto,Herramienta de compresión JSON,Optimizar transferencia JSON,Reducción de ancho de banda JSON,Eficiencia de transmisión JSON,Minificar JSON en línea,Reductor de tamaño de archivo JSON,Optimizador JSON,JSON ligero,Reducción de carga útil JSON',
   input: 'JSON de Entrada',
   output: 'Resultado Minificado',

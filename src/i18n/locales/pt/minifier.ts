@@ -2,7 +2,7 @@ export const minifier = {
   title: 'Minificar JSON Online - Comprimir e Reduzir Tamanho de Arquivo JSON Rapidamente',
   h1Title: 'Minify JSON Data',
   seo_title: 'Minificar JSON Online - Comprimir e Reduzir Tamanho de Arquivo JSON Rapidamente',
-  description: 'Comprima JSON removendo espaços e formatação para reduzir tamanho de arquivo até 50%. Otimize velocidade de transmissão para APIs e aplicações móveis eficientemente.',
+  description: 'Comprima JSON removendo espaços em branco para reduzir tamanho de arquivo e otimizar transmissão.',
   keywords: 'minificador JSON,minificação JSON,otimização de tamanho JSON,remoção de espaços JSON,compressor JSON,reduzir tamanho JSON,JSON compacto,ferramenta de compressão JSON,otimizar transferência JSON,redução de largura de banda JSON,eficiência de transmissão JSON,minificar JSON online,redutor de tamanho de arquivo JSON,otimizador JSON,JSON leve,redução de payload JSON',
   introduction: 'Nosso Minificador JSON é uma ferramenta online gratuita que ajuda você a comprimir dados JSON removendo espaços em branco desnecessários e caracteres de formatação. A minificação de JSON reduz o tamanho do arquivo, otimiza o uso de largura de banda e melhora a velocidade de transferência. Isso é especialmente útil para desenvolvedores web, APIs e serviços web que desejam otimizar o desempenho. Use nosso minificador JSON para reduzir significativamente o tamanho dos dados JSON sem alterar a estrutura ou o conteúdo dos dados.',
   input: 'JSON de Entrada',

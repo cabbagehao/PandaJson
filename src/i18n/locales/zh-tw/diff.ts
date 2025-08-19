@@ -2,7 +2,7 @@ export const diff = {
   title: 'JSON對比',
   h1Title: 'Compare JSON Files',
   seo_title: '在線對比JSON數據集 – 突出顯示添加、刪除和變更的內容',
-  description: '併排比較JSON檔案，具有視覺化的更改高亮顯示。非常適用於程式碼審查、版本追蹤和快速識別API回應差異。',
+  description: '視覺化比較JSON檔案，具有程式碼審查的併排高亮顯示。',
   keywords: 'JSON對比,JSON比較,JSON差異,JSON比對,JSON比較器,查找JSON差異,JSON變更追蹤器,JSON版本比較,JSON數據對比,JSON文件比較,JSON並排比較,JSON結構比較,JSON差異工具,識別JSON變更,跟蹤JSON修改,JSON差異可視化,JSON衝突解決',
   introduction: '您是否在團隊項目中工作或跟蹤JSON版本變更？我們的JSON對比工具幫助您快速比較兩個JSON文件並可視化差異。我們突出顯示添加的鍵、刪除的條目和修改的值，以清晰、顏色編碼的視圖呈現，讓您一眼就能發現變更。\n使用場景包括：\n審查包含JSON配置的拉取請求\n跟蹤數據庫中的數據版本歷史\n調試API響應之間的不匹配\n無需再滾動瀏覽代碼行—我們的工具自動解析嵌套對象和數組，使複雜比較變得簡單。粘貼或上傳兩個JSON文件，讓我們的JSON比較功能準確顯示變更內容。非常適合開發人員、QA團隊和數據管理人員！',
   leftInput: '第一個 JSON',
