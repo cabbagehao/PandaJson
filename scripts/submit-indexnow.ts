@@ -121,6 +121,7 @@ async function main() {
   }
 }
 
-if (require.main === module) {
+// ES 模块中检测是否为主模块
+if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
