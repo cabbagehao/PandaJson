@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:check": "node scripts/dev-with-checks.js",
-    "build": "next build",
+    "build": "next build && npm run submit-indexnow",
+    "submit-indexnow": "npx tsx scripts/submit-indexnow.ts",
     "start": "next start",
     "lint": "next lint",
     "check-translations": "npx ts-node scripts/check-translations.ts",
@@ -61,6 +62,7 @@
     "path-browserify": "^1.0.1",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.4",
     "typescript": "^5"
   }
 }
