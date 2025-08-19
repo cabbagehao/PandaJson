@@ -5,7 +5,7 @@ import { XMLParser } from 'fast-xml-parser';
 
 
 const DOMAIN = 'jsonpanda.com';
-const INDEXNOW_KEY = '9ac7e04b8f50ca567e921535ae4ea4da';
+const INDEXNOW_KEY = '9ac7e04b8f50ca567e921535ae4ea4db';
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
 
 // 检测是否在CI/云端构建环境
@@ -51,36 +51,73 @@ async function submitToIndexNow(urls: string[]): Promise<void> {
     return;
   }
 
-  const submission: IndexNowSubmission = {
-    host: DOMAIN,
-    key: INDEXNOW_KEY,
-    keyLocation: `https://${DOMAIN}/${INDEXNOW_KEY}.txt`,
-    urlList: urls
-  };
+  // 分批提交，每批最多10个URL
+  const batchSize = 50;
+  const batches = [];
+  
+  for (let i = 0; i < urls.length; i += batchSize) {
+    batches.push(urls.slice(i, i + batchSize));
+  }
 
-  console.log(`Submitting ${urls.length} URLs to IndexNow...`);
-  console.log('📝 URL list:', urls);
+  console.log(`Submitting ${urls.length} URLs in ${batches.length} batches to IndexNow...`);
 
-  try {
-    const response = await fetch(INDEXNOW_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent': 'PandaJson-IndexNow-Bot/1.0'
-      },
-      body: JSON.stringify(submission)
-    });
+  for (let i = 0; i < batches.length; i++) {
+    const batch = batches[i];
+    console.log(`📦 Batch ${i + 1}/${batches.length}: ${batch.length} URLs`);
+    console.log('📝 URLs:', batch);
 
-    if (response.ok) {
-      console.log(`✅ Successfully submitted to ${INDEXNOW_ENDPOINT}`);
-      console.log(`Response status: ${response.status}`);
-    } else {
-      console.log(`❌ Failed to submit to ${INDEXNOW_ENDPOINT}: ${response.status} ${response.statusText}`);
-      throw new Error(`IndexNow submission failed: ${response.status} ${response.statusText}`);
+    const submission: IndexNowSubmission = {
+      host: DOMAIN,
+      key: INDEXNOW_KEY,
+      keyLocation: `https://${DOMAIN}/${INDEXNOW_KEY}.txt`,
+      urlList: batch
+    };
+
+    console.log('🔍 Submission payload:', JSON.stringify(submission, null, 2));
+
+    try {
+      const response = await fetch(INDEXNOW_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'PandaJson-IndexNow-Bot/1.0'
+        },
+        body: JSON.stringify(submission)
+      });
+
+      if (response.ok) {
+        console.log(`✅ Batch ${i + 1} submitted successfully`);
+        console.log(`Response status: ${response.status}`);
+      } else {
+        console.log(`❌ Batch ${i + 1} failed: ${response.status} ${response.statusText}`);
+        
+        // 尝试获取响应体以获取更多错误信息
+        try {
+          const errorText = await response.text();
+          console.log('Error details:', errorText);
+        } catch (e) {
+          console.log('Could not read error response');
+        }
+        
+        // 403错误时不抛出异常，继续处理其他批次
+        if (response.status !== 403) {
+          throw new Error(`IndexNow submission failed: ${response.status} ${response.statusText}`);
+        }
+      }
+    } catch (error) {
+      console.error(`❌ Error submitting batch ${i + 1}:`, error);
+      
+      // 网络错误或其他严重错误时继续，但403错误不中断
+      if (!(error instanceof Error) || !error.message.includes('403')) {
+        throw error;
+      }
     }
-  } catch (error) {
-    console.error(`❌ Error submitting to ${INDEXNOW_ENDPOINT}:`, error);
-    throw error;
+
+    // 批次间延迟，避免速率限制
+    if (i < batches.length - 1) {
+      console.log('⏳ Waiting 2 seconds before next batch...');
+      await new Promise(resolve => setTimeout(resolve, 2000));
+    }
   }
 }
 
