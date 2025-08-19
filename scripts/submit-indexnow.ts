@@ -27,9 +27,16 @@ interface IndexNowSubmission {
   urlList: string[];
 }
 
+interface XhtmlLink {
+  '@_rel': string;
+  '@_hreflang': string;
+  '@_href': string;
+}
+
 interface SitemapUrl {
   loc: string;
   lastmod?: string;
+  'xhtml:link'?: XhtmlLink[] | XhtmlLink;
 }
 
 interface Sitemap {
@@ -52,6 +59,7 @@ async function submitToIndexNow(urls: string[]): Promise<void> {
   };
 
   console.log(`Submitting ${urls.length} URLs to IndexNow...`);
+  console.log('📝 URL list:', urls);
 
   try {
     const response = await fetch(INDEXNOW_ENDPOINT, {
@@ -82,7 +90,7 @@ async function extractUrlsFromSitemap(): Promise<string[]> {
   try {
     const sitemapContent = readFileSync(sitemapPath, 'utf-8');
     
-    const parser = new XMLParser();
+    const parser = new XMLParser({ ignoreAttributes: false });
     const sitemap = parser.parse(sitemapContent) as Sitemap;
     
     if (!sitemap.urlset?.url) {
@@ -90,11 +98,32 @@ async function extractUrlsFromSitemap(): Promise<string[]> {
       process.exit(1);
     }
 
-    const urls = Array.isArray(sitemap.urlset.url) 
-      ? sitemap.urlset.url.map(url => url.loc)
-      : [sitemap.urlset.url.loc];
+    const urlEntries = Array.isArray(sitemap.urlset.url) 
+      ? sitemap.urlset.url 
+      : [sitemap.urlset.url];
 
-    console.log(`Found ${urls.length} URLs in sitemap`);
+    const allUrls = new Set<string>();
+
+    for (const urlEntry of urlEntries) {
+      // 添加主URL
+      allUrls.add(urlEntry.loc);
+
+      // 添加所有alternate语言版本URL
+      if (urlEntry['xhtml:link']) {
+        const links = Array.isArray(urlEntry['xhtml:link']) 
+          ? urlEntry['xhtml:link'] 
+          : [urlEntry['xhtml:link']];
+
+        for (const link of links) {
+          if (link['@_rel'] === 'alternate' && link['@_href']) {
+            allUrls.add(link['@_href']);
+          }
+        }
+      }
+    }
+
+    const urls = Array.from(allUrls).sort();
+    console.log(`Found ${urls.length} URLs in sitemap (including all language versions)`);
     return urls;
   } catch (error) {
     console.error('❌ Error: sitemap.xml file not found or invalid:', error);
