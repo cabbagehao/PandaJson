@@ -13,15 +13,17 @@ export async function generateMetadata({
   const resolvedParams = await resolveParams(params);
   const locale = resolvedParams.lang as Locale;
 
-  // 导入并使用formatter元数据生成函数
-  const { generateMetadata } = await import('./formatter/metadata');
-  const formatterMetadata = await generateMetadata({ params: { lang: locale } });
+  // 获取翻译内容
+  const { t } = await getServerTranslation(locale);
+  const formatter = t.formatter;
+
+  // 使用SEO工具生成首页元数据
+  const { generateHomePageSEO } = await import('@/lib/seo-utils');
+  const seoMetadata = generateHomePageSEO(locale, formatter.description, formatter.keywords);
 
   return {
-    ...formatterMetadata,
-    alternates: {
-      canonical: `https://jsonpanda.com`,
-    }
+    title: formatter.title,
+    ...seoMetadata,
   };
 }
 

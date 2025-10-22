@@ -43,7 +43,7 @@ export default async function RootLayout({
   const { t } = await getServerTranslation(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.className} bg-gray-50 dark:bg-gray-900`} suppressHydrationWarning>
         <div className="min-h-screen flex flex-col">
           <Navbar locale={locale} translations={t} />

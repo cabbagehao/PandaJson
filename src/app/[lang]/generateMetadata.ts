@@ -65,6 +65,11 @@ export async function generateBaseMetadata({
     description,
     keywords: keywords,
     metadataBase: new URL(baseUrl),
+    verification: {
+      other: {
+        'baidu-site-verification': 'codeva-iyqAn3UUTP',
+      },
+    },
     icons: {
       icon: [
         { url: '/favicon.ico' },
