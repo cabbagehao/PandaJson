@@ -5,7 +5,7 @@ import { XMLParser } from 'fast-xml-parser';
 
 
 const DOMAIN = 'jsonpanda.com';
-const INDEXNOW_KEY = '9ac7e04b8f50ca567e921535ae4ea4db';
+const INDEXNOW_KEY = '9ac7e04b8f50ca567e921535ae4ea444';
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
 
 // 检测是否在CI/云端构建环境
